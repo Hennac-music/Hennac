@@ -3,400 +3,732 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Henna C | Music Producer & Writer</title>
-    <meta
-      name="description"
-      content="Henna C is a premium music producer and writer crafting beat-driven records with a polished black-and-copper studio sound. Stream and license beats."
-    >
-    <meta property="og:title" content="Henna C | On the Beat">
-    <meta
-      property="og:description"
-      content="Music producer and writer crafting beat-driven records with a polished studio sound."
-    >
+    <title>Henna C | Music · Visuals · Energy</title>
+    <meta name="description" content="Henna C — R&B / Hip-Hop artist. Stream latest releases, upcoming drops, and experience the cinematic world of Henna C.">
+    <meta property="og:title" content="Henna C | Music · Visuals · Energy">
+    <meta property="og:description" content="Stream new music, explore visuals, and experience the world of Henna C.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="assets/henna-c-logo-wide.jpg">
-    <meta name="theme-color" content="#080908">
-    <link rel="icon" type="image/jpeg" href="assets/henna-c-logo-square.jpg">
-    
-    <!-- Premium Fonts -->
+    <meta property="og:image" content="assets/henna-c-logo-square.jpg">
+    <meta name="theme-color" content="#050505">
+    <link rel="icon" type="image/png" href="assets/henna-c-logo-square.jpg">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="styles.css?v=1.0.1">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css?v=4.0.0">
   </head>
   <body>
-    <!-- Premium Header -->
+
+    <!-- ── Floating Particle Canvas ── -->
+    <canvas id="particle-canvas" aria-hidden="true"></canvas>
+
+    <!-- ── Ambient Glow Blobs ── -->
+    <div class="ambient-blobs" aria-hidden="true">
+      <div class="blob blob-a"></div>
+      <div class="blob blob-b"></div>
+      <div class="blob blob-c"></div>
+    </div>
+
+    <!-- ── Cursor Glow ── -->
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+
+    <!-- ═══════════════════════════════════════
+         HEADER
+    ═══════════════════════════════════════ -->
     <header class="site-header" data-header>
-      <a class="brand" href="#top" aria-label="Henna C home">
-        <div class="logo-wrapper">
-          <img src="assets/henna-c-logo-square.jpg" alt="Henna C logo">
+      <a class="brand" href="#hero" aria-label="Henna C home">
+        <div class="logo-ring">
+          <img src="assets/henna-c-logo-square.jpg" alt="Henna C">
         </div>
-        <span>Henna C</span>
+        <span class="brand-name">HENNA C</span>
       </a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#beats">Beats</a>
-        <a href="#music">Platforms</a>
+
+      <nav class="nav-desktop" aria-label="Primary navigation">
+        <a href="#out-now">Out Now</a>
+        <a href="#coming-soon">Coming Soon</a>
+        <a href="#latest-tracks">Music</a>
+        <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
-        <a href="#contact">Bookings</a>
+        <a href="#contact" class="nav-btn">Inquire</a>
       </nav>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
     </header>
 
-    <main id="top">
-      <!-- Hero Section -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-media" aria-hidden="true">
-          <img src="assets/studio-plaque.jpg" alt="Henna C Studio Mixing Desk with Plaque">
+    <!-- ── Mobile Drawer ── -->
+    <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+      <nav class="nav-mobile" aria-label="Mobile navigation">
+        <a href="#out-now">Out Now</a>
+        <a href="#coming-soon">Coming Soon</a>
+        <a href="#latest-tracks">Music</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="mobile-nav-btn">Inquire</a>
+      </nav>
+    </div>
+
+    <main>
+
+      <!-- ═══════════════════════════════════════
+           SECTION 1 — HERO
+      ═══════════════════════════════════════ -->
+      <section class="hero" id="hero" aria-labelledby="hero-h1">
+
+        <!-- Background image -->
+        <div class="hero-bg" aria-hidden="true">
+          <img src="assets/studio-wall.jpg" alt="" class="hero-bg-img">
+          <div class="hero-bg-overlay"></div>
+          <div class="hero-bg-scan"></div>
         </div>
-        <div class="hero-shade" aria-hidden="true"></div>
+
         <div class="hero-content">
-          <img class="hero-logo" src="assets/henna-c-logo-wide.jpg" alt="Henna C logo">
-          <p class="eyebrow"><span class="glow-dot"></span> Producer / Writer</p>
-          <h1 id="hero-title">Henna C</h1>
-          <p class="tagline">Henna C, <span class="accent-text">on the beat.</span></p>
-          <p class="hero-copy">
-            Music producer and writer building polished, beat-driven records
-            with a distinct black-and-copper studio sound.
-          </p>
-          <div class="hero-actions" aria-label="Main actions">
-            <a class="button button-primary" href="#beats">Listen to Beats</a>
-            <a class="button button-ghost" href="#contact">Inquire for Beats</a>
+          <p class="hero-eyebrow"><span class="live-dot"></span> Artist Experience</p>
+          <h1 id="hero-h1" class="hero-title" data-text="HENNA C">HENNA C</h1>
+          <p class="hero-sub">Music &nbsp;·&nbsp; Visuals &nbsp;·&nbsp; Energy</p>
+
+          <!-- ── 3D Platform Icons
+               PHASE 2: update href for each platform below ── -->
+          <div class="platforms" aria-label="Music platforms and socials">
+
+            <a href="https://open.spotify.com/artist/6mA0wWqnvJPLJrlUin9Zha" target="_blank" rel="noopener" class="platform-icon spotify" title="Spotify" id="platform-spotify">
+              <div class="pi-face">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.077-.337.135-.669.47-.745 3.854-.88 7.15-.502 9.82.13.297.18.388.567.207.86zm1.225-2.72c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.666-1.112 8.243-.566 11.345 1.343.366.227.486.707.26 1.074zm.107-2.836C14.453 8.81 8.73 8.623 5.4 9.635c-.51.155-1.046-.134-1.202-.645-.156-.51.133-1.047.645-1.203 3.82-1.16 10.125-.944 14.152 1.446.46.273.61.87.337 1.33-.274.46-.87.61-1.33.337z"/></svg>
+              </div>
+              <div class="pi-shine"></div>
+            </a>
+
+            <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener" class="platform-icon apple" title="Apple Music" id="platform-apple">
+              <div class="pi-face">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a6.303 6.303 0 0 0-1.34-.57 11.21 11.21 0 0 0-1.57-.24c-.75-.09-1.5-.09-2.25-.07-.39.01-.78.04-1.17.07-1.41.13-2.77.59-3.86 1.63-.39.37-.74.78-1.01 1.25-.43.73-.67 1.52-.77 2.36-.08.67-.09 1.35-.05 2.02.05.83.17 1.64.47 2.43.36.98.94 1.84 1.73 2.55.71.63 1.52 1.07 2.41 1.37 1 .34 2.03.46 3.07.43.66-.02 1.32-.08 1.97-.22.98-.2 1.88-.6 2.63-1.26.71-.63 1.21-1.41 1.51-2.29.23-.68.33-1.38.35-2.09.03-.75-.03-1.5-.17-2.24zm-5.99 7.38a2.57 2.57 0 0 1-2.57-2.57 2.57 2.57 0 0 1 2.57-2.57 2.57 2.57 0 0 1 2.57 2.57 2.57 2.57 0 0 1-2.57 2.57zm0-3.94a1.37 1.37 0 0 0-1.37 1.37 1.37 1.37 0 0 0 1.37 1.37 1.37 1.37 0 0 0 1.37-1.37 1.37 1.37 0 0 0-1.37-1.37zM8.978 2.006H5.016A3.016 3.016 0 0 0 2 5.023v13.954a3.016 3.016 0 0 0 3.016 3.017h13.968A3.016 3.016 0 0 0 22 18.977V5.023a3.016 3.016 0 0 0-3.016-3.017H8.978z"/></svg>
+              </div>
+              <div class="pi-shine"></div>
+            </a>
+
+            <a href="https://audiomack.com/henna-c" target="_blank" rel="noopener" class="platform-icon audiomack" title="Audiomack" id="platform-audiomack">
+              <div class="pi-face">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z"/></svg>
+              </div>
+              <div class="pi-shine"></div>
+            </a>
+
+            <a href="https://music.youtube.com/channel/UCDnOUmgT493IRKDjjM0hqJw" target="_blank" rel="noopener" class="platform-icon youtube" title="YouTube" id="platform-youtube">
+              <div class="pi-face">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.387.507 9.387.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </div>
+              <div class="pi-shine"></div>
+            </a>
+
+            <a href="https://www.tiktok.com/@henna.c16" target="_blank" rel="noopener" class="platform-icon tiktok" title="TikTok" id="platform-tiktok">
+              <div class="pi-face">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.85.98 2.02 1.69 3.29 2.02.03 1.35.01 2.69.02 4.04-.95-.08-1.89-.39-2.73-.87a7.227 7.227 0 0 1-2.48-2.46c-.05 2.16-.01 4.31-.03 6.47-.09 1.48-.56 2.94-1.39 4.19-.89 1.28-2.19 2.24-3.66 2.72-1.78.61-3.77.58-5.52-.11-1.63-.61-3.04-1.79-3.94-3.34A9.227 9.227 0 0 1 1 12.98c.03-1.92.65-3.83 1.77-5.38 1.12-1.5 2.76-2.55 4.58-2.94 1.25-.29 2.56-.16 3.74.37.02 1.44-.01 2.87.01 4.3-.67-.28-1.42-.37-2.13-.24a3.864 3.864 0 0 0-2.31 1.39c-.64.78-.96 1.81-.88 2.82.07.97.55 1.89 1.31 2.51.81.65 1.87.95 2.9.82 1.05-.1 2.01-.69 2.58-1.58.37-.58.55-1.27.52-1.96.03-4.36.01-8.72.02-13.08z"/></svg>
+              </div>
+              <div class="pi-shine"></div>
+            </a>
+
+            <a href="https://www.instagram.com/hc.beats" target="_blank" rel="noopener" class="platform-icon instagram" title="Instagram" id="platform-instagram">
+              <div class="pi-face">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+              </div>
+              <div class="pi-shine"></div>
+            </a>
           </div>
         </div>
-        <div class="scroll-indicator" aria-hidden="true">
-          <span class="mouse"><span class="wheel"></span></span>
-          <span class="label">Scroll to explore</span>
+
+        <div class="scroll-cue" aria-hidden="true">
+          <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+          <span>Scroll</span>
         </div>
       </section>
 
-      <!-- Featured Beats Section (Custom Audio Player) -->
-      <section class="beats-section" id="beats" aria-labelledby="beats-title">
-        <div class="section-kicker"><span class="glow-dot"></span> Stream</div>
-        <div class="split-heading">
-          <h2 id="beats-title">Featured Instrumentals</h2>
-          <p>
-            Stream official beat releases directly from the studio. Use the custom audio player below to browse genres, test speeds, and find your next record.
-          </p>
+
+      <!-- ═══════════════════════════════════════
+           SECTION 2 — OUT NOW
+      ═══════════════════════════════════════ -->
+      <section class="section" id="out-now" aria-labelledby="out-now-h2">
+        <div class="section-inner">
+          <div class="eyebrow"><span class="glow-dot"></span>Latest Drop</div>
+          <h2 id="out-now-h2" class="section-title">OUT NOW</h2>
+
+          <!-- Featured Release -->
+          <div class="release-card reveal" id="featured-release">
+            <div class="rc-art-col">
+              <!--
+                PHASE 2: Replace this .art-block with:
+                <img src="your-artwork.jpg" alt="Song Title — Henna C" class="rc-art-img">
+              -->
+              <div class="art-block" aria-label="Album artwork — Phase 2"></div>
+              <div class="rc-badge">OUT NOW</div>
+            </div>
+            <div class="rc-info-col">
+              <span class="kicker">Featured Single</span>
+              <!-- PHASE 2: update song title -->
+              <h3 class="rc-title">[ Song Title ]</h3>
+              <!-- PHASE 2: update genre / year -->
+              <p class="rc-meta">R&B / Hip-Hop &nbsp;·&nbsp; 2026</p>
+              <!-- PHASE 2: update description -->
+              <p class="rc-desc">The signature release from Henna C. Deep late-night energy, cinematic production, and a voice built for the moment. Stream it everywhere now.</p>
+
+              <div class="rc-actions">
+                <button class="play-btn liquid-btn" id="release-play-btn" aria-label="Play track">
+                  <span class="btn-glow"></span>
+                  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  <svg class="icon-pause hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                  <span class="btn-label">Listen Now</span>
+                </button>
+
+                <!-- PHASE 2: update these hrefs to the specific track links -->
+                <div class="rc-stream-links">
+                  <a href="#" class="stream-chip spotify-chip pending" id="rc-spotify">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.077-.337.135-.669.47-.745 3.854-.88 7.15-.502 9.82.13.297.18.388.567.207.86zm1.225-2.72c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.666-1.112 8.243-.566 11.345 1.343.366.227.486.707.26 1.074zm.107-2.836C14.453 8.81 8.73 8.623 5.4 9.635c-.51.155-1.046-.134-1.202-.645-.156-.51.133-1.047.645-1.203 3.82-1.16 10.125-.944 14.152 1.446.46.273.61.87.337 1.33-.274.46-.87.61-1.33.337z"/></svg>
+                    Spotify
+                  </a>
+                  <a href="#" class="stream-chip apple-chip pending" id="rc-apple">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a6.303 6.303 0 0 0-1.34-.57 11.21 11.21 0 0 0-1.57-.24c-.75-.09-1.5-.09-2.25-.07-.39.01-.78.04-1.17.07-1.41.13-2.77.59-3.86 1.63-.39.37-.74.78-1.01 1.25-.43.73-.67 1.52-.77 2.36-.08.67-.09 1.35-.05 2.02.05.83.17 1.64.47 2.43.36.98.94 1.84 1.73 2.55.71.63 1.52 1.07 2.41 1.37 1 .34 2.03.46 3.07.43.66-.02 1.32-.08 1.97-.22.98-.2 1.88-.6 2.63-1.26.71-.63 1.21-1.41 1.51-2.29.23-.68.33-1.38.35-2.09.03-.75-.03-1.5-.17-2.24zm-5.99 7.38a2.57 2.57 0 0 1-2.57-2.57 2.57 2.57 0 0 1 2.57-2.57 2.57 2.57 0 0 1 2.57 2.57 2.57 2.57 0 0 1-2.57 2.57zm0-3.94a1.37 1.37 0 0 0-1.37 1.37 1.37 1.37 0 0 0 1.37 1.37 1.37 1.37 0 0 0 1.37-1.37 1.37 1.37 0 0 0-1.37-1.37zM8.978 2.006H5.016A3.016 3.016 0 0 0 2 5.023v13.954a3.016 3.016 0 0 0 3.016 3.017h13.968A3.016 3.016 0 0 0 22 18.977V5.023a3.016 3.016 0 0 0-3.016-3.017H8.978z"/></svg>
+                    Apple Music
+                  </a>
+                  <a href="#" class="stream-chip audiomack-chip pending" id="rc-audiomack">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z"/></svg>
+                    Audiomack
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Mini release grid -->
+          <div class="mini-grid">
+            <!-- PHASE 2: for each card: swap .art-block for <img>, update title, genre, href -->
+            <div class="mini-card reveal" id="mini-card-1">
+              <div class="mini-art-wrap">
+                <div class="art-block mini-art-block" aria-label="Album art placeholder"></div>
+                <button class="mini-play-btn" data-index="1" aria-label="Play track">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                </button>
+              </div>
+              <div class="mini-text">
+                <span class="mini-kicker">Single</span>
+                <h4 class="mini-title">[ Track Title ]</h4>
+                <p class="mini-genre">R&B &nbsp;·&nbsp; 2026</p>
+                <a href="#" class="mini-link pending">Stream ➔</a>
+              </div>
+            </div>
+
+            <div class="mini-card reveal" id="mini-card-2">
+              <div class="mini-art-wrap">
+                <div class="art-block mini-art-block" aria-label="Album art placeholder"></div>
+                <button class="mini-play-btn" data-index="2" aria-label="Play track">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                </button>
+              </div>
+              <div class="mini-text">
+                <span class="mini-kicker">Single</span>
+                <h4 class="mini-title">[ Track Title ]</h4>
+                <p class="mini-genre">R&B &nbsp;·&nbsp; 2026</p>
+                <a href="#" class="mini-link pending">Stream ➔</a>
+              </div>
+            </div>
+
+            <div class="mini-card reveal more-card" id="mini-card-more">
+              <div class="more-inner">
+                <div class="more-plus">+</div>
+                <span>More drops<br>coming soon</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ═══════════════════════════════════════
+           SECTION 3 — COMING OUT SOON (CINEMATIC FULL-WIDTH)
+      ═══════════════════════════════════════ -->
+      <section class="section section-dark" id="coming-soon" aria-labelledby="coming-soon-h2">
+        <div class="coming-soon-bg" aria-hidden="true">
+          <div class="cs-orb cs-orb-left"></div>
+          <div class="cs-orb cs-orb-right"></div>
+          <div class="cs-grid-lines"></div>
         </div>
 
-        <!-- Custom Glassmorphic Audio Player -->
-        <div class="custom-audio-player" data-player>
-          <!-- Audio Element -->
-          <audio id="main-audio" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" preload="metadata"></audio>
-          
-          <div class="player-grid">
-            <!-- Active Track Info & Controls -->
-            <div class="player-main-card">
-              <div class="now-playing-header">
-                <div class="wave-visualizer" id="wave-visualizer" aria-hidden="true">
+        <div class="section-inner">
+          <div class="eyebrow"><span class="glow-dot glow-purple"></span>Next Release</div>
+          <h2 id="coming-soon-h2" class="section-title title-gradient-purple">COMING OUT SOON</h2>
+
+          <!-- ── Main Announcement Banner ── -->
+          <div class="announce-banner reveal" id="coming-soon-banner">
+            <div class="ab-art-col">
+              <!--
+                PHASE 2: Replace .art-block with:
+                <img src="upcoming-artwork.jpg" alt="Upcoming Release — Henna C" class="ab-art-img">
+              -->
+              <div class="art-block ab-art-block" aria-label="Upcoming release artwork">
+                <div class="ab-pulse-ring"></div>
+              </div>
+            </div>
+
+            <div class="ab-content">
+              <div class="ab-eyebrow">
+                <span class="blink-dot"></span>
+                DROPPING SOON
+              </div>
+              <!-- PHASE 2: update title -->
+              <h3 class="ab-title">[ Upcoming Release Title ]</h3>
+              <!-- PHASE 2: update type / genre -->
+              <p class="ab-meta">Single &nbsp;·&nbsp; R&B / Hip-Hop &nbsp;·&nbsp; 2026</p>
+              <p class="ab-teaser">The next chapter is almost here. This one is built different — stay tuned.</p>
+
+              <div class="ab-ctas">
+                <!-- PHASE 2: link to presave page -->
+                <a href="#" class="ab-btn-primary pending" id="presave-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
+                  Pre-Save Now
+                </a>
+                <!-- PHASE 2: link to notification signup -->
+                <a href="#" class="ab-btn-ghost pending" id="notify-btn">Get Notified</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- ── Countdown Cards ── -->
+          <div class="upcoming-grid">
+            <!-- Card 1 — PHASE 2: update badge, name, meta, data-date -->
+            <div class="upcoming-card reveal">
+              <div class="uc-glow"></div>
+              <div class="uc-body">
+                <div class="uc-badge">Single</div>
+                <!-- PHASE 2: update release name -->
+                <h3 class="uc-name">[ Release Title ]</h3>
+                <!-- PHASE 2: update genre / mix info -->
+                <p class="uc-meta">Vocal Mix &nbsp;·&nbsp; Deep R&B</p>
+
+                <!-- PHASE 2: set data-date="YYYY-MM-DDTHH:MM:SS" -->
+                <div class="countdown" data-date="2026-08-01T00:00:00">
+                  <div class="cd-seg"><span class="cd-num" data-days>00</span><span class="cd-label">Days</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-hours>00</span><span class="cd-label">Hrs</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-minutes>00</span><span class="cd-label">Min</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-seconds>00</span><span class="cd-label">Sec</span></div>
+                </div>
+
+                <!-- PHASE 2: update % -->
+                <div class="progress-row">
+                  <span class="progress-label">Production</span>
+                  <span class="progress-pct">85%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width:85%"></div>
+                </div>
+
+                <button class="uc-preview-btn" data-index="0" aria-label="Preview snippet">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  Preview
+                </button>
+              </div>
+            </div>
+
+            <!-- Card 2 — PHASE 2: update badge, name, meta, data-date -->
+            <div class="upcoming-card reveal">
+              <div class="uc-glow"></div>
+              <div class="uc-body">
+                <div class="uc-badge">EP Project</div>
+                <!-- PHASE 2: update release name -->
+                <h3 class="uc-name">[ EP Title ]</h3>
+                <!-- PHASE 2: update details -->
+                <p class="uc-meta">6 Tracks &nbsp;·&nbsp; Cinematic R&B</p>
+
+                <!-- PHASE 2: set data-date -->
+                <div class="countdown" data-date="2026-10-01T00:00:00">
+                  <div class="cd-seg"><span class="cd-num" data-days>00</span><span class="cd-label">Days</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-hours>00</span><span class="cd-label">Hrs</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-minutes>00</span><span class="cd-label">Min</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-seconds>00</span><span class="cd-label">Sec</span></div>
+                </div>
+
+                <div class="progress-row">
+                  <span class="progress-label">Production</span>
+                  <span class="progress-pct">60%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width:60%"></div>
+                </div>
+
+                <button class="uc-preview-btn" data-index="1" aria-label="Preview snippet">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  Preview
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ═══════════════════════════════════════
+           SECTION 4 — LATEST TRACKS (MUSIC PLAYER)
+      ═══════════════════════════════════════ -->
+      <section class="section" id="latest-tracks" aria-labelledby="tracks-h2">
+        <div class="section-inner">
+          <div class="eyebrow"><span class="glow-dot"></span>Stream</div>
+          <h2 id="tracks-h2" class="section-title">LATEST TRACKS</h2>
+          <p class="section-sub">Queue up and stream. More tracks drop as new music releases.</p>
+
+          <audio id="main-audio" preload="metadata"></audio>
+
+          <div class="player-shell reveal" id="player-shell" data-player>
+            <!-- Left: Now Playing -->
+            <div class="player-left">
+              <div class="now-playing-tag">
+                <div class="wave-viz" id="wave-viz" aria-hidden="true">
                   <span></span><span></span><span></span><span></span><span></span>
                 </div>
-                <span class="now-playing-label">Now Playing</span>
+                NOW PLAYING
               </div>
-              
-              <div class="track-hero-info">
-                <img src="assets/henna-c-logo-close.jpg" alt="Current song emblem" class="player-album-art">
-                <div class="track-meta">
-                  <h3 class="track-title" id="player-track-title">That's Your Man?</h3>
-                  <p class="track-genre-bpm" id="player-track-meta">R&B / Hip-Hop • 2026</p>
-                </div>
+
+              <div class="player-art-frame">
+                <!--
+                  PHASE 2: art toggled by JS from data-art on playlist rows.
+                  This placeholder shows when no real art is loaded.
+                -->
+                <div class="art-block player-art-block" id="player-art-placeholder" aria-label="Track artwork"></div>
+                <img src="" alt="Track artwork" class="player-art-img hidden" id="player-art-img">
+                <div class="player-art-glow"></div>
               </div>
-              
-              <!-- Progress Bar -->
-              <div class="player-progress-container">
-                <div class="progress-bar-wrapper" id="progress-wrapper">
-                  <div class="progress-bar-bg"></div>
-                  <div class="progress-bar-fill" id="progress-fill"></div>
-                  <div class="progress-handle" id="progress-handle"></div>
+
+              <div class="player-track-info">
+                <!-- PHASE 2: updated dynamically by JS -->
+                <h3 class="player-track-title" id="player-title">— Select a Track —</h3>
+                <p class="player-track-meta" id="player-meta">R&B &nbsp;·&nbsp; 2026</p>
+              </div>
+
+              <!-- Progress bar -->
+              <div class="player-progress" id="player-progress">
+                <div class="pp-track">
+                  <div class="pp-fill" id="pp-fill"></div>
+                  <div class="pp-handle" id="pp-handle"></div>
                 </div>
-                <div class="player-time-display">
-                  <span id="current-time">0:00</span>
-                  <span id="duration">0:00</span>
+                <div class="pp-times">
+                  <span id="p-current">0:00</span>
+                  <span id="p-duration">0:00</span>
                 </div>
               </div>
 
-              <!-- Main Interactive Controls -->
-              <div class="player-controls-row">
-                <button class="control-btn" id="prev-btn" aria-label="Previous Track">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                    <path d="M9.18 11.084l8.12-5.74A1 1 0 0 1 19 6.182v11.636a1 1 0 0 1-1.7.758l-8.12-5.74a1 1 0 0 1 0-1.752zM5 5v14a1 1 0 0 1-2 0V5a1 1 0 0 1 2 0z"/>
-                  </svg>
+              <!-- Controls -->
+              <div class="player-controls">
+                <button class="ctrl-btn" id="prev-btn" aria-label="Previous track">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M9.18 11.084l8.12-5.74A1 1 0 0 1 19 6.182v11.636a1 1 0 0 1-1.7.758l-8.12-5.74a1 1 0 0 1 0-1.752zM5 5v14a1 1 0 0 1-2 0V5a1 1 0 0 1 2 0z"/></svg>
                 </button>
-                
-                <button class="play-pause-btn" id="play-btn" aria-label="Play beat">
-                  <svg id="play-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
-                    <path d="M8 5.14v14l11-7-11-7z"/>
-                  </svg>
-                  <svg id="pause-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="28" height="28">
-                    <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
-                  </svg>
+                <button class="ctrl-play-btn" id="play-btn" aria-label="Play">
+                  <div class="play-btn-ring"></div>
+                  <svg id="play-icon" viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  <svg id="pause-icon" class="hidden" viewBox="0 0 24 24" fill="currentColor" width="26" height="26"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
                 </button>
-                
-                <button class="control-btn" id="next-btn" aria-label="Next Track">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                    <path d="M14.82 12.916l-8.12 5.74A1 1 0 0 1 5 17.818V6.182a1 1 0 0 1 1.7-.758l8.12 5.74a1 1 0 0 1 0 1.752zM19 5v14a1 1 0 0 1 2 0V5a1 1 0 0 1-2 0z"/>
-                  </svg>
+                <button class="ctrl-btn" id="next-btn" aria-label="Next track">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M14.82 12.916l-8.12 5.74A1 1 0 0 1 5 17.818V6.182a1 1 0 0 1 1.7-.758l8.12 5.74a1 1 0 0 1 0 1.752zM19 5v14a1 1 0 0 1 2 0V5a1 1 0 0 1-2 0z"/></svg>
                 </button>
-
-                <!-- Volume Control -->
-                <div class="player-volume-container">
-                  <button class="control-btn" id="volume-btn" aria-label="Mute/Unmute">
-                    <svg id="volume-high" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                      <path d="M3 9h4l5-5v16l-5-5H3V9zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
-                    </svg>
-                    <svg id="volume-mute" class="hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
-                      <path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/>
-                    </svg>
+                <div class="vol-group">
+                  <button class="ctrl-btn" id="vol-btn" aria-label="Mute/unmute">
+                    <svg id="vol-high" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M3 9h4l5-5v16l-5-5H3V9zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/></svg>
+                    <svg id="vol-mute" class="hidden" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zm2.5 0c0 .94-.2 1.82-.54 2.64l1.51 1.51C20.63 14.91 21 13.5 21 12c0-4.28-2.99-7.86-7-8.77v2.06c2.89.86 5 3.54 5 6.71zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3zM12 4L9.91 6.09 12 8.18V4z"/></svg>
                   </button>
-                  <input type="range" class="volume-slider" id="volume-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Volume">
+                  <input type="range" class="vol-slider" id="vol-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Volume">
                 </div>
               </div>
             </div>
 
-            <!-- Playlist Column -->
-            <div class="player-playlist">
-              <h4 class="playlist-header">Select Track</h4>
-              <div class="playlist-tracks" id="playlist-tracks">
-                <!-- Track 1 -->
-                <div class="playlist-track active" data-index="0" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-title="That's Your Man?" data-genre="R&B / Hip-Hop" data-bpm="2026">
-                  <div class="track-number-play">
-                    <span class="track-number">01</span>
-                    <span class="track-mini-play">▶</span>
+            <!-- Right: Playlist -->
+            <div class="player-right">
+              <h4 class="playlist-label">TRACKS</h4>
+              <div class="playlist" id="playlist">
+                <!--
+                  PHASE 2: For each track row, inject:
+                    data-src="[audio URL]"
+                    data-title="[Song Name]"
+                    data-genre="[Genre · Year]"
+                    data-art="[artwork path]"
+                  Then remove the .pending class.
+                -->
+
+                <div class="pl-row active pending" data-index="0" data-src="" data-title="[ Track Title ]" data-genre="R&B / Hip-Hop · 2026" data-art="" id="track-row-0">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">01</span>
+                    <span class="pl-play-arrow">▶</span>
                   </div>
-                  <div class="track-details">
-                    <span class="track-name">That's Your Man?</span>
-                    <span class="track-tag">R&B / Hip-Hop (Single)</span>
+                  <div class="pl-info">
+                    <span class="pl-name">[ Track Title ]</span>
+                    <span class="pl-tag">Featured Single · R&B</span>
                   </div>
-                  <div class="track-bpm-badge">Apr 2026</div>
                 </div>
 
-                <!-- Track 2 -->
-                <div class="playlist-track" data-index="1" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" data-title="One Of Them Days (Falling Apart)" data-genre="R&B / Pop" data-bpm="2026">
-                  <div class="track-number-play">
-                    <span class="track-number">02</span>
-                    <span class="track-mini-play">▶</span>
+                <div class="pl-row pending" data-index="1" data-src="" data-title="[ Track Title ]" data-genre="R&B · 2026" data-art="" id="track-row-1">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">02</span>
+                    <span class="pl-play-arrow">▶</span>
                   </div>
-                  <div class="track-details">
-                    <span class="track-name">One Of Them Days (Falling Apart)</span>
-                    <span class="track-tag">R&B / Pop (Album)</span>
+                  <div class="pl-info">
+                    <span class="pl-name">[ Track Title ]</span>
+                    <span class="pl-tag">Single · R&B</span>
                   </div>
-                  <div class="track-bpm-badge">May 2026</div>
                 </div>
 
-                <!-- Track 3 -->
-                <div class="playlist-track" data-index="2" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" data-title="One Of Them Days (Overcome)" data-genre="R&B / Pop" data-bpm="2026">
-                  <div class="track-number-play">
-                    <span class="track-number">03</span>
-                    <span class="track-mini-play">▶</span>
+                <div class="pl-row pending" data-index="2" data-src="" data-title="[ Track Title ]" data-genre="R&B · 2026" data-art="" id="track-row-2">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">03</span>
+                    <span class="pl-play-arrow">▶</span>
                   </div>
-                  <div class="track-details">
-                    <span class="track-name">One Of Them Days (Overcome)</span>
-                    <span class="track-tag">R&B / Pop (Album)</span>
+                  <div class="pl-info">
+                    <span class="pl-name">[ Track Title ]</span>
+                    <span class="pl-tag">Coming Soon</span>
                   </div>
-                  <div class="track-bpm-badge">May 2026</div>
-                </div>
-
-                <!-- Track 4 -->
-                <div class="playlist-track" data-index="3" data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" data-title="One Of Them Days (Rise Again)" data-genre="R&B / Pop" data-bpm="2026">
-                  <div class="track-number-play">
-                    <span class="track-number">04</span>
-                    <span class="track-mini-play">▶</span>
-                  </div>
-                  <div class="track-details">
-                    <span class="track-name">One Of Them Days (Rise Again)</span>
-                    <span class="track-tag">R&B / Pop (Album)</span>
-                  </div>
-                  <div class="track-bpm-badge">May 2026</div>
                 </div>
               </div>
-              <p class="playlist-notice">* Select a track above to play interactive preview snippets.</p>
+              <p class="playlist-note">More music coming soon. Follow on all platforms.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Music Platforms Section -->
-      <section class="music-section" id="music" aria-labelledby="music-title">
-        <div class="section-kicker"><span class="glow-dot"></span> Releases</div>
-        <div class="split-heading">
-          <h2 id="music-title">Stream On Major Platforms</h2>
-          <p>
-            Listen and subscribe to Henna C releases across major streaming platforms. Tap any service below to explore official drops.
-          </p>
-        </div>
-        <div class="platform-grid" aria-label="Music platforms">
-          <a class="platform-card featured" href="https://music.youtube.com/channel/UCDnOUmgT493IRKDjjM0hqJw?si=MHPt_vz_bEl1wvOQ" target="_blank" rel="noopener">
-            <span class="platform-label">YouTube Music</span>
-            <span class="platform-action">Listen / Download ➔</span>
-          </a>
-          <a class="platform-card" href="https://open.spotify.com/artist/6mA0wWqnvJPLJrlUin9Zha?si=Bt9kqdFqRVKtm0MVtZL8Ng" target="_blank" rel="noopener">
-            <span class="platform-label">Spotify</span>
-            <span class="platform-action">Stream / Save ➔</span>
-          </a>
-          <a class="platform-card" href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener">
-            <span class="platform-label">Apple Music</span>
-            <span class="platform-action">Listen / Add ➔</span>
-          </a>
-          <a class="platform-card" href="https://music.amazon.com/artists/B0GY3M685X/henna-c?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_l0orv7LdxRBPXzUMRC4ewhTLY" target="_blank" rel="noopener">
-            <span class="platform-label">Amazon Music</span>
-            <span class="platform-action">Stream / Buy ➔</span>
-          </a>
-          <a class="platform-card" href="https://soundcloud.com/search?q=Henna%20C" target="_blank" rel="noopener">
-            <span class="platform-label">SoundCloud</span>
-            <span class="platform-action">Play / Follow ➔</span>
-          </a>
-          <a class="platform-card" href="https://www.boomplay.com/search/Henna%20C" target="_blank" rel="noopener">
-            <span class="platform-label">Boomplay</span>
-            <span class="platform-action">Listen / Save ➔</span>
-          </a>
-        </div>
-      </section>
 
-      <!-- Premium Brand Showcase Section -->
-      <section class="showcase" aria-label="Henna C Studio showcase">
-        <figure class="showcase-main">
-          <img src="assets/henna-c-logo-wide.jpg" alt="Henna C brand banner logo on a brushed metal wall">
-          <figcaption>Signature Branding</figcaption>
-        </figure>
-        <div class="showcase-stack">
-          <figure>
-            <img src="assets/henna-c-logo-square.jpg" alt="Henna C copper logo on a dark background">
-          </figure>
-          <figure>
-            <img src="assets/henna-c-logo-close.jpg" alt="Close view of the Henna C record-emblem badge">
-          </figure>
-        </div>
-      </section>
+      <!-- ═══════════════════════════════════════
+           SECTION 5 — VISUAL GALLERY
+      ═══════════════════════════════════════ -->
+      <section class="section" id="gallery" aria-labelledby="gallery-h2">
+        <div class="section-inner">
+          <div class="eyebrow"><span class="glow-dot"></span>Photography</div>
+          <h2 id="gallery-h2" class="section-title">VISUAL GALLERY</h2>
 
-      <!-- About Section -->
-      <section class="about-section" id="about" aria-labelledby="about-title">
-        <div class="about-copy">
-          <div class="section-kicker"><span class="glow-dot"></span> Profile</div>
-          <h2 id="about-title">Producer Instincts. <br>Writer Detail.</h2>
-          <p>
-            Henna C is a music producer and writer focused on rhythm, texture,
-            and records that feel finished from the first hit. His work brings
-            arrangement, atmosphere, and a sharp ear for the pocket into every
-            session.
-          </p>
-          <p>
-            From production ideas to finished tracks, Henna C builds music with
-            structure, momentum, and a sound made for artists who need the beat
-            to carry the room.
-          </p>
-        </div>
-        <aside class="studio-card" aria-label="Studio profile">
-          <img src="assets/henna-c-logo-mark.jpg" alt="Henna C brand banner logo">
-          <dl>
-            <div>
-              <dt>Focus</dt>
-              <dd>Production, writing, beats</dd>
+          <!--
+            PHASE 2: Replace placeholder images with real promo / photoshoot images.
+            Update alt text, data-image, and data-caption for each item.
+          -->
+          <div class="masonry" id="masonry-gallery">
+            <div class="gallery-item gi-large reveal" data-image="assets/gallery-nightclub.png" data-caption="Futuristic Nightlife — Club Neon Sessions 2026">
+              <img src="assets/gallery-nightclub.png" alt="Henna C performing under neon lights" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">Performances</span>
+                <h4>Futuristic Nightlife</h4>
+                <p>Club Neon Sessions 2026</p>
+              </div>
+              <div class="gi-sheen"></div>
             </div>
-            <div>
-              <dt>Sound</dt>
-              <dd>Polished, textured, beat-driven</dd>
-            </div>
-            <div>
-              <dt>Tagline</dt>
-              <dd>Henna C, on the beat.</dd>
-            </div>
-          </dl>
-        </aside>
-      </section>
 
-      <!-- Interactive Booking / Contact Section -->
-      <section class="contact-section" id="contact" aria-labelledby="contact-title">
-        <div class="contact-card">
-          <div class="contact-header">
-            <div class="section-kicker"><span class="glow-dot"></span> Booking & Licensing</div>
-            <h2 id="contact-title">Secure Your Sound</h2>
-            <p>
-              Inquire about beat licenses, custom production, co-writing sessions, or collaborations. Send your project details below and get a reply within 24 hours.
-            </p>
+            <div class="gallery-item gi-wide reveal" data-image="assets/gallery-car.png" data-caption="Vibe Direction — Neo-Tokyo Midnight">
+              <img src="assets/gallery-car.png" alt="Luxury car under cinematic lights" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">Atmosphere</span>
+                <h4>Vibe Direction</h4>
+                <p>Neo-Tokyo Midnight</p>
+              </div>
+              <div class="gi-sheen"></div>
+            </div>
+
+            <div class="gallery-item gi-tall reveal" data-image="assets/gallery-chrome.png" data-caption="Cyber Styling — Silver Metallic Fashion">
+              <img src="assets/gallery-chrome.png" alt="Henna C chrome editorial shoot" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">Styling</span>
+                <h4>Cyber Styling</h4>
+                <p>Silver Metallic Fashion</p>
+              </div>
+              <div class="gi-sheen"></div>
+            </div>
+
+            <div class="gallery-item reveal" data-image="assets/gallery-portrait.png" data-caption="In The Pocket — Studio Sessions 2026">
+              <img src="assets/gallery-portrait.png" alt="Henna C studio session" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">Behind the Scenes</span>
+                <h4>In The Pocket</h4>
+                <p>Studio Sessions 2026</p>
+              </div>
+              <div class="gi-sheen"></div>
+            </div>
           </div>
-          
-          <form class="booking-form" id="booking-form" action="https://formspree.io/f/placeholder" method="POST">
-            <div class="form-grid">
-              <div class="input-group">
-                <label for="artist-name">Artist / Project Name</label>
-                <input type="text" id="artist-name" name="name" required placeholder="e.g. Henna C">
-              </div>
-              <div class="input-group">
-                <label for="artist-email">Email Address</label>
-                <input type="email" id="artist-email" name="email" required placeholder="e.g. artist@hcmusic.live">
-              </div>
-            </div>
-            
-            <div class="form-grid">
-              <div class="input-group">
-                <label for="project-type">Project Type</label>
-                <select id="project-type" name="type">
-                  <option value="licensing">Beat Licensing Inquiry</option>
-                  <option value="custom">Custom Production Order</option>
-                  <option value="writing">Co-Writing / Session Work</option>
-                  <option value="collab">Other Collaboration</option>
-                </select>
-              </div>
-              <div class="input-group">
-                <label for="beat-select">Select Track of Interest (Optional)</label>
-                <select id="beat-select" name="beat">
-                  <option value="none">Choose a track...</option>
-                  <option value="that's-your-man?">That's Your Man?</option>
-                  <option value="one-of-them-days-(falling-apart)">One Of Them Days (Falling Apart)</option>
-                  <option value="one-of-them-days-(overcome)">One Of Them Days (Overcome)</option>
-                  <option value="one-of-them-days-(rise-again)">One Of Them Days (Rise Again)</option>
-                  <option value="other-custom">Custom Track (Start from scratch)</option>
-                </select>
-              </div>
-            </div>
-            
-            <div class="input-group">
-              <label for="message">Project Description / Special Instructions</label>
-              <textarea id="message" name="message" rows="5" required placeholder="Tell me about your vibe, key, bpm, references, or specific details..."></textarea>
-            </div>
-            
-            <button type="submit" class="button button-primary submit-btn">
-              <span>Send Inquiry</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l20.53-6.844c.542-.18.802.09.602.602l-6.844 20.53c-.18.54-.46.535-.634.01L11.75 14.25 1.946 9.315zm11.238 3.512l4.894-4.894-1.414-1.414-4.894 4.894 1.414 1.414z"/>
-              </svg>
-            </button>
-          </form>
         </div>
       </section>
 
-      <!-- Connect Section (Socials) -->
-      <section class="social-section" id="socials" aria-labelledby="social-title">
-        <div>
-          <div class="section-kicker"><span class="glow-dot"></span> Connect</div>
-          <h2 id="social-title">Follow the next drop.</h2>
-        </div>
-        <div class="social-links">
-          <a href="https://www.instagram.com/hc.beats/" target="_blank" rel="noopener" aria-label="Follow Henna C on Instagram">
-            <span class="social-label">Instagram</span>
-            <strong class="social-handle">@hc.beats ➔</strong>
-          </a>
-          <a href="https://www.tiktok.com/@henna.c16" target="_blank" rel="noopener" aria-label="Follow Henna C on TikTok">
-            <span class="social-label">TikTok</span>
-            <strong class="social-handle">@Henna.c16 ➔</strong>
-          </a>
+
+      <!-- ═══════════════════════════════════════
+           SECTION 6 — ABOUT
+      ═══════════════════════════════════════ -->
+      <section class="section" id="about" aria-labelledby="about-h2">
+        <div class="section-inner">
+          <div class="eyebrow"><span class="glow-dot"></span>Profile</div>
+          <h2 id="about-h2" class="section-title">ABOUT HENNA C</h2>
+
+          <div class="about-grid reveal">
+            <div class="about-copy">
+              <p class="about-label">THE SOUND. THE VISION.</p>
+              <h3 class="about-headline">Artist Energy.<br>Cinematic Soul.</h3>
+
+              <!-- PHASE 2: replace with official bio -->
+              <p class="about-bio">Henna C is an emerging R&B and Hip-Hop artist with a distinct voice, cinematic sound, and an ear for records that feel finished from the first second. Every song is crafted to command the room — premium energy wrapped in late-night texture and emotional depth.</p>
+              <p class="about-bio">Drawing from lived experiences and a relentless creative vision, Henna C builds music that blurs the line between raw emotion and polished production. The goal is always the same: make something that hits different.</p>
+
+              <!-- PHASE 2: replace with official quote -->
+              <blockquote class="about-quote">
+                <span class="q-mark">"</span>
+                The music isn't just heard — it's felt. Every record is a piece of the world I'm building.
+                <cite>— Henna C</cite>
+              </blockquote>
+            </div>
+
+            <div class="about-hud">
+              <div class="hud-head">
+                <span class="hud-status"><span class="status-dot"></span> ACTIVE</span>
+                <span class="hud-label">ARTIST PROFILE</span>
+              </div>
+              <div class="hud-line"></div>
+              <dl class="hud-list">
+                <!-- PHASE 2: update each dd -->
+                <div class="hud-row"><dt>GENRE</dt><dd>R&B / Hip-Hop / Soul</dd></div>
+                <div class="hud-row"><dt>VIBE</dt><dd>Late-night cinematic luxury</dd></div>
+                <div class="hud-row"><dt>BASED IN</dt><dd>[ City, State — Phase 2 ]</dd></div>
+                <div class="hud-row"><dt>LATEST</dt><dd>[ Latest Release — Phase 2 ]</dd></div>
+                <div class="hud-row"><dt>AVAILABLE</dt><dd>Features · Collabs · Press</dd></div>
+              </dl>
+              <div class="hud-deco" aria-hidden="true">
+                <div class="hud-ring"></div>
+                <div class="hud-scan"></div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
+
+      <!-- ═══════════════════════════════════════
+           SECTION 7 — CONTACT / INQUIRE
+      ═══════════════════════════════════════ -->
+      <section class="section" id="contact" aria-labelledby="contact-h2">
+        <div class="section-inner">
+          <div class="eyebrow"><span class="glow-dot"></span>Get In Touch</div>
+
+          <div class="contact-card reveal">
+            <div class="contact-left">
+              <h2 id="contact-h2" class="contact-headline">LET'S CONNECT</h2>
+              <!-- PHASE 2: update copy if needed -->
+              <p class="contact-desc">For features, collaborations, press inquiries, or anything else — reach out directly. All messages are read.</p>
+
+              <!-- PHASE 2: update email -->
+              <a href="mailto:hcbeats.info@gmail.com" class="email-btn" id="email-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                hcbeats.info@gmail.com
+              </a>
+
+              <p class="follow-label">FOLLOW &amp; CONNECT</p>
+              <div class="contact-socials">
+                <a href="https://www.instagram.com/hc.beats" target="_blank" rel="noopener" class="cs-btn" id="cs-instagram">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                  Instagram
+                </a>
+                <a href="https://www.tiktok.com/@henna.c16" target="_blank" rel="noopener" class="cs-btn" id="cs-tiktok">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.85.98 2.02 1.69 3.29 2.02.03 1.35.01 2.69.02 4.04-.95-.08-1.89-.39-2.73-.87a7.227 7.227 0 0 1-2.48-2.46c-.05 2.16-.01 4.31-.03 6.47-.09 1.48-.56 2.94-1.39 4.19-.89 1.28-2.19 2.24-3.66 2.72-1.78.61-3.77.58-5.52-.11-1.63-.61-3.04-1.79-3.94-3.34A9.227 9.227 0 0 1 1 12.98c.03-1.92.65-3.83 1.77-5.38 1.12-1.5 2.76-2.55 4.58-2.94 1.25-.29 2.56-.16 3.74.37.02 1.44-.01 2.87.01 4.3-.67-.28-1.42-.37-2.13-.24a3.864 3.864 0 0 0-2.31 1.39c-.64.78-.96 1.81-.88 2.82.07.97.55 1.89 1.31 2.51.81.65 1.87.95 2.9.82 1.05-.1 2.01-.69 2.58-1.58.37-.58.55-1.27.52-1.96.03-4.36.01-8.72.02-13.08z"/></svg>
+                  TikTok
+                </a>
+                <a href="https://open.spotify.com/artist/6mA0wWqnvJPLJrlUin9Zha" target="_blank" rel="noopener" class="cs-btn" id="cs-spotify">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.077-.337.135-.669.47-.745 3.854-.88 7.15-.502 9.82.13.297.18.388.567.207.86zm1.225-2.72c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.666-1.112 8.243-.566 11.345 1.343.366.227.486.707.26 1.074zm.107-2.836C14.453 8.81 8.73 8.623 5.4 9.635c-.51.155-1.046-.134-1.202-.645-.156-.51.133-1.047.645-1.203 3.82-1.16 10.125-.944 14.152 1.446.46.273.61.87.337 1.33-.274.46-.87.61-1.33.337z"/></svg>
+                  Spotify
+                </a>
+                <a href="https://music.youtube.com/channel/UCDnOUmgT493IRKDjjM0hqJw" target="_blank" rel="noopener" class="cs-btn" id="cs-youtube">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.387.507 9.387.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                  YouTube
+                </a>
+                <a href="https://audiomack.com/henna-c" target="_blank" rel="noopener" class="cs-btn" id="cs-audiomack">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z"/></svg>
+                  Audiomack
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-right" aria-hidden="true">
+              <div class="contact-art-frame">
+                <img src="assets/henna-c-logo-close.jpg" alt="" class="contact-portrait">
+                <div class="contact-art-glow"></div>
+              </div>
+              <div class="contact-stamp">
+                <span>HENNA C</span>
+                <span class="stamp-sub">Music · Visuals · Energy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
 
-    <!-- Footer -->
+
+    <!-- ═══════════════════════════════════════
+         FOOTER
+    ═══════════════════════════════════════ -->
     <footer class="site-footer">
-      <div class="footer-brand">
-        <img src="assets/henna-c-logo-square.jpg" alt="Henna C logo">
-        <p class="footer-tag">&copy; <span data-year>2026</span> Henna C. All rights reserved.</p>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img src="assets/henna-c-logo-square.jpg" alt="Henna C logo" class="footer-logo">
+          <span class="footer-name">HENNA C</span>
+        </div>
+        <p class="footer-copy">&copy; <span data-year>2026</span> Henna C. All rights reserved.</p>
       </div>
-      <p class="footer-legal">
-        Music, artwork, logos, and brand assets are owned by Henna C or their
-        respective rights holders. For bookings, collaborations, licensing, or
-        writing inquiries, contact Henna C through official social channels.
-      </p>
+      <p class="footer-legal">Music, visuals, and brand identity belong to Henna C. For press and collaborations, reach out through official channels.</p>
     </footer>
 
-    <script src="script.js"></script>
+
+    <!-- ═══════════════════════════════════════
+         FLOATING STICKY PLAYER
+    ═══════════════════════════════════════ -->
+    <div class="sticky-player" id="sticky-player" aria-label="Now Playing">
+      <div class="sp-track">
+        <div class="art-block sp-art" id="sp-art-placeholder"></div>
+        <img src="" alt="" class="sp-art-img hidden" id="sp-art-img">
+        <div class="sp-text">
+          <span class="sp-title" id="sp-title">Select a track</span>
+          <span class="sp-artist">Henna C</span>
+        </div>
+      </div>
+
+      <div class="sp-center">
+        <div class="sp-btns">
+          <button class="sp-btn" id="sp-prev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.18 11.084l8.12-5.74A1 1 0 0 1 19 6.182v11.636a1 1 0 0 1-1.7.758l-8.12-5.74a1 1 0 0 1 0-1.752zM5 5v14a1 1 0 0 1-2 0V5a1 1 0 0 1 2 0z"/></svg></button>
+          <button class="sp-play-btn" id="sp-play" aria-label="Play">
+            <svg id="sp-play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+            <svg id="sp-pause-icon" class="hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+          </button>
+          <button class="sp-btn" id="sp-next" aria-label="Next"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14.82 12.916l-8.12 5.74A1 1 0 0 1 5 17.818V6.182a1 1 0 0 1 1.7-.758l8.12 5.74a1 1 0 0 1 0 1.752zM19 5v14a1 1 0 0 1 2 0V5a1 1 0 0 1-2 0z"/></svg></button>
+        </div>
+        <div class="sp-progress" id="sp-progress">
+          <span id="sp-current">0:00</span>
+          <div class="sp-bar"><div class="sp-fill" id="sp-fill"></div></div>
+          <span id="sp-duration">0:00</span>
+        </div>
+      </div>
+
+      <div class="sp-right">
+        <div class="sp-eq" id="sp-eq" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+        <button class="sp-btn" id="sp-vol-btn" aria-label="Mute">
+          <svg id="sp-vol-high" viewBox="0 0 24 24" fill="currentColor"><path d="M3 9h4l5-5v16l-5-5H3V9zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+          <svg id="sp-vol-mute" class="hidden" viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 12c0-1.77-1.02-3.29-2.5-4.03v2.21l2.45 2.45c.03-.21.05-.42.05-.63zM4.27 3L3 4.27 7.73 9H3v6h4l5 5v-6.73l4.25 4.25c-.67.52-1.42.93-2.25 1.18v2.06c1.38-.31 2.63-.95 3.69-1.81L19.73 21 21 19.73l-9-9L4.27 3z"/></svg>
+        </button>
+        <input type="range" class="sp-vol-slider" id="sp-vol-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Volume">
+      </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════
+         GALLERY LIGHTBOX
+    ═══════════════════════════════════════ -->
+    <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog">
+      <button class="lb-close" id="lb-close" aria-label="Close">×</button>
+      <div class="lb-inner">
+        <img src="" alt="" class="lb-img" id="lb-img">
+        <p class="lb-caption" id="lb-caption"></p>
+      </div>
+    </div>
+
+    <script src="script.js?v=4.0.0"></script>
   </body>
 </html>
