@@ -594,44 +594,63 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   gap: 1.8rem;
   perspective: 1000px;
   margin-top: 2rem;
+  margin-bottom: 3.5rem; /* space for text labels */
 }
 
 .platform-icon {
   position: relative;
-  width: 68px;
-  height: 68px;
-  border-radius: 16px;
+  width: 74px;
+  height: 74px;
+  border-radius: 18px;
   display: block;
   cursor: pointer;
   overflow: visible;
-  transition: transform 0.6s var(--ease);
   text-decoration: none;
+  
+  /* Extremely smooth anti-gravity float for the entire widget */
+  animation: levitate 6s ease-in-out infinite alternate;
 }
+
+/* Staggered animation delays for a floating wave */
+.platform-icon:nth-child(1) { animation-delay: 0s; }
+.platform-icon:nth-child(2) { animation-delay: -1s; }
+.platform-icon:nth-child(3) { animation-delay: -2s; }
+.platform-icon:nth-child(4) { animation-delay: -3s; }
+.platform-icon:nth-child(5) { animation-delay: -4s; }
+.platform-icon:nth-child(6) { animation-delay: -5s; }
+
+/* Staggered delay for shadows & reflections to match */
+.platform-icon:nth-child(1)::before { animation-delay: 0s; }
+.platform-icon:nth-child(2)::before { animation-delay: -1s; }
+.platform-icon:nth-child(3)::before { animation-delay: -2s; }
+.platform-icon:nth-child(4)::before { animation-delay: -3s; }
+.platform-icon:nth-child(5)::before { animation-delay: -4s; }
+.platform-icon:nth-child(6)::before { animation-delay: -5s; }
 
 /* Brand configurations */
 .platform-icon.spotify {
   --brand-color: #1db954;
-  --glow-color: rgba(30, 215, 96, 0.4);
+  --glow-color: rgba(30, 215, 96, 0.45);
 }
 .platform-icon.apple {
   --brand-color: #fc3c51;
-  --glow-color: rgba(252, 60, 81, 0.4);
+  --glow-color: rgba(252, 60, 81, 0.45);
 }
 .platform-icon.audiomack {
   --brand-color: #ffb200;
-  --glow-color: rgba(255, 178, 0, 0.4);
+  --glow-color: rgba(255, 178, 0, 0.45);
 }
 .platform-icon.youtube {
   --brand-color: #ff0000;
-  --glow-color: rgba(255, 0, 0, 0.4);
+  --glow-color: rgba(255, 0, 0, 0.45);
 }
 .platform-icon.tiktok {
   --brand-color: #00f2ea;
-  --glow-color: rgba(0, 242, 234, 0.3);
+  --glow-color: rgba(0, 242, 234, 0.35);
 }
 .platform-icon.instagram {
   --brand-color: #e1306c;
-  --glow-color: rgba(225, 48, 108, 0.4);
+  --glow-color: rgba(225, 48, 108, 0.45);
 }
 
 /* Glassmorphism Card Face */
@@ -644,78 +663,140 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-top-color: rgba(255, 255, 255, 0.22); /* top rim highlight */
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
+  border-top-color: rgba(255, 255, 255, 0.25); /* top rim highlight */
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.12),
-    0 10px 30px rgba(0, 0, 0, 0.65);
+    inset 0 1px 1px rgba(255, 255, 255, 0.15),
+    0 8px 32px rgba(0, 0, 0, 0.5);
   
   transition: 
     background 0.5s var(--ease),
     border-color 0.5s var(--ease),
     box-shadow 0.5s var(--ease),
     transform 0.5s var(--ease);
-  
-  /* Extremely smooth anti-gravity float */
-  animation: levitate 6s ease-in-out infinite alternate;
 }
 
-@keyframes levitate {
-  0% {
-    transform: translateY(0) rotateX(4deg) rotateY(-4deg);
-  }
-  100% {
-    transform: translateY(-8px) rotateX(-4deg) rotateY(4deg);
-  }
+/* Center 3D embossed colored dome/puck inside card */
+.pi-face::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 46px;
+  height: 46px;
+  z-index: 1;
+  box-shadow: 
+    inset 0 2px 4px rgba(255,255,255,0.4),
+    inset 0 -2px 4px rgba(0,0,0,0.4),
+    0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), filter 0.5s var(--ease);
 }
 
-/* Staggered animation delays for a floating wave */
-.platform-icon:nth-child(1) .pi-face { animation-delay: 0s; }
-.platform-icon:nth-child(2) .pi-face { animation-delay: -1s; }
-.platform-icon:nth-child(3) .pi-face { animation-delay: -2s; }
-.platform-icon:nth-child(4) .pi-face { animation-delay: -3s; }
-.platform-icon:nth-child(5) .pi-face { animation-delay: -4s; }
-.platform-icon:nth-child(6) .pi-face { animation-delay: -5s; }
+/* Platform-specific puck designs (matching reference) */
+.platform-icon.spotify .pi-face::before {
+  border-radius: 50%;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 35% 25%, #2eff6f 0%, #1db954 60%, #0d6e2c 100%);
+}
 
-/* SVG Logo inside Card - Brand color active by default */
+.platform-icon.apple .pi-face::before {
+  border-radius: 12px;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 35% 25%, #ff7799 0%, #fc3c51 60%, #a30f1e 100%);
+}
+
+.platform-icon.audiomack .pi-face::before {
+  border-radius: 12px;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 35% 25%, #ffdf66 0%, #ffb200 60%, #a67400 100%);
+}
+
+.platform-icon.youtube .pi-face::before {
+  border-radius: 50%;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 35% 25%, #ff6666 0%, #ff0000 60%, #990000 100%);
+}
+
+.platform-icon.tiktok .pi-face::before {
+  border-radius: 50%;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 35% 25%, #444 0%, #1a1a1a 60%, #050505 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.platform-icon.instagram .pi-face::before {
+  border-radius: 12px;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 35% 25%, #ff9e7d 0%, #e1306c 60%, #833ab4 100%);
+}
+
+/* SVG Logo - White & clean centered inside puck */
 .pi-face svg {
-  width: 26px;
-  height: 26px;
-  color: var(--brand-color);
+  position: relative;
+  z-index: 3;
+  width: 22px;
+  height: 22px;
+  color: #fff;
   opacity: 0.95;
-  filter: drop-shadow(0 2px 8px var(--glow-color));
-  transition: 
-    color 0.4s var(--ease), 
-    opacity 0.4s var(--ease), 
-    transform 0.4s var(--ease), 
-    filter 0.4s var(--ease);
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+  transition: transform 0.5s var(--ease), filter 0.5s var(--ease);
 }
 
-/* Glossy shine */
+/* Glossy top-shine */
 .pi-shine {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 40%;
-  border-radius: 16px 16px 50% 50%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
+  height: 50%;
+  border-radius: 18px 18px 50% 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, transparent 100%);
   pointer-events: none;
-  z-index: 3;
+  z-index: 4;
 }
 
-/* Subtly animated ambient glow reflection on the ground */
+/* Text Labels below each card (matching reference UI) */
+.platform-icon::after {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--cream);
+  opacity: 0.8;
+  white-space: nowrap;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.platform-icon.spotify::after { content: "SPOTIFY"; }
+.platform-icon.apple::after { content: "APPLE MUSIC"; }
+.platform-icon.audiomack::after { content: "AUDIOMACK"; }
+.platform-icon.youtube::after { content: "YOUTUBE MUSIC"; }
+.platform-icon.tiktok::after { content: "TIKTOK"; }
+.platform-icon.instagram::after { content: "INSTAGRAM"; }
+
+/* Subtly animated ambient reflection on the ground (counter-translated) */
 .platform-icon::before {
   content: "";
   position: absolute;
   bottom: -15px;
-  left: 15%;
-  right: 15%;
+  left: 20%;
+  right: 20%;
   height: 5px;
   border-radius: 50%;
-  background: var(--brand-color, #fff);
-  filter: blur(8px);
+  background: var(--brand-color);
+  filter: blur(10px);
   opacity: 0.28;
   pointer-events: none;
   z-index: 1;
@@ -724,32 +805,36 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   animation: reflection-glow 6s ease-in-out infinite alternate;
 }
 
-@keyframes reflection-glow {
+@keyframes levitate {
   0% {
-    transform: scale(1);
-    opacity: 0.32;
+    transform: translateY(0) rotateX(3deg) rotateY(-3deg);
   }
   100% {
-    transform: scale(0.75);
-    opacity: 0.12;
-    filter: blur(10px);
+    transform: translateY(-8px) rotateX(-3deg) rotateY(3deg);
   }
 }
 
-/* Staggered delay for reflections to match cards */
-.platform-icon:nth-child(1)::before { animation-delay: 0s; }
-.platform-icon:nth-child(2)::before { animation-delay: -1s; }
-.platform-icon:nth-child(3)::before { animation-delay: -2s; }
-.platform-icon:nth-child(4)::before { animation-delay: -3s; }
-.platform-icon:nth-child(5)::before { animation-delay: -4s; }
-.platform-icon:nth-child(6)::before { animation-delay: -5s; }
+@keyframes reflection-glow {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.32;
+  }
+  100% {
+    transform: translateY(8px) scale(0.75); /* counter parent movement to stay stationary */
+    opacity: 0.12;
+    filter: blur(12px);
+  }
+}
 
 /* Interactive Hover States */
-.platform-icon:hover .pi-face {
+.platform-icon:hover {
   animation-play-state: paused;
   transform: translateY(-12px) scale(1.08) rotateX(0deg) rotateY(0deg);
+}
+
+.platform-icon:hover .pi-face {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.28);
+  border-color: rgba(255, 255, 255, 0.3);
   box-shadow: 
     inset 0 1px 1px rgba(255, 255, 255, 0.25),
     0 12px 30px var(--glow-color);
@@ -757,15 +842,27 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 
 .platform-icon:hover::before {
   animation-play-state: paused;
-  opacity: 0.65;
+  opacity: 0.7;
   filter: blur(6px);
-  transform: scale(1.25);
+  transform: translateY(12px) scale(1.3); /* counter parent translate (-12px) and scale up shadow */
+}
+
+.platform-icon:hover .pi-face::before {
+  transform: translate(-50%, -50%) scale(1.06);
+  box-shadow: 
+    inset 0 2px 5px rgba(255,255,255,0.5),
+    inset 0 -2px 5px rgba(0,0,0,0.5),
+    0 6px 15px rgba(0,0,0,0.6);
 }
 
 .platform-icon:hover .pi-face svg {
-  transform: scale(1.1);
-  filter: drop-shadow(0 2px 14px var(--brand-color));
+  transform: scale(1.08);
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+.platform-icon:hover::after {
   opacity: 1;
+  color: #fff;
 }
 
 /* Empty Placeholder States */
@@ -783,6 +880,20 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display: none !important; /* hide reflections for placeholders */
 }
 
+.platform-icon[href="#"]::after,
+.platform-icon[href=""]::after,
+.platform-icon:not([href])::after,
+.platform-icon.pending-placeholder::after {
+  display: none !important; /* hide labels for placeholders */
+}
+
+.platform-icon[href="#"] .pi-face::before,
+.platform-icon[href=""] .pi-face::before,
+.platform-icon:not([href]) .pi-face::before,
+.platform-icon.pending-placeholder .pi-face::before {
+  display: none !important; /* hide 3D pucks for placeholders */
+}
+
 .platform-icon[href="#"] .pi-face,
 .platform-icon[href=""] .pi-face,
 .platform-icon:not([href]) .pi-face,
@@ -793,11 +904,17 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   cursor: default;
 }
 
+.platform-icon[href="#"]:hover,
+.platform-icon[href=""]:hover,
+.platform-icon:not([href]):hover,
+.platform-icon.pending-placeholder:hover {
+  transform: none;
+}
+
 .platform-icon[href="#"]:hover .pi-face,
 .platform-icon[href=""]:hover .pi-face,
 .platform-icon:not([href]):hover .pi-face,
 .platform-icon.pending-placeholder:hover .pi-face {
-  transform: none;
   background: rgba(255, 255, 255, 0.01);
   border-color: rgba(255, 255, 255, 0.04);
   box-shadow: none;
