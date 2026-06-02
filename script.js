@@ -67,10 +67,28 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================
-  // 3. HEADER SCROLL
+  // 3. HEADER & SCROLL PROGRESS
   // ==========================================
   const header = document.querySelector("[data-header]");
-  const onScroll = () => header?.classList.toggle("scrolled", scrollY > 40);
+  const progressBar = document.getElementById("scroll-progress-bar");
+  const scrollCue = document.querySelector(".scroll-cue");
+
+  const onScroll = () => {
+    const sY = window.scrollY || window.pageYOffset;
+    header?.classList.toggle("scrolled", sY > 40);
+    
+    // Fade out scroll cue in hero section when user scrolls down
+    if (scrollCue) {
+      scrollCue.classList.toggle("scrolled", sY > 60);
+    }
+
+    // Update scroll progress bar
+    if (progressBar) {
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = totalHeight > 0 ? (sY / totalHeight) * 100 : 0;
+      progressBar.style.width = `${progress}%`;
+    }
+  };
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 

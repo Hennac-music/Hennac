@@ -956,6 +956,20 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   box-shadow: none;
 }
 
+/* Scroll progress bar */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--copper-hi), var(--pink), var(--purple));
+  z-index: 10001;
+  box-shadow: 0 0 10px rgba(241, 177, 112, 0.5), 0 0 20px rgba(236, 72, 153, 0.3);
+  transition: width 0.1s ease-out;
+  pointer-events: none;
+}
+
 /* Scroll cue */
 .scroll-cue {
   position:absolute; bottom:2.5rem; left:50%;
@@ -963,6 +977,10 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display:flex; flex-direction:column; align-items:center; gap:0.8rem;
   pointer-events:none; opacity:0.7;
   font-size:0.62rem; font-weight:800; text-transform:uppercase; letter-spacing:0.28em; color:var(--smoke);
+  transition: opacity 0.4s ease;
+}
+.scroll-cue.scrolled {
+  opacity: 0;
 }
 .scroll-mouse {
   width:24px; height:40px;
