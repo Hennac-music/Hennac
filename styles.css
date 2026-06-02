@@ -696,61 +696,83 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   height: 46px;
   z-index: 1;
   box-shadow: 
-    inset 0 2px 4px rgba(255,255,255,0.4),
-    inset 0 -2px 4px rgba(0,0,0,0.4),
-    0 4px 10px rgba(0,0,0,0.5);
+    inset 0 3px 5px rgba(255,255,255,0.5), /* bright top highlight */
+    inset 0 -3px 5px rgba(0,0,0,0.5),      /* dark bottom shadow */
+    0 4px 10px rgba(0,0,0,0.6);            /* outer drop shadow */
   transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease), filter 0.5s var(--ease);
 }
 
-/* Platform-specific puck designs (matching reference) */
+/* Glossy highlight bubble on the top half of the puck */
+.pi-face::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 23px); /* aligned to the top edge of the 46px puck */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 46px;
+  height: 23px; /* top half of the puck */
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0.05) 80%, transparent 100%);
+  pointer-events: none;
+  transition: transform 0.5s var(--ease), opacity 0.5s var(--ease);
+}
+
+/* Shape configurations for pucks and glossy bubble reflections */
 .platform-icon.spotify .pi-face::before {
   border-radius: 50%;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 35% 25%, #2eff6f 0%, #1db954 60%, #0d6e2c 100%);
+  background: radial-gradient(circle at 35% 20%, #4cff8c 0%, #1db954 50%, #0a702d 100%);
+}
+.platform-icon.spotify .pi-face::after {
+  border-radius: 23px 23px 0 0;
 }
 
 .platform-icon.apple .pi-face::before {
   border-radius: 12px;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 35% 25%, #ff7799 0%, #fc3c51 60%, #a30f1e 100%);
+  background: radial-gradient(circle at 35% 20%, #ff8fa3 0%, #fc3c51 50%, #8c0c1b 100%);
+}
+.platform-icon.apple .pi-face::after {
+  border-radius: 12px 12px 0 0;
 }
 
 .platform-icon.youtube .pi-face::before {
   border-radius: 50%;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 35% 25%, #ff6666 0%, #ff0000 60%, #990000 100%);
+  background: radial-gradient(circle at 35% 20%, #ff8080 0%, #ff0000 50%, #990000 100%);
+}
+.platform-icon.youtube .pi-face::after {
+  border-radius: 23px 23px 0 0;
 }
 
 .platform-icon.tidal .pi-face::before {
   border-radius: 12px;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
-    radial-gradient(circle at 35% 25%, #444 0%, #1a1a1a 60%, #050505 100%);
+  background: radial-gradient(circle at 35% 20%, #666666 0%, #1a1a1a 50%, #050505 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.platform-icon.tidal .pi-face::after {
+  border-radius: 12px 12px 0 0;
 }
 
 .platform-icon.deezer .pi-face::before {
   border-radius: 12px;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 35% 25%, #ff77c6 0%, #ff007f 60%, #99004c 100%);
+  background: radial-gradient(circle at 35% 20%, #ff77c6 0%, #ff007f 50%, #80003f 100%);
+}
+.platform-icon.deezer .pi-face::after {
+  border-radius: 12px 12px 0 0;
 }
 
 .platform-icon.amazon .pi-face::before {
   border-radius: 12px;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 35% 25%, #4cd3ff 0%, #00a8e1 60%, #00668a 100%);
+  background: radial-gradient(circle at 35% 20%, #66e0ff 0%, #00a8e1 50%, #005c7d 100%);
+}
+.platform-icon.amazon .pi-face::after {
+  border-radius: 12px 12px 0 0;
 }
 
 .platform-icon.audiomack .pi-face::before {
   border-radius: 12px;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 35% 25%, #ffdf66 0%, #ffb200 60%, #a67400 100%);
+  background: radial-gradient(circle at 35% 20%, #ffe880 0%, #ffb200 50%, #996a00 100%);
+}
+.platform-icon.audiomack .pi-face::after {
+  border-radius: 12px 12px 0 0;
 }
 
 /* SVG Logo - White & clean centered inside puck */
@@ -761,7 +783,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   height: 22px;
   color: #fff;
   opacity: 0.95;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.45));
   transition: transform 0.5s var(--ease), filter 0.5s var(--ease);
 }
 
