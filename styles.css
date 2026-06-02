@@ -613,19 +613,21 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 
 /* Staggered animation delays for a floating wave */
 .platform-icon:nth-child(1) { animation-delay: 0s; }
-.platform-icon:nth-child(2) { animation-delay: -1s; }
-.platform-icon:nth-child(3) { animation-delay: -2s; }
-.platform-icon:nth-child(4) { animation-delay: -3s; }
-.platform-icon:nth-child(5) { animation-delay: -4s; }
-.platform-icon:nth-child(6) { animation-delay: -5s; }
+.platform-icon:nth-child(2) { animation-delay: -0.85s; }
+.platform-icon:nth-child(3) { animation-delay: -1.7s; }
+.platform-icon:nth-child(4) { animation-delay: -2.55s; }
+.platform-icon:nth-child(5) { animation-delay: -3.4s; }
+.platform-icon:nth-child(6) { animation-delay: -4.25s; }
+.platform-icon:nth-child(7) { animation-delay: -5.1s; }
 
 /* Staggered delay for shadows & reflections to match */
 .platform-icon:nth-child(1)::before { animation-delay: 0s; }
-.platform-icon:nth-child(2)::before { animation-delay: -1s; }
-.platform-icon:nth-child(3)::before { animation-delay: -2s; }
-.platform-icon:nth-child(4)::before { animation-delay: -3s; }
-.platform-icon:nth-child(5)::before { animation-delay: -4s; }
-.platform-icon:nth-child(6)::before { animation-delay: -5s; }
+.platform-icon:nth-child(2)::before { animation-delay: -0.85s; }
+.platform-icon:nth-child(3)::before { animation-delay: -1.7s; }
+.platform-icon:nth-child(4)::before { animation-delay: -2.55s; }
+.platform-icon:nth-child(5)::before { animation-delay: -3.4s; }
+.platform-icon:nth-child(6)::before { animation-delay: -4.25s; }
+.platform-icon:nth-child(7)::before { animation-delay: -5.1s; }
 
 /* Brand configurations */
 .platform-icon.spotify {
@@ -636,21 +638,25 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   --brand-color: #fc3c51;
   --glow-color: rgba(252, 60, 81, 0.45);
 }
-.platform-icon.audiomack {
-  --brand-color: #ffb200;
-  --glow-color: rgba(255, 178, 0, 0.45);
-}
 .platform-icon.youtube {
   --brand-color: #ff0000;
   --glow-color: rgba(255, 0, 0, 0.45);
 }
-.platform-icon.tiktok {
-  --brand-color: #00f2ea;
-  --glow-color: rgba(0, 242, 234, 0.35);
+.platform-icon.tidal {
+  --brand-color: #ffffff;
+  --glow-color: rgba(255, 255, 255, 0.25);
 }
-.platform-icon.instagram {
-  --brand-color: #e1306c;
-  --glow-color: rgba(225, 48, 108, 0.45);
+.platform-icon.deezer {
+  --brand-color: #ff007f;
+  --glow-color: rgba(255, 0, 127, 0.45);
+}
+.platform-icon.amazon {
+  --brand-color: #00a8e1;
+  --glow-color: rgba(0, 168, 225, 0.45);
+}
+.platform-icon.audiomack {
+  --brand-color: #ffb200;
+  --glow-color: rgba(255, 178, 0, 0.45);
 }
 
 /* Glassmorphism Card Face */
@@ -711,13 +717,6 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
     radial-gradient(circle at 35% 25%, #ff7799 0%, #fc3c51 60%, #a30f1e 100%);
 }
 
-.platform-icon.audiomack .pi-face::before {
-  border-radius: 12px;
-  background: 
-    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 35% 25%, #ffdf66 0%, #ffb200 60%, #a67400 100%);
-}
-
 .platform-icon.youtube .pi-face::before {
   border-radius: 50%;
   background: 
@@ -725,19 +724,33 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
     radial-gradient(circle at 35% 25%, #ff6666 0%, #ff0000 60%, #990000 100%);
 }
 
-.platform-icon.tiktok .pi-face::before {
-  border-radius: 50%;
+.platform-icon.tidal .pi-face::before {
+  border-radius: 12px;
   background: 
     linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, transparent 50%),
     radial-gradient(circle at 35% 25%, #444 0%, #1a1a1a 60%, #050505 100%);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.platform-icon.instagram .pi-face::before {
+.platform-icon.deezer .pi-face::before {
   border-radius: 12px;
   background: 
     linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
-    radial-gradient(circle at 35% 25%, #ff9e7d 0%, #e1306c 60%, #833ab4 100%);
+    radial-gradient(circle at 35% 25%, #ff77c6 0%, #ff007f 60%, #99004c 100%);
+}
+
+.platform-icon.amazon .pi-face::before {
+  border-radius: 12px;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 35% 25%, #4cd3ff 0%, #00a8e1 60%, #00668a 100%);
+}
+
+.platform-icon.audiomack .pi-face::before {
+  border-radius: 12px;
+  background: 
+    linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, transparent 50%),
+    radial-gradient(circle at 35% 25%, #ffdf66 0%, #ffb200 60%, #a67400 100%);
 }
 
 /* SVG Logo - White & clean centered inside puck */
@@ -781,10 +794,11 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 
 .platform-icon.spotify::after { content: "SPOTIFY"; }
 .platform-icon.apple::after { content: "APPLE MUSIC"; }
-.platform-icon.audiomack::after { content: "AUDIOMACK"; }
 .platform-icon.youtube::after { content: "YOUTUBE MUSIC"; }
-.platform-icon.tiktok::after { content: "TIKTOK"; }
-.platform-icon.instagram::after { content: "INSTAGRAM"; }
+.platform-icon.tidal::after { content: "TIDAL"; }
+.platform-icon.deezer::after { content: "DEEZER"; }
+.platform-icon.amazon::after { content: "AMAZON MUSIC"; }
+.platform-icon.audiomack::after { content: "AUDIOMACK"; }
 
 /* Subtly animated ambient reflection on the ground (counter-translated) */
 .platform-icon::before {
