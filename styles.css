@@ -982,21 +982,16 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .scroll-cue.scrolled {
   opacity: 0;
 }
-.scroll-mouse {
-  width:24px; height:40px;
-  border:2px solid var(--muted); border-radius:22px;
-  position:relative;
+.scroll-arrow {
+  width: 22px;
+  height: 22px;
+  color: var(--copper-hi);
+  filter: drop-shadow(0 0 4px rgba(241,177,112,0.3));
+  animation: arrow-bounce 1.8s ease-in-out infinite;
 }
-.scroll-wheel {
-  width:4px; height:8px;
-  background:var(--copper-hi); border-radius:2px;
-  position:absolute; top:7px; left:50%; transform:translateX(-50%);
-  animation: wheel-scroll 1.6s ease infinite;
-}
-@keyframes wheel-scroll {
-  0%   { transform:translate(-50%,0); opacity:0; }
-  30%  { opacity:1; }
-  100% { transform:translate(-50%,13px); opacity:0; }
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
 }
 
 /* ──────────────────────────────────────────
