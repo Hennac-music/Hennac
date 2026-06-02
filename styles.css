@@ -591,87 +591,217 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1.4rem;
+  gap: 1.6rem;
+  perspective: 1000px;
+  margin-top: 2rem;
 }
 
 .platform-icon {
   position: relative;
-  width: 62px; height: 62px;
-  border-radius: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: transform 0.4s var(--spring), box-shadow 0.4s ease;
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  display: block;
   cursor: pointer;
+  overflow: visible;
+  transition: transform 0.6s var(--ease);
+  text-decoration: none;
 }
 
-/* 3D base face */
+/* Brand configurations */
+.platform-icon.spotify {
+  --brand-color: #1db954;
+  --glow-color: rgba(30, 215, 96, 0.3);
+}
+.platform-icon.apple {
+  --brand-color: #fc3c51;
+  --glow-color: rgba(252, 60, 81, 0.3);
+}
+.platform-icon.audiomack {
+  --brand-color: #ffb200;
+  --glow-color: rgba(255, 178, 0, 0.3);
+}
+.platform-icon.youtube {
+  --brand-color: #ff0000;
+  --glow-color: rgba(255, 0, 0, 0.3);
+}
+.platform-icon.tiktok {
+  --brand-color: #00f2ea;
+  --glow-color: rgba(0, 242, 234, 0.25);
+}
+.platform-icon.instagram {
+  --brand-color: #e1306c;
+  --glow-color: rgba(225, 48, 108, 0.3);
+}
+
+/* Glassmorphism Card Face */
 .pi-face {
   position: relative;
   z-index: 2;
-  width: 100%; height: 100%;
+  width: 100%;
+  height: 100%;
   border-radius: inherit;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-top-color: rgba(255, 255, 255, 0.2); /* top rim highlight */
+  box-shadow: 
+    inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    0 8px 24px rgba(0, 0, 0, 0.6);
+  
+  transition: 
+    background 0.5s var(--ease),
+    border-color 0.5s var(--ease),
+    box-shadow 0.5s var(--ease),
+    transform 0.5s var(--ease);
+  
+  /* Extremely smooth anti-gravity float */
+  animation: levitate 6s ease-in-out infinite alternate;
 }
-.pi-face svg { width:26px; height:26px; }
 
-/* Glossy top-shine */
+@keyframes levitate {
+  0% {
+    transform: translateY(0) rotateX(3deg) rotateY(-3deg);
+  }
+  100% {
+    transform: translateY(-6px) rotateX(-3deg) rotateY(3deg);
+  }
+}
+
+/* Staggered animation delays for a floating wave */
+.platform-icon:nth-child(1) .pi-face { animation-delay: 0s; }
+.platform-icon:nth-child(2) .pi-face { animation-delay: -1s; }
+.platform-icon:nth-child(3) .pi-face { animation-delay: -2s; }
+.platform-icon:nth-child(4) .pi-face { animation-delay: -3s; }
+.platform-icon:nth-child(5) .pi-face { animation-delay: -4s; }
+.platform-icon:nth-child(6) .pi-face { animation-delay: -5s; }
+
+/* SVG Logo inside Card */
+.pi-face svg {
+  width: 22px;
+  height: 22px;
+  color: var(--cream);
+  opacity: 0.6;
+  transition: 
+    color 0.4s var(--ease), 
+    opacity 0.4s var(--ease), 
+    transform 0.4s var(--ease), 
+    filter 0.4s var(--ease);
+}
+
+/* Glossy shine */
 .pi-shine {
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 50%;
-  border-radius: 18px 18px 50% 50%;
-  background: linear-gradient(180deg,rgba(255,255,255,0.18) 0%,transparent 100%);
+  height: 40%;
+  border-radius: 12px 12px 50% 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 100%);
   pointer-events: none;
   z-index: 3;
 }
 
-/* Per-platform colors */
-.platform-icon.spotify .pi-face {
-  background: radial-gradient(ellipse at 30% 20%, #2ad25a, #1db954 50%, #169940);
-  box-shadow: 0 8px 24px rgba(30,215,96,0.4), 0 2px 0 rgba(255,255,255,0.08) inset;
-  color: #fff;
-}
-.platform-icon.apple .pi-face {
-  background: radial-gradient(ellipse at 30% 20%, #ff6b8a, #fc3c51 50%, #c41a2e);
-  box-shadow: 0 8px 24px rgba(252,60,81,0.42), 0 2px 0 rgba(255,255,255,0.08) inset;
-  color: #fff;
-}
-.platform-icon.audiomack .pi-face {
-  background: radial-gradient(ellipse at 30% 20%, #ffcc33, #ffb200 50%, #cc8e00);
-  box-shadow: 0 8px 24px rgba(255,178,0,0.42), 0 2px 0 rgba(255,255,255,0.08) inset;
-  color: #fff;
-}
-.platform-icon.youtube .pi-face {
-  background: radial-gradient(ellipse at 30% 20%, #ff4b4b, #ff0000 50%, #cc0000);
-  box-shadow: 0 8px 24px rgba(255,0,0,0.42), 0 2px 0 rgba(255,255,255,0.08) inset;
-  color: #fff;
-}
-.platform-icon.tiktok .pi-face {
-  background: radial-gradient(ellipse at 30% 20%, #2a2a2a, #1a1a1a 50%, #000);
-  box-shadow: 0 8px 24px rgba(0,242,234,0.28), 0 2px 0 rgba(255,255,255,0.06) inset;
-  border: 1px solid rgba(0,242,234,0.3) !important;
-  color: #fff;
-}
-.platform-icon.instagram .pi-face {
-  background: radial-gradient(ellipse at 30% 20%, #f77737, #e1306c 50%, #833ab4);
-  box-shadow: 0 8px 24px rgba(225,48,108,0.42), 0 2px 0 rgba(255,255,255,0.08) inset;
-  color: #fff;
+/* Subtly animated ambient glow reflection on the ground */
+.platform-icon::before {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 20%;
+  right: 20%;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--brand-color, #fff);
+  filter: blur(8px);
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.5s var(--ease), filter 0.5s var(--ease), transform 0.5s var(--ease);
+  
+  animation: reflection-glow 6s ease-in-out infinite alternate;
 }
 
-.platform-icon:hover {
-  transform: translateY(-10px) scale(1.12) rotateX(6deg);
+@keyframes reflection-glow {
+  0% {
+    transform: scale(1);
+    opacity: 0.22;
+  }
+  100% {
+    transform: scale(0.75);
+    opacity: 0.08;
+    filter: blur(10px);
+  }
 }
-.platform-icon.spotify:hover   { box-shadow: 0 20px 40px rgba(30,215,96,0.55); }
-.platform-icon.apple:hover     { box-shadow: 0 20px 40px rgba(252,60,81,0.55); }
-.platform-icon.audiomack:hover { box-shadow: 0 20px 40px rgba(255,178,0,0.55); }
-.platform-icon.youtube:hover   { box-shadow: 0 20px 40px rgba(255,0,0,0.55); }
-.platform-icon.tiktok:hover    { box-shadow: 0 20px 40px rgba(0,242,234,0.45); }
-.platform-icon.instagram:hover { box-shadow: 0 20px 40px rgba(225,48,108,0.55); }
+
+/* Staggered delay for reflections to match cards */
+.platform-icon:nth-child(1)::before { animation-delay: 0s; }
+.platform-icon:nth-child(2)::before { animation-delay: -1s; }
+.platform-icon:nth-child(3)::before { animation-delay: -2s; }
+.platform-icon:nth-child(4)::before { animation-delay: -3s; }
+.platform-icon:nth-child(5)::before { animation-delay: -4s; }
+.platform-icon:nth-child(6)::before { animation-delay: -5s; }
+
+/* Interactive Hover States */
+.platform-icon:hover .pi-face {
+  animation-play-state: paused;
+  transform: translateY(-10px) scale(1.06) rotateX(0deg) rotateY(0deg);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 
+    inset 0 1px 1px rgba(255, 255, 255, 0.2),
+    0 10px 24px var(--glow-color);
+}
+
+.platform-icon:hover::before {
+  animation-play-state: paused;
+  opacity: 0.5;
+  filter: blur(6px);
+  transform: scale(1.2);
+}
+
+.platform-icon:hover .pi-face svg {
+  color: var(--brand-color);
+  opacity: 1;
+  transform: scale(1.08);
+  filter: drop-shadow(0 0 8px var(--glow-color));
+}
+
+/* Empty Placeholder States */
+.platform-icon[href="#"] .pi-face svg,
+.platform-icon[href=""] .pi-face svg,
+.platform-icon:not([href]) .pi-face svg,
+.platform-icon.pending-placeholder .pi-face svg {
+  display: none !important;
+}
+
+.platform-icon[href="#"]::before,
+.platform-icon[href=""]::before,
+.platform-icon:not([href])::before,
+.platform-icon.pending-placeholder::before {
+  display: none !important; /* hide reflections for placeholders */
+}
+
+.platform-icon[href="#"] .pi-face,
+.platform-icon[href=""] .pi-face,
+.platform-icon:not([href]) .pi-face,
+.platform-icon.pending-placeholder .pi-face {
+  background: rgba(255, 255, 255, 0.01);
+  border-color: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+  cursor: default;
+}
+
+.platform-icon[href="#"]:hover .pi-face,
+.platform-icon[href=""]:hover .pi-face,
+.platform-icon:not([href]):hover .pi-face,
+.platform-icon.pending-placeholder:hover .pi-face {
+  transform: none;
+  background: rgba(255, 255, 255, 0.01);
+  border-color: rgba(255, 255, 255, 0.04);
+  box-shadow: none;
+}
 
 /* Scroll cue */
 .scroll-cue {
