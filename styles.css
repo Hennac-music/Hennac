@@ -591,16 +591,16 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1.6rem;
+  gap: 1.8rem;
   perspective: 1000px;
   margin-top: 2rem;
 }
 
 .platform-icon {
   position: relative;
-  width: 58px;
-  height: 58px;
-  border-radius: 12px;
+  width: 68px;
+  height: 68px;
+  border-radius: 16px;
   display: block;
   cursor: pointer;
   overflow: visible;
@@ -611,27 +611,27 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 /* Brand configurations */
 .platform-icon.spotify {
   --brand-color: #1db954;
-  --glow-color: rgba(30, 215, 96, 0.3);
+  --glow-color: rgba(30, 215, 96, 0.4);
 }
 .platform-icon.apple {
   --brand-color: #fc3c51;
-  --glow-color: rgba(252, 60, 81, 0.3);
+  --glow-color: rgba(252, 60, 81, 0.4);
 }
 .platform-icon.audiomack {
   --brand-color: #ffb200;
-  --glow-color: rgba(255, 178, 0, 0.3);
+  --glow-color: rgba(255, 178, 0, 0.4);
 }
 .platform-icon.youtube {
   --brand-color: #ff0000;
-  --glow-color: rgba(255, 0, 0, 0.3);
+  --glow-color: rgba(255, 0, 0, 0.4);
 }
 .platform-icon.tiktok {
   --brand-color: #00f2ea;
-  --glow-color: rgba(0, 242, 234, 0.25);
+  --glow-color: rgba(0, 242, 234, 0.3);
 }
 .platform-icon.instagram {
   --brand-color: #e1306c;
-  --glow-color: rgba(225, 48, 108, 0.3);
+  --glow-color: rgba(225, 48, 108, 0.4);
 }
 
 /* Glassmorphism Card Face */
@@ -644,14 +644,14 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-top-color: rgba(255, 255, 255, 0.2); /* top rim highlight */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-top-color: rgba(255, 255, 255, 0.22); /* top rim highlight */
   box-shadow: 
-    inset 0 1px 0 rgba(255, 255, 255, 0.1),
-    0 8px 24px rgba(0, 0, 0, 0.6);
+    inset 0 1px 0 rgba(255, 255, 255, 0.12),
+    0 10px 30px rgba(0, 0, 0, 0.65);
   
   transition: 
     background 0.5s var(--ease),
@@ -665,10 +665,10 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 
 @keyframes levitate {
   0% {
-    transform: translateY(0) rotateX(3deg) rotateY(-3deg);
+    transform: translateY(0) rotateX(4deg) rotateY(-4deg);
   }
   100% {
-    transform: translateY(-6px) rotateX(-3deg) rotateY(3deg);
+    transform: translateY(-8px) rotateX(-4deg) rotateY(4deg);
   }
 }
 
@@ -680,12 +680,13 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .platform-icon:nth-child(5) .pi-face { animation-delay: -4s; }
 .platform-icon:nth-child(6) .pi-face { animation-delay: -5s; }
 
-/* SVG Logo inside Card */
+/* SVG Logo inside Card - Brand color active by default */
 .pi-face svg {
-  width: 22px;
-  height: 22px;
-  color: var(--cream);
-  opacity: 0.6;
+  width: 26px;
+  height: 26px;
+  color: var(--brand-color);
+  opacity: 0.95;
+  filter: drop-shadow(0 2px 8px var(--glow-color));
   transition: 
     color 0.4s var(--ease), 
     opacity 0.4s var(--ease), 
@@ -698,8 +699,8 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   position: absolute;
   top: 0; left: 0; right: 0;
   height: 40%;
-  border-radius: 12px 12px 50% 50%;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, transparent 100%);
+  border-radius: 16px 16px 50% 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, transparent 100%);
   pointer-events: none;
   z-index: 3;
 }
@@ -708,14 +709,14 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .platform-icon::before {
   content: "";
   position: absolute;
-  bottom: -12px;
-  left: 20%;
-  right: 20%;
-  height: 4px;
+  bottom: -15px;
+  left: 15%;
+  right: 15%;
+  height: 5px;
   border-radius: 50%;
   background: var(--brand-color, #fff);
   filter: blur(8px);
-  opacity: 0.18;
+  opacity: 0.28;
   pointer-events: none;
   z-index: 1;
   transition: opacity 0.5s var(--ease), filter 0.5s var(--ease), transform 0.5s var(--ease);
@@ -726,11 +727,11 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 @keyframes reflection-glow {
   0% {
     transform: scale(1);
-    opacity: 0.22;
+    opacity: 0.32;
   }
   100% {
     transform: scale(0.75);
-    opacity: 0.08;
+    opacity: 0.12;
     filter: blur(10px);
   }
 }
@@ -746,26 +747,25 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 /* Interactive Hover States */
 .platform-icon:hover .pi-face {
   animation-play-state: paused;
-  transform: translateY(-10px) scale(1.06) rotateX(0deg) rotateY(0deg);
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-12px) scale(1.08) rotateX(0deg) rotateY(0deg);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
   box-shadow: 
-    inset 0 1px 1px rgba(255, 255, 255, 0.2),
-    0 10px 24px var(--glow-color);
+    inset 0 1px 1px rgba(255, 255, 255, 0.25),
+    0 12px 30px var(--glow-color);
 }
 
 .platform-icon:hover::before {
   animation-play-state: paused;
-  opacity: 0.5;
+  opacity: 0.65;
   filter: blur(6px);
-  transform: scale(1.2);
+  transform: scale(1.25);
 }
 
 .platform-icon:hover .pi-face svg {
-  color: var(--brand-color);
+  transform: scale(1.1);
+  filter: drop-shadow(0 2px 14px var(--brand-color));
   opacity: 1;
-  transform: scale(1.08);
-  filter: drop-shadow(0 0 8px var(--glow-color));
 }
 
 /* Empty Placeholder States */
