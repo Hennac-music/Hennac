@@ -340,23 +340,71 @@ document.addEventListener("DOMContentLoaded", () => {
   spPrev?.addEventListener("click", prev);
   spNext?.addEventListener("click", next);
 
-  // Out Now dropdown toggle
-  const rBtn = document.getElementById("release-play-btn");
+  // Unified Dropdown system for all "Listen Now" buttons
   const rMenu = document.getElementById("release-dropdown-menu");
-  if (rBtn && rMenu) {
-    rBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = rMenu.classList.contains("open");
-      rMenu.classList.toggle("open", !isOpen);
-      rBtn.classList.toggle("open", !isOpen);
-    });
-    document.addEventListener("click", (e) => {
-      if (!rBtn.contains(e.target) && !rMenu.contains(e.target)) {
-        rMenu.classList.remove("open");
-        rBtn.classList.remove("open");
-      }
+  let activeBtn = null;
+
+  const toggleDropdown = (btn, e) => {
+    e.stopPropagation();
+    if (activeBtn === btn) {
+      closeDropdown();
+      return;
+    }
+    closeDropdown();
+
+    activeBtn = btn;
+    btn.classList.add("open");
+    rMenu.classList.add("open");
+
+    const rect = btn.getBoundingClientRect();
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    let leftPos = rect.left + scrollLeft;
+    if (rect.left + 220 > window.innerWidth) {
+      leftPos = rect.right + scrollLeft - 220;
+    }
+
+    rMenu.style.position = "absolute";
+    rMenu.style.left = `${Math.max(10, leftPos)}px`;
+    rMenu.style.top = `${rect.bottom + scrollTop + 8}px`;
+    rMenu.style.zIndex = "9999";
+    
+    if (rMenu.parentElement !== document.body) {
+      document.body.appendChild(rMenu);
+    }
+  };
+
+  const closeDropdown = () => {
+    if (activeBtn) {
+      activeBtn.classList.remove("open");
+      activeBtn = null;
+    }
+    rMenu?.classList.remove("open");
+  };
+
+  const mainReleaseBtn = document.getElementById("release-play-btn");
+  if (mainReleaseBtn && rMenu) {
+    mainReleaseBtn.addEventListener("click", (e) => {
+      toggleDropdown(mainReleaseBtn, e);
     });
   }
+
+  document.querySelectorAll(".mini-listen-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      toggleDropdown(btn, e);
+    });
+  });
+
+  document.addEventListener("click", (e) => {
+    if (activeBtn && !activeBtn.contains(e.target) && rMenu && !rMenu.contains(e.target)) {
+      closeDropdown();
+    }
+  });
+
+  window.addEventListener("resize", closeDropdown);
+  window.addEventListener("scroll", closeDropdown);
+  document.getElementById("mini-grid")?.addEventListener("scroll", closeDropdown);
 
   // Carousel scroll controls
   const miniGrid = document.getElementById("mini-grid");
@@ -377,8 +425,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (current === i) toggle(); else loadTrack(i, true);
   }));
 
-  // Mini card play & listen buttons
-  document.querySelectorAll(".mini-play-btn, .mini-listen-btn").forEach(btn => {
+  // Mini card play buttons
+  document.querySelectorAll(".mini-play-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
       const idx = Math.min(parseInt(btn.dataset.index) || 0, tracks.length - 1);
