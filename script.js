@@ -269,20 +269,7 @@ document.addEventListener("DOMContentLoaded", () => {
     stickyPlayer?.classList.toggle("playing", isPlaying);
     spEq?.classList.toggle("playing", isPlaying);
 
-    // Release play button (Out Now section)
-    const rBtn = document.getElementById("release-play-btn");
-    if (rBtn) {
-      const rPlay  = rBtn.querySelector(".icon-play");
-      const rPause = rBtn.querySelector(".icon-pause");
-      const rLabel = rBtn.querySelector(".btn-label");
-      if (isPlaying && current === 0) {
-        hide(rPlay); show(rPause);
-        if (rLabel) rLabel.textContent = "Pause";
-      } else {
-        show(rPlay); hide(rPause);
-        if (rLabel) rLabel.textContent = "Listen Now";
-      }
-    }
+    // Release play button (Out Now section) is now handled as a dropdown toggle.
 
     // Reveal sticky player on first play
     if (isPlaying && !stickyActivated && stickyPlayer) {
@@ -353,18 +340,45 @@ document.addEventListener("DOMContentLoaded", () => {
   spPrev?.addEventListener("click", prev);
   spNext?.addEventListener("click", next);
 
-  // Out Now play button
-  document.getElementById("release-play-btn")?.addEventListener("click", () => {
-    if (current === 0) toggle(); else loadTrack(0, true);
-  });
+  // Out Now dropdown toggle
+  const rBtn = document.getElementById("release-play-btn");
+  const rMenu = document.getElementById("release-dropdown-menu");
+  if (rBtn && rMenu) {
+    rBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = rMenu.classList.contains("open");
+      rMenu.classList.toggle("open", !isOpen);
+      rBtn.classList.toggle("open", !isOpen);
+    });
+    document.addEventListener("click", (e) => {
+      if (!rBtn.contains(e.target) && !rMenu.contains(e.target)) {
+        rMenu.classList.remove("open");
+        rBtn.classList.remove("open");
+      }
+    });
+  }
+
+  // Carousel scroll controls
+  const miniGrid = document.getElementById("mini-grid");
+  const prevBtnCarousel = document.getElementById("carousel-prev");
+  const nextBtnCarousel = document.getElementById("carousel-next");
+  if (miniGrid && prevBtnCarousel && nextBtnCarousel) {
+    const scrollAmount = 338;
+    prevBtnCarousel.addEventListener("click", () => {
+      miniGrid.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+    });
+    nextBtnCarousel.addEventListener("click", () => {
+      miniGrid.scrollBy({ left: scrollAmount, behavior: "smooth" });
+    });
+  }
 
   // Playlist row clicks
   plRows.forEach((row, i) => row.addEventListener("click", () => {
     if (current === i) toggle(); else loadTrack(i, true);
   }));
 
-  // Mini card play buttons
-  document.querySelectorAll(".mini-play-btn").forEach(btn => {
+  // Mini card play & listen buttons
+  document.querySelectorAll(".mini-play-btn, .mini-listen-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
       const idx = Math.min(parseInt(btn.dataset.index) || 0, tracks.length - 1);
