@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/98338ea4-562c-4d1e-b996-b7c6d488c06d>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 77761ca4-35c9-41dc-a954-ba4fd22a628d
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 77761ca4-35c9-41dc-a954-ba4fd22a628d
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 30d6e043-9e81-4161-be56-8eb384e8aaa2
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/30d6e043-9e81-4161-be56-8eb384e8aaa2>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: 611634ba-4a04-4db2-a42b-7b38f2f3a577
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    keyActiveColor: false
+    keyDefaultColor: false
+    rippleCircles: false
+    synthAudioPlayer: false
+    synthKeys: false
+    synthNotes: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - synthKeys: !<reference.Image[]>
+        []
+      keyDefaultColor: !<Vec4> {x: 1.000000, y: 1.000000, z: 1.000000, w: 0.600000}
+      keyActiveColor: !<Vec4> {x: 0.000000, y: 1.000000, z: 0.900000, w: 1.000000}
+      synthAudioPlayer: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      synthNotes: !<reference.AudioTrackAsset[]>
+        []
+      rippleCircles: !<reference.Image[]>
+        []
+  ScriptTypes:
+    -
+      {}

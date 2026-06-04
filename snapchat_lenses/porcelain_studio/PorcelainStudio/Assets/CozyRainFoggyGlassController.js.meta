@@ -1,0 +1,52 @@
+- !<AssetImportMetadata/589b90d7-0420-46e4-9a3d-d956cb66eb80>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> fc1c612f-5566-4eab-b270-5c4e087145cc
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> fc1c612f-5566-4eab-b270-5c4e087145cc
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 18b02b6f-9db1-4f8a-8d1d-2109de3b1821
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/18b02b6f-9db1-4f8a-8d1d-2109de3b1821>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: 0c442f00-8d35-47bf-9ec0-dbbc49f53ff7
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    clearCirclesPool: false
+    foggyGlassImage: false
+    lofiPlayer: false
+    lofiPlaylist: false
+    refogRate: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - foggyGlassImage: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      clearCirclesPool: !<reference.Image[]>
+        []
+      lofiPlayer: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      lofiPlaylist: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      refogRate: 0.200000
+  ScriptTypes:
+    -
+      {}

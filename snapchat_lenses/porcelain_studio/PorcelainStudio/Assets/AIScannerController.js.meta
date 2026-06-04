@@ -1,0 +1,51 @@
+- !<AssetImportMetadata/6868b0bc-a2c6-4449-86a2-76f9db02c4da>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> df52237d-5237-4a80-aa0d-183d570f6beb
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> df52237d-5237-4a80-aa0d-183d570f6beb
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 2c1e2221-5616-4399-9569-bc95fc4cd87b
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/2c1e2221-5616-4399-9569-bc95fc4cd87b>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: b69ba54f-d892-41cd-8e3a-828a354efcff
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    scanDoneSFX: false
+    scanTickSFX: false
+    scannerAudio: false
+    scannerGrid: false
+    statusText: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - scannerGrid: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      statusText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      scannerAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      scanTickSFX: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      scanDoneSFX: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

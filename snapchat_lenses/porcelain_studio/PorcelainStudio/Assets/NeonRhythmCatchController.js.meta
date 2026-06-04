@@ -1,0 +1,60 @@
+- !<AssetImportMetadata/9638e3d2-1e9c-499c-87bf-d4aec18d006a>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 8ef7f26a-0543-4fc8-bf4a-017b410a47de
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 8ef7f26a-0543-4fc8-bf4a-017b410a47de
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> d63761a9-ff2c-460e-a4e3-149620ea75d3
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/d63761a9-ff2c-460e-a4e3-149620ea75d3>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: 4f5e0615-ce00-4c79-8941-1eb6e747a519
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    bucketObject: false
+    catchSFX: false
+    crashSFX: false
+    livesText: false
+    noteBaseSpeed: false
+    notesPool: false
+    scoreText: false
+    sfxComponent: false
+    tiltSensitivity: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - bucketObject: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      notesPool: !<reference.Image[]>
+        []
+      scoreText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      livesText: !<reference.Text> 00000000-0000-0000-0000-000000000000
+      sfxComponent: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      catchSFX: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      crashSFX: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      noteBaseSpeed: 0.800000
+      tiltSensitivity: 1.800000
+  ScriptTypes:
+    -
+      {}

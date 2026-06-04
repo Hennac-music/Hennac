@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/c368421b-876e-4112-bf72-e49d63084708>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 9eeb814f-ba2f-4846-a779-b1b3166f8571
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 9eeb814f-ba2f-4846-a779-b1b3166f8571
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 125db6b9-f7fe-4cb6-9a3d-a6b6a8950c97
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/125db6b9-f7fe-4cb6-9a3d-a6b6a8950c97>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: b3cf1432-fcd0-4192-91e2-83908e6c3fbc
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    clayMaterial: false
+    deformationScale: false
+    dynamicSfxComponent: false
+    faceMeshVisual: false
+    squishSound: false
+    targetFPS: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - faceMeshVisual: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      clayMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      targetFPS: !<float> 8.000000
+      deformationScale: 1.200000
+      dynamicSfxComponent: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      squishSound: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

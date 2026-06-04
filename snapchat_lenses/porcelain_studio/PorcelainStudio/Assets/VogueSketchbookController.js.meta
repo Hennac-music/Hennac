@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/0febe971-f1b6-4080-8a41-c68a733f029d>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> f412b2ad-904e-4794-97dc-6beec6caa265
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> f412b2ad-904e-4794-97dc-6beec6caa265
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> cfcc66c5-26b6-4652-9ac9-93e68586fd4c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/cfcc66c5-26b6-4652-9ac9-93e68586fd4c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: 31fe418c-fbfd-4c5a-8fa1-09ee624400b2
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cameraShutterPlayer: false
+    cameraShutterSound: false
+    polaroidFrame: false
+    sketchPostEffect: false
+    snapFreezeDuration: false
+    snapshotFlashOverlay: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - sketchPostEffect: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      snapshotFlashOverlay: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      polaroidFrame: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      cameraShutterPlayer: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      cameraShutterSound: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      snapFreezeDuration: !<float> 2.000000
+  ScriptTypes:
+    -
+      {}

@@ -7,38 +7,113 @@ document.addEventListener("DOMContentLoaded", () => {
   if (canvas) {
     const ctx = canvas.getContext("2d");
     let particles = [];
-    const resize = () => { canvas.width = innerWidth; canvas.height = innerHeight; };
+    let mouse = { x: null, y: null, radius: 120 };
+
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
     resize();
     window.addEventListener("resize", resize, { passive: true });
 
-    const COLORS = ["rgba(201,123,69,", "rgba(168,85,247,", "rgba(236,72,153,", "rgba(255,255,255,"];
-    const spawn = () => ({
-      x: Math.random() * canvas.width,
-      y: canvas.height + 10,
-      vx: (Math.random() - 0.5) * 0.4,
-      vy: -(Math.random() * 0.5 + 0.2),
-      r: Math.random() * 1.4 + 0.4,
-      alpha: Math.random() * 0.4 + 0.1,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)]
-    });
+    // Track mouse position for interactive star flow
+    window.addEventListener("mousemove", (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    }, { passive: true });
 
-    for (let i = 0; i < 55; i++) {
-      const p = spawn();
-      p.y = Math.random() * canvas.height;
-      particles.push(p);
+    window.addEventListener("mouseleave", () => {
+      mouse.x = null;
+      mouse.y = null;
+    }, { passive: true });
+
+    // Cosmic colors: Gold, amber, white, and subtle purple/pink highlights
+    const COLORS = [
+      "rgba(255, 213, 79, ",   // Gold
+      "rgba(251, 191, 36, ",   // Amber
+      "rgba(255, 255, 255, ",  // White
+      "rgba(168, 85, 247, ",   // Purple
+      "rgba(236, 72, 153, "    // Pink
+    ];
+
+    const spawn = (isInit = false) => {
+      const depth = Math.random(); // 0 (far/slow) to 1 (near/fast)
+      return {
+        x: Math.random() * canvas.width,
+        y: isInit ? Math.random() * canvas.height : canvas.height + 10,
+        baseVx: (Math.random() - 0.5) * 0.2 * (depth + 0.2),
+        baseVy: -(Math.random() * 0.4 + 0.1) * (depth + 0.2),
+        vx: 0,
+        vy: 0,
+        r: Math.random() * 1.5 * (depth + 0.3) + 0.4,
+        alpha: Math.random() * 0.5 + 0.2,
+        phase: Math.random() * Math.PI * 2,
+        phaseSpeed: Math.random() * 0.02 + 0.005,
+        color: COLORS[Math.floor(Math.random() * COLORS.length)],
+        depth: depth,
+        angle: Math.random() * Math.PI * 2,
+        angleSpeed: Math.random() * 0.01 - 0.005
+      };
+    };
+
+    const maxParticles = 85;
+    for (let i = 0; i < maxParticles; i++) {
+      particles.push(spawn(true));
     }
 
     const tick = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      if (particles.length < 55) particles.push(spawn());
-      particles = particles.filter(p => p.y > -10);
+
+      while (particles.length < maxParticles) {
+        particles.push(spawn(false));
+      }
+
+      particles = particles.filter(p => p.y > -20 && p.x > -20 && p.x < canvas.width + 20);
+
       particles.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
+        p.phase += p.phaseSpeed;
+        p.angle += p.angleSpeed;
+
+        const currentAlpha = Math.max(0.05, p.alpha + Math.sin(p.phase) * 0.15);
+
+        let targetVx = p.baseVx + Math.sin(p.angle) * 0.08;
+        let targetVy = p.baseVy;
+
+        if (mouse.x !== null && mouse.y !== null) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < mouse.radius) {
+            const force = (mouse.radius - dist) / mouse.radius;
+            const angle = Math.atan2(dy, dx);
+            targetVx += Math.cos(angle) * force * 1.2 * (p.depth + 0.5);
+            targetVy += Math.sin(angle) * force * 1.2 * (p.depth + 0.5);
+          }
+        }
+
+        p.vx += (targetVx - p.vx) * 0.08;
+        p.vy += (targetVy - p.vy) * 0.08;
+
+        p.x += p.vx;
+        p.y += p.vy;
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `${p.color}${p.alpha})`;
+        
+        if (p.depth > 0.7) {
+          ctx.fillStyle = `${p.color}${currentAlpha * 0.45})`;
+          ctx.fill();
+          
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r * 0.6, 0, Math.PI * 2);
+          ctx.fillStyle = `${p.color}${currentAlpha})`;
+        } else {
+          ctx.fillStyle = `${p.color}${currentAlpha})`;
+        }
         ctx.fill();
       });
+
       requestAnimationFrame(tick);
     };
     tick();
@@ -135,7 +210,16 @@ document.addEventListener("DOMContentLoaded", () => {
   // 6. COUNTDOWN TIMERS
   // ==========================================
   document.querySelectorAll(".countdown").forEach(cd => {
-    const target = new Date(cd.getAttribute("data-date")).getTime();
+    const dateStr = cd.getAttribute("data-date");
+    if (!dateStr || dateStr.trim() === "") {
+      cd.style.display = "none";
+      return;
+    }
+    const target = new Date(dateStr).getTime();
+    if (isNaN(target)) {
+      cd.style.display = "none";
+      return;
+    }
     const pad = n => String(Math.floor(n)).padStart(2, "0");
     const tick = () => {
       const diff = target - Date.now();
@@ -151,6 +235,33 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     tick(); setInterval(tick, 1000);
   });
+
+  // Hero platform dropdown toggling
+  const moreBtn = document.getElementById("hero-more-btn");
+  const moreDropdown = document.getElementById("hero-more-dropdown");
+  if (moreBtn && moreDropdown) {
+    moreBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = moreDropdown.classList.contains("open");
+      if (isOpen) {
+        moreDropdown.classList.remove("open");
+        moreDropdown.setAttribute("aria-hidden", "true");
+        moreBtn.setAttribute("aria-expanded", "false");
+      } else {
+        moreDropdown.classList.add("open");
+        moreDropdown.setAttribute("aria-hidden", "false");
+        moreBtn.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!moreBtn.contains(e.target) && !moreDropdown.contains(e.target)) {
+        moreDropdown.classList.remove("open");
+        moreDropdown.setAttribute("aria-hidden", "true");
+        moreBtn.setAttribute("aria-expanded", "false");
+      }
+    });
+  }
 
   // ==========================================
   // 7. GALLERY LIGHTBOX

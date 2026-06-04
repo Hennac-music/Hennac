@@ -1,0 +1,60 @@
+- !<AssetImportMetadata/cce312be-4c12-45a8-aad2-bf5be90a491e>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> e42d4b32-24af-4572-9fc9-002bb818f1ed
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> e42d4b32-24af-4572-9fc9-002bb818f1ed
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 4890ba22-afe0-4c0b-985e-36fa02ba671f
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/4890ba22-afe0-4c0b-985e-36fa02ba671f>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: 52bc4241-1d2e-4413-a91f-ef05912f3106
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    audioComponent: false
+    baseFaceMaskOpacity: false
+    baseOverlayOpacity: false
+    colorFilterOverlay: false
+    faceFadeSpeed: false
+    faceMask: false
+    musicTracks: false
+    pulseRange: false
+    pulseSpeed: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - colorFilterOverlay: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      faceMask: !<reference.FaceMaskVisual> 00000000-0000-0000-0000-000000000000
+      audioComponent: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      musicTracks: !<reference.AudioTrackAsset[]>
+        []
+      pulseSpeed: !<float> 1.000000
+      pulseRange: 0.080000
+      baseOverlayOpacity: 0.250000
+      baseFaceMaskOpacity: 0.450000
+      faceFadeSpeed: !<float> 3.000000
+  ScriptTypes:
+    -
+      {}

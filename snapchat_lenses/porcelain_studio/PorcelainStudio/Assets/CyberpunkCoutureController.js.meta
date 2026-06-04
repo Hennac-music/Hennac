@@ -1,0 +1,56 @@
+- !<AssetImportMetadata/a43232db-9f51-4ab6-8688-93686a4db697>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> e1cc4d12-9b93-41c2-9aca-6263f65792ac
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> e1cc4d12-9b93-41c2-9aca-6263f65792ac
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 003ee16e-7afa-41a3-982a-d98865ad00d3
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/003ee16e-7afa-41a3-982a-d98865ad00d3>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: 9f967d16-f8dd-4709-b1e7-91e0e747dfdf
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    cameraGlitchOverlay: false
+    facePaintMask: false
+    glitchDuration: false
+    glitchSound: false
+    glitchSoundPlayer: false
+    neonPalettes: false
+    paintFadeSpeed: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - facePaintMask: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      neonPalettes: !<Vec4[]>
+        []
+      cameraGlitchOverlay: !<reference.Image> 00000000-0000-0000-0000-000000000000
+      glitchSoundPlayer: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      glitchSound: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      glitchDuration: 0.350000
+      paintFadeSpeed: !<float> 4.000000
+  ScriptTypes:
+    -
+      {}

@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/cdd0ecb2-85dc-4734-9efc-1474e399e9fe>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> f7b56bb6-54c4-4a16-ad15-af9cd2d51469
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> f7b56bb6-54c4-4a16-ad15-af9cd2d51469
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 038821ba-936c-4581-9399-66fdc9ca68dc
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/038821ba-936c-4581-9399-66fdc9ca68dc>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: 8b528df7-67fb-40ed-b559-2ff591b0316e
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    bubbleGlassMaterial: false
+    bubbleMesh: false
+    bubbleParticleOverlay: false
+    popSound: false
+    popSoundPlayer: false
+    stretchSensitivity: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - bubbleMesh: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      bubbleGlassMaterial: !<reference.Material> 00000000-0000-0000-0000-000000000000
+      stretchSensitivity: 1.500000
+      popSoundPlayer: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      popSound: !<reference.AudioTrackAsset> 00000000-0000-0000-0000-000000000000
+      bubbleParticleOverlay: !<reference.Image> 00000000-0000-0000-0000-000000000000
+  ScriptTypes:
+    -
+      {}

@@ -1,0 +1,42 @@
+- !<ObjectPrefab/02ae9935-5cf9-40b8-a3e4-08853417c960>
+  PackagePath: ""
+  objects:
+    - !<own> 7dadf736-4158-4d32-a4f3-c4775ec0c11a
+  LazyLoading: false
+  RetainAssets: true
+  PreviewEnvironment: !<reference> 00000000-0000-0000-0000-000000000000
+- !<SceneObject/7dadf736-4158-4d32-a4f3-c4775ec0c11a>
+  PrefabRemaps:
+    - 7dadf736-4158-4d32-a4f3-c4775ec0c11a: 7dadf736-4158-4d32-5b0c-3b88a13f3ee5
+    - cf8d416f-b7bc-4049-a338-e37628f8ca09: cf8d416f-b7bc-4049-5cc7-1c89d70735f6
+  Name: "Bitmoji Crowds[Try Stretching Horizontally!]"
+  Enabled: true
+  Layers: 1
+  LocalTransform: !<TransformEntity>
+    Position: {x: 0.000000, y: 5.000000, z: 0.000000}
+    Rotation: {x: 0.000000, y: 0.000000, z: 0.000000}
+    Scale: {x: 10.000000, y: 10.000000, z: 10.000000}
+    HasSegmentScaleCompensation: false
+  Children:
+    []
+  Components:
+    - !<own> cf8d416f-b7bc-4049-a338-e37628f8ca09
+- !<Image/cf8d416f-b7bc-4049-a338-e37628f8ca09>
+  PrefabRemaps:
+    []
+  Name: Image
+  Enabled: true
+  RenderOrder: 0
+  StretchMode: Stretch
+  VerticalAlignment: Center
+  HorizontalAlignment: Center
+  MeshShadowMode: None
+  ShadowColor: {x: 1.000000, y: 1.000000, z: 1.000000, w: 1.000000}
+  ShadowDensity: 1.000000
+  Materials:
+    - !<reference> cdb0a937-4531-4740-aacb-fdfe1ee3890b
+  FlipX: false
+  FlipY: false
+  RotationAngle: 0
+  Pivot: {x: 0.000000, y: 0.000000}
+  ExtentsTarget: !<reference> 00000000-0000-0000-0000-000000000000

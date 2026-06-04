@@ -1,0 +1,53 @@
+- !<AssetImportMetadata/c58a1b07-b3af-41e8-91de-5013f1a8d21d>
+  ImportedAssetIds:
+    JavaScriptAsset: !<reference> 54cb53d1-f64b-4df4-9db3-81faf01ed97a
+  ImporterName: JavaScriptAssetImporter
+  PrimaryAsset: !<reference> 54cb53d1-f64b-4df4-9db3-81faf01ed97a
+  PackageType: NotAPackage
+  LegacyPackagePolicy: ~
+  ExtraData:
+    {}
+  AssetDataMap:
+    JavaScriptAsset: !<own> 39b8d1f5-2a2e-43e1-8d96-91abd5472a8c
+  DependentFiles:
+    []
+  ImporterSettings: !<AssetImporterSettings>
+    {}
+  CompressionSettings: !<own> 00000000-0000-0000-0000-000000000000
+- !<ScriptAssetData/39b8d1f5-2a2e-43e1-8d96-91abd5472a8c>
+  SvgIcon: ""
+  SetupScript:
+    code: ""
+  Description: ""
+  VersionMajor: 0
+  VersionMinor: 0
+  VersionPatch: 0
+  VersionPrerelease: ""
+  ComponentUid: eba17b57-4a31-4730-86bb-3aede6c6b8fe
+  ExportUid: 00000000-0000-0000-0000-000000000000
+  PackagePolicy: CanBeUnpacked
+  ScriptInputsHidden:
+    crossDistance: false
+    deviceTracking: false
+    insideAudio: false
+    outsideAudio: false
+    portalDoorMesh: false
+    studioInsideMesh: false
+  ScriptTypesHidden:
+    {}
+  ReadMe: !<reference> 00000000-0000-0000-0000-000000000000
+  DeclarationFile: !<reference> 00000000-0000-0000-0000-000000000000
+  Tags:
+    []
+  Attachments:
+    []
+  DefaultScriptInputs:
+    - deviceTracking: !<reference.DeviceTracking> 00000000-0000-0000-0000-000000000000
+      portalDoorMesh: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      studioInsideMesh: !<reference.RenderMeshVisual> 00000000-0000-0000-0000-000000000000
+      outsideAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      insideAudio: !<reference.AudioComponent> 00000000-0000-0000-0000-000000000000
+      crossDistance: !<float> 120.000000
+  ScriptTypes:
+    -
+      {}
