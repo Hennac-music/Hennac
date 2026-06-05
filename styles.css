@@ -603,12 +603,12 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 
 /* Bounce: moves title up/down */
 @keyframes hero-bounce {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-8px); }
+  0%, 100% { transform: scaleY(1.32) scaleX(0.88) translateY(0px); }
+  50%       { transform: scaleY(1.32) scaleX(0.88) translateY(-6px); }
 }
 
 .hero-title {
-  font-family: "Cinzel", Georgia, serif;
+  font-family: "Bodoni Moda", "Cinzel", Georgia, serif;
   font-size: clamp(4.5rem, 11vw, 8.5rem);
   font-weight: 800;
   letter-spacing: 0.05em;
