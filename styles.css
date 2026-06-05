@@ -739,7 +739,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .spotify-logo-puck    { background: #1DB954; color: #0c0a0f; }
 .apple-logo-puck      { background: linear-gradient(135deg, #fc3c54, #fa233b); color: #fff; border-radius: 7px; }
 .youtube-logo-puck    { background: #FF0000; color: #fff; }
-.tidal-logo-puck      { background: #000000; color: #00f0ff; }
+.tidal-logo-puck      { background: #000000; color: #ffffff; }
 .deezer-logo-puck     { background: #121216; color: #ff007f; }
 .audiomack-logo-puck  { background: #ffa200; color: #0c0a0f; }
 
