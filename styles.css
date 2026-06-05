@@ -604,7 +604,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 /* Bounce: moves title up/down */
 @keyframes hero-bounce {
   0%, 100% { transform: scaleY(1.32) scaleX(0.88) translateY(0px); }
-  50%       { transform: scaleY(1.32) scaleX(0.88) translateY(-6px); }
+  50%       { transform: scaleY(1.32) scaleX(0.88) translateY(-2px); }
 }
 
 .hero-title {
@@ -627,14 +627,13 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* Premium gold metallic beveling text-shadow */
+  /* Premium gold metallic beveling + sharp outline glow text-shadow */
   text-shadow: 
     0 1px 0 #9c731e,
     0 2px 0 #855f14,
-    0 3px 0 #6e4e0b,
-    0 4px 6px rgba(0,0,0,0.7),
-    0 0 25px rgba(212, 175, 55, 0.4),
-    0 0 50px rgba(212, 175, 55, 0.15);
+    0 0 6px rgba(255, 213, 79, 0.7),     /* Sharp gold outline glow */
+    0 0 20px rgba(212, 175, 55, 0.4),    /* Soft gold background glow */
+    0 4px 8px rgba(0,0,0,0.8);           /* Deep drop shadow for high readability */
   animation: hero-bounce 4.5s ease-in-out infinite;
   margin-bottom: 1.2rem;
   will-change: transform;
