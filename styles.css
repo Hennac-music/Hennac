@@ -601,6 +601,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 
 /* Static taller and sharper transform */
 .hero-title {
+  position: relative;
   font-family: "Bodoni Moda", "Cinzel", Georgia, serif;
   font-size: clamp(4.5rem, 11vw, 8.5rem);
   font-weight: 800;
@@ -620,18 +621,33 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* Subtle 3D bevel text shadow */
-  text-shadow: 
-    0 1px 0 #9c731e,
-    0 2px 0 #855f14;
   transform: scaleY(1.32) scaleX(0.88);
   transform-origin: center;
   margin-bottom: 1.2rem;
-  /* Multi-layered filter: subtle golden outline glow + soft ambient halo + deep backing shadow */
-  filter: 
-    drop-shadow(0 0 3px rgba(252, 210, 100, 0.6))
-    drop-shadow(0 0 10px rgba(188, 142, 47, 0.4))
-    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9));
+  z-index: 1;
+}
+
+/* Sharp outer gold outline edge + 3D extrusion under the main text */
+.hero-title::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  -webkit-text-stroke: 2.5px #ffd54f;
+  -webkit-text-fill-color: #8d6610;
+  color: #8d6610;
+  /* Stacked sharp shadows for 3D depth + dark base shadow */
+  text-shadow: 
+    0 1px 0 #9c731e,
+    0 2px 0 #855f14,
+    0 3px 0 #6e4e0b,
+    0 4px 0 #563c07,
+    0 5px 0 #3f2a03,
+    0 6px 10px rgba(0, 0, 0, 0.95);
+  pointer-events: none;
 }
 
 .hero-sub {
