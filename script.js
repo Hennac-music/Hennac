@@ -236,32 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tick(); setInterval(tick, 1000);
   });
 
-  // Hero platform dropdown toggling
-  const moreBtn = document.getElementById("hero-more-btn");
-  const moreDropdown = document.getElementById("hero-more-dropdown");
-  if (moreBtn && moreDropdown) {
-    moreBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      const isOpen = moreDropdown.classList.contains("open");
-      if (isOpen) {
-        moreDropdown.classList.remove("open");
-        moreDropdown.setAttribute("aria-hidden", "true");
-        moreBtn.setAttribute("aria-expanded", "false");
-      } else {
-        moreDropdown.classList.add("open");
-        moreDropdown.setAttribute("aria-hidden", "false");
-        moreBtn.setAttribute("aria-expanded", "true");
-      }
-    });
 
-    document.addEventListener("click", (e) => {
-      if (!moreBtn.contains(e.target) && !moreDropdown.contains(e.target)) {
-        moreDropdown.classList.remove("open");
-        moreDropdown.setAttribute("aria-hidden", "true");
-        moreBtn.setAttribute("aria-expanded", "false");
-      }
-    });
-  }
 
   // ==========================================
   // 7. GALLERY LIGHTBOX

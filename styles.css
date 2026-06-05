@@ -736,15 +736,12 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 }
 
 /* Flat official brand colors — clean, no dome */
-.spotify-logo-puck  { background: #1DB954; color: #0c0a0f; }
-.apple-logo-puck    { background: linear-gradient(135deg, #fc3c54, #fa233b); color: #fff; border-radius: 7px; }
-.youtube-logo-puck  { background: #FF0000; color: #fff; }
-.more-logo-puck     { background: transparent; }
-.more-logo-puck .dots-icon {
-  font-size: 8px;
-  letter-spacing: 1px;
-  color: #ffd54f;
-}
+.spotify-logo-puck    { background: #1DB954; color: #0c0a0f; }
+.apple-logo-puck      { background: linear-gradient(135deg, #fc3c54, #fa233b); color: #fff; border-radius: 7px; }
+.youtube-logo-puck    { background: #FF0000; color: #fff; }
+.tidal-logo-puck      { background: #000000; color: #00f0ff; }
+.deezer-logo-puck     { background: #121216; color: #ff007f; }
+.audiomack-logo-puck  { background: #ffa200; color: #0c0a0f; }
 
 /* Hover effects */
 .platform-capsule:hover {
@@ -818,56 +815,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   }
 }
 
-/* Dropdown Menu for More Capsule */
-.more-capsule {
-  position: relative;
-}
 
-.hero-more-dropdown {
-  position: absolute;
-  bottom: calc(100% + 12px);
-  left: 50%;
-  transform: translateX(-50%) translateY(10px);
-  background: rgba(15, 15, 15, 0.85);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(178, 122, 51, 0.4);
-  border-radius: 12px;
-  padding: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  min-width: 140px;
-  z-index: 100;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s var(--ease);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-}
-
-.hero-more-dropdown.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translateX(-50%) translateY(0);
-}
-
-.hero-more-dropdown .dropdown-item {
-  font-family: "Outfit", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  color: #fffcf0;
-  padding: 8px 12px;
-  border-radius: 8px;
-  text-decoration: none;
-  text-align: center;
-  transition: all 0.2s ease;
-}
-
-.hero-more-dropdown .dropdown-item:hover {
-  background: rgba(178, 122, 51, 0.2);
-  color: #ffd54f;
-}
 
 /* Scroll progress bar */
 .scroll-progress-bar {
