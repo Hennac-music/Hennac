@@ -599,14 +599,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
     0 0 35px #ffd54f;
 }
 
-/* Hero H1 — Elegant 3D bevel metallic gold serif */
-
-/* Bounce: moves title up/down */
-@keyframes hero-bounce {
-  0%, 100% { transform: scaleY(1.32) scaleX(0.88) translateY(0px); }
-  50%       { transform: scaleY(1.32) scaleX(0.88) translateY(-2px); }
-}
-
+/* Static taller and sharper transform */
 .hero-title {
   font-family: "Bodoni Moda", "Cinzel", Georgia, serif;
   font-size: clamp(4.5rem, 11vw, 8.5rem);
@@ -627,17 +620,18 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  /* Premium gold metallic beveling + sharp outline glow text-shadow */
+  /* Subtle 3D bevel text shadow */
   text-shadow: 
     0 1px 0 #9c731e,
-    0 2px 0 #855f14,
-    0 0 6px rgba(255, 213, 79, 0.7),     /* Sharp gold outline glow */
-    0 0 20px rgba(212, 175, 55, 0.4),    /* Soft gold background glow */
-    0 4px 8px rgba(0,0,0,0.8);           /* Deep drop shadow for high readability */
-  animation: hero-bounce 4.5s ease-in-out infinite;
+    0 2px 0 #855f14;
+  transform: scaleY(1.32) scaleX(0.88);
+  transform-origin: center;
   margin-bottom: 1.2rem;
-  will-change: transform;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.8));
+  /* Multi-layered filter: subtle golden outline glow + soft ambient halo + deep backing shadow */
+  filter: 
+    drop-shadow(0 0 3px rgba(252, 210, 100, 0.6))
+    drop-shadow(0 0 10px rgba(188, 142, 47, 0.4))
+    drop-shadow(0 4px 8px rgba(0, 0, 0, 0.9));
 }
 
 .hero-sub {
