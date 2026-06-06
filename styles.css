@@ -678,6 +678,35 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   text-shadow: 0 0 10px rgba(204, 164, 80, 0.2);
 }
 
+/* ── Hero Logo Heading & Image ── */
+.hero-logo-heading {
+  margin-top: 1rem;
+  margin-bottom: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.hero-logo-img {
+  max-width: min(90vw, 680px);
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.25));
+  animation: logo-glow-pulse 6s infinite alternate ease-in-out;
+  transform: translateZ(0);
+}
+@keyframes logo-glow-pulse {
+  0% {
+    filter: drop-shadow(0 0 12px rgba(212, 175, 55, 0.2)) drop-shadow(0 0 2px rgba(212, 175, 55, 0.1));
+    transform: scale(0.99) translateZ(0);
+  }
+  100% {
+    filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.5)) drop-shadow(0 0 8px rgba(255, 213, 79, 0.25));
+    transform: scale(1.02) translateZ(0);
+  }
+}
+
+
 
 /* ── Capsule Platforms ── */
 .capsule-platforms {
