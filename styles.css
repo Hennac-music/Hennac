@@ -374,9 +374,10 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display: inline-block;
   width: 8px; height: 8px;
   border-radius: 50%;
-  background: var(--copper-hi);
-  box-shadow: 0 0 10px var(--copper-hi);
+  background: #f5a550;
+  box-shadow: 0 0 10px #f5a550;
   animation: live-blink 1.6s infinite;
+  -webkit-text-fill-color: initial;
 }
 @keyframes live-blink {
   0%,100% { opacity:1; }
@@ -590,13 +591,17 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: #f09b46;
-  text-shadow: 0 0 10px rgba(240, 155, 70, 0.4);
+  background: linear-gradient(to bottom, #f5a550 20%, #b46824 80%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: #f5a550; /* fallback */
+  text-shadow: 0 0 12px rgba(245, 165, 80, 0.25);
 }
 .hero-eyebrow-line {
   width: 160px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #ac5f1f, #f09b46, #ac5f1f, transparent);
+  background: linear-gradient(90deg, transparent, #ac5f1f, #f5a550, #ac5f1f, transparent);
   position: relative;
   margin-top: 4px;
 }
@@ -611,8 +616,8 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   border-radius: 50%;
   box-shadow: 
     0 0 8px #fff,
-    0 0 20px #f09b46,
-    0 0 35px #f09b46;
+    0 0 20px #f5a550,
+    0 0 35px #f5a550;
 }
 
 /* Static taller and sharper transform */
