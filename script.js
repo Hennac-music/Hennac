@@ -382,6 +382,46 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
+  // Decode and strip card 1 preview source immediately on page load (security lock)
+  const cardPreviewBtn = document.getElementById("electric-power-hoe-preview-btn");
+  let decodedCardSrc = "";
+  if (cardPreviewBtn) {
+    const rawSrc = cardPreviewBtn.dataset.src || "";
+    if (rawSrc) {
+      try {
+        decodedCardSrc = rawSrc.includes("/") ? rawSrc : atob(rawSrc);
+      } catch (e) {
+        console.error("Error decoding card preview source:", e);
+        decodedCardSrc = rawSrc;
+      }
+    }
+    cardPreviewBtn.removeAttribute("data-src");
+  }
+
+  const cardTrack = {
+    src: "",
+    title: "Electric Power Hoe (Preview)",
+    genre: "Single · R&B / Hip-Hop · 2026",
+    art: "assets/electric-power-hoe.png"
+  };
+  cardTrack.src = decodedCardSrc;
+
+  const syncCardPreviewBtn = (isPlaying) => {
+    if (!cardPreviewBtn) return;
+    const isThisPlaying = isPlaying && audio.src && audio.src.includes(decodedCardSrc);
+    if (isThisPlaying) {
+      cardPreviewBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: middle;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        Pause
+      `;
+    } else {
+      cardPreviewBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12" style="margin-right: 6px; vertical-align: middle;"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+        Preview
+      `;
+    }
+  };
+
   let current  = 0;
   let playing  = false;
   let stickyActivated = false;
@@ -420,6 +460,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sync banner preview button state
     syncBannerPreviewBtn(isPlaying);
+
+    // Sync card preview button state
+    syncCardPreviewBtn(isPlaying);
   };
 
   const loadTrack = (indexOrTrack, autoPlay = false) => {
@@ -587,13 +630,27 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Coming soon preview buttons
-  document.querySelectorAll(".uc-preview-btn").forEach(btn => {
+  // Coming soon preview buttons (only those with data-index)
+  document.querySelectorAll(".uc-preview-btn[data-index]").forEach(btn => {
     btn.addEventListener("click", () => {
       const idx = Math.min(parseInt(btn.dataset.index) || 0, tracks.length - 1);
       if (current === idx) toggle(); else loadTrack(idx, true);
     });
   });
+
+  // Card 1 preview snippet player (with secure closure source playback)
+  if (cardPreviewBtn) {
+    cardPreviewBtn.addEventListener("click", () => {
+      if (decodedCardSrc) {
+        const isThisLoaded = audio.src && audio.src.includes(decodedCardSrc);
+        if (isThisLoaded) {
+          toggle();
+        } else {
+          loadTrack(cardTrack, true);
+        }
+      }
+    });
+  }
 
   // Banner preview snippet player (with secure closure source playback)
   if (bannerPreviewBtn) {
