@@ -1,0 +1,13 @@
+# ----------------------------------------------------------------------
+# Hotlinking & Direct Audio Extraction Protection
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Prevent direct access to wav, mp3, ogg files unless referred by the official site or local dev domains.
+    # This also blocks empty referrers (e.g. typing URL directly, downloading outside of website).
+    RewriteCond %{HTTP_REFERER} !^https?://(www\.)?hcmusic\.live [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://localhost [NC]
+    RewriteCond %{HTTP_REFERER} !^https?://127\.0\.0\.1 [NC]
+    RewriteRule \.(wav|mp3|ogg)$ - [F,L]
+</IfModule>

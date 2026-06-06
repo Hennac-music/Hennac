@@ -317,15 +317,30 @@ document.addEventListener("DOMContentLoaded", () => {
   const spArtPh   = document.getElementById("sp-art-placeholder");
   const spEq      = document.getElementById("sp-eq");
 
-  // Build track list from playlist rows
+  // Build track list from playlist rows (supporting base64 path obfuscation)
   const plRows = document.querySelectorAll(".pl-row");
   const tracks  = [];
-  plRows.forEach(row => tracks.push({
-    src:   row.dataset.src   || "",
-    title: row.dataset.title || "[ Track Title ]",
-    genre: row.dataset.genre || "",
-    art:   row.dataset.art   || ""
-  }));
+  plRows.forEach(row => {
+    const rawSrc = row.dataset.src || "";
+    let src = "";
+    if (rawSrc) {
+      try {
+        // Decode base64 if it does not contain standard file slashes
+        src = rawSrc.includes("/") ? rawSrc : atob(rawSrc);
+      } catch (e) {
+        console.error("Error decoding track source:", e);
+        src = rawSrc;
+      }
+    }
+    tracks.push({
+      src:   src,
+      title: row.dataset.title || "[ Track Title ]",
+      genre: row.dataset.genre || "",
+      art:   row.dataset.art   || ""
+    });
+    // Strip data-src from the DOM element immediately to obfuscate it
+    row.removeAttribute("data-src");
+  });
 
   let current  = 0;
   let playing  = false;
@@ -592,6 +607,57 @@ document.addEventListener("DOMContentLoaded", () => {
       const top = target.getBoundingClientRect().top + scrollY - 90;
       window.scrollTo({ top, behavior: "smooth" });
     });
+  });
+
+  // ==========================================
+  // 10. CLIENT-SIDE SECURITY HARDENING
+  // ==========================================
+  
+  // Disable right-click context menu on key music players/elements to deter audio downloads
+  const protectedElements = [
+    document.getElementById("playlist"),
+    document.getElementById("player-shell"),
+    document.getElementById("sticky-player"),
+    document.querySelector(".artwork-area"),
+    document.querySelector(".album-cover")
+  ];
+  protectedElements.forEach(el => {
+    if (el) {
+      el.addEventListener("contextmenu", e => e.preventDefault());
+    }
+  });
+
+  // Deter dragging of media (images/audio elements) to prevent quick extraction
+  document.querySelectorAll("img, audio").forEach(el => {
+    el.addEventListener("dragstart", e => e.preventDefault());
+  });
+
+  // Disable common developer inspector & page saving shortcuts
+  window.addEventListener("keydown", e => {
+    // 1. Disable Ctrl+S / Cmd+S (Save Page)
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "s") {
+      e.preventDefault();
+    }
+    // 2. Disable Ctrl+U / Cmd+Option+U (View Source)
+    if ((e.ctrlKey && e.key.toLowerCase() === "u") || ((e.metaKey && e.altKey) && e.key.toLowerCase() === "u")) {
+      e.preventDefault();
+    }
+    // 3. Disable Ctrl+Shift+I / Cmd+Option+I (Inspect Element)
+    if (((e.ctrlKey && e.shiftKey) || (e.metaKey && e.altKey)) && e.key.toLowerCase() === "i") {
+      e.preventDefault();
+    }
+    // 4. Disable Ctrl+Shift+J / Cmd+Option+J (Developer Console)
+    if (((e.ctrlKey && e.shiftKey) || (e.metaKey && e.altKey)) && e.key.toLowerCase() === "j") {
+      e.preventDefault();
+    }
+    // 5. Disable Ctrl+Shift+C / Cmd+Option+C (Elements selector)
+    if (((e.ctrlKey && e.shiftKey) || (e.metaKey && e.altKey)) && e.key.toLowerCase() === "c") {
+      e.preventDefault();
+    }
+    // 6. Disable F12 (Inspect Element)
+    if (e.key === "F12") {
+      e.preventDefault();
+    }
   });
 
 });
