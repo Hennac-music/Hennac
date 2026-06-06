@@ -9,5 +9,5 @@
     RewriteCond %{HTTP_REFERER} !^https?://(www\.)?hcmusic\.live [NC]
     RewriteCond %{HTTP_REFERER} !^https?://localhost [NC]
     RewriteCond %{HTTP_REFERER} !^https?://127\.0\.0\.1 [NC]
-    RewriteRule \.(wav|mp3|ogg)$ - [F,L]
+    RewriteRule \.(wav|mp3|ogg|mp4|m4a)$ - [F,L]
 </IfModule>

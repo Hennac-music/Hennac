@@ -342,6 +342,46 @@ document.addEventListener("DOMContentLoaded", () => {
     row.removeAttribute("data-src");
   });
 
+  // Decode and strip banner preview source immediately on page load (security lock)
+  const bannerPreviewBtn = document.getElementById("banner-preview-btn");
+  let decodedBannerSrc = "";
+  if (bannerPreviewBtn) {
+    const rawSrc = bannerPreviewBtn.dataset.src || "";
+    if (rawSrc) {
+      try {
+        decodedBannerSrc = rawSrc.includes("/") ? rawSrc : atob(rawSrc);
+      } catch (e) {
+        console.error("Error decoding banner preview source:", e);
+        decodedBannerSrc = rawSrc;
+      }
+    }
+    bannerPreviewBtn.removeAttribute("data-src");
+  }
+
+  const bannerTrack = {
+    src: "",
+    title: "Was That Your Ass Or Mouth? (Preview)",
+    genre: "Single · Hip-Hop / Pop · 2026",
+    art: "assets/was-that-your-ass-or-mouth.png"
+  };
+  bannerTrack.src = decodedBannerSrc;
+
+  const syncBannerPreviewBtn = (isPlaying) => {
+    if (!bannerPreviewBtn) return;
+    const isThisPlaying = isPlaying && audio.src && audio.src.includes(decodedBannerSrc);
+    if (isThisPlaying) {
+      bannerPreviewBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="margin-right: 6px; vertical-align: middle;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+        Pause Preview
+      `;
+    } else {
+      bannerPreviewBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="margin-right: 6px; vertical-align: middle;"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+        Preview Snippet
+      `;
+    }
+  };
+
   let current  = 0;
   let playing  = false;
   let stickyActivated = false;
@@ -377,16 +417,28 @@ document.addEventListener("DOMContentLoaded", () => {
       stickyPlayer.classList.add("active");
       stickyActivated = true;
     }
+
+    // Sync banner preview button state
+    syncBannerPreviewBtn(isPlaying);
   };
 
-  const loadTrack = (index, autoPlay = false) => {
-    if (index < 0 || index >= tracks.length) return;
-    current = index;
-    const t = tracks[index];
+  const loadTrack = (indexOrTrack, autoPlay = false) => {
+    let t;
+    if (typeof indexOrTrack === "number") {
+      if (indexOrTrack < 0 || indexOrTrack >= tracks.length) return;
+      current = indexOrTrack;
+      t = tracks[indexOrTrack];
 
-    // Highlight active row
-    plRows.forEach(r => r.classList.remove("active"));
-    plRows[index]?.classList.add("active");
+      // Highlight active row
+      plRows.forEach(r => r.classList.remove("active"));
+      plRows[indexOrTrack]?.classList.add("active");
+    } else {
+      current = -1; // Special index for external/banner tracks
+      t = indexOrTrack;
+
+      // Clear active row highlight
+      plRows.forEach(r => r.classList.remove("active"));
+    }
 
     // Audio — skip if no src (Phase 1 placeholder)
     if (t.src && t.src.trim() !== "") {
@@ -543,23 +595,15 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Banner preview snippet player
-  const bannerPreviewBtn = document.getElementById("banner-preview-btn");
+  // Banner preview snippet player (with secure closure source playback)
   if (bannerPreviewBtn) {
     bannerPreviewBtn.addEventListener("click", () => {
-      const rawSrc = bannerPreviewBtn.dataset.src || "";
-      if (rawSrc) {
-        if (audio.src && audio.src.includes(rawSrc)) {
-          if (audio.paused) {
-            audio.play().then(() => syncUI(true)).catch(e => console.error("Banner play failed:", e));
-          } else {
-            audio.pause();
-            syncUI(false);
-          }
+      if (decodedBannerSrc) {
+        const isThisLoaded = audio.src && audio.src.includes(decodedBannerSrc);
+        if (isThisLoaded) {
+          toggle();
         } else {
-          audio.pause();
-          audio.src = rawSrc;
-          audio.play().then(() => syncUI(true)).catch(e => console.error("Banner play failed:", e));
+          loadTrack(bannerTrack, true);
         }
       }
     });
