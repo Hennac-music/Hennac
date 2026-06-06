@@ -543,6 +543,28 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Banner preview snippet player
+  const bannerPreviewBtn = document.getElementById("banner-preview-btn");
+  if (bannerPreviewBtn) {
+    bannerPreviewBtn.addEventListener("click", () => {
+      const rawSrc = bannerPreviewBtn.dataset.src || "";
+      if (rawSrc) {
+        if (audio.src && audio.src.includes(rawSrc)) {
+          if (audio.paused) {
+            audio.play().then(() => syncUI(true)).catch(e => console.error("Banner play failed:", e));
+          } else {
+            audio.pause();
+            syncUI(false);
+          }
+        } else {
+          audio.pause();
+          audio.src = rawSrc;
+          audio.play().then(() => syncUI(true)).catch(e => console.error("Banner play failed:", e));
+        }
+      }
+    });
+  }
+
   // Audio events
   audio.addEventListener("timeupdate", () => {
     if (!audio.duration) return;
