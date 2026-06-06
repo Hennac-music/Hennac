@@ -678,7 +678,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   text-shadow: 0 0 10px rgba(204, 164, 80, 0.2);
 }
 
-/* ── Hero Logo Heading & Image ── */
+/* ── Hero Logo Heading & Image with Shimmer ── */
 .hero-logo-heading {
   margin-top: 1rem;
   margin-bottom: 3.5rem;
@@ -687,13 +687,41 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   align-items: center;
   width: 100%;
 }
-.hero-logo-img {
+.logo-shimmer-wrapper {
+  position: relative;
+  display: inline-block;
   max-width: min(90vw, 680px);
+  transform: translateZ(0);
+}
+.hero-logo-img {
+  width: 100%;
   height: auto;
   display: block;
   filter: drop-shadow(0 0 16px rgba(212, 175, 55, 0.25));
   animation: logo-glow-pulse 6s infinite alternate ease-in-out;
   transform: translateZ(0);
+}
+.logo-shimmer-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 35%,
+    rgba(255, 255, 255, 0) 40%,
+    rgba(255, 248, 220, 0.75) 50%,
+    rgba(255, 255, 255, 0) 60%,
+    transparent 65%
+  );
+  background-size: 300% 100%;
+  background-repeat: no-repeat;
+  background-position: 150% 0;
+  -webkit-mask: url('assets/henna-c-header-logo.png') no-repeat center / 100% 100%;
+  mask: url('assets/henna-c-header-logo.png') no-repeat center / 100% 100%;
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  animation: logo-shimmer 7s infinite ease-in-out;
+  z-index: 3;
 }
 @keyframes logo-glow-pulse {
   0% {
@@ -703,6 +731,17 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   100% {
     filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.5)) drop-shadow(0 0 8px rgba(255, 213, 79, 0.25));
     transform: scale(1.02) translateZ(0);
+  }
+}
+@keyframes logo-shimmer {
+  0%, 15% {
+    background-position: 150% 0;
+  }
+  50%, 65% {
+    background-position: -150% 0;
+  }
+  100% {
+    background-position: -150% 0;
   }
 }
 
