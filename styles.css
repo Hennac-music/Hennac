@@ -581,7 +581,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.34em;
-  color: #b27a33;
+  color: #ac5f1f;
   margin-bottom: 2.2rem;
   position: relative;
   width: 100%;
@@ -590,13 +590,13 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  color: #ffd54f;
-  text-shadow: 0 0 10px rgba(255, 213, 79, 0.4);
+  color: #f09b46;
+  text-shadow: 0 0 10px rgba(240, 155, 70, 0.4);
 }
 .hero-eyebrow-line {
   width: 160px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #b27a33, #ffd54f, #b27a33, transparent);
+  background: linear-gradient(90deg, transparent, #ac5f1f, #f09b46, #ac5f1f, transparent);
   position: relative;
   margin-top: 4px;
 }
@@ -611,8 +611,8 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   border-radius: 50%;
   box-shadow: 
     0 0 8px #fff,
-    0 0 20px #ffd54f,
-    0 0 35px #ffd54f;
+    0 0 20px #f09b46,
+    0 0 35px #f09b46;
 }
 
 /* Static taller and sharper transform */
