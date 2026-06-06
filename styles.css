@@ -1415,6 +1415,53 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   pointer-events:none; filter:blur(30px);
 }
 
+.uc-art-wrap {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  position: relative;
+  border-bottom: 1px solid rgba(168, 85, 247, 0.15);
+  background: rgba(0, 0, 0, 0.2);
+}
+.uc-art-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.upcoming-card:hover .uc-art-img {
+  transform: scale(1.05);
+}
+
+.placeholder-art {
+  background: linear-gradient(135deg, rgba(8, 5, 16, 0.8), rgba(168, 85, 247, 0.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.uc-art-placeholder-content {
+  text-align: center;
+  padding: 2rem;
+}
+.music-note-icon {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.6));
+  animation: float-note 3s ease-in-out infinite;
+}
+.placeholder-text {
+  font-family: "Cinzel", serif;
+  font-size: 0.82rem;
+  color: var(--smoke);
+  letter-spacing: 0.1em;
+}
+
+@keyframes float-note {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
 .uc-body { padding:2.4rem; display:flex; flex-direction:column; gap:0.9rem; position:relative; z-index:2; }
 .uc-badge {
   display:inline-block; padding:0.3rem 0.9rem;
