@@ -1936,15 +1936,19 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 }
 
 .about-portrait-bg.mode-3 {
-  opacity: 0.85;
+  opacity: 0.9;
   mix-blend-mode: screen;
   border-radius: 0;
   overflow: visible;
   border: none;
   box-shadow: none;
   clip-path: none;
-  -webkit-mask-image: radial-gradient(circle at 60% 45%, black 35%, transparent 85%);
-  mask-image: radial-gradient(circle at 60% 45%, black 35%, transparent 85%);
+  -webkit-mask-image: radial-gradient(circle at 50% 40%, black 20%, transparent 65%);
+  mask-image: radial-gradient(circle at 50% 40%, black 20%, transparent 65%);
+}
+
+.about-portrait-bg.mode-3 .about-portrait-bg-img {
+  filter: contrast(160%) brightness(65%) saturate(90%);
 }
 
 .about-portrait-bg-img {
