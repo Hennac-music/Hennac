@@ -1839,18 +1839,17 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 /*Floated about portrait layout and blending*/
 .about-portrait-wrap {
   float: right;
-  width: clamp(200px, 30vw, 290px);
-  height: clamp(260px, 40vw, 380px);
-  margin-left: 2rem;
-  margin-bottom: 1.2rem;
+  width: clamp(210px, 32vw, 300px);
+  height: clamp(280px, 42vw, 400px);
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  opacity: 0.65;
+  opacity: 0.7;
   mix-blend-mode: screen;
-  shape-outside: inset(0% 0% 0% 0% round 12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* Organic wrapping path that follows the curve of the head, neck, and shoulder */
+  shape-outside: polygon(100% 0, 50% 0, 35% 20%, 32% 40%, 42% 60%, 25% 82%, 5% 100%, 100% 100%);
+  clip-path: polygon(100% 0, 50% 0, 35% 20%, 32% 40%, 42% 60%, 25% 82%, 5% 100%, 100% 100%);
+  pointer-events: none;
 }
 
 .about-portrait-img {
