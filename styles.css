@@ -1836,18 +1836,71 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .about-label { font-size:0.7rem; font-weight:900; text-transform:uppercase; letter-spacing:0.28em; color:var(--copper-hi); margin-bottom:0.6rem; }
 .about-headline { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:900; margin-bottom:1.6rem; line-height:1.15; }
 
-/*Floated about portrait layout and blending*/
+/* Portrait blend control panel */
+.about-portrait-control {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  width: fit-content;
+  position: relative;
+  z-index: 10;
+}
+.about-portrait-control .hud-label {
+  font-size: 0.58rem;
+  color: var(--copper-hi);
+  letter-spacing: 0.18em;
+  font-weight: 900;
+}
+.mode-buttons {
+  display: flex;
+  gap: 0.4rem;
+}
+.mode-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mode-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+.mode-btn.active {
+  color: #fff;
+  background: var(--copper-hi);
+  box-shadow: 0 0 10px rgba(201, 123, 69, 0.4);
+}
+
+/* Portrait Spacers per Mode */
 .about-portrait-spacer {
   float: right;
   width: clamp(210px, 32vw, 300px);
   height: clamp(280px, 42vw, 400px);
   margin-left: 1.5rem;
   margin-bottom: 1rem;
-  /* Traces the organic silhouette of head, neck, and shoulder */
-  shape-outside: polygon(100% 0, 50% 0, 35% 20%, 32% 40%, 42% 60%, 25% 82%, 5% 100%, 100% 100%);
   pointer-events: none;
 }
+.about-portrait-spacer.mode-1 {
+  shape-outside: inset(0% 0% 0% 0% round 12px);
+}
+.about-portrait-spacer.mode-2,
+.about-portrait-spacer.mode-3 {
+  shape-outside: polygon(100% 0, 50% 0, 35% 20%, 32% 40%, 42% 60%, 25% 82%, 5% 100%, 100% 100%);
+}
 
+/* Portrait BG styles per Mode */
 .about-portrait-bg {
   position: absolute;
   top: 0;
@@ -1855,10 +1908,41 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   width: clamp(210px, 32vw, 300px);
   height: clamp(280px, 42vw, 400px);
   z-index: -1;
+  pointer-events: none;
+}
+
+.about-portrait-bg.mode-1 {
+  opacity: 0.85;
+  mix-blend-mode: normal;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  clip-path: none;
+  -webkit-mask-image: radial-gradient(circle at center, black 50%, transparent 95%);
+  mask-image: radial-gradient(circle at center, black 50%, transparent 95%);
+}
+
+.about-portrait-bg.mode-2 {
+  opacity: 0.95;
+  mix-blend-mode: normal;
+  border-radius: 0;
+  overflow: visible;
+  border: none;
+  box-shadow: none;
+  clip-path: polygon(100% 0, 50% 0, 35% 20%, 32% 40%, 42% 60%, 25% 82%, 5% 100%, 100% 100%);
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+.about-portrait-bg.mode-3 {
   opacity: 0.85;
   mix-blend-mode: screen;
-  pointer-events: none;
-  /* Fades out all square borders and edges into transparent space */
+  border-radius: 0;
+  overflow: visible;
+  border: none;
+  box-shadow: none;
+  clip-path: none;
   -webkit-mask-image: radial-gradient(circle at 60% 45%, black 35%, transparent 85%);
   mask-image: radial-gradient(circle at 60% 45%, black 35%, transparent 85%);
 }

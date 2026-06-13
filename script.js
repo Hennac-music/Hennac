@@ -783,4 +783,26 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Portrait Blend Mode Toggle
+  const modeButtons = document.querySelectorAll(".mode-btn");
+  const portraitSpacer = document.querySelector(".about-portrait-spacer");
+  const portraitBg = document.querySelector(".about-portrait-bg");
+  if (modeButtons.length > 0 && portraitSpacer && portraitBg) {
+    modeButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        modeButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const mode = btn.getAttribute("data-mode");
+        
+        // Remove existing mode classes
+        portraitSpacer.className = "about-portrait-spacer";
+        portraitBg.className = "about-portrait-bg";
+        
+        // Add new mode class
+        portraitSpacer.classList.add(`mode-${mode}`);
+        portraitBg.classList.add(`mode-${mode}`);
+      });
+    });
+  }
+
 });
