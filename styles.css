@@ -1837,43 +1837,57 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .about-headline { font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:900; margin-bottom:1.6rem; line-height:1.15; }
 
 /*Floated about portrait layout and blending*/
-.about-portrait-wrap {
+.about-portrait-spacer {
   float: right;
   width: clamp(210px, 32vw, 300px);
   height: clamp(280px, 42vw, 400px);
   margin-left: 1.5rem;
   margin-bottom: 1rem;
-  position: relative;
-  opacity: 0.7;
-  mix-blend-mode: screen;
-  /* Organic wrapping path that follows the curve of the head, neck, and shoulder */
+  /* Traces the organic silhouette of head, neck, and shoulder */
   shape-outside: polygon(100% 0, 50% 0, 35% 20%, 32% 40%, 42% 60%, 25% 82%, 5% 100%, 100% 100%);
-  clip-path: polygon(100% 0, 50% 0, 35% 20%, 32% 40%, 42% 60%, 25% 82%, 5% 100%, 100% 100%);
   pointer-events: none;
 }
 
-.about-portrait-img {
+.about-portrait-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(210px, 32vw, 300px);
+  height: clamp(280px, 42vw, 400px);
+  z-index: -1;
+  opacity: 0.35;
+  mix-blend-mode: lighten;
+  pointer-events: none;
+}
+
+.about-portrait-bg-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(20%) contrast(110%);
+  object-position: center top;
+  filter: grayscale(15%) contrast(105%);
 }
 
-.about-portrait-overlay {
+.about-portrait-bg-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to left, transparent 70%, var(--bg-dark, #0a0a0c) 100%),
-              linear-gradient(to bottom, transparent 70%, var(--bg-dark, #0a0a0c) 100%);
-  pointer-events: none;
+  /* Fades the image edges out completely into the background */
+  background: radial-gradient(circle at 60% 40%, transparent 40%, #040406 95%);
 }
 
 @media (max-width: 600px) {
-  .about-portrait-wrap {
+  .about-portrait-spacer {
+    display: none;
+  }
+  .about-portrait-bg {
+    position: relative;
     float: none;
     margin: 0 auto 2rem auto;
     width: 100%;
     max-width: 300px;
     height: 380px;
+    opacity: 0.65;
+    z-index: 1;
   }
 }
 
