@@ -548,8 +548,10 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse at center,transparent 25%,rgba(5,5,5,0.88) 100%),
-    linear-gradient(0deg,var(--ink) 0%,transparent 45%,var(--ink) 100%);
+    radial-gradient(ellipse at 70% 30%, rgba(201,123,69,0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 30% 70%, rgba(135,116,255,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at center, transparent 20%, rgba(3,3,4,0.92) 100%),
+    linear-gradient(0deg, var(--ink) 0%, transparent 45%, var(--ink) 100%);
   pointer-events: none;
 }
 .fixed-cosmic-bg-scan {
@@ -2339,12 +2341,15 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   height: var(--sz);
   background: #fff;
   border-radius: 50%;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.8);
+  box-shadow: 
+    0 0 calc(var(--sz) * 2) rgba(255, 255, 255, 1),
+    0 0 calc(var(--sz) * 6) rgba(150, 200, 255, 0.6);
   animation: twinkle var(--dur) ease-in-out var(--delay) infinite alternate;
 }
 @keyframes twinkle {
-  0% { opacity: 0.15; transform: scale(0.7); }
-  100% { opacity: 1; transform: scale(1.3); }
+  0% { opacity: 0.1; transform: scale(0.6); filter: brightness(0.5); }
+  50% { opacity: 0.5; }
+  100% { opacity: 1; transform: scale(1.4); filter: brightness(1.5); }
 }
 
 /* ── Shooting Stars ── */
@@ -2359,29 +2364,42 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   position: absolute;
   top: var(--y);
   left: var(--x);
-  width: 80px;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.1) 60%, transparent 100%);
-  transform: rotate(-28deg);
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 1) 100%);
+  border-radius: 999px;
+  transform: rotate(-35deg);
   opacity: 0;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
-  animation: shoot var(--dur) linear var(--delay) infinite;
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 10px rgba(100, 150, 255, 0.6));
+  animation: shoot var(--dur) ease-out var(--delay) infinite;
+}
+.shooting-star::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 15px 4px rgba(255, 255, 255, 1), 0 0 30px 8px rgba(135, 206, 250, 0.8);
 }
 @keyframes shoot {
   0% {
-    transform: translate(0, 0) rotate(-28deg) scaleX(0);
+    transform: translate(0, 0) rotate(-35deg) scaleX(0);
     opacity: 0;
   }
   1% {
-    opacity: 0.8;
-    transform: translate(0, 0) rotate(-28deg) scaleX(1);
+    opacity: 1;
+    transform: translate(0, 0) rotate(-35deg) scaleX(1);
   }
   3% {
-    transform: translate(-260px, 140px) rotate(-28deg) scaleX(1);
+    transform: translate(-400px, 280px) rotate(-35deg) scaleX(0.2);
     opacity: 0;
   }
   100% {
-    transform: translate(-260px, 140px) rotate(-28deg) scaleX(1);
+    transform: translate(-400px, 280px) rotate(-35deg) scaleX(0);
     opacity: 0;
   }
 }
