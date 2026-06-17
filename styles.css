@@ -104,7 +104,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.55;
+  opacity: 0.92;
 }
 
 /* ──────────────────────────────────────────
@@ -2278,6 +2278,11 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .lb-caption { margin-top:1rem; font-size:0.82rem; color:var(--muted); }
 
 /* ──────────────────────────────────────────
+   PARTICLE CANVAS
+────────────────────────────────────────── */
+#particle-canvas { opacity: 0.92; }
+
+/* ──────────────────────────────────────────
    RESPONSIVE
 ────────────────────────────────────────── */
 @media (max-width:1024px) {
@@ -2329,80 +2334,4 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   .about-portrait { min-height:330px; }
 }
 
-/* ── Twinkle Stars ── */
-.twinkle-stars {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 1;
-}
-.twinkle-star {
-  position: absolute;
-  top: var(--y);
-  left: var(--x);
-  width: var(--sz);
-  height: var(--sz);
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 
-    0 0 calc(var(--sz) * 2) rgba(255, 255, 255, 1),
-    0 0 calc(var(--sz) * 6) rgba(150, 200, 255, 0.6);
-  animation: twinkle var(--dur) ease-in-out var(--delay) infinite alternate;
-}
-@keyframes twinkle {
-  0% { opacity: 0.1; transform: scale(0.6); filter: brightness(0.5); }
-  50% { opacity: 0.5; }
-  100% { opacity: 1; transform: scale(1.4); filter: brightness(1.5); }
-}
-
-/* ── Shooting Stars ── */
-.shooting-stars {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 1;
-}
-.shooting-star {
-  position: absolute;
-  top: var(--y);
-  left: var(--x);
-  width: 150px;
-  height: 2px;
-  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 1) 100%);
-  border-radius: 999px;
-  transform: rotate(-35deg);
-  opacity: 0;
-  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8)) drop-shadow(0 0 10px rgba(100, 150, 255, 0.6));
-  animation: shoot var(--dur) ease-out var(--delay) infinite;
-}
-.shooting-star::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 6px;
-  background: #fff;
-  border-radius: 50%;
-  box-shadow: 0 0 15px 4px rgba(255, 255, 255, 1), 0 0 30px 8px rgba(135, 206, 250, 0.8);
-}
-@keyframes shoot {
-  0% {
-    transform: translate(0, 0) rotate(-35deg) scaleX(0);
-    opacity: 0;
-  }
-  1% {
-    opacity: 1;
-    transform: translate(0, 0) rotate(-35deg) scaleX(1);
-  }
-  15% {
-    transform: translate(-2000px, 1400px) rotate(-35deg) scaleX(0.2);
-    opacity: 0;
-  }
-  100% {
-    transform: translate(-2000px, 1400px) rotate(-35deg) scaleX(0);
-    opacity: 0;
-  }
-}
+/* End of stylesheet */

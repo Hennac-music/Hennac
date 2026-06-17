@@ -1,12 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   // ==========================================
-  // 1. PARTICLE CANVAS
+  // 1. PARTICLE CANVAS (DEEP-SPACE GALAXY & METEORS)
   // ==========================================
   const canvas = document.getElementById("particle-canvas");
   if (canvas) {
     const ctx = canvas.getContext("2d");
     let particles = [];
+    let meteors = [];
     let mouse = { x: null, y: null, radius: 120 };
 
     const resize = () => {
@@ -16,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     resize();
     window.addEventListener("resize", resize, { passive: true });
 
-    // Track mouse position for interactive star flow
     window.addEventListener("mousemove", (e) => {
       mouse.x = e.clientX;
       mouse.y = e.clientY;
@@ -27,91 +27,282 @@ document.addEventListener("DOMContentLoaded", () => {
       mouse.y = null;
     }, { passive: true });
 
-    // Cosmic colors: Gold, amber, white, and subtle purple/pink highlights
+    // Cosmic palettes for stars
     const COLORS = [
-      "rgba(255, 213, 79, ",   // Gold
-      "rgba(251, 191, 36, ",   // Amber
-      "rgba(255, 255, 255, ",  // White
-      "rgba(168, 85, 247, ",   // Purple
-      "rgba(236, 72, 153, "    // Pink
+      "rgba(255, 220, 120, ",  // Warm Gold/Amber
+      "rgba(255, 255, 255, ",  // Pure white
+      "rgba(160, 210, 255, ",  // Cyan/Light Blue
+      "rgba(240, 160, 255, "   // Soft Pink/Magenta
     ];
 
-    const spawn = (isInit = false) => {
-      const depth = Math.random(); // 0 (far/slow) to 1 (near/fast)
+    // Drifting space nebulae
+    let nebulae = [
+      {
+        x: canvas.width * 0.25,
+        y: canvas.height * 0.3,
+        r: Math.max(300, canvas.width * 0.35),
+        vx: 0.02,
+        vy: 0.015,
+        color1: "rgba(168, 85, 247, 0.05)",  // Purple
+        color2: "rgba(236, 72, 153, 0.015)", // Pink
+        scrollFactor: 0.05
+      },
+      {
+        x: canvas.width * 0.75,
+        y: canvas.height * 0.65,
+        r: Math.max(400, canvas.width * 0.45),
+        vx: -0.015,
+        vy: 0.03,
+        color1: "rgba(201, 123, 69, 0.05)",   // Amber/Copper
+        color2: "rgba(135, 116, 255, 0.015)", // Indigo
+        scrollFactor: 0.12
+      }
+    ];
+
+    // Star generator
+    const spawnStar = (isInit = false) => {
+      const depth = Math.random(); // 0 (distant/slow) to 1 (near/fast)
+      
+      let layer = 0; // background
+      let scrollFactor = 0.05;
+      let alpha = Math.random() * 0.25 + 0.15;
+      let baseSpeed = 0.015;
+      let sz = Math.random() * 0.6 + 0.4; // 0.4px - 1.0px
+
+      if (depth > 0.4 && depth <= 0.82) { // midground
+        layer = 1;
+        scrollFactor = 0.15;
+        alpha = Math.random() * 0.45 + 0.25;
+        baseSpeed = 0.04;
+        sz = Math.random() * 0.8 + 0.8; // 0.8px - 1.6px
+      } else if (depth > 0.82) { // foreground
+        layer = 2;
+        scrollFactor = 0.32;
+        alpha = Math.random() * 0.45 + 0.45;
+        baseSpeed = 0.09;
+        sz = Math.random() * 1.2 + 1.4; // 1.4px - 2.6px
+      }
+
       return {
         x: Math.random() * canvas.width,
-        y: isInit ? Math.random() * canvas.height : canvas.height + 10,
-        baseVx: (Math.random() - 0.5) * 0.2 * (depth + 0.2),
-        baseVy: -(Math.random() * 0.4 + 0.1) * (depth + 0.2),
+        y: Math.random() * canvas.height,
+        baseVx: (Math.random() - 0.5) * baseSpeed * 0.5,
+        baseVy: -(Math.random() * baseSpeed + baseSpeed * 0.3),
         vx: 0,
         vy: 0,
-        r: Math.random() * 1.5 * (depth + 0.3) + 0.4,
-        alpha: Math.random() * 0.5 + 0.2,
+        r: sz,
+        alpha: alpha,
         phase: Math.random() * Math.PI * 2,
-        phaseSpeed: Math.random() * 0.02 + 0.005,
+        phaseSpeed: Math.random() * 0.015 + 0.005,
         color: COLORS[Math.floor(Math.random() * COLORS.length)],
         depth: depth,
+        layer: layer,
+        scrollFactor: scrollFactor,
         angle: Math.random() * Math.PI * 2,
-        angleSpeed: Math.random() * 0.01 - 0.005
+        angleSpeed: Math.random() * 0.008 - 0.004
       };
     };
 
-    const maxParticles = 85;
+    const maxParticles = 120;
     for (let i = 0; i < maxParticles; i++) {
-      particles.push(spawn(true));
+      particles.push(spawnStar(true));
+    }
+
+    // Curved Meteor Physics
+    class Meteor {
+      constructor() {
+        this.reset();
+      }
+
+      reset() {
+        this.x = Math.random() * (canvas.width * 0.6) + (canvas.width * 0.4);
+        this.y = Math.random() * -100 - 50;
+        this.speed = Math.random() * 10 + 12;
+        this.angle = Math.PI * 0.84 + (Math.random() - 0.5) * 0.08; // curve down-left (~151 deg)
+        this.vx = Math.cos(this.angle) * this.speed;
+        this.vy = Math.sin(this.angle) * this.speed;
+        
+        // Curved trajectory: pull down-left gently (natural gravitational swoop)
+        this.ax = -0.06 - Math.random() * 0.04;
+        this.ay = 0.14 + Math.random() * 0.06;
+        
+        this.history = [];
+        this.maxHistory = Math.floor(Math.random() * 10) + 12; // Length of the tail
+        this.opacity = 1.0;
+        this.fadeSpeed = Math.random() * 0.018 + 0.012;
+        this.size = Math.random() * 2.2 + 1.2;
+        
+        const tailColors = [
+          "rgba(110, 210, 255, ", // Cyan-Blue
+          "rgba(255, 130, 220, ", // Neon Pink
+          "rgba(245, 160, 90, "   // Warm Gold
+        ];
+        this.tailColor = tailColors[Math.floor(Math.random() * tailColors.length)];
+        this.active = true;
+      }
+
+      update() {
+        this.history.push({ x: this.x, y: this.y });
+        if (this.history.length > this.maxHistory) {
+          this.history.shift();
+        }
+        
+        this.vx += this.ax;
+        this.vy += this.ay;
+        this.x += this.vx;
+        this.y += this.vy;
+        
+        this.opacity -= this.fadeSpeed;
+        if (this.opacity <= 0 || this.x < -100 || this.y > canvas.height + 100) {
+          this.active = false;
+        }
+      }
+
+      draw() {
+        if (this.history.length < 2) return;
+        
+        ctx.save();
+        ctx.globalCompositeOperation = "screen";
+        
+        // Fading tail gradient along the history path
+        ctx.beginPath();
+        ctx.moveTo(this.history[0].x, this.history[0].y);
+        for (let i = 1; i < this.history.length; i++) {
+          ctx.lineTo(this.history[i].x, this.history[i].y);
+        }
+        
+        const lastIdx = this.history.length - 1;
+        const grad = ctx.createLinearGradient(
+          this.history[0].x, this.history[0].y,
+          this.history[lastIdx].x, this.history[lastIdx].y
+        );
+        grad.addColorStop(0, "rgba(255,255,255,0)");
+        grad.addColorStop(0.5, `${this.tailColor}${this.opacity * 0.4})`);
+        grad.addColorStop(1, `${this.tailColor}${this.opacity * 0.95})`);
+        
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = this.size;
+        ctx.lineCap = "round";
+        ctx.lineJoin = "round";
+        ctx.stroke();
+        
+        // Glowing head
+        const headX = this.x;
+        const headY = this.y;
+        
+        const headGrad = ctx.createRadialGradient(
+          headX, headY, 0,
+          headX, headY, this.size * 6.5
+        );
+        headGrad.addColorStop(0, "rgba(255, 255, 255, 1)");
+        headGrad.addColorStop(0.2, `${this.tailColor}${this.opacity * 0.95})`);
+        headGrad.addColorStop(0.5, `${this.tailColor}${this.opacity * 0.35})`);
+        headGrad.addColorStop(1, "rgba(0, 0, 0, 0)");
+        
+        ctx.fillStyle = headGrad;
+        ctx.beginPath();
+        ctx.arc(headX, headY, this.size * 6.5, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Bright central bead
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(headX, headY, this.size * 0.75, 0, Math.PI * 2);
+        ctx.fill();
+        
+        ctx.restore();
+      }
     }
 
     const tick = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const scrollY = window.scrollY;
 
-      while (particles.length < maxParticles) {
-        particles.push(spawn(false));
-      }
+      // 1. Draw drifting space nebulae
+      nebulae.forEach(n => {
+        n.x += n.vx;
+        n.y += n.vy;
+        
+        if (n.x < -n.r) n.x = canvas.width + n.r;
+        if (n.x > canvas.width + n.r) n.x = -n.r;
+        if (n.y < -n.r) n.y = canvas.height + n.r;
+        if (n.y > canvas.height + n.r) n.y = -n.r;
 
-      particles = particles.filter(p => p.y > -20 && p.x > -20 && p.x < canvas.width + 20);
+        let renderNy = (n.y - (scrollY * n.scrollFactor)) % canvas.height;
+        if (renderNy < 0) renderNy += canvas.height;
 
+        const grad = ctx.createRadialGradient(n.x, renderNy, 0, n.x, renderNy, n.r);
+        grad.addColorStop(0, n.color1);
+        grad.addColorStop(0.5, n.color2);
+        grad.addColorStop(1, "rgba(0, 0, 0, 0)");
+        
+        ctx.save();
+        ctx.globalCompositeOperation = "screen";
+        ctx.fillStyle = grad;
+        ctx.beginPath();
+        ctx.arc(n.x, renderNy, n.r, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+
+      // 2. Draw stars with parallax and wrapping
       particles.forEach(p => {
         p.phase += p.phaseSpeed;
         p.angle += p.angleSpeed;
 
-        const currentAlpha = Math.max(0.05, p.alpha + Math.sin(p.phase) * 0.15);
+        const currentAlpha = Math.max(0.06, p.alpha + Math.sin(p.phase) * 0.18);
 
-        let targetVx = p.baseVx + Math.sin(p.angle) * 0.08;
+        let renderX = p.x % canvas.width;
+        if (renderX < 0) renderX += canvas.width;
+        let renderY = (p.y - (scrollY * p.scrollFactor)) % canvas.height;
+        if (renderY < 0) renderY += canvas.height;
+
+        let targetVx = p.baseVx + Math.sin(p.angle) * 0.06;
         let targetVy = p.baseVy;
 
         if (mouse.x !== null && mouse.y !== null) {
-          const dx = p.x - mouse.x;
-          const dy = p.y - mouse.y;
+          const dx = renderX - mouse.x;
+          const dy = renderY - mouse.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
 
           if (dist < mouse.radius) {
             const force = (mouse.radius - dist) / mouse.radius;
             const angle = Math.atan2(dy, dx);
-            targetVx += Math.cos(angle) * force * 1.2 * (p.depth + 0.5);
-            targetVy += Math.sin(angle) * force * 1.2 * (p.depth + 0.5);
+            targetVx += Math.cos(angle) * force * 0.9 * (p.depth + 0.4);
+            targetVy += Math.sin(angle) * force * 0.9 * (p.depth + 0.4);
           }
         }
 
         p.vx += (targetVx - p.vx) * 0.08;
         p.vy += (targetVy - p.vy) * 0.08;
-
         p.x += p.vx;
         p.y += p.vy;
 
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.arc(renderX, renderY, p.r, 0, Math.PI * 2);
         
-        if (p.depth > 0.7) {
-          ctx.fillStyle = `${p.color}${currentAlpha * 0.45})`;
+        if (p.layer === 2) { // Glowing foreground stars
+          ctx.fillStyle = `${p.color}${currentAlpha * 0.35})`;
           ctx.fill();
           
           ctx.beginPath();
-          ctx.arc(p.x, p.y, p.r * 0.6, 0, Math.PI * 2);
+          ctx.arc(renderX, renderY, p.r * 0.5, 0, Math.PI * 2);
           ctx.fillStyle = `${p.color}${currentAlpha})`;
         } else {
           ctx.fillStyle = `${p.color}${currentAlpha})`;
         }
         ctx.fill();
+      });
+
+      // 3. Spontaneous meteors (approx. once every 7-10 seconds, max 2 simultaneously)
+      if (Math.random() < 0.0018 && meteors.length < 2) {
+        meteors.push(new Meteor());
+      }
+
+      meteors = meteors.filter(m => m.active);
+      meteors.forEach(m => {
+        m.update();
+        m.draw();
       });
 
       requestAnimationFrame(tick);
