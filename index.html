@@ -18,7 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@500;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=4.4.5">
+    <link rel="stylesheet" href="styles.css?v=4.4.6">
   </head>
   <body>
 
@@ -930,32 +930,34 @@
 
           <div class="about-grid reveal">
             <div class="about-copy">
-              <p class="about-label">REAL STORIES. WILD IDEAS.</p>
-              <h3 class="about-headline">Cinematic Stories.<br>Unpredictable Sound.</h3>
-
-              <div class="about-portrait-control">
-                <span class="hud-label">PORTRAIT BLEND</span>
-                <div class="mode-buttons">
-                  <button class="mode-btn" data-mode="1">VIGNETTE</button>
-                  <button class="mode-btn" data-mode="2">SILHOUETTE</button>
-                  <button class="mode-btn active" data-mode="3">SCREEN</button>
-                </div>
-              </div>
-
-              <!-- Invisible shape spacer to push text organically -->
-              <div class="about-portrait-spacer mode-3"></div>
-
               <!-- Faded background portrait blended seamlessly -->
               <div class="about-portrait-bg mode-3">
                 <img src="assets/about-henna-c-portrait.png" alt="" class="about-portrait-bg-img">
                 <div class="about-portrait-bg-overlay"></div>
               </div>
 
-              <!-- Bio -->
-              <p class="about-bio">Henna C builds songs from whatever ideas refuse to stay quiet.</p>
-              <p class="about-bio">One day the inspiration is a real-life experience. The next, it's a wild hypothetical, an overheard conversation, a fantasy, a bad decision, or a completely made-up character. Nothing is off limits, and no two songs are expected to sound the same.</p>
-              <p class="about-bio">Known for blending genres, humor, storytelling, and unexpected perspectives, Henna C turns everyday moments, strange observations, and random thoughts into music that is as entertaining as it is unpredictable. Some tracks are relatable, some are ridiculous, and some live somewhere in between.</p>
-              <p class="about-bio">Whether the stories come from real life, imagination, or somewhere in between is part of the fun. What matters is creating something people can feel, laugh at, relate to, or get lost in for a few minutes. Whether a song makes people laugh, think, sing along, or ask, &ldquo;What did I just listen to?&rdquo; the mission is simple: create something people won't forget.</p>
+              <!-- Invisible shape spacer for JS compatibility -->
+              <div class="about-portrait-spacer mode-3" aria-hidden="true" style="display: none;"></div>
+
+              <div class="about-text-content">
+                <p class="about-label">REAL STORIES. WILD IDEAS.</p>
+                <h3 class="about-headline">Cinematic Stories.<br>Unpredictable Sound.</h3>
+
+                <div class="about-portrait-control">
+                  <span class="hud-label">PORTRAIT BLEND</span>
+                  <div class="mode-buttons">
+                    <button class="mode-btn" data-mode="1">VIGNETTE</button>
+                    <button class="mode-btn" data-mode="2">SILHOUETTE</button>
+                    <button class="mode-btn active" data-mode="3">SCREEN</button>
+                  </div>
+                </div>
+
+                <!-- Bio -->
+                <p class="about-bio">Henna C builds songs from whatever ideas refuse to stay quiet.</p>
+                <p class="about-bio">One day the inspiration is a real-life experience. The next, it's a wild hypothetical, an overheard conversation, a fantasy, a bad decision, or a completely made-up character. Nothing is off limits, and no two songs are expected to sound the same.</p>
+                <p class="about-bio">Known for blending genres, humor, storytelling, and unexpected perspectives, Henna C turns everyday moments, strange observations, and random thoughts into music that is as entertaining as it is unpredictable. Some tracks are relatable, some are ridiculous, and some live somewhere in between.</p>
+                <p class="about-bio">Whether the stories come from real life, imagination, or somewhere in between is part of the fun. What matters is creating something people can feel, laugh at, relate to, or get lost in for a few minutes. Whether a song makes people laugh, think, sing along, or ask, &ldquo;What did I just listen to?&rdquo; the mission is simple: create something people won't forget.</p>
+              </div>
             </div>
 
             <div class="about-hud">
@@ -1111,6 +1113,6 @@
       </div>
     </div>
 
-    <script src="script.js?v=4.4.5"></script>
+    <script src="script.js?v=4.4.6"></script>
   </body>
 </html>

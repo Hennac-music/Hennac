@@ -1986,12 +1986,37 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   }
 }
 
-.about-bio { color:var(--muted); line-height:1.82; margin-bottom:1.1rem; font-size:1rem; }
+.about-bio {
+  color: #f1f1f3; /* Brighter cream for maximum contrast */
+  line-height: 1.82;
+  margin-bottom: 1.1rem;
+  font-size: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.95), 0 4px 15px rgba(0,0,0,0.85);
+}
+.about-headline {
+  text-shadow: 0 2px 5px rgba(0,0,0,0.95), 0 4px 20px rgba(0,0,0,0.85);
+}
 .about-copy {
   grid-column: 1 / -1;
-  position:relative;
-  z-index:2;
-  padding:0.6rem 0 0.2rem;
+  position: relative;
+  z-index: 2;
+  padding: 0.6rem 0 0.2rem;
+  min-height: 520px; /* Pre-allocates space so container does not collapse */
+}
+.about-text-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+@media (max-width: 600px) {
+  .about-copy {
+    min-height: auto;
+  }
+  .about-text-content {
+    position: relative;
+  }
 }
 .about-portrait {
   position:relative;
