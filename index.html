@@ -185,22 +185,21 @@
           <!-- Featured Release -->
           <div class="release-card reveal" id="featured-release">
             <div class="rc-art-col">
-              <img src="assets/coochie-poppin-university.jpg?v=2" alt="Coochie Poppin University — Henna C" class="rc-art-img">
-              <div class="rc-badge">OUT NOW</div>
+              <img src="assets/was-that-your-ass-or-mouth.png" alt="Was That Your Ass Or Mouth? — Henna C" class="rc-art-img">
+              <div class="rc-badge">LATEST DROP</div>
             </div>
             <div class="rc-info-col">
-              <span class="kicker">Featured Album</span>
-              <!-- PHASE 2: update song title -->
-              <h3 class="rc-title">Coochie Poppin University</h3>
-              <!-- PHASE 2: update genre / year -->
-              <p class="rc-meta">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-              <!-- PHASE 2: update description -->
-              <p class="rc-desc">Class is in session. Coochie Poppin University is a high-energy, unpredictable hip-hop masterclass in playful confidence and boss energy. Blending cinematic beats with unapologetic storytelling, this project is built for the bold. It’s loud, it’s entertaining, and it’s unapologetically Henna C.</p>
+              <span class="kicker">New Single</span>
+              <h3 class="rc-title">Was That Your Ass Or Mouth?</h3>
+              <p class="rc-meta">Hip-Hop / Rap &nbsp;·&nbsp; 2026</p>
+              <p class="rc-desc">A bold, unapologetic, and hard-hitting hip-hop single. Henna C delivers raw energy and sharp lyricism on this latest release.</p>
+
+              <audio id="featured-audio" src="assets/lyrics_video/was-that-your-ass-or-mouth.wav" controlsList="nodownload"></audio>
 
               <div class="rc-actions dropdown-wrapper">
-                <button class="play-btn liquid-btn" id="release-play-btn" aria-label="Listen now on streaming platforms">
+                <button class="play-btn liquid-btn" id="release-play-btn" aria-label="Listen now on site">
                   <span class="btn-glow"></span>
-                  <span class="btn-label">Listen Now</span>
+                  <span class="btn-label" id="featured-play-text">Listen Now</span>
                   <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" style="margin-left: 8px; vertical-align: middle;"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
 
@@ -247,6 +246,22 @@
             </button>
 
             <div class="mini-grid" id="mini-grid">
+              <!-- Coochie Poppin University Album -->
+              <div class="mini-card reveal" id="mini-card-cpu">
+                <div class="mini-art-wrap">
+                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="Coochie Poppin University artwork">
+                  <button class="mini-play-btn" data-index="cpu" aria-label="Play Coochie Poppin University">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  </button>
+                </div>
+                <div class="mini-text">
+                  <span class="mini-kicker">Album</span>
+                  <h4 class="mini-title">Coochie Poppin University</h4>
+                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
+                  <button class="mini-listen-btn" data-index="cpu">Listen Now ➔</button>
+                </div>
+              </div>
+
               <div class="mini-card reveal" id="mini-card-1">
                 <div class="mini-art-wrap">
                   <img src="assets/coochie-poppin-university.jpg?v=2" alt="1800-GoodCoochieNow artwork">

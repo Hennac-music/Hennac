@@ -580,7 +580,27 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const mainReleaseBtn = document.getElementById("release-play-btn");
-  if (mainReleaseBtn && rMenu) {
+  const featuredAudio = document.getElementById("featured-audio");
+  const featuredPlayText = document.getElementById("featured-play-text");
+
+  if (featuredAudio) {
+    featuredAudio.addEventListener("contextmenu", (e) => e.preventDefault());
+  }
+
+  if (mainReleaseBtn && featuredAudio) {
+    mainReleaseBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      if (featuredAudio.paused) {
+        featuredAudio.play();
+        if (featuredPlayText) featuredPlayText.textContent = "Pause";
+        mainReleaseBtn.classList.add("playing");
+      } else {
+        featuredAudio.pause();
+        if (featuredPlayText) featuredPlayText.textContent = "Listen Now";
+        mainReleaseBtn.classList.remove("playing");
+      }
+    });
+  } else if (mainReleaseBtn && rMenu) {
     mainReleaseBtn.addEventListener("click", (e) => {
       toggleDropdown(mainReleaseBtn, e);
     });
