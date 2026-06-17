@@ -145,3 +145,6 @@ assets/audio/*
 !assets/audio/.htaccess
 !assets/audio/*.m4a
 !assets/audio/*.mp4
+*.py
+assets/lyrics_video/
+*.m4a
