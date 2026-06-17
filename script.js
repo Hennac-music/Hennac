@@ -360,9 +360,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const bannerTrack = {
     src: "",
-    title: "Was That Your Ass Or Mouth? (Preview)",
-    genre: "Single · Hip-Hop / Pop · 2026",
-    art: "assets/was-that-your-ass-or-mouth.png"
+    title: "Electric Power Hoe (Preview)",
+    genre: "Single · R&B / Hip-Hop · 2026",
+    art: "assets/electric-power-hoe.png"
   };
   bannerTrack.src = decodedBannerSrc;
 
