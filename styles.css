@@ -1897,9 +1897,11 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .about-portrait-spacer.mode-1 {
   shape-outside: inset(0% 0% 0% 0% round 12px);
 }
-.about-portrait-spacer.mode-2,
-.about-portrait-spacer.mode-3 {
+.about-portrait-spacer.mode-2 {
   shape-outside: polygon(100% 0, 48% 0, 30% 15%, 26% 35%, 34% 55%, 18% 78%, 0% 100%, 100% 100%);
+}
+.about-portrait-spacer.mode-3 {
+  display: none; /* Text flows over image */
 }
 
 /* Portrait BG styles per Mode */
@@ -1981,14 +1983,20 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
     opacity: 0.8;
     z-index: 1;
   }
+  .about-bio, .about-copy .about-headline {
+    max-width: 100%;
+  }
 }
 
-.about-bio { color:var(--muted); line-height:1.82; margin-bottom:1.1rem; font-size:1rem; }
+.about-bio { color:var(--muted); line-height:1.82; margin-bottom:1.1rem; font-size:1rem; max-width: 65%; }
 .about-copy {
   grid-column: 1 / -1;
   position:relative;
   z-index:2;
   padding:0.6rem 0 0.2rem;
+}
+.about-copy .about-headline {
+  max-width: 75%;
 }
 .about-portrait {
   position:relative;
