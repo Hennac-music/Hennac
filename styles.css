@@ -484,7 +484,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 
 /* Pending link / button */
 .pending { opacity:0.42; cursor:default; pointer-events:none; }
-.pending::after { content:" [Phase 2]"; font-size:0.65em; opacity:0.6; }
+.pending::after { content:" Coming Soon"; font-size:0.65em; opacity:0.6; }
 
 /* Scroll-reveal */
 .reveal {
