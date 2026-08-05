@@ -330,7 +330,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   position: relative;
   z-index: 2;
 }
-.section-dark { background: rgba(6,4,10,0.6); }
+.section-dark { background: transparent; }
 
 .section-inner {
   max-width: var(--max);
@@ -1089,6 +1089,67 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   pointer-events: auto;
   transform: translateY(0);
 }
+.dropdown-track-title {
+  max-width: 260px;
+  padding: 0.25rem 0.45rem 0.55rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: var(--copper-hi);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.dropdown-preview-section {
+  padding: 0.2rem 0.05rem;
+}
+.dropdown-preview-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.46rem;
+  min-height: 2.35rem;
+  padding: 0.62rem 0.85rem;
+  border: 1px solid rgba(201,123,69,0.34);
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(201,123,69,0.18), rgba(168,85,247,0.12));
+  color: #fff;
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+.dropdown-preview-btn svg {
+  flex: 0 0 auto;
+  color: currentColor;
+}
+.dropdown-preview-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  border-color: rgba(201,123,69,0.62);
+  background: linear-gradient(135deg, rgba(201,123,69,0.3), rgba(168,85,247,0.18));
+  box-shadow: 0 0 20px rgba(201,123,69,0.2);
+}
+.dropdown-preview-btn:disabled,
+.dropdown-preview-btn.disabled {
+  cursor: not-allowed;
+  color: var(--smoke);
+  border-color: rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.04);
+  box-shadow: none;
+}
+.dropdown-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.08);
+  margin: 0.15rem 0 0.25rem;
+}
 .dropdown-item {
   display: flex;
   align-items: center;
@@ -1105,14 +1166,26 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   background: rgba(255, 255, 255, 0.06);
   color: #fff;
 }
-.dropdown-item svg {
+.dropdown-item > svg {
   flex-shrink: 0;
   opacity: 0.8;
   color: var(--copper-hi);
 }
-.dropdown-item:hover svg {
+.dropdown-item:hover > svg {
   opacity: 1;
   color: #fff;
+}
+.dropdown-logo {
+  width: 32px;
+  height: 32px;
+  flex: 0 0 32px;
+}
+.dropdown-logo svg {
+  color: inherit;
+  opacity: 1;
+}
+.dropdown-item:hover .dropdown-logo {
+  transform: scale(1.08);
 }
 .play-btn .icon-chevron {
   transition: transform 0.3s ease;
@@ -1231,11 +1304,12 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   background: none;
   border: none;
   font-family: inherit;
-  font-size: 0.74rem;
+  font-size: 0.68rem;
   font-weight: 800;
   color: var(--copper-hi);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
+  line-height: 1.35;
   cursor: pointer;
   padding: 0;
   display: inline-flex;
@@ -1266,7 +1340,14 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
    SECTION 3 — COMING OUT SOON
 ────────────────────────────────────────── */
 .coming-soon-bg {
-  position:absolute; inset:0; z-index:0; overflow:hidden; pointer-events:none;
+  position:absolute;
+  inset:-24rem 0 0;
+  z-index:0;
+  overflow:hidden;
+  pointer-events:none;
+  opacity:0.9;
+  mask-image:linear-gradient(to bottom, transparent 0, rgba(0,0,0,0.08) 9rem, rgba(0,0,0,0.48) 17rem, #000 28rem);
+  -webkit-mask-image:linear-gradient(to bottom, transparent 0, rgba(0,0,0,0.08) 9rem, rgba(0,0,0,0.48) 17rem, #000 28rem);
 }
 .cs-orb {
   position:absolute; border-radius:50%;
@@ -1289,11 +1370,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   100% { transform:scale(1.12) translate(40px,-40px); }
 }
 .cs-grid-lines {
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(168,85,247,0.05) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(168,85,247,0.05) 1px,transparent 1px);
-  background-size:60px 60px;
+  display:none;
 }
 
 /* Announcement banner */
@@ -1431,9 +1508,10 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 /* Upcoming grid */
 .upcoming-grid {
   display:grid;
-  grid-template-columns:minmax(0,540px);
+  grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
   justify-content:center;
   gap:1.8rem;
+  margin-top:2rem;
 }
 
 .upcoming-card {
@@ -1745,9 +1823,14 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   padding:0.9rem 1rem; border-radius:12px;
   background:rgba(255,255,255,0.03);
   border:1px solid transparent;
+  position:relative;
   cursor:pointer; transition:var(--t);
 }
-.pl-row:hover { background:rgba(255,255,255,0.07); border-color:var(--glass-border); }
+.pl-row:hover {
+  background:rgba(255,255,255,0.075);
+  border-color:rgba(201,123,69,0.28);
+  box-shadow:0 10px 28px rgba(0,0,0,0.18), inset 0 0 0 1px rgba(255,255,255,0.025);
+}
 .pl-row.active { background:rgba(201,123,69,0.1); border-color:rgba(201,123,69,0.22); }
 
 .pl-num-wrap { position:relative; width:24px; text-align:center; flex-shrink:0; }
@@ -1761,6 +1844,44 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .pl-info { display:flex; flex-direction:column; flex:1; min-width:0; }
 .pl-name { font-size:0.88rem; font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .pl-tag { font-size:0.7rem; color:var(--smoke); margin-top:0.15rem; }
+.pl-stream-btn {
+  flex:0 0 auto;
+  max-width:10.5rem;
+  margin-left:auto;
+  padding:0.52rem 0.72rem;
+  border:1px solid rgba(201,123,69,0.18);
+  border-radius:var(--r-pill);
+  background:rgba(201,123,69,0.08);
+  color:var(--copper-hi);
+  font:inherit;
+  font-size:0.62rem;
+  font-weight:900;
+  letter-spacing:0.09em;
+  line-height:1.2;
+  text-transform:uppercase;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  cursor:pointer;
+  opacity:0;
+  pointer-events:none;
+  transform:translateX(8px);
+  transition:opacity 0.22s ease, transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+}
+.pl-row:hover .pl-stream-btn,
+.pl-row:focus-within .pl-stream-btn,
+.pl-stream-btn.open {
+  opacity:1;
+  pointer-events:auto;
+  transform:translateX(0);
+}
+.pl-stream-btn:hover,
+.pl-stream-btn.open {
+  color:#fff;
+  border-color:rgba(201,123,69,0.52);
+  background:linear-gradient(135deg,rgba(201,123,69,0.22),rgba(168,85,247,0.18));
+  box-shadow:0 0 18px rgba(201,123,69,0.22);
+}
 
 .playlist-note { font-size:0.75rem; color:var(--smoke); margin-top:1rem; text-align:center; }
 
@@ -2045,9 +2166,226 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .contact-stamp span { display:block; font-family:"Cinzel",serif; font-size:0.95rem; font-weight:900; letter-spacing:0.18em; color:#fff; }
 .stamp-sub { font-family:"Outfit",sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.16em; color:var(--smoke); margin-top:0.25rem; }
 
+.album-tracklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  margin: 1.5rem 0 1.8rem 0;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.album-tracklist-title {
+  font-family: "Cinzel", serif;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: var(--copper-hi);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.album-tracklist-title::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(241, 177, 112, 0.3), transparent);
+}
+.album-track-card {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 0.95rem 1.25rem;
+  border-radius: 12px;
+  background: rgba(18, 12, 28, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(241, 177, 112, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.album-track-card:hover {
+  background: rgba(30, 20, 48, 0.85);
+  border-color: rgba(241, 177, 112, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(241, 177, 112, 0.15);
+}
+.at-part-badge {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  color: #000;
+  background: linear-gradient(135deg, var(--gold-light), var(--copper-hi));
+  padding: 0.35rem 0.65rem;
+  border-radius: 6px;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(241, 177, 112, 0.3);
+}
+.at-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.at-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.at-title {
+  font-size: 0.98rem;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: 0.02em;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+}
+.album-track-card:hover .at-title {
+  color: var(--gold-light);
+}
+.at-sub {
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 0.15rem;
+}
+.at-dur {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--copper-hi);
+  font-family: "Outfit", sans-serif;
+}
+.at-play-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  border-radius: 20px;
+  background: rgba(241, 177, 112, 0.12);
+  border: 1px solid rgba(241, 177, 112, 0.3);
+  color: var(--copper-hi);
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+.album-track-card:hover .at-play-pill {
+  background: var(--copper-hi);
+  color: #000;
+  border-color: var(--copper-hi);
+  box-shadow: 0 0 14px rgba(241, 177, 112, 0.5);
+}
+
 /* ──────────────────────────────────────────
    FOOTER
 ────────────────────────────────────────── */
+.sticky-track-title { font-size:0.86rem; font-weight:800; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.sticky-track-artist { font-size:0.7rem; color:var(--copper-hi); font-weight:700; }
+.sticky-ctrls { display:flex; align-items:center; gap:0.6rem; }
+.sticky-btn { width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.06); border:1px solid var(--glass-border); color:var(--muted); cursor:pointer; display:flex; align-items:center; justify-content:center; transition:var(--ts); }
+.sticky-btn:hover { background:rgba(255,255,255,0.12); color:#fff; transform:scale(1.08); }
+.sticky-play-btn { width:42px; height:42px; background:linear-gradient(135deg,var(--copper-hi),var(--copper)); color:var(--ink); border:none; box-shadow:0 4px 16px rgba(201,123,69,0.35); }
+.sticky-play-btn.playing { background:linear-gradient(135deg,var(--purple),var(--pink)); box-shadow:0 4px 16px rgba(168,85,247,0.35); }
+.sticky-progress { flex:1; max-width:240px; cursor:pointer; }
+.sticky-pp-track { height:3px; border-radius:3px; background:rgba(255,255,255,0.1); overflow:hidden; }
+.sticky-pp-fill { height:100%; width:0%; background:linear-gradient(90deg,var(--copper-hi),var(--pink)); }
+.sticky-close { background:transparent; border:none; color:var(--smoke); cursor:pointer; font-size:1.1rem; padding:0.2rem; transition:var(--t); }
+.sticky-close:hover { color:#fff; }
+
+/* Album Tracklist styling for Featured Release card */
+.album-tracklist {
+  margin: 1.2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 213, 79, 0.15);
+  border-radius: 14px;
+  padding: 1rem 1.2rem;
+}
+.album-tracklist-title {
+  font-family: "Cinzel", serif;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: var(--copper-hi);
+  margin-bottom: 0.4rem;
+  text-transform: uppercase;
+}
+.album-track-item {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.65rem 0.9rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: var(--t);
+  cursor: pointer;
+}
+.album-track-item:hover {
+  background: rgba(201, 123, 69, 0.14);
+  border-color: rgba(201, 123, 69, 0.35);
+  transform: translateX(4px);
+}
+.at-num {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--copper-hi);
+  width: 20px;
+}
+.at-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+}
+.at-name {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: #fff;
+}
+.at-version {
+  font-size: 0.7rem;
+  color: var(--smoke);
+}
+.at-dur {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-right: 0.4rem;
+}
+.at-play-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(201, 123, 69, 0.18);
+  border: 1px solid rgba(201, 123, 69, 0.35);
+  color: var(--copper-hi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--ts);
+  flex-shrink: 0;
+}
+.album-track-item:hover .at-play-btn {
+  background: var(--copper-hi);
+  color: #000;
+  border-color: var(--copper-hi);
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(241, 177, 112, 0.5);
+}
+
 .site-footer {
   background:rgba(4,4,6,0.95);
   border-top:1px solid var(--glass-border);
@@ -2219,6 +2557,16 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   .sp-right { display:none; }
   .sp-center { width:100%; }
   .sp-progress { width:100%; }
+  .pl-row { gap:0.75rem; padding:0.85rem; }
+  .pl-stream-btn {
+    opacity:1;
+    pointer-events:auto;
+    transform:none;
+    max-width:7.2rem;
+    padding:0.48rem 0.58rem;
+    font-size:0.56rem;
+    letter-spacing:0.06em;
+  }
 }
 
 @media (max-width:480px) {
@@ -2226,6 +2574,18 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   .mini-grid { grid-template-columns:1fr; }
   .about-hud { grid-template-columns:1fr; }
   .about-portrait { min-height:330px; }
+  .pl-stream-btn {
+    width:2.35rem;
+    max-width:2.35rem;
+    height:2.35rem;
+    padding:0;
+    font-size:0;
+  }
+  .pl-stream-btn::after {
+    content:"↗";
+    font-size:0.9rem;
+    line-height:1;
+  }
 }
 
 /* End of stylesheet */

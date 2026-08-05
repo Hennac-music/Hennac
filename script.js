@@ -460,6 +460,33 @@ document.addEventListener("DOMContentLoaded", () => {
   lightbox?.addEventListener("click", e => { if (e.target === lightbox) closeLB(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && lightbox?.classList.contains("open")) closeLB(); });
 
+  // Reuse the hero platform logo pucks inside stream menus.
+  const platformMatchers = [
+    ["spotify", "spotify"],
+    ["apple", "apple"],
+    ["youtube", "youtube"],
+    ["amazon", "amazon"],
+    ["tidal", "tidal"],
+    ["deezer", "deezer"],
+    ["audiomack", "audiomack"]
+  ];
+  document.querySelectorAll(".rc-dropdown-menu .dropdown-item").forEach(item => {
+    const key = platformMatchers.find(([needle]) => {
+      const haystack = `${item.href || ""} ${item.textContent || ""}`.toLowerCase();
+      return haystack.includes(needle);
+    })?.[1];
+    if (key) item.dataset.platform = key;
+    item.dataset.defaultHref = item.href || "";
+
+    const sourceLogo = key ? document.querySelector(`#platform-${key} .pc-logo`) : null;
+    const currentIcon = item.querySelector("svg");
+    if (!sourceLogo || !currentIcon) return;
+
+    const logo = sourceLogo.cloneNode(true);
+    logo.classList.add("dropdown-logo");
+    currentIcon.replaceWith(logo);
+  });
+
   // ==========================================
   // 8. MUSIC PLAYER (Phase 1 — placeholder safe)
   // ==========================================
@@ -551,9 +578,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const bannerTrack = {
     src: "",
-    title: "Electric Power Hoe (Preview)",
-    genre: "Single · R&B / Hip-Hop · 2026",
-    art: "assets/electric-power-hoe.png"
+    title: "Lose The Night (Preview)",
+    genre: "Single · Pop / Hip-Hop · Dropping Aug 7, 2026",
+    art: "assets/lose-the-night.png"
   };
   bannerTrack.src = decodedBannerSrc;
 
@@ -591,9 +618,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cardTrack = {
     src: "",
-    title: "Electric Power Hoe (Preview)",
-    genre: "Single · R&B / Hip-Hop · 2026",
-    art: "assets/electric-power-hoe.png"
+    title: "Frequency Shift (Preview)",
+    genre: "Dance / R&B · 2026",
+    art: "assets/frequency-shift.png"
   };
   cardTrack.src = decodedCardSrc;
 
@@ -616,6 +643,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let current  = 0;
   let playing  = false;
   let stickyActivated = false;
+  const PREVIEW_SECONDS = 30;
 
   const fmt = s => {
     if (!s || isNaN(s)) return "0:00";
@@ -624,6 +652,23 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   const show = el => el?.classList.remove("hidden");
   const hide = el => el?.classList.add("hidden");
+  const getPreviewDuration = () => {
+    const duration = Number.isFinite(audio.duration) && audio.duration > 0 ? audio.duration : PREVIEW_SECONDS;
+    return Math.min(PREVIEW_SECONDS, duration);
+  };
+  const syncProgress = () => {
+    const previewDuration = getPreviewDuration();
+    const currentTime = Math.min(audio.currentTime || 0, previewDuration);
+    const pct = previewDuration ? (currentTime / previewDuration) * 100 : 0;
+
+    if (ppFill)   ppFill.style.width    = `${pct}%`;
+    if (ppHandle) ppHandle.style.left   = `${pct}%`;
+    if (pCurrent) pCurrent.textContent  = fmt(currentTime);
+    if (spFill)   spFill.style.width    = `${pct}%`;
+    if (spCurrent)spCurrent.textContent = fmt(currentTime);
+    if (pDuration)  pDuration.textContent  = fmt(previewDuration);
+    if (spDuration) spDuration.textContent = fmt(previewDuration);
+  };
 
   const syncUI = (isPlaying) => {
     playing = isPlaying;
@@ -654,6 +699,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sync card preview button state
     syncCardPreviewBtn(isPlaying);
+
+    // Sync dropdown preview button state
+    syncDropdownPreviewBtn(isPlaying);
   };
 
   const loadTrack = (indexOrTrack, autoPlay = false) => {
@@ -704,7 +752,8 @@ document.addEventListener("DOMContentLoaded", () => {
     [ppFill, spFill].forEach(el => { if (el) el.style.width = "0%"; });
     if (ppHandle) ppHandle.style.left = "0%";
     [pCurrent, spCurrent].forEach(el => { if (el) el.textContent = "0:00"; });
-    [pDuration, spDuration].forEach(el => { if (el) el.textContent = "0:00"; });
+    const durationLabel = t.src && t.src.trim() !== "" ? fmt(PREVIEW_SECONDS) : "0:00";
+    [pDuration, spDuration].forEach(el => { if (el) el.textContent = durationLabel; });
 
     if (autoPlay) doPlay();
     else syncUI(false);
@@ -712,6 +761,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const doPlay = () => {
     if (!audio.src || audio.src === window.location.href) return; // Phase 1: no src
+    if (audio.currentTime >= getPreviewDuration() - 0.05) audio.currentTime = 0;
     audio.play().then(() => syncUI(true)).catch(err => { console.warn("Play error:", err); syncUI(false); });
   };
   const doPause = () => { audio.pause(); syncUI(false); };
@@ -727,12 +777,136 @@ document.addEventListener("DOMContentLoaded", () => {
   spPrev?.addEventListener("click", prev);
   spNext?.addEventListener("click", next);
 
-  // Unified Dropdown system for all "Listen Now" buttons
+  // Unified Dropdown system for all stream buttons
   const rMenu = document.getElementById("release-dropdown-menu");
   let activeBtn = null;
+  let dropdownPreviewTrack = null;
+  const platformSearchUrls = {
+    spotify: query => `https://open.spotify.com/search/${encodeURIComponent(query)}`,
+    apple: query => `https://music.apple.com/us/search?term=${encodeURIComponent(query)}`,
+    youtube: query => `https://music.youtube.com/search?q=${encodeURIComponent(query)}`,
+    amazon: query => `https://music.amazon.com/search/${encodeURIComponent(query)}`,
+    tidal: query => `https://tidal.com/search?q=${encodeURIComponent(query)}`,
+    deezer: query => `https://www.deezer.com/search/${encodeURIComponent(query)}`,
+    audiomack: query => `https://audiomack.com/search?q=${encodeURIComponent(query)}`
+  };
 
-  const toggleDropdown = (btn, e) => {
-    e.stopPropagation();
+  const cleanTrackTitle = value => (value || "").replace(/\s*\(Preview\)\s*/gi, "").trim();
+  const normalizeTrackTitle = value => cleanTrackTitle(value).toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const findTrackByTitle = title => {
+    const normalized = normalizeTrackTitle(title);
+    if (!normalized) return null;
+    return tracks.find(track => normalizeTrackTitle(track.title) === normalized) || null;
+  };
+  const getTriggerTrackTitle = (btn) => {
+    const rowTitle = btn?.closest(".pl-row")?.dataset.title;
+    const cardTitle = btn?.closest(".mini-card")?.querySelector(".mini-title")?.textContent;
+    const releaseTitle = btn?.closest(".release-card")?.querySelector(".rc-title")?.textContent;
+    return cleanTrackTitle(rowTitle || cardTitle || releaseTitle || "");
+  };
+  const getTriggerTrack = (btn, trackTitle = "") => {
+    const row = btn?.closest(".pl-row");
+    if (row) {
+      const rowIndex = Array.from(plRows).indexOf(row);
+      if (rowIndex >= 0) return tracks[rowIndex] || null;
+    }
+    return findTrackByTitle(trackTitle || getTriggerTrackTitle(btn));
+  };
+
+  const ensureDropdownTitle = () => {
+    if (!rMenu) return null;
+    let titleEl = rMenu.querySelector(".dropdown-track-title");
+    if (!titleEl) {
+      titleEl = document.createElement("div");
+      titleEl.className = "dropdown-track-title";
+      rMenu.prepend(titleEl);
+    }
+    return titleEl;
+  };
+
+  const getDropdownPreviewBtn = () => rMenu?.querySelector(".dropdown-preview-btn") || null;
+  const syncDropdownPreviewBtn = (isPlaying = playing) => {
+    const previewBtn = getDropdownPreviewBtn();
+    if (!previewBtn) return;
+
+    const hasPreview = Boolean(dropdownPreviewTrack?.src);
+    previewBtn.disabled = !hasPreview;
+    previewBtn.classList.toggle("disabled", !hasPreview);
+
+    if (!hasPreview) {
+      previewBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 2a10 10 0 1 0 10 10A10.012 10.012 0 0 0 12 2zm1 15h-2v-2h2zm0-4h-2V7h2z"/></svg>
+        Preview Coming Soon
+      `;
+      return;
+    }
+
+    const isThisPreviewPlaying = isPlaying && audio.src && audio.src.includes(dropdownPreviewTrack.src);
+    previewBtn.innerHTML = isThisPreviewPlaying ? `
+      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+      Pause Preview
+    ` : `
+      <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+      Play 30 Sec Preview
+    `;
+  };
+
+  const ensureDropdownPreviewSection = () => {
+    if (!rMenu) return null;
+    let previewSection = rMenu.querySelector(".dropdown-preview-section");
+    if (!previewSection) {
+      previewSection = document.createElement("div");
+      previewSection.className = "dropdown-preview-section";
+
+      const previewBtn = document.createElement("button");
+      previewBtn.type = "button";
+      previewBtn.className = "dropdown-preview-btn";
+      previewBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        if (!dropdownPreviewTrack?.src) return;
+
+        const isThisLoaded = audio.src && audio.src.includes(dropdownPreviewTrack.src);
+        if (isThisLoaded) {
+          toggle();
+        } else {
+          loadTrack(dropdownPreviewTrack, true);
+        }
+      });
+
+      previewSection.appendChild(previewBtn);
+
+      const divider = document.createElement("div");
+      divider.className = "dropdown-divider";
+
+      const firstPlatformLink = rMenu.querySelector(".dropdown-item");
+      rMenu.insertBefore(previewSection, firstPlatformLink);
+      rMenu.insertBefore(divider, firstPlatformLink);
+    }
+    return previewSection;
+  };
+
+  const setDropdownContext = (trackTitle = "", triggerBtn = null) => {
+    if (!rMenu) return;
+    const title = cleanTrackTitle(trackTitle);
+    const titleEl = ensureDropdownTitle();
+    ensureDropdownPreviewSection();
+    dropdownPreviewTrack = getTriggerTrack(triggerBtn, title);
+    if (titleEl) titleEl.textContent = title ? `Find ${title}` : "Stream On Your Platform";
+    syncDropdownPreviewBtn(playing);
+
+    rMenu.querySelectorAll(".dropdown-item").forEach(item => {
+      const defaultHref = item.dataset.defaultHref || item.href;
+      const platform = item.dataset.platform;
+      const query = title ? `Henna C ${title}` : "";
+      item.href = query && platformSearchUrls[platform] ? platformSearchUrls[platform](query) : defaultHref;
+    });
+  };
+
+  const toggleDropdown = (btn, e, trackTitle = "") => {
+    if (!rMenu) return;
+    e?.preventDefault();
+    e?.stopPropagation();
     if (activeBtn === btn) {
       closeDropdown();
       return;
@@ -741,6 +915,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     activeBtn = btn;
     btn.classList.add("open");
+    setDropdownContext(trackTitle || getTriggerTrackTitle(btn), btn);
     rMenu.classList.add("open");
 
     const rect = btn.getBoundingClientRect();
@@ -778,22 +953,15 @@ document.addEventListener("DOMContentLoaded", () => {
     featuredAudio.addEventListener("contextmenu", (e) => e.preventDefault());
   }
 
-  if (mainReleaseBtn && featuredAudio) {
+  if (mainReleaseBtn && rMenu) {
     mainReleaseBtn.addEventListener("click", (e) => {
       e.preventDefault();
-      if (featuredAudio.paused) {
-        featuredAudio.play();
-        if (featuredPlayText) featuredPlayText.textContent = "Pause";
-        mainReleaseBtn.classList.add("playing");
-      } else {
-        featuredAudio.pause();
-        if (featuredPlayText) featuredPlayText.textContent = "Listen Now";
-        mainReleaseBtn.classList.remove("playing");
-      }
-    });
-  } else if (mainReleaseBtn && rMenu) {
-    mainReleaseBtn.addEventListener("click", (e) => {
       toggleDropdown(mainReleaseBtn, e);
+    });
+  } else if (mainReleaseBtn && featuredAudio) {
+    mainReleaseBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      featuredAudio.paused ? featuredAudio.play() : featuredAudio.pause();
     });
   }
 
@@ -801,6 +969,18 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.addEventListener("click", (e) => {
       toggleDropdown(btn, e);
     });
+  });
+
+  plRows.forEach(row => {
+    if (row.querySelector(".pl-stream-btn")) return;
+    const title = cleanTrackTitle(row.dataset.title || row.querySelector(".pl-name")?.textContent || "");
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "pl-stream-btn";
+    btn.textContent = "Listen Now";
+    btn.setAttribute("aria-label", title ? `Find ${title} on your platform` : "Find this track on your platform");
+    btn.addEventListener("click", (e) => toggleDropdown(btn, e, title));
+    row.appendChild(btn);
   });
 
   document.addEventListener("click", (e) => {
@@ -832,11 +1012,20 @@ document.addEventListener("DOMContentLoaded", () => {
     if (current === i) toggle(); else loadTrack(i, true);
   }));
 
-  // Mini card play buttons
-  document.querySelectorAll(".mini-play-btn").forEach(btn => {
+  // Mini card play buttons & Listen Now buttons
+  document.querySelectorAll(".mini-play-btn, .mini-listen-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
       const idx = Math.min(parseInt(btn.dataset.index) || 0, tracks.length - 1);
+      if (current === idx) toggle(); else loadTrack(idx, true);
+    });
+  });
+
+  // Album tracklist item clicks in Featured Release card
+  document.querySelectorAll(".album-track-card, .at-play-pill").forEach(item => {
+    item.addEventListener("click", e => {
+      e.stopPropagation();
+      const idx = Math.min(parseInt(item.dataset.index) || 0, tracks.length - 1);
       if (current === idx) toggle(); else loadTrack(idx, true);
     });
   });
@@ -880,18 +1069,19 @@ document.addEventListener("DOMContentLoaded", () => {
   // Audio events
   audio.addEventListener("timeupdate", () => {
     if (!audio.duration) return;
-    const pct = (audio.currentTime / audio.duration) * 100;
-    if (ppFill)   ppFill.style.width    = `${pct}%`;
-    if (ppHandle) ppHandle.style.left   = `${pct}%`;
-    if (pCurrent) pCurrent.textContent  = fmt(audio.currentTime);
-    if (spFill)   spFill.style.width    = `${pct}%`;
-    if (spCurrent)spCurrent.textContent = fmt(audio.currentTime);
+    const previewDuration = getPreviewDuration();
+    if (audio.duration > PREVIEW_SECONDS && audio.currentTime >= PREVIEW_SECONDS) {
+      if (Math.abs(audio.currentTime - PREVIEW_SECONDS) > 0.05) audio.currentTime = PREVIEW_SECONDS;
+      syncProgress();
+      doPause();
+      return;
+    }
+    if (audio.currentTime > previewDuration) audio.currentTime = previewDuration;
+    syncProgress();
   });
 
   audio.addEventListener("loadedmetadata", () => {
-    const d = fmt(audio.duration);
-    if (pDuration)  pDuration.textContent  = d;
-    if (spDuration) spDuration.textContent = d;
+    syncProgress();
   });
 
   audio.addEventListener("ended", next);
@@ -900,7 +1090,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const seek = (e, wrapper) => {
     if (!audio.duration) return;
     const r = wrapper.getBoundingClientRect();
-    audio.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * audio.duration;
+    audio.currentTime = Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)) * getPreviewDuration();
+    syncProgress();
   };
   pProgress?.addEventListener("click", e => seek(e, pProgress));
   spProgress?.addEventListener("click", e => seek(e, spProgress));

@@ -171,50 +171,100 @@
           <!-- Featured Release -->
           <div class="release-card reveal" id="featured-release">
             <div class="rc-art-col">
-              <img src="assets/was-that-your-ass-or-mouth.png" alt="Was That Your Ass Or Mouth? — Henna C" class="rc-art-img">
-              <div class="rc-badge">LATEST DROP</div>
+              <img src="assets/frequency-shift.png" alt="Frequency Shift — Henna C" class="rc-art-img">
+              <div class="rc-badge">NEW ALBUM</div>
             </div>
             <div class="rc-info-col">
-              <span class="kicker">New Single</span>
-              <h3 class="rc-title">Was That Your Ass Or Mouth?</h3>
-              <p class="rc-meta">Hip-Hop / Rap &nbsp;·&nbsp; 2026</p>
-              <p class="rc-desc">A bold, unapologetic, and hard-hitting hip-hop single. Henna C delivers raw energy and sharp lyricism on this latest release.</p>
+              <span class="kicker">New Album · Out Now</span>
+              <h3 class="rc-title">Frequency Shift</h3>
+              <p class="rc-meta">Dance / R&B &nbsp;·&nbsp; 2026 &nbsp;·&nbsp; 3 Tracks</p>
+              <p class="rc-desc">The brand new 3-part album trilogy from Henna C featuring Track 1: The Realization, Track 2: The Consequence (The Duet Version), and Track 3: The Resolution. Stream all tracks in Lossless audio now.</p>
 
-              <audio id="featured-audio" src="assets/lyrics_video/was-that-your-ass-or-mouth.wav" controlsList="nodownload"></audio>
+              <!-- Separated Album Tracks Grid / List -->
+              <div class="album-tracklist">
+                <h4 class="album-tracklist-title">ALBUM TRILOGY TRACKS</h4>
+                
+                <div class="album-track-card" data-index="0">
+                  <div class="at-part-badge">TRACK 1</div>
+                  <div class="at-content">
+                    <div class="at-header-row">
+                      <h5 class="at-title">The Realization</h5>
+                      <span class="at-dur">2:34</span>
+                    </div>
+                    <p class="at-sub">The Duet Version &nbsp;·&nbsp; Act I</p>
+                  </div>
+                  <button class="at-play-pill" data-index="0" aria-label="Play The Realization">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                    <span>Play</span>
+                  </button>
+                </div>
+
+                <div class="album-track-card" data-index="1">
+                  <div class="at-part-badge">TRACK 2</div>
+                  <div class="at-content">
+                    <div class="at-header-row">
+                      <h5 class="at-title">The Consequence</h5>
+                      <span class="at-dur">2:12</span>
+                    </div>
+                    <p class="at-sub">The Duet Version &nbsp;·&nbsp; Act II</p>
+                  </div>
+                  <button class="at-play-pill" data-index="1" aria-label="Play The Consequence">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                    <span>Play</span>
+                  </button>
+                </div>
+
+                <div class="album-track-card" data-index="2">
+                  <div class="at-part-badge">TRACK 3</div>
+                  <div class="at-content">
+                    <div class="at-header-row">
+                      <h5 class="at-title">The Resolution</h5>
+                      <span class="at-dur">2:02</span>
+                    </div>
+                    <p class="at-sub">The Duet Version &nbsp;·&nbsp; Act III</p>
+                  </div>
+                  <button class="at-play-pill" data-index="2" aria-label="Play The Resolution">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                    <span>Play</span>
+                  </button>
+                </div>
+              </div>
+
+              <audio id="featured-audio" src="assets/audio/the-realization.wav" controlsList="nodownload"></audio>
 
               <div class="rc-actions dropdown-wrapper">
                 <button class="play-btn liquid-btn" id="release-play-btn" aria-label="Listen now on site">
                   <span class="btn-glow"></span>
-                  <span class="btn-label" id="featured-play-text">Listen Now</span>
+                  <span class="btn-label" id="featured-play-text">Stream Album</span>
                   <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" style="margin-left: 8px; vertical-align: middle;"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
 
                 <div class="rc-dropdown-menu" id="release-dropdown-menu">
-                  <a href="https://open.spotify.com/artist/6mA0wWqnvJPLJrlUin9Zha" target="_blank" rel="noopener" class="dropdown-item">
+                  <a href="https://open.spotify.com/artist/6mA0wWqnvJPLJrlUin9Zha" target="_blank" rel="noopener" class="dropdown-item" data-platform="spotify">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.077-.337.135-.669.47-.745 3.854-.88 7.15-.502 9.82.13.297.18.388.567.207.86zm1.225-2.72c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.666-1.112 8.243-.566 11.345 1.343.366.227.486.707.26 1.074zm.107-2.836C14.453 8.81 8.73 8.623 5.4 9.635c-.51.155-1.046-.134-1.202-.645-.156-.51.133-1.047.645-1.203 3.82-1.16 10.125-.944 14.152 1.446.46.273.61.87.337 1.33-.274.46-.87.61-1.33.337z"/></svg>
                     Spotify
                   </a>
-                  <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener" class="dropdown-item">
+                  <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener" class="dropdown-item" data-platform="apple">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a6.303 6.303 0 0 0-1.34-.57 11.21 11.21 0 0 0-1.57-.24c-.75-.09-1.5-.09-2.25-.07-.39.01-.78.04-1.17.07-1.41.13-2.77.59-3.86 1.63-.39.37-.74.78-1.01 1.25-.43.73-.67 1.52-.77 2.36-.08.67-.09 1.35-.05 2.02.05.83.17 1.64.47 2.43.36.98.94 1.84 1.73 2.55.71.63 1.52 1.07 2.41 1.37 1 .34 2.03.46 3.07.43.66-.02 1.32-.08 1.97-.22.98-.2 1.88-.6 2.63-1.26.71-.63 1.21-1.41 1.51-2.29.23-.68.33-1.38.35-2.09.03-.75-.03-1.5-.17-2.24zm-5.99 7.38a2.57 2.57 0 0 1-2.57-2.57 2.57 2.57 0 0 1 2.57-2.57 2.57 2.57 0 0 1 2.57 2.57 2.57 2.57 0 0 1-2.57 2.57zm0-3.94a1.37 1.37 0 0 0-1.37 1.37 1.37 1.37 0 0 0 1.37 1.37 1.37 1.37 0 0 0 1.37-1.37 1.37 1.37 0 0 0-1.37-1.37zM8.978 2.006H5.016A3.016 3.016 0 0 0 2 5.023v13.954a3.016 3.016 0 0 0 3.016 3.017h13.968A3.016 3.016 0 0 0 22 18.977V5.023a3.016 3.016 0 0 0-3.016-3.017H8.978z"/></svg>
                     Apple Music
                   </a>
-                  <a href="https://music.youtube.com/channel/UCDnOUmgT493IRKDjjM0hqJw" target="_blank" rel="noopener" class="dropdown-item">
+                  <a href="https://music.youtube.com/channel/UCDnOUmgT493IRKDjjM0hqJw" target="_blank" rel="noopener" class="dropdown-item" data-platform="youtube">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
                     YouTube Music
                   </a>
-                  <a href="https://tidal.com/artist/23806181/u" target="_blank" rel="noopener" class="dropdown-item">
+                  <a href="https://tidal.com/artist/23806181/u" target="_blank" rel="noopener" class="dropdown-item" data-platform="tidal">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996 4.004 12l4.004-4.004L12.012 12l-4.004 4.004 4.004 4.004 4.004-4.004L12.012 12l4.004-4.004-4.004-4.004zM16.042 7.996l3.979-3.979L24 7.996l-3.979 3.979z"/></svg>
                     Tidal
                   </a>
-                  <a href="https://link.deezer.com/s/33rQd2SLL2SaqB3ORQ7R9" target="_blank" rel="noopener" class="dropdown-item">
+                  <a href="https://link.deezer.com/s/33rQd2SLL2SaqB3ORQ7R9" target="_blank" rel="noopener" class="dropdown-item" data-platform="deezer">
                     <svg viewBox="0 0 50 48" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0955 7.32313C41.5396 4.74914 42.1912 3.13054 42.913 3.12744H42.9146C44.2606 3.13208 45.3517 8.7454 45.3517 15.6759C45.3517 22.6063 44.259 28.2243 42.9115 28.2243C42.3591 28.2243 41.8494 27.2704 41.4389 25.6719C40.7903 31.5233 39.4443 35.5459 37.8862 35.5459C36.6806 35.5459 35.5986 33.1296 34.8722 29.3188C34.3762 36.5662 33.1279 41.708 31.6689 41.708C30.7533 41.708 29.9185 39.6705 29.3005 36.3529C28.5573 43.2014 26.8405 48 24.8382 48C22.836 48 21.1162 43.2029 20.376 36.3529C19.7625 39.6705 18.9278 41.708 18.0075 41.708C16.5486 41.708 15.3033 36.5662 14.8043 29.3188C14.0779 33.1296 12.999 35.5459 11.7903 35.5459C10.2337 35.5459 8.88621 31.5249 8.23763 25.6719C7.83017 27.2751 7.31741 28.2243 6.76497 28.2243C5.41745 28.2243 4.32478 22.6063 4.32478 15.6759C4.32478 8.7454 5.41745 3.12744 6.76497 3.12744C7.48833 3.12744 8.13538 4.75068 8.58405 7.32313C9.30283 2.88473 10.4703 0 11.7903 0C13.3576 0 14.7158 4.07975 15.3583 10.0038C15.987 5.69216 16.9408 2.94348 18.0091 2.94348C19.5061 2.94348 20.7789 8.34964 21.2505 15.8908C22.1371 12.0243 23.4205 9.59876 24.8413 9.59876C26.2621 9.59876 27.5455 12.0259 28.4306 15.8908C28.9037 8.34964 30.1749 2.94348 31.672 2.94348C32.7387 2.94348 33.691 5.69216 34.3228 10.0038C34.9637 4.07975 36.3219 0 37.8892 0C39.2047 0 40.3767 2.88628 41.0955 7.32313ZM0.837891 14.4417C0.837891 11.3436 1.45748 8.83142 2.22204 8.83142C2.9866 8.83142 3.60619 11.3436 3.60619 14.4417C3.60619 17.5397 2.9866 20.0519 2.22204 20.0519C1.45748 20.0519 0.837891 17.5397 0.837891 14.4417ZM46.0693 14.4417C46.0693 11.3436 46.6888 8.83142 47.4534 8.83142C48.218 8.83142 48.8376 11.3436 48.8376 14.4417C48.8376 17.5397 48.218 20.0519 47.4534 20.0519C46.6888 20.0519 46.0693 17.5397 46.0693 14.4417Z"/></svg>
                     Deezer
                   </a>
-                  <a href="https://music.amazon.com/artists/B0GY3M685X/henna-c?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_l0orv7LdxRBPXzUMRC4ewhTLY" target="_blank" rel="noopener" class="dropdown-item">
+                  <a href="https://music.amazon.com/artists/B0GY3M685X/henna-c?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_l0orv7LdxRBPXzUMRC4ewhTLY" target="_blank" rel="noopener" class="dropdown-item" data-platform="amazon">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 3a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm-2 11.5v-7l5 3.5-5 3.5z"/><path d="M5.5 18c3.25 2 9.75 2 13 0m.7-.7a.7.7 0 0 1 .1.8 11.6 11.6 0 0 1-1.8.8.7.7 0 0 1-.7-.3l-.3-.9a.7.7 0 0 1 .4-.8l2.3-.6z"/></svg>
                     Amazon Music
                   </a>
-                  <a href="https://audiomack.com/henna-c" target="_blank" rel="noopener" class="dropdown-item">
+                  <a href="https://audiomack.com/henna-c" target="_blank" rel="noopener" class="dropdown-item" data-platform="audiomack">
                     <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3 10h3v4H3zm5-4h3v12H8zm5 2h3v8h-3zm5 4h3v4h-3z"/></svg>
                     Audiomack
                   </a>
@@ -232,11 +282,123 @@
             </button>
 
             <div class="mini-grid" id="mini-grid">
-              <!-- Coochie Poppin University Album -->
+              <!-- Single Trilogy: Frequency Shift -->
+              <div class="mini-card reveal" id="mini-card-fs">
+                <div class="mini-art-wrap">
+                  <img src="assets/frequency-shift.png" alt="Frequency Shift artwork">
+                  <button class="mini-play-btn" data-index="0" aria-label="Play Frequency Shift">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  </button>
+                </div>
+                <div class="mini-text">
+                  <span class="mini-kicker">New Album</span>
+                  <h4 class="mini-title">Frequency Shift</h4>
+                  <p class="mini-genre">Dance / R&B &nbsp;·&nbsp; 2026</p>
+                  <button class="mini-listen-btn" data-index="0">Listen Now ➔</button>
+                </div>
+              </div>
+
+              <!-- Single: Don't Bite That Fruit -->
+              <div class="mini-card reveal" id="mini-card-dbtf">
+                <div class="mini-art-wrap">
+                  <img src="assets/dont-bite-that-fruit.jpg" alt="Don't Bite That Fruit artwork">
+                  <button class="mini-play-btn" data-index="3" aria-label="Play Don't Bite That Fruit">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  </button>
+                </div>
+                <div class="mini-text">
+                  <span class="mini-kicker">Hit Single</span>
+                  <h4 class="mini-title">Don't Bite That Fruit</h4>
+                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
+                  <button class="mini-listen-btn" data-index="3">Listen Now ➔</button>
+                </div>
+              </div>
+
+              <!-- Single: Electric Power Hoe -->
+              <div class="mini-card reveal" id="mini-card-eph">
+                <div class="mini-art-wrap">
+                  <img src="assets/electric-power-hoe.png" alt="Electric Power Hoe artwork">
+                  <button class="mini-play-btn" data-index="3" aria-label="Play Electric Power Hoe">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  </button>
+                </div>
+                <div class="mini-text">
+                  <span class="mini-kicker">Hit Single</span>
+                  <h4 class="mini-title">Electric Power Hoe</h4>
+                  <p class="mini-genre">R&B / Hip-Hop &nbsp;·&nbsp; 2026</p>
+                  <button class="mini-listen-btn" data-index="3">Listen Now ➔</button>
+                </div>
+              </div>
+
+              <!-- Single: Was That Your Ass Or Mouth? -->
+              <div class="mini-card reveal" id="mini-card-wty">
+                <div class="mini-art-wrap">
+                  <img src="assets/was-that-your-ass-or-mouth.png" alt="Was That Your Ass Or Mouth? artwork">
+                  <button class="mini-play-btn" data-index="4" aria-label="Play Was That Your Ass Or Mouth?">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  </button>
+                </div>
+                <div class="mini-text">
+                  <span class="mini-kicker">Hit Single</span>
+                  <h4 class="mini-title">Was That Your Ass Or Mouth?</h4>
+                  <p class="mini-genre">Hip-Hop / Rap &nbsp;·&nbsp; 2026</p>
+                  <button class="mini-listen-btn" data-index="4">Listen Now ➔</button>
+                </div>
+              </div>
+
+              <!-- Single: I Like Me Some Dick -->
+              <div class="mini-card reveal" id="mini-card-ilm">
+                <div class="mini-art-wrap">
+                  <img src="assets/i-like-me-some-dick.jpg" alt="I Like Me Some Dick artwork">
+                  <button class="mini-play-btn" data-index="5" aria-label="Play I Like Me Some Dick">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  </button>
+                </div>
+                <div class="mini-text">
+                  <span class="mini-kicker">Featured Single</span>
+                  <h4 class="mini-title">I Like Me Some Dick</h4>
+                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
+                  <button class="mini-listen-btn" data-index="5">Listen Now ➔</button>
+                </div>
+              </div>
+
+              <!-- Single: That's Your Man? -->
+              <div class="mini-card reveal" id="mini-card-tym">
+                <div class="mini-art-wrap">
+                  <img src="assets/thats-your-man.jpg" alt="That's Your Man? artwork">
+                  <button class="mini-play-btn" data-index="6" aria-label="Play That's Your Man?">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  </button>
+                </div>
+                <div class="mini-text">
+                  <span class="mini-kicker">Hit Single</span>
+                  <h4 class="mini-title">That's Your Man?</h4>
+                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
+                  <button class="mini-listen-btn" data-index="6">Listen Now ➔</button>
+                </div>
+              </div>
+
+              <!-- Album: One Of Them Days -->
+              <div class="mini-card reveal" id="mini-card-ootd">
+                <div class="mini-art-wrap">
+                  <img src="assets/one-of-them-days.png" alt="One Of Them Days artwork">
+                  <button class="mini-play-btn" data-index="7" aria-label="Play One Of Them Days">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+                  </button>
+                </div>
+                <div class="mini-text">
+                  <span class="mini-kicker">Album Project</span>
+                  <h4 class="mini-title">One Of Them Days</h4>
+                  <p class="mini-genre">R&B / Hip-Hop &nbsp;·&nbsp; 2026</p>
+                  <button class="mini-listen-btn" data-index="7">Listen Now ➔</button>
+                </div>
+              </div>
+
+              <!-- Album: Coochie Poppin University -->
               <div class="mini-card reveal" id="mini-card-cpu">
                 <div class="mini-art-wrap">
                   <img src="assets/coochie-poppin-university.jpg?v=2" alt="Coochie Poppin University artwork">
-                  <button class="mini-play-btn" data-index="cpu" aria-label="Play Coochie Poppin University">
+                  <button class="mini-play-btn" data-index="10" aria-label="Play Coochie Poppin University">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   </button>
                 </div>
@@ -244,202 +406,7 @@
                   <span class="mini-kicker">Album</span>
                   <h4 class="mini-title">Coochie Poppin University</h4>
                   <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="cpu">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-1">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="1800-GoodCoochieNow artwork">
-                  <button class="mini-play-btn" data-index="0" aria-label="Play 1800-GoodCoochieNow">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 01</span>
-                  <h4 class="mini-title">1800-GoodCoochieNow</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="0">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-2">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="Coochie Poppin University artwork">
-                  <button class="mini-play-btn" data-index="1" aria-label="Play Coochie Poppin University">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 02</span>
-                  <h4 class="mini-title">Coochie Poppin University</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="1">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-3">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="Good Coochie Hotline artwork">
-                  <button class="mini-play-btn" data-index="2" aria-label="Play Good Coochie Hotline">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 03</span>
-                  <h4 class="mini-title">Good Coochie Hotline</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="2">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-4">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="Coochie Poppin 101 artwork">
-                  <button class="mini-play-btn" data-index="3" aria-label="Play Coochie Poppin 101">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 04</span>
-                  <h4 class="mini-title">Coochie Poppin 101</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="3">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-5">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="You Want Some Coochie? artwork">
-                  <button class="mini-play-btn" data-index="4" aria-label="Play You Want Some Coochie?">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 05</span>
-                  <h4 class="mini-title">You Want Some Coochie?</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="4">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-6">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="Rich Nigga Test artwork">
-                  <button class="mini-play-btn" data-index="5" aria-label="Play Rich Nigga Test">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 06</span>
-                  <h4 class="mini-title">Rich Nigga Test</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="5">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-7">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="Tuition Paid artwork">
-                  <button class="mini-play-btn" data-index="6" aria-label="Play Tuition Paid">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 07</span>
-                  <h4 class="mini-title">Tuition Paid</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="6">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-8">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="Twerk For Tuition artwork">
-                  <button class="mini-play-btn" data-index="7" aria-label="Play Twerk For Tuition">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 08</span>
-                  <h4 class="mini-title">Twerk For Tuition</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="7">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-9">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="No Free Access artwork">
-                  <button class="mini-play-btn" data-index="8" aria-label="Play No Free Access">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 09</span>
-                  <h4 class="mini-title">No Free Access</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="8">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-10">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="GCD artwork">
-                  <button class="mini-play-btn" data-index="9" aria-label="Play GCD">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 10</span>
-                  <h4 class="mini-title">GCD</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="9">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-11">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="Pay That Fee artwork">
-                  <button class="mini-play-btn" data-index="10" aria-label="Play Pay That Fee">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 11</span>
-                  <h4 class="mini-title">Pay That Fee</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
                   <button class="mini-listen-btn" data-index="10">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-12">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="Graduated Coochie artwork">
-                  <button class="mini-play-btn" data-index="11" aria-label="Play Graduated Coochie">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 12</span>
-                  <h4 class="mini-title">Graduated Coochie</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="11">Listen Now ➔</button>
-                </div>
-              </div>
-
-              <div class="mini-card reveal" id="mini-card-13">
-                <div class="mini-art-wrap">
-                  <img src="assets/coochie-poppin-university.jpg?v=2" alt="I Called, I Paid, I Graduated artwork">
-                  <button class="mini-play-btn" data-index="12" aria-label="Play I Called, I Paid, I Graduated">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  </button>
-                </div>
-                <div class="mini-text">
-                  <span class="mini-kicker">Track 13</span>
-                  <h4 class="mini-title">I Called, I Paid, I Graduated</h4>
-                  <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-index="12">Listen Now ➔</button>
                 </div>
               </div>
 
@@ -472,20 +439,20 @@
           <!-- ── Main Announcement Banner ── -->
           <div class="announce-banner reveal" id="coming-soon-banner">
             <div class="ab-art-col">
-              <img src="assets/electric-power-hoe.png" alt="Electric Power Hoe artwork" class="ab-art-img">
+              <img src="assets/lose-the-night.png" alt="Lose The Night artwork" class="ab-art-img">
             </div>
 
             <div class="ab-content">
               <div class="ab-eyebrow">
                 <span class="blink-dot"></span>
-                DROPPING SOON
+                DROPPING AUGUST 7, 2026
               </div>
-              <h3 class="ab-title">Electric Power Hoe</h3>
-              <p class="ab-meta">Single &nbsp;·&nbsp; R&B / Hip-Hop</p>
-              <p class="ab-teaser">The highly anticipated next single from Henna C. Blending smooth, soulful R&B flows with heavy, hard-hitting hip-hop beats, this track is a bold statement. Pre-order starting July 20, 2026. Official release on August 1, 2026.</p>
+              <h3 class="ab-title">Lose The Night</h3>
+              <p class="ab-meta">Single &nbsp;·&nbsp; Pop / Hip-Hop &nbsp;·&nbsp; Aug 7, 2026 &nbsp;·&nbsp; Delivered to Stores</p>
+              <p class="ab-teaser">The captivating upcoming single from Henna C. Successfully processed and delivered to 25 major streaming platforms worldwide including Spotify, Apple Music, TikTok, YouTube, Amazon, Tidal, and Deezer.</p>
 
               <!-- Countdown to Release Date -->
-              <div class="countdown banner-countdown" data-date="2026-08-01T00:00:00">
+              <div class="countdown banner-countdown" data-date="2026-08-07T00:00:00">
                 <div class="cd-seg"><span class="cd-num" data-days>00</span><span class="cd-label">Days</span></div>
                 <div class="cd-colon">:</div>
                 <div class="cd-seg"><span class="cd-num" data-hours>00</span><span class="cd-label">Hrs</span></div>
@@ -498,21 +465,82 @@
               <div class="ab-ctas">
                 <a href="#" class="ab-btn-primary pending" id="presave-btn">
                   <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 21.593c-5.63-5.539-11-10.297-11-14.402 0-3.791 3.068-5.191 5.281-5.191 1.312 0 4.151.501 5.719 4.457 1.59-3.968 4.464-4.447 5.726-4.447 2.54 0 5.274 1.621 5.274 5.181 0 4.069-5.136 8.625-11 14.402z"/></svg>
-                  Pre-Save Now
+                  Pre-Save Single
                 </a>
-                <a href="#" class="ab-btn-ghost pending" id="notify-btn">Get Notified</a>
-                <!-- Preview Snippet Button -->
-                <button class="ab-btn-ghost banner-preview-btn" id="banner-preview-btn" data-src="YXNzZXRzL2F1ZGlvL2VsZWN0cmljLXBvd2VyLWhvZS1wcmV2aWV3Lm00YQ==" aria-label="Preview snippet">
+                <button class="ab-btn-primary banner-preview-btn" id="banner-preview-btn" data-src="assets/audio/lose-the-night.wav">
                   <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="margin-right: 6px; vertical-align: middle;"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   Preview Snippet
                 </button>
+                <a href="#" class="ab-btn-ghost pending" id="notify-btn">Get Notified</a>
               </div>
             </div>
           </div>
 
           <!-- ── Countdown Cards ── -->
           <div class="upcoming-grid">
-            <!-- Card 1: Domestic Kitty -->
+            <!-- Card 1: Lose The Night -->
+            <div class="upcoming-card reveal">
+              <div class="uc-glow"></div>
+              <div class="uc-art-wrap">
+                <img src="assets/lose-the-night.png" alt="Lose The Night artwork" class="uc-art-img">
+              </div>
+              <div class="uc-body">
+                <div class="uc-badge">Delivered to 25 Stores</div>
+                <h3 class="uc-name">Lose The Night</h3>
+                <p class="uc-meta">Single &nbsp;·&nbsp; Dropping August 7, 2026</p>
+
+                <div class="countdown" data-date="2026-08-07T00:00:00">
+                  <div class="cd-seg"><span class="cd-num" data-days>00</span><span class="cd-label">Days</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-hours>00</span><span class="cd-label">Hrs</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-minutes>00</span><span class="cd-label">Min</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-seconds>00</span><span class="cd-label">Sec</span></div>
+                </div>
+
+                <div class="progress-row">
+                  <span class="progress-label">Store Delivery</span>
+                  <span class="progress-pct">100%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width:100%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: OUTTA GAS -->
+            <div class="upcoming-card reveal">
+              <div class="uc-glow"></div>
+              <div class="uc-art-wrap">
+                <img src="assets/outta-gas.png" alt="OUTTA GAS artwork" class="uc-art-img">
+              </div>
+              <div class="uc-body">
+                <div class="uc-badge">Next Single</div>
+                <h3 class="uc-name">OUTTA GAS</h3>
+                <p class="uc-meta">Hip-Hop / Rap &nbsp;·&nbsp; Dropping August 8, 2026</p>
+
+                <div class="countdown" data-date="2026-08-08T00:00:00">
+                  <div class="cd-seg"><span class="cd-num" data-days>00</span><span class="cd-label">Days</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-hours>00</span><span class="cd-label">Hrs</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-minutes>00</span><span class="cd-label">Min</span></div>
+                  <div class="cd-colon">:</div>
+                  <div class="cd-seg"><span class="cd-num" data-seconds>00</span><span class="cd-label">Sec</span></div>
+                </div>
+
+                <div class="progress-row">
+                  <span class="progress-label">Master Status</span>
+                  <span class="progress-pct">95%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width:95%"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Domestic Kitty -->
             <div class="upcoming-card reveal">
               <div class="uc-glow"></div>
               <div class="uc-art-wrap">
@@ -535,16 +563,11 @@
 
                 <div class="progress-row">
                   <span class="progress-label">Production</span>
-                  <span class="progress-pct">60%</span>
+                  <span class="progress-pct">75%</span>
                 </div>
                 <div class="progress-track">
-                  <div class="progress-fill" style="width:60%"></div>
+                  <div class="progress-fill" style="width:75%"></div>
                 </div>
-
-                <button class="uc-preview-btn" data-index="1" aria-label="Preview snippet">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
-                  Preview
-                </button>
               </div>
             </div>
           </div>
@@ -637,204 +660,81 @@
                   Then remove the .pending class.
                 -->
 
-                <div class="playlist-header">Latest Singles</div>
+                <div class="playlist-header">Latest Drop: Frequency Shift (Trilogy)</div>
 
-                <div class="pl-row" data-index="-1" data-src="assets/lyrics_video/was-that-your-ass-or-mouth.wav" data-title="Was That Your Ass Or Mouth?" data-genre="Hip-Hop / Rap · 2026" data-art="assets/was-that-your-ass-or-mouth.png" id="track-row-new">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">NEW</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">Was That Your Ass Or Mouth?</span>
-                    <span class="pl-tag">Latest Single · Hip-Hop / Rap</span>
-                  </div>
-                </div>
-
-                <div class="playlist-header">Coochie Poppin University (Album)</div>
-
-                <div class="pl-row active" data-index="0" data-src="" data-title="1800-GoodCoochieNow" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-0">
+                <div class="pl-row active" data-index="0" data-src="assets/audio/the-realization.wav" data-title="The Realization" data-genre="Frequency Shift · Dance / R&B · 2026" data-art="assets/frequency-shift.png" id="track-row-fs1">
                   <div class="pl-num-wrap">
                     <span class="pl-num">01</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">1800-GoodCoochieNow</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-name">The Realization <span class="feat-artist">(The Duet Version)</span></span>
+                    <span class="pl-tag">Frequency Shift · Track 1</span>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="1" data-src="YXNzZXRzL2F1ZGlvL2Nvb2NoaWUtcG9wcGluLXVuaXZlcnNpdHkubTRh" data-title="Coochie Poppin University" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-1">
+                <div class="pl-row" data-index="1" data-src="assets/audio/the-consequence.wav" data-title="The Consequence" data-genre="Frequency Shift · Dance / R&B · 2026" data-art="assets/frequency-shift.png" id="track-row-fs2">
                   <div class="pl-num-wrap">
                     <span class="pl-num">02</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Coochie Poppin University</span>
-                    <span class="pl-tag">Standout Single · Hip-Hop / Pop</span>
+                    <span class="pl-name">The Consequence <span class="feat-artist">(The Duet Version)</span></span>
+                    <span class="pl-tag">Frequency Shift · Track 2</span>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="2" data-src="" data-title="Good Coochie Hotline" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-2">
+                <div class="pl-row" data-index="2" data-src="assets/audio/the-resolution.wav" data-title="The Resolution" data-genre="Frequency Shift · Dance / R&B · 2026" data-art="assets/frequency-shift.png" id="track-row-fs3">
                   <div class="pl-num-wrap">
                     <span class="pl-num">03</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Good Coochie Hotline</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-name">The Resolution <span class="feat-artist">(The Duet Version)</span></span>
+                    <span class="pl-tag">Frequency Shift · Track 3</span>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="3" data-src="YXNzZXRzL2F1ZGlvL2Nvb2NoaWUtcG9wcGluLTEwMS5tNGE=" data-title="Coochie Poppin 101" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-3">
+                <div class="playlist-header">Latest Singles & Drops</div>
+
+                <div class="pl-row" data-index="3" data-src="assets/audio/dont-bite-that-fruit.wav" data-title="Don't Bite That Fruit" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/dont-bite-that-fruit.jpg" id="track-row-dbtf">
                   <div class="pl-num-wrap">
                     <span class="pl-num">04</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Coochie Poppin 101</span>
-                    <span class="pl-tag">Standout Single · Hip-Hop / Pop</span>
+                    <span class="pl-name">Don't Bite That Fruit</span>
+                    <span class="pl-tag">Hit Single · Hip-Hop / Pop</span>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="4" data-src="" data-title="You Want Some Coochie?" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-4">
+                <div class="pl-row" data-index="4" data-src="assets/audio/electric-power-hoe.wav" data-title="Electric Power Hoe" data-genre="Single · R&B / Hip-Hop · 2026" data-art="assets/electric-power-hoe.png" id="track-row-eph">
                   <div class="pl-num-wrap">
                     <span class="pl-num">05</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">You Want Some Coochie?</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-name">Electric Power Hoe</span>
+                    <span class="pl-tag">Hit Single · R&B / Hip-Hop</span>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="5" data-src="" data-title="Rich Nigga Test" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-5">
+                <div class="pl-row" data-index="4" data-src="assets/lyrics_video/was-that-your-ass-or-mouth.wav" data-title="Was That Your Ass Or Mouth?" data-genre="Single · Hip-Hop / Rap · 2026" data-art="assets/was-that-your-ass-or-mouth.png" id="track-row-wty">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">06</span>
+                    <span class="pl-num">05</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Rich Nigga Test</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
-                  </div>
-                </div>
-
-                <div class="pl-row" data-index="6" data-src="" data-title="Tuition Paid" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-6">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">07</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">Tuition Paid</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
-                  </div>
-                </div>
-
-                <div class="pl-row" data-index="7" data-src="" data-title="Twerk For Tuition" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-7">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">08</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">Twerk For Tuition</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
-                  </div>
-                </div>
-
-                <div class="pl-row" data-index="8" data-src="" data-title="No Free Access" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-8">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">09</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">No Free Access</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
-                  </div>
-                </div>
-
-                <div class="pl-row" data-index="9" data-src="" data-title="GCD" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-9">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">10</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">GCD</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
-                  </div>
-                </div>
-
-                <div class="pl-row" data-index="10" data-src="" data-title="Pay That Fee" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-10">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">11</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">Pay That Fee</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
-                  </div>
-                </div>
-
-                <div class="pl-row" data-index="11" data-src="YXNzZXRzL2F1ZGlvL2dyYWR1YXRlZC1jb29jaGllLm00YQ==" data-title="Graduated Coochie" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-11">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">12</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">Graduated Coochie</span>
-                    <span class="pl-tag">Standout Single · Hip-Hop / Pop</span>
-                  </div>
-                </div>
-
-                <div class="pl-row" data-index="12" data-src="" data-title="I Called, I Paid, I Graduated" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-12">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">13</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">I Called, I Paid, I Graduated</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
-                  </div>
-                </div>
-
-                <div class="playlist-header">One Of Them Days (Album)</div>
-
-                <div class="pl-row" data-index="13" data-src="YXNzZXRzL2F1ZGlvL2ZhbGxpbmctYXBhcnQubTRh" data-title="Falling Apart" data-genre="R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" id="track-row-13">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">14</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">Falling Apart</span>
-                    <span class="pl-tag">Standout Track · R&B / Hip-Hop</span>
-                  </div>
-                </div>
-
-                <div class="pl-row" data-index="14" data-src="YXNzZXRzL2F1ZGlvL292ZXJjb21lLm00YQ==" data-title="Overcome" data-genre="R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" id="track-row-14">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">15</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">Overcome</span>
-                    <span class="pl-tag">Standout Track · R&B / Hip-Hop</span>
-                  </div>
-                </div>
-
-                <div class="pl-row" data-index="15" data-src="YXNzZXRzL2F1ZGlvL3Jpc2UtYWdhaW4ubTRh" data-title="Rise Again" data-genre="R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" id="track-row-15">
-                  <div class="pl-num-wrap">
-                    <span class="pl-num">16</span>
-                    <span class="pl-play-arrow">▶</span>
-                  </div>
-                  <div class="pl-info">
-                    <span class="pl-name">Rise Again</span>
-                    <span class="pl-tag">Standout Track · R&B / Hip-Hop</span>
+                    <span class="pl-name">Was That Your Ass Or Mouth?</span>
+                    <span class="pl-tag">Hit Single · Hip-Hop / Rap</span>
                   </div>
                 </div>
 
                 <div class="playlist-header">Heavy Hitters & Singles</div>
 
-                <div class="pl-row" data-index="16" data-src="YXNzZXRzL2F1ZGlvL2ktbGlrZS1tZS1zb21lLWRpY2subTRh" data-title="I Like Me Some Dick" data-genre="Hip-Hop / Pop · 2026" data-art="assets/i-like-me-some-dick.jpg" id="track-row-16">
+                <div class="pl-row" data-index="5" data-src="YXNzZXRzL2F1ZGlvL2ktbGlrZS1tZS1zb21lLWRpY2subTRh" data-title="I Like Me Some Dick" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/i-like-me-some-dick.jpg" id="track-row-ilm">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">17</span>
+                    <span class="pl-num">06</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -843,14 +743,194 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="17" data-src="YXNzZXRzL2F1ZGlvL3RoYXRzLXlvdXItbWFuLm00YQ==" data-title="That's Your Man?" data-genre="Hip-Hop / Pop · 2026" data-art="assets/thats-your-man.jpg" id="track-row-17">
+                <div class="pl-row" data-index="6" data-src="YXNzZXRzL2F1ZGlvL3RoYXRzLXlvdXItbWFuLm00YQ==" data-title="That's Your Man?" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/thats-your-man.jpg" id="track-row-tym">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">18</span>
+                    <span class="pl-num">07</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">That's Your Man?</span>
                     <span class="pl-tag">Standalone Banger · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="playlist-header">One Of Them Days (Album)</div>
+
+                <div class="pl-row" data-index="7" data-src="YXNzZXRzL2F1ZGlvL2ZhbGxpbmctYXBhcnQubTRh" data-title="Falling Apart" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" id="track-row-ootd-1">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">08</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Falling Apart</span>
+                    <span class="pl-tag">Standout Track · R&B / Hip-Hop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="8" data-src="YXNzZXRzL2F1ZGlvL292ZXJjb21lLm00YQ==" data-title="Overcome" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" id="track-row-ootd-2">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">09</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Overcome</span>
+                    <span class="pl-tag">Standout Track · R&B / Hip-Hop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="9" data-src="YXNzZXRzL2F1ZGlvL3Jpc2UtYWdhaW4ubTRh" data-title="Rise Again" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" id="track-row-ootd-3">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">10</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Rise Again</span>
+                    <span class="pl-tag">Standout Track · R&B / Hip-Hop</span>
+                  </div>
+                </div>
+
+                <div class="playlist-header">Coochie Poppin University (Album)</div>
+
+                <div class="pl-row" data-index="10" data-src="YXNzZXRzL2F1ZGlvLzE4MDAtR29vZENvb2NoaWVOb3cubTRh" data-title="1800-GoodCoochieNow" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-0">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">11</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">1800-GoodCoochieNow</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="11" data-src="YXNzZXRzL2F1ZGlvL2Nvb2NoaWUtcG9wcGluLXVuaXZlcnNpdHkubTRh" data-title="Coochie Poppin University" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-1">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">12</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Coochie Poppin University</span>
+                    <span class="pl-tag">Standout Single · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="12" data-src="" data-title="Good Coochie Hotline" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-2">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">13</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Good Coochie Hotline</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="13" data-src="YXNzZXRzL2F1ZGlvL2Nvb2NoaWUtcG9wcGluLTEwMS5tNGE=" data-title="Coochie Poppin 101" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-3">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">14</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Coochie Poppin 101</span>
+                    <span class="pl-tag">Standout Single · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="14" data-src="" data-title="You Want Some Coochie?" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-4">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">15</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">You Want Some Coochie?</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="15" data-src="" data-title="Rich Nigga Test" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-5">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">16</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Rich Nigga Test</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="16" data-src="" data-title="Tuition Paid" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-6">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">17</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Tuition Paid</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="17" data-src="" data-title="Twerk For Tuition" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-7">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">18</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Twerk For Tuition</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="18" data-src="" data-title="No Free Access" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-8">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">19</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">No Free Access</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="19" data-src="" data-title="GCD" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-9">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">20</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">GCD</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="20" data-src="" data-title="Pay That Fee" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-10">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">21</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Pay That Fee</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="21" data-src="YXNzZXRzL2F1ZGlvL2dyYWR1YXRlZC1jb29jaGllLm00YQ==" data-title="Graduated Coochie" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-11">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">22</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Graduated Coochie</span>
+                    <span class="pl-tag">Standout Single · Hip-Hop / Pop</span>
+                  </div>
+                </div>
+
+                <div class="pl-row" data-index="22" data-src="" data-title="I Called, I Paid, I Graduated" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-12">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">23</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">I Called, I Paid, I Graduated</span>
+                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
                   </div>
                 </div>
 
