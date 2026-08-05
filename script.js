@@ -1007,6 +1007,22 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Helper to find exact track index by element title, card text, or dataset index
+  function getTargetTrackIndex(element, defaultIdx = 0) {
+    const card = element.closest(".mini-card, .album-track-card, .upcoming-card, .pl-row, .featured-release-card");
+    const rawTitle = element.dataset.title || card?.querySelector(".mini-title, .at-title, .uc-name, .pl-name, .rc-title")?.textContent || "";
+    if (rawTitle) {
+      const clean = rawTitle.replace(/\(.*?\)/g, "").trim().toLowerCase();
+      const matchIdx = tracks.findIndex(t => {
+        const tClean = t.title.toLowerCase();
+        return tClean === clean || tClean.includes(clean) || clean.includes(tClean);
+      });
+      if (matchIdx !== -1) return matchIdx;
+    }
+    const idxAttr = parseInt(element.dataset.index);
+    return !isNaN(idxAttr) ? Math.min(Math.max(0, idxAttr), tracks.length - 1) : defaultIdx;
+  }
+
   // Playlist row clicks
   plRows.forEach((row, i) => row.addEventListener("click", () => {
     if (current === i) toggle(); else loadTrack(i, true);
@@ -1016,7 +1032,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".mini-play-btn, .mini-listen-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
-      const idx = Math.min(parseInt(btn.dataset.index) || 0, tracks.length - 1);
+      const idx = getTargetTrackIndex(btn, 0);
       if (current === idx) toggle(); else loadTrack(idx, true);
     });
   });
@@ -1025,7 +1041,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".album-track-card, .at-play-pill").forEach(item => {
     item.addEventListener("click", e => {
       e.stopPropagation();
-      const idx = Math.min(parseInt(item.dataset.index) || 0, tracks.length - 1);
+      const idx = getTargetTrackIndex(item, 0);
       if (current === idx) toggle(); else loadTrack(idx, true);
     });
   });
@@ -1033,7 +1049,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Coming soon preview buttons (only those with data-index)
   document.querySelectorAll(".uc-preview-btn[data-index]").forEach(btn => {
     btn.addEventListener("click", () => {
-      const idx = Math.min(parseInt(btn.dataset.index) || 0, tracks.length - 1);
+      const idx = getTargetTrackIndex(btn, 0);
       if (current === idx) toggle(); else loadTrack(idx, true);
     });
   });
