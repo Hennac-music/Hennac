@@ -61,10 +61,54 @@
         <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#contact" class="nav-btn">Inquire</a>
-        <button class="nav-share-btn" id="share-btn-desktop" aria-label="Share website" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-          <span>Share</span>
-        </button>
+        <div class="nav-share-wrapper">
+          <button class="nav-share-btn" id="share-btn-desktop" aria-label="Share website" type="button" aria-expanded="false">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+            <span>Share</span>
+          </button>
+          
+          <!-- Dropdown menu attached directly underneath Share button -->
+          <div class="share-dropdown" id="share-dropdown" aria-hidden="true">
+            <div class="sd-header">
+              <span class="sd-title">Share Henna C</span>
+            </div>
+            
+            <div class="sd-copy-group">
+              <input type="text" class="sd-input" id="share-url-input" readonly value="https://hennac-music.github.io/Hennac/" aria-label="Website share URL">
+              <button class="sd-copy-btn" id="share-copy-btn" type="button">
+                <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+                <svg class="check-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span class="copy-text">Copy</span>
+              </button>
+            </div>
+
+            <div class="sd-socials">
+              <a href="#" id="share-x" target="_blank" rel="noopener" class="sd-item" aria-label="Share on X (Twitter)">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                <span>X / Twitter</span>
+              </a>
+              <a href="#" id="share-facebook" target="_blank" rel="noopener" class="sd-item" aria-label="Share on Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <span>Facebook</span>
+              </a>
+              <a href="#" id="share-whatsapp" target="_blank" rel="noopener" class="sd-item" aria-label="Share on WhatsApp">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                <span>WhatsApp</span>
+              </a>
+              <a href="#" id="share-email" target="_blank" rel="noopener" class="sd-item" aria-label="Share via Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span>Email</span>
+              </a>
+            </div>
+
+            <div class="sd-toast" id="share-toast">Link copied!</div>
+          </div>
+        </div>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -81,10 +125,6 @@
         <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#contact" class="mobile-nav-btn">Inquire</a>
-        <button class="mobile-share-btn" id="share-btn-mobile" aria-label="Share website" type="button">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-          <span>Share Site</span>
-        </button>
       </nav>
     </div>
 
@@ -1295,10 +1335,6 @@
           <img src="assets/henna-c-logo-square.jpg" alt="Henna C logo" class="footer-logo">
           <span class="footer-name">HENNA C</span>
         </div>
-        <button class="footer-share-btn" id="share-btn-footer" type="button" aria-label="Share website">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="15" height="15"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-          <span>Share Site</span>
-        </button>
         <p class="footer-copy">&copy; <span data-year>2026</span> Henna C. All rights reserved.</p>
       </div>
       <p class="footer-legal">Music, visuals, and brand identity belong to Henna C. For press and collaborations, reach out through official channels.</p>
@@ -1357,77 +1393,6 @@
     </div>
 
 
-    <!-- ═══════════════════════════════════════
-         SHARE MODAL
-    ═══════════════════════════════════════ -->
-    <div class="share-modal" id="share-modal" aria-hidden="true" role="dialog" aria-labelledby="share-modal-title">
-      <div class="share-modal-overlay" id="share-modal-overlay"></div>
-      <div class="share-modal-card">
-        <button class="share-modal-close" id="share-modal-close" aria-label="Close share dialog">&times;</button>
-        
-        <div class="share-modal-header">
-          <div class="share-icon-badge">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">
-              <circle cx="18" cy="5" r="3"></circle>
-              <circle cx="6" cy="12" r="3"></circle>
-              <circle cx="18" cy="19" r="3"></circle>
-              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
-              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
-            </svg>
-          </div>
-          <h3 id="share-modal-title" class="share-modal-title">Share Henna C</h3>
-          <p class="share-modal-sub">Spread the music with your friends & followers</p>
-        </div>
-
-        <!-- Copy Link Section -->
-        <div class="share-input-group">
-          <input type="text" class="share-url-input" id="share-url-input" readonly value="https://hennac-music.github.io/Hennac/" aria-label="Website share URL">
-          <button class="share-copy-btn" id="share-copy-btn" type="button" aria-label="Copy website link">
-            <svg class="copy-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-            </svg>
-            <svg class="check-icon hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            <span class="copy-text">Copy Link</span>
-          </button>
-        </div>
-
-        <!-- Social Quick Share Grid -->
-        <div class="share-grid">
-          <a href="#" id="share-x" class="share-card" target="_blank" rel="noopener" aria-label="Share on X (Twitter)">
-            <div class="share-card-icon share-x-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </div>
-            <span>X / Twitter</span>
-          </a>
-          <a href="#" id="share-facebook" class="share-card" target="_blank" rel="noopener" aria-label="Share on Facebook">
-            <div class="share-card-icon share-fb-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-            </div>
-            <span>Facebook</span>
-          </a>
-          <a href="#" id="share-whatsapp" class="share-card" target="_blank" rel="noopener" aria-label="Share on WhatsApp">
-            <div class="share-card-icon share-wa-icon">
-              <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-            </div>
-            <span>WhatsApp</span>
-          </a>
-          <a href="#" id="share-email" class="share-card" aria-label="Share via Email">
-            <div class="share-card-icon share-mail-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            </div>
-            <span>Email</span>
-          </a>
-        </div>
-
-        <div class="share-modal-footer">
-          <div class="share-toast" id="share-toast" aria-live="polite">Link copied to clipboard!</div>
-        </div>
-      </div>
-    </div>
-
-    <script src="script.js?v=4.5.0"></script>
+    <script src="script.js?v=4.6.0"></script>
   </body>
 </html>

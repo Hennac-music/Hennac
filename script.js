@@ -1202,23 +1202,15 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // ==========================================
-  // 11. SHARE MODAL & LINK SHARING LOGIC
+  // 11. TOP HEADER SHARE DROPDOWN LOGIC
   // ==========================================
-  const shareModal = document.getElementById("share-modal");
-  const shareModalOverlay = document.getElementById("share-modal-overlay");
-  const shareModalClose = document.getElementById("share-modal-close");
+  const shareBtnDesktop = document.getElementById("share-btn-desktop");
+  const shareDropdown = document.getElementById("share-dropdown");
   const shareUrlInput = document.getElementById("share-url-input");
   const shareCopyBtn = document.getElementById("share-copy-btn");
   const shareToast = document.getElementById("share-toast");
 
-  const shareBtns = [
-    document.getElementById("share-btn-desktop"),
-    document.getElementById("share-btn-mobile"),
-    document.getElementById("share-btn-footer")
-  ].filter(Boolean);
-
   const getCanonicalShareUrl = () => {
-    // If testing on localhost or file protocol, return the actual live production URL
     if (window.location.protocol === "file:" || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
       return "https://hennac-music.github.io/Hennac/";
     }
@@ -1242,68 +1234,73 @@ document.addEventListener("DOMContentLoaded", () => {
     if (mailLink) mailLink.href = `mailto:?subject=${encodeURIComponent(title)}&body=${encodeURIComponent(text + "\n\n" + url)}`;
   };
 
-  const openShareModal = () => {
+  const toggleShareDropdown = () => {
+    if (!shareDropdown) return;
+    const isOpen = shareDropdown.classList.contains("open");
+    if (isOpen) {
+      closeShareDropdown();
+    } else {
+      openShareDropdown();
+    }
+  };
+
+  const openShareDropdown = () => {
     const targetUrl = getCanonicalShareUrl();
     if (shareUrlInput) shareUrlInput.value = targetUrl;
     setupShareSocialLinks(targetUrl);
 
-    if (shareModal) {
-      shareModal.classList.add("open");
-      shareModal.setAttribute("aria-hidden", "false");
+    if (shareDropdown) {
+      shareDropdown.classList.add("open");
+      shareDropdown.setAttribute("aria-hidden", "false");
+    }
+    if (shareBtnDesktop) {
+      shareBtnDesktop.classList.add("active");
+      shareBtnDesktop.setAttribute("aria-expanded", "true");
     }
   };
 
-  const closeShareModal = () => {
-    if (shareModal) {
-      shareModal.classList.remove("open");
-      shareModal.setAttribute("aria-hidden", "true");
+  const closeShareDropdown = () => {
+    if (shareDropdown) {
+      shareDropdown.classList.remove("open");
+      shareDropdown.setAttribute("aria-hidden", "true");
+    }
+    if (shareBtnDesktop) {
+      shareBtnDesktop.classList.remove("active");
+      shareBtnDesktop.setAttribute("aria-expanded", "false");
     }
   };
 
-  shareBtns.forEach(btn => {
-    btn.addEventListener("click", async () => {
-      const targetUrl = getCanonicalShareUrl();
-      const shareData = {
-        title: "Henna C | Music Artist & Producer",
-        text: "Explore the latest releases, visuals, and music by Henna C",
-        url: targetUrl
-      };
-
-      // On supported mobile devices, use native Web Share API if possible
-      if (navigator.share && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        try {
-          await navigator.share(shareData);
-          return;
-        } catch (err) {
-          if (err.name !== "AbortError") {
-            openShareModal();
-          }
-          return;
-        }
-      }
-
-      // Default to custom glassmorphic modal
-      openShareModal();
+  if (shareBtnDesktop) {
+    shareBtnDesktop.addEventListener("click", (e) => {
+      e.stopPropagation();
+      toggleShareDropdown();
     });
+  }
+
+  // Close dropdown when clicking outside
+  document.addEventListener("click", (e) => {
+    if (shareDropdown && shareDropdown.classList.contains("open")) {
+      if (!shareDropdown.contains(e.target) && e.target !== shareBtnDesktop && !shareBtnDesktop.contains(e.target)) {
+        closeShareDropdown();
+      }
+    }
   });
 
-  if (shareModalClose) shareModalClose.addEventListener("click", closeShareModal);
-  if (shareModalOverlay) shareModalOverlay.addEventListener("click", closeShareModal);
-
   window.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && shareModal && shareModal.classList.contains("open")) {
-      closeShareModal();
+    if (e.key === "Escape" && shareDropdown && shareDropdown.classList.contains("open")) {
+      closeShareDropdown();
     }
   });
 
   // Copy to Clipboard logic
   if (shareCopyBtn && shareUrlInput) {
     let resetTimer = null;
-    shareCopyBtn.addEventListener("click", async () => {
+    shareCopyBtn.addEventListener("click", async (e) => {
+      e.stopPropagation();
       const textToCopy = shareUrlInput.value;
       try {
         await navigator.clipboard.writeText(textToCopy);
-      } catch (e) {
+      } catch (err) {
         shareUrlInput.select();
         document.execCommand("copy");
       }
@@ -1316,7 +1313,7 @@ document.addEventListener("DOMContentLoaded", () => {
       shareCopyBtn.classList.add("copied");
       if (copyIcon) copyIcon.classList.add("hidden");
       if (checkIcon) checkIcon.classList.remove("hidden");
-      if (copyText) copyText.textContent = "Copied!";
+      if (copyText) copyText.textContent = "Copied";
       if (shareToast) shareToast.classList.add("show");
 
       if (resetTimer) clearTimeout(resetTimer);
@@ -1324,7 +1321,7 @@ document.addEventListener("DOMContentLoaded", () => {
         shareCopyBtn.classList.remove("copied");
         if (copyIcon) copyIcon.classList.remove("hidden");
         if (checkIcon) checkIcon.classList.add("hidden");
-        if (copyText) copyText.textContent = "Copy Link";
+        if (copyText) copyText.textContent = "Copy";
         if (shareToast) shareToast.classList.remove("show");
       }, 2500);
     });
