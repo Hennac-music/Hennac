@@ -1324,6 +1324,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (copyText) copyText.textContent = "Copy";
         if (shareToast) shareToast.classList.remove("show");
       }, 2500);
+    });
+  }
+
   // ==========================================
   // 12. HERO MORE PLATFORMS DROPDOWN
   // ==========================================
