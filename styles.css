@@ -834,7 +834,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .tidal-logo-puck      { background: #000000; color: #ffffff; }
 .deezer-logo-puck     { background: #121216; color: #A238FF; }
 .audiomack-logo-puck  { background: #ffa200; color: #0c0a0f; }
-.pandora-logo-puck    { background: #005483; color: #fff; }
+.pandora-logo-puck    { background: linear-gradient(135deg, #00A0EE, #005483); color: #fff; }
 .iheart-logo-puck     { background: #C6002B; color: #fff; }
 .soundcloud-logo-puck { background: #FF5500; color: #fff; }
 .shazam-logo-puck     { background: #0088FF; color: #fff; }
