@@ -1324,6 +1324,47 @@ document.addEventListener("DOMContentLoaded", () => {
         if (copyText) copyText.textContent = "Copy";
         if (shareToast) shareToast.classList.remove("show");
       }, 2500);
+  // ==========================================
+  // 12. HERO MORE PLATFORMS DROPDOWN
+  // ==========================================
+  const platformMoreBtn = document.getElementById("platform-more-btn");
+  const morePlatformsDropdown = document.getElementById("more-platforms-dropdown");
+
+  if (platformMoreBtn && morePlatformsDropdown) {
+    platformMoreBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const isOpen = morePlatformsDropdown.classList.contains("open");
+      if (isOpen) {
+        morePlatformsDropdown.classList.remove("open");
+        morePlatformsDropdown.setAttribute("aria-hidden", "true");
+        platformMoreBtn.classList.remove("active");
+        platformMoreBtn.setAttribute("aria-expanded", "false");
+      } else {
+        morePlatformsDropdown.classList.add("open");
+        morePlatformsDropdown.setAttribute("aria-hidden", "false");
+        platformMoreBtn.classList.add("active");
+        platformMoreBtn.setAttribute("aria-expanded", "true");
+      }
+    });
+
+    document.addEventListener("click", (e) => {
+      if (morePlatformsDropdown.classList.contains("open")) {
+        if (!morePlatformsDropdown.contains(e.target) && e.target !== platformMoreBtn && !platformMoreBtn.contains(e.target)) {
+          morePlatformsDropdown.classList.remove("open");
+          morePlatformsDropdown.setAttribute("aria-hidden", "true");
+          platformMoreBtn.classList.remove("active");
+          platformMoreBtn.setAttribute("aria-expanded", "false");
+        }
+      }
+    });
+
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && morePlatformsDropdown.classList.contains("open")) {
+        morePlatformsDropdown.classList.remove("open");
+        morePlatformsDropdown.setAttribute("aria-hidden", "true");
+        platformMoreBtn.classList.remove("active");
+        platformMoreBtn.setAttribute("aria-expanded", "false");
+      }
     });
   }
 

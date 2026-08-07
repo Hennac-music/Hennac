@@ -852,6 +852,106 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
+/* More Platforms Dropdown Capsule */
+.platform-more-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.more-capsule {
+  cursor: pointer;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  transition: var(--t);
+}
+
+.more-logo-puck {
+  background: rgba(241,177,112,0.18);
+  color: var(--copper-hi);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.more-chevron {
+  color: var(--copper-hi);
+  margin-left: 0.2rem;
+  transition: transform 0.3s ease;
+}
+
+.more-capsule:hover .more-chevron,
+.more-capsule.active .more-chevron {
+  transform: rotate(180deg);
+  color: #fff;
+}
+
+.more-platforms-dropdown {
+  position: absolute;
+  top: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%) translateY(10px) scale(0.95);
+  width: 210px;
+  background: rgba(10, 10, 14, 0.96);
+  border: 1px solid var(--copper-hi);
+  border-radius: 20px;
+  padding: 0.65rem;
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.9), 0 0 25px rgba(241,177,112,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.35s var(--spring), opacity 0.3s ease;
+  z-index: 100;
+}
+
+.more-platforms-dropdown.open {
+  transform: translateX(-50%) translateY(0) scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mp-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.85rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 14px;
+  color: var(--cream);
+  text-decoration: none;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  transition: var(--t);
+}
+
+.mp-item:hover {
+  background: rgba(241, 177, 112, 0.16);
+  border-color: var(--copper-hi);
+  color: #fff;
+  transform: translateX(3px);
+}
+
+.mp-logo {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mp-logo svg {
+  width: 14px;
+  height: 14px;
+}
+
 /* Responsive adjustments for mobile grid layout */
 @media (max-width: 768px) {
   .platform-capsule {
