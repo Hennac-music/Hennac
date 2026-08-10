@@ -578,9 +578,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const bannerTrack = {
     src: "",
-    title: "Lose The Night (Preview)",
-    genre: "Single · Pop / Hip-Hop · Dropping Aug 7, 2026",
-    art: "assets/lose-the-night.png"
+    title: "One More Time (Preview)",
+    genre: "Single · Hip-Hop / R&B · Dropping Aug 14, 2026",
+    art: "assets/one-more-time.png"
   };
   bannerTrack.src = decodedBannerSrc;
 
