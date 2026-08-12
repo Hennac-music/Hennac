@@ -578,9 +578,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const bannerTrack = {
     src: "",
-    title: "One More Time (Preview)",
-    genre: "Single · Hip-Hop / R&B · Dropping Aug 14, 2026",
-    art: "assets/one-more-time.png"
+    title: "The Dusty Hoe Project (Teaser)",
+    genre: "Album · 14 Tracks · Dropping Sept 4, 2026",
+    art: "assets/the-dusty-hoe-project.png"
   };
   bannerTrack.src = decodedBannerSrc;
 
