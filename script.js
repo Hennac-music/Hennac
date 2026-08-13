@@ -704,7 +704,7 @@ document.addEventListener("DOMContentLoaded", () => {
     syncDropdownPreviewBtn(isPlaying);
 
     // Sync upcoming cards preview buttons
-    document.querySelectorAll(".uc-preview-btn").forEach(btn => {
+    document.querySelectorAll(".uc-preview-btn:not(.disabled)").forEach(btn => {
       const btnSrc = btn.dataset.src;
       const isThisPlaying = isPlaying && audio.src && btnSrc && audio.src.includes(btnSrc);
       if (isThisPlaying) {
