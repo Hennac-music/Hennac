@@ -1046,38 +1046,43 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Coming soon preview buttons (only those with data-index)
-  document.querySelectorAll(".uc-preview-btn[data-index]").forEach(btn => {
-    btn.addEventListener("click", () => {
-      const idx = getTargetTrackIndex(btn, 0);
-      if (current === idx) toggle(); else loadTrack(idx, true);
+  // Coming soon card preview buttons (supports data-src, data-title, data-art, data-index)
+  document.querySelectorAll(".uc-preview-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const src = btn.dataset.src;
+      const title = btn.dataset.title || "Preview Track";
+      const art = btn.dataset.art || "assets/henna-c-logo-square.jpg";
+      if (src && src.trim() !== "") {
+        const isThisLoaded = audio.src && audio.src.includes(src);
+        if (isThisLoaded) {
+          toggle();
+        } else {
+          loadTrack({ src: src, title: title + " (Preview)", genre: "Upcoming Single Preview", art: art }, true);
+        }
+      } else {
+        const idx = getTargetTrackIndex(btn, 0);
+        if (current === idx) toggle(); else loadTrack(idx, true);
+      }
     });
   });
 
-  // Card 1 preview snippet player (with secure closure source playback)
-  if (cardPreviewBtn) {
-    cardPreviewBtn.addEventListener("click", () => {
-      if (decodedCardSrc) {
-        const isThisLoaded = audio.src && audio.src.includes(decodedCardSrc);
-        if (isThisLoaded) {
-          toggle();
-        } else {
-          loadTrack(cardTrack, true);
-        }
-      }
-    });
-  }
-
-  // Banner preview snippet player (with secure closure source playback)
-  if (bannerPreviewBtn) {
-    bannerPreviewBtn.addEventListener("click", () => {
-      if (decodedBannerSrc) {
-        const isThisLoaded = audio.src && audio.src.includes(decodedBannerSrc);
-        if (isThisLoaded) {
-          toggle();
-        } else {
-          loadTrack(bannerTrack, true);
-        }
+  // Banner preview snippet player
+  const activeBannerBtn = document.getElementById("banner-preview-btn");
+  if (activeBannerBtn) {
+    activeBannerBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const bannerSrc = activeBannerBtn.dataset.src || decodedBannerSrc || "assets/audio/the-realization.wav";
+      const isThisLoaded = audio.src && audio.src.includes(bannerSrc);
+      if (isThisLoaded) {
+        toggle();
+      } else {
+        loadTrack({
+          src: bannerSrc,
+          title: "The Dusty Hoe Project (Teaser)",
+          genre: "Upcoming Album · 14 Tracks · Dropping Sept 4, 2026",
+          art: "assets/the-dusty-hoe-project.png"
+        }, true);
       }
     });
   }
