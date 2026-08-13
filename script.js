@@ -702,6 +702,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Sync dropdown preview button state
     syncDropdownPreviewBtn(isPlaying);
+
+    // Sync upcoming cards preview buttons
+    document.querySelectorAll(".uc-preview-btn").forEach(btn => {
+      const btnSrc = btn.dataset.src;
+      const isThisPlaying = isPlaying && audio.src && btnSrc && audio.src.includes(btnSrc);
+      if (isThisPlaying) {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="margin-right:6px; vertical-align: middle;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg><span>Pause Preview</span>`;
+      } else {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="margin-right:6px; vertical-align: middle;"><path d="M8 5.14v14l11-7-11-7z"/></svg><span>Play Preview</span>`;
+      }
+    });
   };
 
   const loadTrack = (indexOrTrack, autoPlay = false) => {
