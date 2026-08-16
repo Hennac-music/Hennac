@@ -515,7 +515,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   justify-content: center;
   overflow: visible !important;
   position: relative;
-  padding: 8rem var(--pad) 6rem;
+  padding: 8rem var(--pad) 10rem;
   z-index: 100;
 }
 
@@ -568,6 +568,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   z-index:5;
   text-align:center;
   max-width:960px;
+  overflow: visible;
   animation: fade-up 1.2s var(--ease) both;
 }
 @keyframes fade-up {
@@ -763,6 +764,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   gap: 1.1rem;
   margin-top: 2.5rem;
   margin-bottom: 3.5rem;
+  overflow: visible;
 }
 
 .platform-capsule {
