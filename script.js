@@ -1366,11 +1366,11 @@ document.addEventListener("DOMContentLoaded", () => {
         platformMoreBtn.classList.add("active");
         platformMoreBtn.setAttribute("aria-expanded", "true");
 
-        // Smoothly position button near top of screen (110px offset) so full dropdown box displays with a generous gap on all sides
+        // Smoothly position button 80px from top of screen so the entire box displays with a generous gap on all sides
         setTimeout(() => {
           const btnRect = platformMoreBtn.getBoundingClientRect();
           const currentScroll = window.scrollY || window.pageYOffset;
-          const targetY = currentScroll + btnRect.top - 110;
+          const targetY = currentScroll + btnRect.top - 80;
           window.scrollTo({ top: Math.max(0, targetY), behavior: "smooth" });
         }, 50);
       }
