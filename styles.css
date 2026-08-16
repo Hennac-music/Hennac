@@ -318,6 +318,30 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   background:rgba(201,123,69,0.1);
   color:#fff !important;
 }
+.mobile-drawer-socials {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.mobile-drawer-socials a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--smoke);
+  transition: all 0.3s ease;
+}
+.mobile-drawer-socials a:hover {
+  color: #fff;
+  background: rgba(212,175,55,0.2);
+  border-color: var(--copper-hi);
+  transform: translateY(-2px);
+}
 
 /* ──────────────────────────────────────────
    SHARED UTILITIES
@@ -2519,6 +2543,9 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .footer-logo { width:34px; height:34px; border-radius:50%; object-fit:cover; border:1px solid var(--copper-hi); }
 .footer-name { font-family:"Cinzel",serif; font-size:0.95rem; font-weight:800; letter-spacing:0.12em; color:#fff; }
 .footer-copy { font-size:0.8rem; color:var(--smoke); }
+.footer-socials { display:flex; align-items:center; gap:1rem; }
+.footer-socials a { display:flex; align-items:center; justify-content:center; color:var(--smoke); transition:color 0.3s ease, transform 0.3s ease; }
+.footer-socials a:hover { color:var(--copper-hi); transform:translateY(-2px); }
 .footer-legal { max-width:var(--max); margin:0 auto; font-size:0.75rem; color:var(--smoke); line-height:1.6; opacity:0.7; }
 
 /* ──────────────────────────────────────────

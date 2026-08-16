@@ -801,6 +801,7 @@ document.addEventListener("DOMContentLoaded", () => {
     tidal: query => `https://tidal.com/search?q=${encodeURIComponent(query)}`,
     deezer: query => `https://www.deezer.com/search/${encodeURIComponent(query)}`,
     audiomack: query => `https://audiomack.com/search?q=${encodeURIComponent(query)}`,
+    soundcloud: query => `https://soundcloud.com/search?q=${encodeURIComponent(query)}`,
     iheart: query => `https://www.iheart.com/artist/henna-c-50618415`
   };
 
@@ -1229,10 +1230,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const shareToast = document.getElementById("share-toast");
 
   const getCanonicalShareUrl = () => {
-    if (window.location.protocol === "file:" || window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
-      return "https://hennac-music.github.io/Hennac/";
-    }
-    return window.location.href;
+    return "https://hcmusic.live/";
   };
 
   const setupShareSocialLinks = (url) => {
