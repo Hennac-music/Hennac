@@ -468,7 +468,8 @@ document.addEventListener("DOMContentLoaded", () => {
     ["amazon", "amazon"],
     ["tidal", "tidal"],
     ["deezer", "deezer"],
-    ["audiomack", "audiomack"]
+    ["audiomack", "audiomack"],
+    ["iheart", "iheart"]
   ];
   document.querySelectorAll(".rc-dropdown-menu .dropdown-item").forEach(item => {
     const key = platformMatchers.find(([needle]) => {
@@ -799,7 +800,8 @@ document.addEventListener("DOMContentLoaded", () => {
     amazon: query => `https://music.amazon.com/search/${encodeURIComponent(query)}`,
     tidal: query => `https://tidal.com/search?q=${encodeURIComponent(query)}`,
     deezer: query => `https://www.deezer.com/search/${encodeURIComponent(query)}`,
-    audiomack: query => `https://audiomack.com/search?q=${encodeURIComponent(query)}`
+    audiomack: query => `https://audiomack.com/search?q=${encodeURIComponent(query)}`,
+    iheart: query => `https://www.iheart.com/artist/henna-c-50618415`
   };
 
   const cleanTrackTitle = value => (value || "").replace(/\s*\(Preview\)\s*/gi, "").trim();
