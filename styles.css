@@ -513,7 +513,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   padding: 8rem var(--pad) 6rem;
   z-index: 2;
@@ -883,12 +883,14 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .more-platforms-dropdown {
   position: absolute;
   top: calc(100% + 0.75rem);
-  left: 50%;
-  transform: translateX(-50%) translateY(12px) scale(0.95);
+  right: 0;
+  left: auto;
+  transform: translateY(12px) scale(0.95);
+  transform-origin: top right;
   width: 220px;
-  max-height: 380px;
+  max-height: 280px;
   overflow-y: auto;
-  background: rgba(10, 10, 15, 0.97);
+  background: rgba(10, 10, 15, 0.98);
   border: 1px solid rgba(212, 175, 55, 0.55);
   border-radius: 20px;
   padding: 0.65rem;
@@ -901,13 +903,28 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   opacity: 0;
   pointer-events: none;
   transition: transform 0.3s var(--ease), opacity 0.3s ease;
-  z-index: 9999;
+  z-index: 99999;
 }
 
 .more-platforms-dropdown.open {
-  transform: translateX(-50%) translateY(0) scale(1);
+  transform: translateY(0) scale(1);
   opacity: 1;
   pointer-events: auto;
+}
+
+.more-platforms-dropdown::-webkit-scrollbar {
+  width: 5px;
+}
+.more-platforms-dropdown::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 10px;
+}
+.more-platforms-dropdown::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.6);
+  border-radius: 10px;
+}
+.more-platforms-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #ffd54f;
 }
 
 .mp-item {
