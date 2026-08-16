@@ -1363,6 +1363,29 @@ document.addEventListener("DOMContentLoaded", () => {
         morePlatformsDropdown.setAttribute("aria-hidden", "false");
         platformMoreBtn.classList.add("active");
         platformMoreBtn.setAttribute("aria-expanded", "true");
+
+        // Smoothly scroll to bring the dropdown into view
+        setTimeout(() => {
+          morePlatformsDropdown.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 80);
+      }
+    });
+
+    morePlatformsDropdown.addEventListener("click", (e) => {
+      const link = e.target.closest("a");
+      if (link) {
+        const href = link.getAttribute("href");
+        if (href && href.startsWith("#")) {
+          e.preventDefault();
+          const targetEl = document.querySelector(href);
+          morePlatformsDropdown.classList.remove("open");
+          morePlatformsDropdown.setAttribute("aria-hidden", "true");
+          platformMoreBtn.classList.remove("active");
+          platformMoreBtn.setAttribute("aria-expanded", "false");
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        }
       }
     });
 
