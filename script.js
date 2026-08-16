@@ -1356,20 +1356,31 @@ document.addEventListener("DOMContentLoaded", () => {
       e.stopPropagation();
       const isOpen = morePlatformsDropdown.classList.contains("open");
       if (isOpen) {
-        morePlatformsDropdown.classList.remove("open");
+        morePlatformsDropdown.classList.remove("open", "pop-up");
         morePlatformsDropdown.setAttribute("aria-hidden", "true");
         platformMoreBtn.classList.remove("active");
         platformMoreBtn.setAttribute("aria-expanded", "false");
       } else {
+        // Smart viewport placement: if near bottom of screen, pop UPWARDS into empty space
+        const rect = platformMoreBtn.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        const requiredHeight = 350;
+
+        if (spaceBelow < requiredHeight && rect.top > requiredHeight) {
+          morePlatformsDropdown.classList.add("pop-up");
+        } else {
+          morePlatformsDropdown.classList.remove("pop-up");
+        }
+
         morePlatformsDropdown.classList.add("open");
         morePlatformsDropdown.setAttribute("aria-hidden", "false");
         platformMoreBtn.classList.add("active");
         platformMoreBtn.setAttribute("aria-expanded", "true");
 
-        // Smoothly scroll to bring the dropdown into view
+        // Center button smoothly on screen for maximum dropdown visibility
         setTimeout(() => {
-          morePlatformsDropdown.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }, 80);
+          platformMoreBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+        }, 60);
       }
     });
 
@@ -1380,7 +1391,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (href && href.startsWith("#")) {
           e.preventDefault();
           const targetEl = document.querySelector(href);
-          morePlatformsDropdown.classList.remove("open");
+          morePlatformsDropdown.classList.remove("open", "pop-up");
           morePlatformsDropdown.setAttribute("aria-hidden", "true");
           platformMoreBtn.classList.remove("active");
           platformMoreBtn.setAttribute("aria-expanded", "false");
@@ -1394,7 +1405,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", (e) => {
       if (morePlatformsDropdown.classList.contains("open")) {
         if (!morePlatformsDropdown.contains(e.target) && e.target !== platformMoreBtn && !platformMoreBtn.contains(e.target)) {
-          morePlatformsDropdown.classList.remove("open");
+          morePlatformsDropdown.classList.remove("open", "pop-up");
           morePlatformsDropdown.setAttribute("aria-hidden", "true");
           platformMoreBtn.classList.remove("active");
           platformMoreBtn.setAttribute("aria-expanded", "false");
@@ -1404,7 +1415,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.addEventListener("keydown", (e) => {
       if (e.key === "Escape" && morePlatformsDropdown.classList.contains("open")) {
-        morePlatformsDropdown.classList.remove("open");
+        morePlatformsDropdown.classList.remove("open", "pop-up");
         morePlatformsDropdown.setAttribute("aria-hidden", "true");
         platformMoreBtn.classList.remove("active");
         platformMoreBtn.setAttribute("aria-expanded", "false");
