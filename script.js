@@ -714,6 +714,19 @@ document.addEventListener("DOMContentLoaded", () => {
         btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14" style="margin-right:6px; vertical-align: middle;"><path d="M8 5.14v14l11-7-11-7z"/></svg><span>Play Preview</span>`;
       }
     });
+
+    // Sync album trilogy play pill buttons
+    document.querySelectorAll(".at-play-pill").forEach(btn => {
+      const idx = getTargetTrackIndex(btn, 0);
+      const isThisPlaying = isPlaying && current === idx;
+      if (isThisPlaying) {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg><span>Pause</span>`;
+        btn.classList.add("playing");
+      } else {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M8 5.14v14l11-7-11-7z"/></svg><span>Play</span>`;
+        btn.classList.remove("playing");
+      }
+    });
   };
 
   const loadTrack = (indexOrTrack, autoPlay = false) => {
@@ -793,6 +806,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rMenu = document.getElementById("release-dropdown-menu");
   let activeBtn = null;
   let dropdownPreviewTrack = null;
+  let dropdownPreviewTracks = [];
   const platformSearchUrls = {
     spotify: query => `https://open.spotify.com/search/${encodeURIComponent(query)}`,
     apple: query => `https://music.apple.com/us/search?term=${encodeURIComponent(query)}`,
@@ -838,9 +852,51 @@ document.addEventListener("DOMContentLoaded", () => {
     return titleEl;
   };
 
-  const getDropdownPreviewBtn = () => rMenu?.querySelector(".dropdown-preview-btn") || null;
+  const ensureDropdownPreviewSection = () => {
+    if (!rMenu) return null;
+    let previewSection = rMenu.querySelector(".dropdown-preview-section");
+    if (!previewSection) {
+      previewSection = document.createElement("div");
+      previewSection.className = "dropdown-preview-section";
+
+      const divider = document.createElement("div");
+      divider.className = "dropdown-divider";
+
+      const firstPlatformLink = rMenu.querySelector(".dropdown-item");
+      rMenu.insertBefore(previewSection, firstPlatformLink);
+      rMenu.insertBefore(divider, firstPlatformLink);
+    }
+    return previewSection;
+  };
+
   const syncDropdownPreviewBtn = (isPlaying = playing) => {
-    const previewBtn = getDropdownPreviewBtn();
+    if (!rMenu) return;
+    const previewSection = ensureDropdownPreviewSection();
+    if (!previewSection) return;
+
+    // Check if multi-track album (e.g. Frequency Shift trilogy)
+    if (dropdownPreviewTracks && dropdownPreviewTracks.length > 1) {
+      previewSection.querySelectorAll(".dropdown-track-pill").forEach(pill => {
+        const idx = parseInt(pill.dataset.index, 10);
+        const trk = tracks[idx];
+        const isThisPlaying = isPlaying && ((current === idx) || (audio.src && trk?.src && audio.src.includes(trk.src)));
+        pill.classList.toggle("playing", isThisPlaying);
+        const actionEl = pill.querySelector(".dtp-action");
+        if (actionEl) {
+          actionEl.innerHTML = isThisPlaying ? `
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            <span>Pause</span>
+          ` : `
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+            <span>Preview</span>
+          `;
+        }
+      });
+      return;
+    }
+
+    // Single track preview button
+    const previewBtn = previewSection.querySelector(".dropdown-preview-btn");
     if (!previewBtn) return;
 
     const hasPreview = Boolean(dropdownPreviewTrack?.src);
@@ -865,13 +921,55 @@ document.addEventListener("DOMContentLoaded", () => {
     `;
   };
 
-  const ensureDropdownPreviewSection = () => {
-    if (!rMenu) return null;
-    let previewSection = rMenu.querySelector(".dropdown-preview-section");
-    if (!previewSection) {
-      previewSection = document.createElement("div");
-      previewSection.className = "dropdown-preview-section";
+  const renderDropdownPreviewSection = (isAlbumTrilogy) => {
+    const previewSection = ensureDropdownPreviewSection();
+    if (!previewSection) return;
+    previewSection.innerHTML = "";
 
+    if (isAlbumTrilogy) {
+      const header = document.createElement("div");
+      header.className = "dropdown-preview-header";
+      header.textContent = "Select Track To Preview";
+      previewSection.appendChild(header);
+
+      const list = document.createElement("div");
+      list.className = "dropdown-preview-list";
+
+      const trilogyTracks = [
+        { label: "TRACK 1", title: "The Realization", index: 0 },
+        { label: "TRACK 2", title: "The Consequence", index: 1 },
+        { label: "TRACK 3", title: "The Resolution", index: 2 }
+      ];
+
+      trilogyTracks.forEach(t => {
+        const pill = document.createElement("button");
+        pill.type = "button";
+        pill.className = "dropdown-track-pill";
+        pill.dataset.index = t.index;
+        pill.innerHTML = `
+          <div class="dtp-label">
+            <span class="dtp-badge">${t.label}</span>
+            <span class="dtp-title">${t.title}</span>
+          </div>
+          <div class="dtp-action">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+            <span>Preview</span>
+          </div>
+        `;
+        pill.addEventListener("click", (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          if (current === t.index) {
+            toggle();
+          } else {
+            loadTrack(t.index, true);
+          }
+        });
+        list.appendChild(pill);
+      });
+
+      previewSection.appendChild(list);
+    } else {
       const previewBtn = document.createElement("button");
       previewBtn.type = "button";
       previewBtn.className = "dropdown-preview-btn";
@@ -887,25 +985,27 @@ document.addEventListener("DOMContentLoaded", () => {
           loadTrack(dropdownPreviewTrack, true);
         }
       });
-
       previewSection.appendChild(previewBtn);
-
-      const divider = document.createElement("div");
-      divider.className = "dropdown-divider";
-
-      const firstPlatformLink = rMenu.querySelector(".dropdown-item");
-      rMenu.insertBefore(previewSection, firstPlatformLink);
-      rMenu.insertBefore(divider, firstPlatformLink);
     }
-    return previewSection;
   };
 
   const setDropdownContext = (trackTitle = "", triggerBtn = null) => {
     if (!rMenu) return;
     const title = cleanTrackTitle(trackTitle);
     const titleEl = ensureDropdownTitle();
-    ensureDropdownPreviewSection();
-    dropdownPreviewTrack = getTriggerTrack(triggerBtn, title);
+    
+    const isFrequencyShiftAlbum = title.toLowerCase().includes("frequency shift") || triggerBtn?.id === "release-play-btn" || Boolean(triggerBtn?.closest("#featured-release"));
+
+    if (isFrequencyShiftAlbum) {
+      dropdownPreviewTracks = [tracks[0], tracks[1], tracks[2]];
+      dropdownPreviewTrack = tracks[0];
+      renderDropdownPreviewSection(true);
+    } else {
+      dropdownPreviewTracks = [];
+      dropdownPreviewTrack = getTriggerTrack(triggerBtn, title);
+      renderDropdownPreviewSection(false);
+    }
+
     if (titleEl) titleEl.textContent = title ? `Find ${title}` : "Stream On Your Platform";
     syncDropdownPreviewBtn(playing);
 
