@@ -738,7 +738,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Highlight active row
       plRows.forEach(r => r.classList.remove("active"));
-      plRows[indexOrTrack]?.classList.add("active");
+      if (plRows[indexOrTrack]) {
+        plRows[indexOrTrack].classList.add("active");
+        if (autoPlay) {
+          plRows[indexOrTrack].scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }
+      }
     } else {
       current = -1; // Special index for external/banner tracks
       t = indexOrTrack;

@@ -1874,8 +1874,9 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 ────────────────────────────────────────── */
 .player-shell {
   display:grid;
-  grid-template-columns:1fr 360px;
-  gap:2rem;
+  grid-template-columns:minmax(320px, 420px) minmax(0, 1fr);
+  gap:2.5rem;
+  align-items:start;
   background:var(--glass);
   backdrop-filter:var(--glass-blur);
   -webkit-backdrop-filter:var(--glass-blur);
@@ -1895,6 +1896,16 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   pointer-events:none;
 }
 .player-shell.playing { border-color:rgba(201,123,69,0.25); }
+
+/* Left: Fixed Music Player */
+.player-left {
+  position:sticky;
+  top:2rem;
+  align-self:start;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
 
 /* Now playing tag */
 .now-playing-tag {
@@ -2025,15 +2036,47 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 /* Playlist panel */
 .player-right {
   border-left:1px solid var(--glass-border);
-  padding-left:2rem;
+  padding-left:2.5rem;
   display:flex; flex-direction:column;
+  min-width:0;
+  height:100%;
 }
 .playlist-label {
   font-family:"Cinzel",serif; font-size:0.65rem; font-weight:800;
   text-transform:uppercase; letter-spacing:0.28em;
   color:var(--muted); margin-bottom:1rem;
 }
-.playlist { display:flex; flex-direction:column; gap:0.5rem; flex:1; }
+.playlist {
+  display:flex; flex-direction:column; gap:0.5rem;
+  height:560px;
+  max-height:560px;
+  overflow-y:auto;
+  overflow-x:hidden;
+  overscroll-behavior:contain;
+  padding-right:0.6rem;
+  scroll-behavior:smooth;
+  scrollbar-width:thin;
+  scrollbar-color:rgba(201,123,69,0.6) rgba(255,255,255,0.04);
+  -webkit-overflow-scrolling:touch;
+}
+
+.playlist::-webkit-scrollbar {
+  width:6px;
+}
+.playlist::-webkit-scrollbar-track {
+  background:rgba(255,255,255,0.03);
+  border-radius:8px;
+  margin:4px 0;
+}
+.playlist::-webkit-scrollbar-thumb {
+  background:linear-gradient(180deg,var(--copper-hi),var(--copper));
+  border-radius:8px;
+  border:1px solid rgba(0,0,0,0.3);
+}
+.playlist::-webkit-scrollbar-thumb:hover {
+  background:linear-gradient(180deg,#ffd54f,var(--copper-hi));
+  box-shadow:0 0 10px rgba(241,177,112,0.5);
+}
 
 .playlist-header {
   font-family: "Outfit", sans-serif;
@@ -2042,12 +2085,21 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   letter-spacing: 0.18em;
   color: #ffd54f;
   text-transform: uppercase;
-  padding: 1.2rem 1rem 0.6rem;
+  padding: 0.85rem 0.8rem 0.5rem;
   border-bottom: 1px solid rgba(255, 213, 79, 0.15);
   margin-bottom: 0.4rem;
-  opacity: 0.85;
+  margin-top: 0.5rem;
+  position: sticky;
+  top: 0;
+  background: rgba(13, 13, 16, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 2;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 .playlist-header:first-of-type {
+  margin-top: 0;
   padding-top: 0.4rem;
 }
 
@@ -2767,8 +2819,10 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 ────────────────────────────────────────── */
 @media (max-width:1024px) {
   .release-card { grid-template-columns:280px 1fr; gap:2.5rem; padding:2.5rem; }
-  .player-shell { grid-template-columns:1fr; }
-  .player-right { border-left:none; border-top:1px solid var(--glass-border); padding-left:0; padding-top:1.5rem; margin-top:1.5rem; }
+  .player-shell { grid-template-columns:1fr; gap:2rem; padding:2rem; }
+  .player-left { position:static; max-width:480px; margin:0 auto; width:100%; }
+  .player-right { border-left:none; border-top:1px solid var(--glass-border); padding-left:0; padding-top:1.5rem; margin-top:0; }
+  .playlist { height:480px; max-height:480px; }
   .about-grid { grid-template-columns:1fr; }
   .about-portrait { min-height:430px; max-height:560px; }
   .about-hud { grid-template-columns:repeat(2,minmax(0,1fr)); gap:1px; padding:1rem; }
@@ -2786,6 +2840,8 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   .nav-desktop { display:none; }
   .hamburger { display:flex; }
   .section-inner { padding:5rem var(--pad); }
+  .player-shell { padding:1.5rem; }
+  .playlist { height:400px; max-height:400px; }
   .release-card { grid-template-columns:1fr; padding:1.8rem; }
   .rc-art-col { max-width:260px; margin:0 auto; }
   .mini-grid { grid-template-columns:1fr 1fr; }
