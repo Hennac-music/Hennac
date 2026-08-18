@@ -1717,6 +1717,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   border-radius:var(--r-pill);
   color:#fff; font-size:0.82rem; font-weight:800;
   text-transform:uppercase; letter-spacing:0.16em;
+  text-decoration:none;
   transition:var(--ts); backdrop-filter:blur(10px);
   -webkit-backdrop-filter:blur(10px);
   box-shadow:0 0 22px rgba(168,85,247,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
@@ -1868,6 +1869,13 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 }
 .uc-preview-btn svg { width:14px; height:14px; }
 .uc-preview-btn:hover { background:rgba(168,85,247,0.22); border-color:rgba(168,85,247,0.55); transform:translateY(-2px); color:#fff; }
+.uc-itunes-btn:hover {
+  background: linear-gradient(135deg, rgba(212,175,55,0.45), rgba(168,85,247,0.4)) !important;
+  border-color: rgba(212,175,55,0.85) !important;
+  color: #fff !important;
+  box-shadow: 0 0 18px rgba(212,175,55,0.4);
+  transform: translateY(-2px);
+}
 
 /* ──────────────────────────────────────────
    SECTION 4 — LATEST TRACKS (PLAYER)
