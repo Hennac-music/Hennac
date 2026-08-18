@@ -620,7 +620,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const cardTrack = {
     src: "",
     title: "Frequency Shift (Preview)",
-    genre: "Dance / R&B · 2026",
+    genre: "Pop / Dance · 2026",
     art: "assets/frequency-shift.png"
   };
   cardTrack.src = decodedCardSrc;
