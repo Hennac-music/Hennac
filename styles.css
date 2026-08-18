@@ -1202,8 +1202,38 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .stream-chip.apple-chip:not(.pending):hover    { border-color:rgba(252,60,81,0.5); color:#fc3c51; }
 .stream-chip.audiomack-chip:not(.pending):hover{ border-color:rgba(255,178,0,0.5); color:#ffb200; }
 
+.rc-actions { display:flex; align-items:center; gap:1.2rem; flex-wrap:wrap; }
+
+.rc-itunes-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.8rem;
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.25), rgba(168, 85, 247, 0.2));
+  color: #f7d774;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--ts);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.rc-itunes-btn svg { width: 16px; height: 16px; }
+.rc-itunes-btn:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.45), rgba(168, 85, 247, 0.4));
+  border-color: rgba(212, 175, 55, 0.85);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.4);
+  transform: translateY(-2px);
+}
+
 /* Dropdown Wrapper & Button Dropdown System */
-.rc-actions.dropdown-wrapper {
+.dropdown-wrapper {
   position: relative;
   display: inline-block;
 }
@@ -1435,7 +1465,9 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 }
 .mini-grid {
   display: flex;
-  gap: 1.8rem;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
@@ -1446,6 +1478,11 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 }
 .mini-grid::-webkit-scrollbar {
   display: none; /* Chrome, Safari, Opera */
+}
+@media (max-width: 1180px) {
+  .mini-grid {
+    justify-content: flex-start;
+  }
 }
 .carousel-arrow {
   position: absolute;
@@ -1489,7 +1526,8 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   }
 }
 .mini-card {
-  flex: 0 0 310px;
+  flex: 0 0 260px;
+  max-width: 275px;
   scroll-snap-align: start;
   background:var(--glass);
   backdrop-filter:var(--glass-blur-sm);
@@ -1499,6 +1537,9 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   overflow:hidden;
   position:relative;
   transition:var(--t);
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
 }
 .mini-card::after {
   content:"";
@@ -1529,10 +1570,26 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .mini-play-btn svg { width:36px; height:36px; filter:drop-shadow(0 2px 8px rgba(0,0,0,0.6)); }
 .mini-art-wrap:hover .mini-play-btn { opacity:1; }
 
-.mini-text { padding:1.2rem 1.3rem; }
+.mini-text {
+  padding:1.2rem 1.3rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+}
 .mini-kicker { font-size:0.64rem; font-weight:900; text-transform:uppercase; letter-spacing:0.24em; color:var(--copper-hi); display:block; margin-bottom:0.3rem; }
 .mini-title { font-family:"Cinzel",serif; font-size:0.95rem; font-weight:800; margin-bottom:0.25rem; }
 .mini-genre { font-size:0.78rem; color:var(--muted); margin-bottom:0.6rem; }
+.mini-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-top: auto;
+  padding-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
 .mini-listen-btn {
   background: none;
   border: none;
@@ -1555,19 +1612,126 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   transform: translateX(3px);
 }
 
+.mini-itunes-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.68rem;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(168, 85, 247, 0.14));
+  color: #f7d774;
+  font-family: inherit;
+  font-size: 0.64rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--t);
+  white-space: nowrap;
+}
+.mini-itunes-btn svg {
+  width: 11px;
+  height: 11px;
+}
+.mini-itunes-btn:hover {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.42), rgba(168, 85, 247, 0.35));
+  border-color: rgba(212, 175, 55, 0.85);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+
 .mini-link { font-size:0.74rem; font-weight:800; color:var(--copper-hi); text-transform:uppercase; letter-spacing:0.12em; }
 .mini-link:not(.pending):hover { color:#fff; }
 
-.more-card {
-  display:flex; align-items:center; justify-content:center;
-  min-height:200px;
-  border:1px dashed rgba(255,255,255,0.1);
-  background:rgba(255,255,255,0.015);
-  cursor:default;
+/* ── Streaming Hub Direct Direction Banner ── */
+.streaming-hub-banner {
+  margin-top: 2.2rem;
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur-sm);
+  -webkit-backdrop-filter: var(--glass-blur-sm);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 1.6rem 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+  transition: var(--t);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.4);
 }
-.more-inner { text-align:center; color:var(--smoke); }
-.more-plus { font-size:2.5rem; font-weight:200; line-height:1; margin-bottom:0.5rem; }
-.more-inner span { font-size:0.78rem; line-height:1.6; }
+.streaming-hub-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid transparent;
+  background: var(--chrome) border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.streaming-hub-banner:hover {
+  border-color: var(--glass-hi);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+.sh-banner-left {
+  max-width: 660px;
+  position: relative;
+  z-index: 1;
+}
+.sh-banner-kicker {
+  font-size: 0.62rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--copper-hi);
+  display: block;
+  margin-bottom: 0.35rem;
+}
+.sh-banner-title {
+  font-family: "Cinzel", serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin: 0 0 0.3rem 0;
+}
+.sh-banner-desc {
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+}
+.sh-banner-right {
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.sh-banner-btn {
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.78rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  .streaming-hub-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    gap: 1.2rem;
+  }
+  .sh-banner-btn {
+    width: 100%;
+  }
+}
 
 /* ──────────────────────────────────────────
    SECTION 3 — COMING OUT SOON
@@ -1889,6 +2053,33 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   transform: translateY(-2px);
 }
 
+/* ── iTunes Button Coming Soon (Graphite / Gray) State ── */
+.itunes-coming-soon,
+.pl-itunes-btn.itunes-coming-soon,
+.uc-itunes-btn.itunes-coming-soon,
+.mini-itunes-btn.itunes-coming-soon,
+.rc-itunes-btn.itunes-coming-soon {
+  background: linear-gradient(135deg, rgba(60, 60, 70, 0.45), rgba(40, 40, 48, 0.45)) !important;
+  border-color: rgba(255, 255, 255, 0.14) !important;
+  color: rgba(255, 255, 255, 0.45) !important;
+  opacity: 0.58 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+  filter: grayscale(1);
+}
+.itunes-coming-soon:hover,
+.pl-itunes-btn.itunes-coming-soon:hover,
+.uc-itunes-btn.itunes-coming-soon:hover,
+.mini-itunes-btn.itunes-coming-soon:hover,
+.rc-itunes-btn.itunes-coming-soon:hover {
+  background: linear-gradient(135deg, rgba(70, 70, 80, 0.5), rgba(48, 48, 56, 0.5)) !important;
+  border-color: rgba(255, 255, 255, 0.22) !important;
+  color: rgba(255, 255, 255, 0.6) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
 /* ──────────────────────────────────────────
    SECTION 4 — LATEST TRACKS (PLAYER)
 ────────────────────────────────────────── */
@@ -2149,43 +2340,80 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .pl-info { display:flex; flex-direction:column; flex:1; min-width:0; }
 .pl-name { font-size:0.88rem; font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .pl-tag { font-size:0.7rem; color:var(--smoke); margin-top:0.15rem; }
-.pl-stream-btn {
-  flex:0 0 auto;
-  max-width:10.5rem;
-  margin-left:auto;
-  padding:0.52rem 0.72rem;
-  border:1px solid rgba(201,123,69,0.18);
-  border-radius:var(--r-pill);
-  background:rgba(201,123,69,0.08);
-  color:var(--copper-hi);
-  font:inherit;
-  font-size:0.62rem;
-  font-weight:900;
-  letter-spacing:0.09em;
-  line-height:1.2;
-  text-transform:uppercase;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  cursor:pointer;
-  opacity:0;
-  pointer-events:none;
-  transform:translateX(8px);
-  transition:opacity 0.22s ease, transform 0.22s ease, background 0.22s ease, border-color 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+.pl-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: auto;
+  flex: 0 0 auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(8px);
+  transition: opacity 0.22s ease, transform 0.22s ease;
 }
-.pl-row:hover .pl-stream-btn,
-.pl-row:focus-within .pl-stream-btn,
-.pl-stream-btn.open {
-  opacity:1;
-  pointer-events:auto;
-  transform:translateX(0);
+.pl-row:hover .pl-actions,
+.pl-row:focus-within .pl-actions,
+.pl-actions.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
+}
+
+.pl-itunes-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.48rem 0.72rem;
+  border: 1px solid rgba(212, 175, 55, 0.45);
+  border-radius: var(--r-pill);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.18), rgba(168, 85, 247, 0.14));
+  color: #f7d774;
+  font: inherit;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.pl-itunes-btn svg { width: 11px; height: 11px; }
+.pl-itunes-btn:hover {
+  color: #fff;
+  border-color: rgba(212, 175, 55, 0.85);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.42), rgba(168, 85, 247, 0.35));
+  box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+  transform: translateY(-1px);
+}
+
+.pl-stream-btn {
+  flex: 0 0 auto;
+  max-width: 10.5rem;
+  padding: 0.48rem 0.72rem;
+  border: 1px solid rgba(201, 123, 69, 0.28);
+  border-radius: var(--r-pill);
+  background: rgba(201, 123, 69, 0.12);
+  color: var(--copper-hi);
+  font: inherit;
+  font-size: 0.62rem;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+  line-height: 1.2;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 .pl-stream-btn:hover,
 .pl-stream-btn.open {
-  color:#fff;
-  border-color:rgba(201,123,69,0.52);
-  background:linear-gradient(135deg,rgba(201,123,69,0.22),rgba(168,85,247,0.18));
-  box-shadow:0 0 18px rgba(201,123,69,0.22);
+  color: #fff;
+  border-color: rgba(201, 123, 69, 0.52);
+  background: linear-gradient(135deg, rgba(201, 123, 69, 0.22), rgba(168, 85, 247, 0.18));
+  box-shadow: 0 0 18px rgba(201, 123, 69, 0.22);
 }
 
 .playlist-note { font-size:0.75rem; color:var(--smoke); margin-top:1rem; text-align:center; }
@@ -2864,7 +3092,7 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   .playlist { height:400px; max-height:400px; }
   .release-card { grid-template-columns:1fr; padding:1.8rem; }
   .rc-art-col { max-width:260px; margin:0 auto; }
-  .mini-grid { grid-template-columns:1fr 1fr; }
+  .mini-grid { gap:1.2rem; }
   .more-card { display:none; }
   .masonry { grid-template-columns:1fr; grid-template-rows:auto; gap:1.2rem; }
   .gi-feat, .gi-top-1, .gi-top-2, .gi-bot-1, .gi-bot-2, .gi-bot-3 { grid-column:1/-1; grid-row:auto; min-height:280px; }
@@ -2879,28 +3107,43 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   .sp-center { width:100%; }
   .sp-progress { width:100%; }
   .pl-row { gap:0.75rem; padding:0.85rem; }
+  .pl-actions {
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+    gap: 0.35rem;
+  }
+  .pl-itunes-btn {
+    padding: 0.45rem 0.55rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.05em;
+  }
   .pl-stream-btn {
-    opacity:1;
-    pointer-events:auto;
-    transform:none;
-    max-width:7.2rem;
-    padding:0.48rem 0.58rem;
-    font-size:0.56rem;
-    letter-spacing:0.06em;
+    max-width: 6.8rem;
+    padding: 0.45rem 0.55rem;
+    font-size: 0.56rem;
+    letter-spacing: 0.05em;
   }
 }
 
 @media (max-width:480px) {
   .hero-title { font-size:clamp(3rem,16vw,5rem); }
-  .mini-grid { grid-template-columns:1fr; }
+  .mini-card { flex:0 0 260px; }
   .about-hud { grid-template-columns:1fr; }
   .about-portrait { min-height:330px; }
+  .pl-itunes-btn span { display: none; }
+  .pl-itunes-btn {
+    width: 2.1rem;
+    height: 2.1rem;
+    padding: 0;
+    justify-content: center;
+  }
   .pl-stream-btn {
-    width:2.35rem;
-    max-width:2.35rem;
-    height:2.35rem;
-    padding:0;
-    font-size:0;
+    width: 2.1rem;
+    max-width: 2.1rem;
+    height: 2.1rem;
+    padding: 0;
+    font-size: 0;
   }
   .pl-stream-btn::after {
     content:"↗";

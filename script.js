@@ -715,6 +715,19 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
+    // Sync mini card play buttons
+    document.querySelectorAll(".mini-play-btn, .single-play-btn").forEach(btn => {
+      const idx = getTargetTrackIndex(btn, -1);
+      const isThisPlaying = isPlaying && current === idx;
+      if (isThisPlaying) {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>`;
+        btn.classList.add("playing");
+      } else {
+        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>`;
+        btn.classList.remove("playing");
+      }
+    });
+
     // Sync album trilogy play pill buttons
     document.querySelectorAll(".at-play-pill").forEach(btn => {
       const idx = getTargetTrackIndex(btn, 0);
@@ -829,11 +842,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const findTrackByTitle = title => {
     const normalized = normalizeTrackTitle(title);
     if (!normalized) return null;
-    return tracks.find(track => normalizeTrackTitle(track.title) === normalized) || null;
+    return tracks.find(track => {
+      const tNorm = normalizeTrackTitle(track.title);
+      if (normalized.includes("big body") && tNorm.includes("big body")) return true;
+      return tNorm === normalized || tNorm.includes(normalized) || normalized.includes(tNorm);
+    }) || null;
   };
   const getTriggerTrackTitle = (btn) => {
     const rowTitle = btn?.closest(".pl-row")?.dataset.title;
-    const cardTitle = btn?.closest(".mini-card")?.querySelector(".mini-title")?.textContent;
+    const cardTitle = btn?.closest(".recent-single-card, .mini-card")?.querySelector(".single-title, .mini-title")?.textContent;
     const releaseTitle = btn?.closest(".release-card")?.querySelector(".rc-title")?.textContent;
     return cleanTrackTitle(rowTitle || cardTitle || releaseTitle || "");
   };
@@ -1034,6 +1051,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     activeBtn = btn;
     btn.classList.add("open");
+    btn.closest(".pl-actions")?.classList.add("open");
     setDropdownContext(trackTitle || getTriggerTrackTitle(btn), btn);
     rMenu.classList.add("open");
 
@@ -1061,6 +1079,7 @@ document.addEventListener("DOMContentLoaded", () => {
       activeBtn.classList.remove("open");
       activeBtn = null;
     }
+    document.querySelectorAll(".pl-actions.open").forEach(el => el.classList.remove("open"));
     rMenu?.classList.remove("open");
   };
 
@@ -1083,23 +1102,211 @@ document.addEventListener("DOMContentLoaded", () => {
       featuredAudio.paused ? featuredAudio.play() : featuredAudio.pause();
     });
   }
+  // ──────────────────────────────────────────
+  // RECENT SINGLES CATALOG (Rolling Top 3 System)
+  // ──────────────────────────────────────────
+  const RECENT_SINGLES_CATALOG = [
+    {
+      id: "dwm",
+      title: "Dance With Me",
+      genre: "Pop / Dance",
+      meta: "Pop / Dance · Out Now",
+      kicker: "New Single · Out Now",
+      badge: "LATEST SINGLE",
+      art: "assets/dance-with-me.jpg",
+      src: "assets/audio/dance-with-me.wav",
+      itunes: "https://music.apple.com/us/album/dance-with-me/6800257565?i=6800257566",
+      releaseDate: "2026-08-15"
+    },
+    {
+      id: "tamn",
+      title: "That Ain't My Name",
+      genre: "Hip-Hop / R&B",
+      meta: "Hip-Hop / R&B · Out Now",
+      kicker: "New Single · Out Now",
+      badge: "LATEST SINGLE",
+      art: "assets/that-aint-my-name.jpg",
+      src: "assets/audio/that-aint-my-name.wav",
+      itunes: "https://music.apple.com/us/album/that-aint-my-name/6800203966?i=6800203967",
+      releaseDate: "2026-08-12"
+    },
+    {
+      id: "bbe",
+      title: "Big Body Energy",
+      genre: "Hip-Hop / Rap",
+      meta: "Hip-Hop / Rap · Out Now",
+      kicker: "New Single · Out Now",
+      badge: "LATEST SINGLE",
+      art: "assets/big-body-energy.png",
+      src: "assets/audio/big-body-cadillacs.wav",
+      itunes: "https://music.apple.com/us/album/big-body-energy/6799845497?i=6799845498",
+      releaseDate: "2026-08-10"
+    },
+    {
+      id: "omt",
+      title: "One More Time",
+      genre: "Pop / Dance",
+      meta: "Pop / Dance · Out Now",
+      kicker: "Single · Out Now",
+      badge: "SINGLE",
+      art: "assets/one-more-time.png",
+      src: "assets/audio/one-more-time.wav",
+      itunes: "https://music.apple.com/us/album/one-more-time/6799821062?i=6799821063",
+      releaseDate: "2026-07-28"
+    },
+    {
+      id: "ltn",
+      title: "Lose The Night",
+      genre: "Pop / Dance",
+      meta: "Pop / Dance · Out Now",
+      kicker: "Single · Out Now",
+      badge: "SINGLE",
+      art: "assets/lose-the-night.png",
+      src: "assets/audio/lose-the-night.wav",
+      itunes: "https://music.apple.com/us/album/lose-the-night/6797718277?i=6797718278",
+      releaseDate: "2026-07-20"
+    },
+    {
+      id: "og",
+      title: "OUTTA GAS",
+      genre: "Hip-Hop / Rap",
+      meta: "Hip-Hop / Rap · Out Now",
+      kicker: "Single · Out Now",
+      badge: "SINGLE",
+      art: "assets/outta-gas.png",
+      src: "assets/audio/outta-gas.wav",
+      itunes: "https://music.apple.com/us/album/outta-gas/6798104030?i=6798104031",
+      releaseDate: "2026-07-10"
+    },
+    {
+      id: "inv",
+      title: "Invisible",
+      genre: "Punk / Hip-Hop",
+      meta: "Punk / Hip-Hop · Out Now",
+      kicker: "Single · Out Now",
+      badge: "SINGLE",
+      art: "assets/invisible.png",
+      src: "assets/audio/invisible.wav",
+      itunes: "https://music.apple.com/us/album/invisible/6798500865?i=6798500866",
+      releaseDate: "2026-06-25"
+    }
+  ];
 
-  document.querySelectorAll(".mini-listen-btn").forEach(btn => {
+  function renderRecentSingles() {
+    const miniGrid = document.getElementById("mini-grid");
+    if (!miniGrid) return;
+
+    // Sort by releaseDate descending, take exactly the top 4
+    const sorted = [...RECENT_SINGLES_CATALOG].sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
+    const topFour = sorted.slice(0, 4);
+
+    miniGrid.innerHTML = topFour.map(single => {
+      const isAvail = Boolean(single.itunes && !single.itunes.includes("artist/henna-c"));
+      return `
+      <div class="mini-card visible" id="mini-card-${single.id}">
+        <div class="mini-art-wrap">
+          <img src="${single.art}" alt="${single.title} artwork" loading="lazy">
+          <button class="mini-play-btn" data-title="${single.title}" aria-label="Play ${single.title}">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
+          </button>
+        </div>
+        <div class="mini-text">
+          <span class="mini-kicker">${single.kicker || "New Single · Out Now"}</span>
+          <h4 class="mini-title">${single.title}</h4>
+          <p class="mini-genre">${single.meta || single.genre + " · Out Now"}</p>
+          <div class="mini-actions">
+            <button class="mini-listen-btn" data-title="${single.title}">Listen Now ➔</button>
+            <a href="${isAvail ? single.itunes : 'javascript:void(0)'}" ${isAvail ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true"'} class="mini-itunes-btn ${isAvail ? '' : 'itunes-coming-soon'}" title="${isAvail ? `Purchase ${single.title} on iTunes` : `${single.title} - Coming Soon to iTunes`}">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+              <span>Purchase on iTunes</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    `;}).join("");
+
+    // Bind playback and dropdown listeners to mini cards
+    miniGrid.querySelectorAll(".mini-play-btn").forEach(btn => {
+      btn.addEventListener("click", e => {
+        e.stopPropagation();
+        const idx = getTargetTrackIndex(btn, 0);
+        if (current === idx) toggle(); else loadTrack(idx, true);
+      });
+    });
+
+    miniGrid.querySelectorAll(".mini-listen-btn").forEach(btn => {
+      btn.addEventListener("click", e => {
+        toggleDropdown(btn, e);
+      });
+    });
+
+    syncUI(playing);
+  }
+
+  // Public helper to release a new single on a rolling basis
+  window.releaseNewSingle = function(single) {
+    if (!single) return;
+    if (!single.releaseDate) single.releaseDate = new Date().toISOString();
+    if (!single.id) single.id = "single-" + Date.now();
+    RECENT_SINGLES_CATALOG.unshift(single);
+    renderRecentSingles();
+  };
+
+  // Initial render of the 4 most recent singles
+  renderRecentSingles();
+
+  document.querySelectorAll(".mini-listen-btn, .single-listen-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {
       toggleDropdown(btn, e);
     });
   });
 
   plRows.forEach(row => {
-    if (row.querySelector(".pl-stream-btn")) return;
+    if (row.querySelector(".pl-actions")) return;
     const title = cleanTrackTitle(row.dataset.title || row.querySelector(".pl-name")?.textContent || "");
+    const itunesUrl = (row.dataset.itunes || "").trim();
+    const isAvail = Boolean(itunesUrl && !itunesUrl.includes("artist/henna-c"));
+
+    const actionGroup = document.createElement("div");
+    actionGroup.className = "pl-actions";
+
+    const itunesBtn = document.createElement("a");
+    if (isAvail) {
+      itunesBtn.href = itunesUrl;
+      itunesBtn.target = "_blank";
+      itunesBtn.rel = "noopener noreferrer";
+      itunesBtn.className = "pl-itunes-btn";
+      itunesBtn.setAttribute("aria-label", title ? `Purchase ${title} on iTunes` : "Purchase on iTunes");
+      itunesBtn.title = title ? `Purchase ${title} on iTunes` : "Purchase on iTunes";
+    } else {
+      itunesBtn.href = "javascript:void(0)";
+      itunesBtn.className = "pl-itunes-btn itunes-coming-soon";
+      itunesBtn.setAttribute("aria-label", title ? `${title} - Coming Soon to iTunes` : "Coming Soon to iTunes");
+      itunesBtn.title = title ? `${title} - Coming Soon to iTunes` : "Coming Soon to iTunes";
+      itunesBtn.setAttribute("aria-disabled", "true");
+    }
+
+    itunesBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+      <span>Purchase on iTunes</span>
+    `;
+    itunesBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (!isAvail) {
+        e.preventDefault();
+      }
+    });
+
     const btn = document.createElement("button");
     btn.type = "button";
     btn.className = "pl-stream-btn";
     btn.textContent = "Listen Now";
     btn.setAttribute("aria-label", title ? `Find ${title} on your platform` : "Find this track on your platform");
     btn.addEventListener("click", (e) => toggleDropdown(btn, e, title));
-    row.appendChild(btn);
+
+    actionGroup.appendChild(itunesBtn);
+    actionGroup.appendChild(btn);
+    row.appendChild(actionGroup);
   });
 
   document.addEventListener("click", (e) => {
@@ -1128,12 +1335,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Helper to find exact track index by element title, card text, or dataset index
   function getTargetTrackIndex(element, defaultIdx = 0) {
-    const card = element.closest(".mini-card, .album-track-card, .upcoming-card, .pl-row, .featured-release-card");
-    const rawTitle = element.dataset.title || card?.querySelector(".mini-title, .at-title, .uc-name, .pl-name, .rc-title")?.textContent || "";
+    const card = element.closest(".recent-single-card, .mini-card, .album-track-card, .upcoming-card, .pl-row, .featured-release-card");
+    const rawTitle = element.dataset.title || card?.querySelector(".single-title, .mini-title, .at-title, .uc-name, .pl-name, .rc-title")?.textContent || "";
     if (rawTitle) {
       const clean = rawTitle.replace(/\(.*?\)/g, "").trim().toLowerCase();
       const matchIdx = tracks.findIndex(t => {
         const tClean = t.title.toLowerCase();
+        if (clean.includes("big body") && tClean.includes("big body")) return true;
         return tClean === clean || tClean.includes(clean) || clean.includes(tClean);
       });
       if (matchIdx !== -1) return matchIdx;
@@ -1147,8 +1355,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (current === i) toggle(); else loadTrack(i, true);
   }));
 
-  // Mini card play buttons & Listen Now buttons
-  document.querySelectorAll(".mini-play-btn, .mini-listen-btn").forEach(btn => {
+  // Single card & mini card play buttons & Listen Now buttons
+  document.querySelectorAll(".single-play-btn, .mini-play-btn, .single-listen-btn, .mini-listen-btn").forEach(btn => {
     btn.addEventListener("click", e => {
       e.stopPropagation();
       const idx = getTargetTrackIndex(btn, 0);

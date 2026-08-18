@@ -334,51 +334,58 @@
 
               <audio id="featured-audio" controlsList="nodownload"></audio>
 
-              <div class="rc-actions dropdown-wrapper">
-                <button class="play-btn liquid-btn" id="release-play-btn" aria-label="Listen now on site">
-                  <span class="btn-glow"></span>
-                  <span class="btn-label" id="featured-play-text">Stream Album</span>
-                  <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" style="margin-left: 8px; vertical-align: middle;"><path d="M6 9l6 6 6-6"/></svg>
-                </button>
+              <div class="rc-actions">
+                <div class="dropdown-wrapper">
+                  <button class="play-btn liquid-btn" id="release-play-btn" aria-label="Listen now on site">
+                    <span class="btn-glow"></span>
+                    <span class="btn-label" id="featured-play-text">Stream Album</span>
+                    <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" style="margin-left: 8px; vertical-align: middle;"><path d="M6 9l6 6 6-6"/></svg>
+                  </button>
 
-                <div class="rc-dropdown-menu" id="release-dropdown-menu">
-                  <a href="https://open.spotify.com/artist/6mA0wWqnvJPLJrlUin9Zha" target="_blank" rel="noopener" class="dropdown-item" data-platform="spotify">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.077-.337.135-.669.47-.745 3.854-.88 7.15-.502 9.82.13.297.18.388.567.207.86zm1.225-2.72c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.666-1.112 8.243-.566 11.345 1.343.366.227.486.707.26 1.074zm.107-2.836C14.453 8.81 8.73 8.623 5.4 9.635c-.51.155-1.046-.134-1.202-.645-.156-.51.133-1.047.645-1.203 3.82-1.16 10.125-.944 14.152 1.446.46.273.61.87.337 1.33-.274.46-.87.61-1.33.337z"/></svg>
-                    Spotify
-                  </a>
-                  <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener" class="dropdown-item" data-platform="apple">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a6.303 6.303 0 0 0-1.34-.57 11.21 11.21 0 0 0-1.57-.24c-.75-.09-1.5-.09-2.25-.07-.39.01-.78.04-1.17.07-1.41.13-2.77.59-3.86 1.63-.39.37-.74.78-1.01 1.25-.43.73-.67 1.52-.77 2.36-.08.67-.09 1.35-.05 2.02.05.83.17 1.64.47 2.43.36.98.94 1.84 1.73 2.55.71.63 1.52 1.07 2.41 1.37 1 .34 2.03.46 3.07.43.66-.02 1.32-.08 1.97-.22.98-.2 1.88-.6 2.63-1.26.71-.63 1.21-1.41 1.51-2.29.23-.68.33-1.38.35-2.09.03-.75-.03-1.5-.17-2.24zm-5.99 7.38a2.57 2.57 0 0 1-2.57-2.57 2.57 2.57 0 0 1 2.57-2.57 2.57 2.57 0 0 1 2.57 2.57 2.57 2.57 0 0 1-2.57 2.57zm0-3.94a1.37 1.37 0 0 0-1.37 1.37 1.37 1.37 0 0 0 1.37 1.37 1.37 1.37 0 0 0 1.37-1.37 1.37 1.37 0 0 0-1.37-1.37zM8.978 2.006H5.016A3.016 3.016 0 0 0 2 5.023v13.954a3.016 3.016 0 0 0 3.016 3.017h13.968A3.016 3.016 0 0 0 22 18.977V5.023a3.016 3.016 0 0 0-3.016-3.017H8.978z"/></svg>
-                    Apple Music
-                  </a>
-                  <a href="https://www.youtube.com/@HC-Beats" target="_blank" rel="noopener" class="dropdown-item" data-platform="youtube">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
-                    YouTube
-                  </a>
-                  <a href="https://tidal.com/artist/23806181/u" target="_blank" rel="noopener" class="dropdown-item" data-platform="tidal">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996 4.004 12l4.004-4.004L12.012 12l-4.004 4.004 4.004 4.004 4.004-4.004L12.012 12l4.004-4.004-4.004-4.004zM16.042 7.996l3.979-3.979L24 7.996l-3.979 3.979z"/></svg>
-                    Tidal
-                  </a>
-                  <a href="https://link.deezer.com/s/33rQd2SLL2SaqB3ORQ7R9" target="_blank" rel="noopener" class="dropdown-item" data-platform="deezer">
-                    <svg viewBox="0 0 50 48" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0955 7.32313C41.5396 4.74914 42.1912 3.13054 42.913 3.12744H42.9146C44.2606 3.13208 45.3517 8.7454 45.3517 15.6759C45.3517 22.6063 44.259 28.2243 42.9115 28.2243C42.3591 28.2243 41.8494 27.2704 41.4389 25.6719C40.7903 31.5233 39.4443 35.5459 37.8862 35.5459C36.6806 35.5459 35.5986 33.1296 34.8722 29.3188C34.3762 36.5662 33.1279 41.708 31.6689 41.708C30.7533 41.708 29.9185 39.6705 29.3005 36.3529C28.5573 43.2014 26.8405 48 24.8382 48C22.836 48 21.1162 43.2029 20.376 36.3529C19.7625 39.6705 18.9278 41.708 18.0075 41.708C16.5486 41.708 15.3033 36.5662 14.8043 29.3188C14.0779 33.1296 12.999 35.5459 11.7903 35.5459C10.2337 35.5459 8.88621 31.5249 8.23763 25.6719C7.83017 27.2751 7.31741 28.2243 6.76497 28.2243C5.41745 28.2243 4.32478 22.6063 4.32478 15.6759C4.32478 8.7454 5.41745 3.12744 6.76497 3.12744C7.48833 3.12744 8.13538 4.75068 8.58405 7.32313C9.30283 2.88473 10.4703 0 11.7903 0C13.3576 0 14.7158 4.07975 15.3583 10.0038C15.987 5.69216 16.9408 2.94348 18.0091 2.94348C19.5061 2.94348 20.7789 8.34964 21.2505 15.8908C22.1371 12.0243 23.4205 9.59876 24.8413 9.59876C26.2621 9.59876 27.5455 12.0259 28.4306 15.8908C28.9037 8.34964 30.1749 2.94348 31.672 2.94348C32.7387 2.94348 33.691 5.69216 34.3228 10.0038C34.9637 4.07975 36.3219 0 37.8892 0C39.2047 0 40.3767 2.88628 41.0955 7.32313ZM0.837891 14.4417C0.837891 11.3436 1.45748 8.83142 2.22204 8.83142C2.9866 8.83142 3.60619 11.3436 3.60619 14.4417C3.60619 17.5397 2.9866 20.0519 2.22204 20.0519C1.45748 20.0519 0.837891 17.5397 0.837891 14.4417ZM46.0693 14.4417C46.0693 11.3436 46.6888 8.83142 47.4534 8.83142C48.218 8.83142 48.8376 11.3436 48.8376 14.4417C48.8376 17.5397 48.218 20.0519 47.4534 20.0519C46.6888 20.0519 46.0693 17.5397 46.0693 14.4417Z"/></svg>
-                    Deezer
-                  </a>
-                  <a href="https://music.amazon.com/artists/B0GY3M685X/henna-c?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_l0orv7LdxRBPXzUMRC4ewhTLY" target="_blank" rel="noopener" class="dropdown-item" data-platform="amazon">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 3a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm-2 11.5v-7l5 3.5-5 3.5z"/><path d="M5.5 18c3.25 2 9.75 2 13 0m.7-.7a.7.7 0 0 1 .1.8 11.6 11.6 0 0 1-1.8.8.7.7 0 0 1-.7-.3l-.3-.9a.7.7 0 0 1 .4-.8l2.3-.6z"/></svg>
-                    Amazon Music
-                  </a>
-                  <a href="https://audiomack.com/hcmusic" target="_blank" rel="noopener" class="dropdown-item" data-platform="audiomack">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3 10h3v4H3zm5-4h3v12H8zm5 2h3v8h-3zm5 4h3v4h-3z"/></svg>
-                    Audiomack
-                  </a>
-                  <a href="https://soundcloud.com/henna-c-331422553?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" rel="noopener" class="dropdown-item" data-platform="soundcloud">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.56 8.87V17h8.76c2.03 0 3.68-1.64 3.68-3.68 0-1.95-1.52-3.54-3.44-3.67-.32-2.73-2.62-4.86-5.44-4.86-1.57 0-3 .67-4 1.74-.03.03-.06.06-.09.09-.23.25-.43.53-.6.82-.41.71-.67 1.51-.77 2.37l.08.06-.18.02zm-1.84 2.15v5.98h.92v-6.38c-.35.12-.66.26-.92.4zm-1.84.58v5.4h.92v-5.69c-.33.09-.64.19-.92.29zm-1.84.55v4.85h.92v-5.11c-.32.07-.63.16-.92.26zm-1.84.6v4.25h.92v-4.49c-.31.06-.62.14-.92.24zm-1.84.77v3.48h.92V13.8c-.31.08-.62.17-.92.27zm-1.84.88v2.6h.92v-2.83c-.31.07-.62.15-.92.23zM.56 15.68V17h.92v-1.58c-.31.08-.62.17-.92.26z"/></svg>
-                    SoundCloud
-                  </a>
-                  <a href="https://www.iheart.com/artist/henna-c-50618415" target="_blank" rel="noopener" class="dropdown-item" data-platform="iheart">
-                    <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                    iHeartRadio
-                  </a>
+                  <div class="rc-dropdown-menu" id="release-dropdown-menu">
+                    <a href="https://open.spotify.com/artist/6mA0wWqnvJPLJrlUin9Zha" target="_blank" rel="noopener" class="dropdown-item" data-platform="spotify">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.077-.337.135-.669.47-.745 3.854-.88 7.15-.502 9.82.13.297.18.388.567.207.86zm1.225-2.72c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.666-1.112 8.243-.566 11.345 1.343.366.227.486.707.26 1.074zm.107-2.836C14.453 8.81 8.73 8.623 5.4 9.635c-.51.155-1.046-.134-1.202-.645-.156-.51.133-1.047.645-1.203 3.82-1.16 10.125-.944 14.152 1.446.46.273.61.87.337 1.33-.274.46-.87.61-1.33.337z"/></svg>
+                      Spotify
+                    </a>
+                    <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener" class="dropdown-item" data-platform="apple">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.994 6.124a9.23 9.23 0 0 0-.24-2.19c-.317-1.31-1.062-2.31-2.18-3.043a6.303 6.303 0 0 0-1.34-.57 11.21 11.21 0 0 0-1.57-.24c-.75-.09-1.5-.09-2.25-.07-.39.01-.78.04-1.17.07-1.41.13-2.77.59-3.86 1.63-.39.37-.74.78-1.01 1.25-.43.73-.67 1.52-.77 2.36-.08.67-.09 1.35-.05 2.02.05.83.17 1.64.47 2.43.36.98.94 1.84 1.73 2.55.71.63 1.52 1.07 2.41 1.37 1 .34 2.03.46 3.07.43.66-.02 1.32-.08 1.97-.22.98-.2 1.88-.6 2.63-1.26.71-.63 1.21-1.41 1.51-2.29.23-.68.33-1.38.35-2.09.03-.75-.03-1.5-.17-2.24zm-5.99 7.38a2.57 2.57 0 0 1-2.57-2.57 2.57 2.57 0 0 1 2.57-2.57 2.57 2.57 0 0 1 2.57 2.57 2.57 2.57 0 0 1-2.57 2.57zm0-3.94a1.37 1.37 0 0 0-1.37 1.37 1.37 1.37 0 0 0 1.37 1.37 1.37 1.37 0 0 0 1.37-1.37 1.37 1.37 0 0 0-1.37-1.37zM8.978 2.006H5.016A3.016 3.016 0 0 0 2 5.023v13.954a3.016 3.016 0 0 0 3.016 3.017h13.968A3.016 3.016 0 0 0 22 18.977V5.023a3.016 3.016 0 0 0-3.016-3.017H8.978z"/></svg>
+                      Apple Music
+                    </a>
+                    <a href="https://www.youtube.com/@HC-Beats" target="_blank" rel="noopener" class="dropdown-item" data-platform="youtube">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                      YouTube
+                    </a>
+                    <a href="https://tidal.com/artist/23806181/u" target="_blank" rel="noopener" class="dropdown-item" data-platform="tidal">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.012 3.992L8.008 7.996 4.004 3.992 0 7.996 4.004 12l4.004-4.004L12.012 12l-4.004 4.004 4.004 4.004 4.004-4.004L12.012 12l4.004-4.004-4.004-4.004zM16.042 7.996l3.979-3.979L24 7.996l-3.979 3.979z"/></svg>
+                      Tidal
+                    </a>
+                    <a href="https://link.deezer.com/s/33rQd2SLL2SaqB3ORQ7R9" target="_blank" rel="noopener" class="dropdown-item" data-platform="deezer">
+                      <svg viewBox="0 0 50 48" fill="currentColor" width="16" height="16"><path fill-rule="evenodd" clip-rule="evenodd" d="M41.0955 7.32313C41.5396 4.74914 42.1912 3.13054 42.913 3.12744H42.9146C44.2606 3.13208 45.3517 8.7454 45.3517 15.6759C45.3517 22.6063 44.259 28.2243 42.9115 28.2243C42.3591 28.2243 41.8494 27.2704 41.4389 25.6719C40.7903 31.5233 39.4443 35.5459 37.8862 35.5459C36.6806 35.5459 35.5986 33.1296 34.8722 29.3188C34.3762 36.5662 33.1279 41.708 31.6689 41.708C30.7533 41.708 29.9185 39.6705 29.3005 36.3529C28.5573 43.2014 26.8405 48 24.8382 48C22.836 48 21.1162 43.2029 20.376 36.3529C19.7625 39.6705 18.9278 41.708 18.0075 41.708C16.5486 41.708 15.3033 36.5662 14.8043 29.3188C14.0779 33.1296 12.999 35.5459 11.7903 35.5459C10.2337 35.5459 8.88621 31.5249 8.23763 25.6719C7.83017 27.2751 7.31741 28.2243 6.76497 28.2243C5.41745 28.2243 4.32478 22.6063 4.32478 15.6759C4.32478 8.7454 5.41745 3.12744 6.76497 3.12744C7.48833 3.12744 8.13538 4.75068 8.58405 7.32313C9.30283 2.88473 10.4703 0 11.7903 0C13.3576 0 14.7158 4.07975 15.3583 10.0038C15.987 5.69216 16.9408 2.94348 18.0091 2.94348C19.5061 2.94348 20.7789 8.34964 21.2505 15.8908C22.1371 12.0243 23.4205 9.59876 24.8413 9.59876C26.2621 9.59876 27.5455 12.0259 28.4306 15.8908C28.9037 8.34964 30.1749 2.94348 31.672 2.94348C32.7387 2.94348 33.691 5.69216 34.3228 10.0038C34.9637 4.07975 36.3219 0 37.8892 0C39.2047 0 40.3767 2.88628 41.0955 7.32313ZM0.837891 14.4417C0.837891 11.3436 1.45748 8.83142 2.22204 8.83142C2.9866 8.83142 3.60619 11.3436 3.60619 14.4417C3.60619 17.5397 2.9866 20.0519 2.22204 20.0519C1.45748 20.0519 0.837891 17.5397 0.837891 14.4417ZM46.0693 14.4417C46.0693 11.3436 46.6888 8.83142 47.4534 8.83142C48.218 8.83142 48.8376 11.3436 48.8376 14.4417C48.8376 17.5397 48.218 20.0519 47.4534 20.0519C46.6888 20.0519 46.0693 17.5397 46.0693 14.4417Z"/></svg>
+                      Deezer
+                    </a>
+                    <a href="https://music.amazon.com/artists/B0GY3M685X/henna-c?marketplaceId=ATVPDKIKX0DER&musicTerritory=US&ref=dm_sh_l0orv7LdxRBPXzUMRC4ewhTLY" target="_blank" rel="noopener" class="dropdown-item" data-platform="amazon">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 3a8 8 0 1 0 8 8 8 8 0 0 0-8-8zm-2 11.5v-7l5 3.5-5 3.5z"/><path d="M5.5 18c3.25 2 9.75 2 13 0m.7-.7a.7.7 0 0 1 .1.8 11.6 11.6 0 0 1-1.8.8.7.7 0 0 1-.7-.3l-.3-.9a.7.7 0 0 1 .4-.8l2.3-.6z"/></svg>
+                      Amazon Music
+                    </a>
+                    <a href="https://audiomack.com/hcmusic" target="_blank" rel="noopener" class="dropdown-item" data-platform="audiomack">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M3 10h3v4H3zm5-4h3v12H8zm5 2h3v8h-3zm5 4h3v4h-3z"/></svg>
+                      Audiomack
+                    </a>
+                    <a href="https://soundcloud.com/henna-c-331422553?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" rel="noopener" class="dropdown-item" data-platform="soundcloud">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.56 8.87V17h8.76c2.03 0 3.68-1.64 3.68-3.68 0-1.95-1.52-3.54-3.44-3.67-.32-2.73-2.62-4.86-5.44-4.86-1.57 0-3 .67-4 1.74-.03.03-.06.06-.09.09-.23.25-.43.53-.6.82-.41.71-.67 1.51-.77 2.37l.08.06-.18.02zm-1.84 2.15v5.98h.92v-6.38c-.35.12-.66.26-.92.4zm-1.84.58v5.4h.92v-5.69c-.33.09-.64.19-.92.29zm-1.84.55v4.85h.92v-5.11c-.32.07-.63.16-.92.26zm-1.84.6v4.25h.92v-4.49c-.31.06-.62.14-.92.24zm-1.84.77v3.48h.92V13.8c-.31.08-.62.17-.92.27zm-1.84.88v2.6h.92v-2.83c-.31.07-.62.15-.92.23zM.56 15.68V17h.92v-1.58c-.31.08-.62.17-.92.26z"/></svg>
+                      SoundCloud
+                    </a>
+                    <a href="https://www.iheart.com/artist/henna-c-50618415" target="_blank" rel="noopener" class="dropdown-item" data-platform="iheart">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+                      iHeartRadio
+                    </a>
+                  </div>
                 </div>
+
+                <a href="https://music.apple.com/us/album/frequency-shift-single/6794123521" target="_blank" rel="noopener noreferrer" class="rc-itunes-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  <span>Purchase on iTunes ➔</span>
+                </a>
               </div>
             </div>
           </div>
@@ -404,7 +411,13 @@
                   <span class="mini-kicker">New Single · Out Now</span>
                   <h4 class="mini-title">Invisible</h4>
                   <p class="mini-genre">Punk / Hip-Hop &nbsp;·&nbsp; Out Now</p>
-                  <button class="mini-listen-btn" data-title="Invisible">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="Invisible">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/invisible/6798500865?i=6798500866" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -420,7 +433,13 @@
                   <span class="mini-kicker">New Single · Out Now</span>
                   <h4 class="mini-title">OUTTA GAS</h4>
                   <p class="mini-genre">Hip-Hop / Rap &nbsp;·&nbsp; Out Now</p>
-                  <button class="mini-listen-btn" data-title="OUTTA GAS">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="OUTTA GAS">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/outta-gas/6798104030?i=6798104031" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -436,7 +455,13 @@
                   <span class="mini-kicker">New Single · Out Now</span>
                   <h4 class="mini-title">Lose The Night</h4>
                   <p class="mini-genre">Pop / Dance &nbsp;·&nbsp; Out Now</p>
-                  <button class="mini-listen-btn" data-title="Lose The Night">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="Lose The Night">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/lose-the-night/6797718277?i=6797718278" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -452,7 +477,13 @@
                   <span class="mini-kicker">New Single · Out Now</span>
                   <h4 class="mini-title">One More Time</h4>
                   <p class="mini-genre">Pop / Dance &nbsp;·&nbsp; Out Now</p>
-                  <button class="mini-listen-btn" data-title="One More Time">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="One More Time">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/one-more-time/6799821062?i=6799821063" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -468,7 +499,13 @@
                   <span class="mini-kicker">New Single · Out Now</span>
                   <h4 class="mini-title">That Ain't My Name</h4>
                   <p class="mini-genre">Hip-Hop / R&B &nbsp;·&nbsp; Out Now</p>
-                  <button class="mini-listen-btn" data-title="That Ain't My Name">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="That Ain't My Name">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/that-aint-my-name/6800203966?i=6800203967" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -484,7 +521,13 @@
                   <span class="mini-kicker">New Single · Out Now</span>
                   <h4 class="mini-title">Dance With Me</h4>
                   <p class="mini-genre">Pop / Dance &nbsp;·&nbsp; Out Now</p>
-                  <button class="mini-listen-btn" data-title="Dance With Me">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="Dance With Me">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/dance-with-me/6800257565?i=6800257566" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -500,7 +543,13 @@
                   <span class="mini-kicker">New Album</span>
                   <h4 class="mini-title">Frequency Shift</h4>
                   <p class="mini-genre">Pop / Dance &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-title="Frequency Shift">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="Frequency Shift">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/frequency-shift-single/6794123521" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -516,7 +565,13 @@
                   <span class="mini-kicker">Hit Single</span>
                   <h4 class="mini-title">Don't Bite That Fruit</h4>
                   <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-title="Don't Bite That Fruit">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="Don't Bite That Fruit">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/dont-bite-that-fruit/6788398766?i=6788398767" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -532,7 +587,13 @@
                   <span class="mini-kicker">Out Now</span>
                   <h4 class="mini-title">Don't Play With It</h4>
                   <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-title="Don't Play With It">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="Don't Play With It">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/dont-play-with-it/6787004428?i=6787004429" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -548,7 +609,13 @@
                   <span class="mini-kicker">Hit Single</span>
                   <h4 class="mini-title">Electric Power Hoe</h4>
                   <p class="mini-genre">Hip-Hop / Rap &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-title="Electric Power Hoe">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="Electric Power Hoe">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/electric-power/6790377667?i=6790377668" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -564,7 +631,13 @@
                   <span class="mini-kicker">Hit Single</span>
                   <h4 class="mini-title">Was That Your Ass Or Mouth?</h4>
                   <p class="mini-genre">Hip-Hop / Rap &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-title="Was That Your Ass Or Mouth?">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="Was That Your Ass Or Mouth?">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/was-that-your-ass-or-mouth/6777384088?i=6777384089" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -580,7 +653,13 @@
                   <span class="mini-kicker">Featured Single</span>
                   <h4 class="mini-title">I Like Me Some Dick</h4>
                   <p class="mini-genre">Hip-Hop / Country &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-title="I Like Me Some Dick">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="I Like Me Some Dick">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/i-like-me-some-dick-feat-benedict-hahn/1895881149?i=6764692238" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -596,7 +675,13 @@
                   <span class="mini-kicker">Hit Single</span>
                   <h4 class="mini-title">That's Your Man?</h4>
                   <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-title="That's Your Man?">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="That's Your Man?">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/thats-your-man/1895121462?i=6763014745" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -612,7 +697,13 @@
                   <span class="mini-kicker">Album Project</span>
                   <h4 class="mini-title">One Of Them Days</h4>
                   <p class="mini-genre">R&B / Hip-Hop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-title="One Of Them Days">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="One Of Them Days">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/one-of-them-days-single/6766560374" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -628,7 +719,13 @@
                   <span class="mini-kicker">Album</span>
                   <h4 class="mini-title">Coochie Poppin University</h4>
                   <p class="mini-genre">Hip-Hop / Pop &nbsp;·&nbsp; 2026</p>
-                  <button class="mini-listen-btn" data-title="Coochie Poppin University">Listen Now ➔</button>
+                  <div class="mini-actions">
+                    <button class="mini-listen-btn" data-title="Coochie Poppin University">Listen Now ➔</button>
+                    <a href="https://music.apple.com/us/album/coochie-poppin-university/6773402782" target="_blank" rel="noopener noreferrer" class="mini-itunes-btn" title="Purchase on iTunes">
+                      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                      <span>Purchase on iTunes</span>
+                    </a>
+                  </div>
                 </div>
               </div>
 
@@ -732,6 +829,10 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
+                <a href="https://music.apple.com/us/album/rhythm-strike/6800286360?i=6800286361" target="_blank" rel="noopener noreferrer" class="uc-itunes-btn">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  <span>Purchase on iTunes ➔</span>
+                </a>
               </div>
             </div>
 
@@ -767,6 +868,10 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
+                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  <span>Purchase on iTunes</span>
+                </a>
               </div>
             </div>
 
@@ -802,6 +907,10 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
+                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  <span>Purchase on iTunes</span>
+                </a>
               </div>
             </div>
 
@@ -876,6 +985,10 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
+                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  <span>Purchase on iTunes</span>
+                </a>
               </div>
             </div>
 
@@ -911,6 +1024,10 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
+                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  <span>Purchase on iTunes</span>
+                </a>
               </div>
             </div>
 
@@ -946,6 +1063,10 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
+                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  <span>Purchase on iTunes</span>
+                </a>
               </div>
             </div>
 
@@ -981,6 +1102,10 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
+                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  <span>Purchase on iTunes</span>
+                </a>
               </div>
             </div>
 
@@ -1016,6 +1141,10 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                   <span>Preview Coming Soon</span>
                 </button>
+                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  <span>Purchase on iTunes</span>
+                </a>
               </div>
             </div>
           </div>
@@ -1110,7 +1239,7 @@
 
                 <div class="playlist-header">Latest Drop: Frequency Shift (Trilogy)</div>
 
-                <div class="pl-row active" data-index="0" data-src="assets/audio/the-realization.wav" data-title="The Realization" data-genre="Frequency Shift · Pop / Dance · 2026" data-art="assets/frequency-shift.png" id="track-row-fs1">
+                <div class="pl-row active" data-index="0" data-src="assets/audio/the-realization.wav" data-title="The Realization" data-genre="Frequency Shift · Pop / Dance · 2026" data-art="assets/frequency-shift.png" data-itunes="https://music.apple.com/us/album/the-realization/6794123521?i=6794123524" id="track-row-fs1">
                   <div class="pl-num-wrap">
                     <span class="pl-num">01</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1121,7 +1250,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="1" data-src="assets/audio/the-consequence.wav" data-title="The Consequence" data-genre="Frequency Shift · Pop / Dance · 2026" data-art="assets/frequency-shift.png" id="track-row-fs2">
+                <div class="pl-row" data-index="1" data-src="assets/audio/the-consequence.wav" data-title="The Consequence" data-genre="Frequency Shift · Pop / Dance · 2026" data-art="assets/frequency-shift.png" data-itunes="https://music.apple.com/us/album/the-consequence/6794123521?i=6794123525" id="track-row-fs2">
                   <div class="pl-num-wrap">
                     <span class="pl-num">02</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1132,7 +1261,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="2" data-src="assets/audio/the-resolution.wav" data-title="The Resolution" data-genre="Frequency Shift · Pop / Dance · 2026" data-art="assets/frequency-shift.png" id="track-row-fs3">
+                <div class="pl-row" data-index="2" data-src="assets/audio/the-resolution.wav" data-title="The Resolution" data-genre="Frequency Shift · Pop / Dance · 2026" data-art="assets/frequency-shift.png" data-itunes="https://music.apple.com/us/album/the-resoultion/6794123521?i=6794123526" id="track-row-fs3">
                   <div class="pl-num-wrap">
                     <span class="pl-num">03</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1145,7 +1274,7 @@
 
                 <div class="playlist-header">Latest Singles & Drops</div>
 
-                <div class="pl-row" data-index="3" data-src="assets/audio/invisible.wav" data-title="Invisible" data-genre="Single · Punk / Hip-Hop · Out Now" data-art="assets/invisible.png" id="track-row-inv">
+                <div class="pl-row" data-index="3" data-src="assets/audio/invisible.wav" data-title="Invisible" data-genre="Single · Punk / Hip-Hop · Out Now" data-art="assets/invisible.png" data-itunes="https://music.apple.com/us/album/invisible/6798500865?i=6798500866" id="track-row-inv">
                   <div class="pl-num-wrap">
                     <span class="pl-num">04</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1156,7 +1285,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="4" data-src="assets/audio/outta-gas.wav" data-title="OUTTA GAS" data-genre="Single · Hip-Hop / Rap · Out Now" data-art="assets/outta-gas.png" id="track-row-og">
+                <div class="pl-row" data-index="4" data-src="assets/audio/outta-gas.wav" data-title="OUTTA GAS" data-genre="Single · Hip-Hop / Rap · Out Now" data-art="assets/outta-gas.png" data-itunes="https://music.apple.com/us/album/outta-gas/6798104030?i=6798104031" id="track-row-og">
                   <div class="pl-num-wrap">
                     <span class="pl-num">05</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1167,7 +1296,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="5" data-src="assets/audio/lose-the-night.wav" data-title="Lose The Night" data-genre="Single · Pop / Dance · Out Now" data-art="assets/lose-the-night.png" id="track-row-ltn">
+                <div class="pl-row" data-index="5" data-src="assets/audio/lose-the-night.wav" data-title="Lose The Night" data-genre="Single · Pop / Dance · Out Now" data-art="assets/lose-the-night.png" data-itunes="https://music.apple.com/us/album/lose-the-night/6797718277?i=6797718278" id="track-row-ltn">
                   <div class="pl-num-wrap">
                     <span class="pl-num">06</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1178,7 +1307,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="6" data-src="assets/audio/one-more-time.wav" data-title="One More Time" data-genre="Single · Pop / Dance · Out Now" data-art="assets/one-more-time.png" id="track-row-omt">
+                <div class="pl-row" data-index="6" data-src="assets/audio/one-more-time.wav" data-title="One More Time" data-genre="Single · Pop / Dance · Out Now" data-art="assets/one-more-time.png" data-itunes="https://music.apple.com/us/album/one-more-time/6799821062?i=6799821063" id="track-row-omt">
                   <div class="pl-num-wrap">
                     <span class="pl-num">07</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1189,7 +1318,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="7" data-src="assets/audio/that-aint-my-name.wav" data-title="That Ain't My Name" data-genre="Single · Hip-Hop / R&B · Out Now" data-art="assets/that-aint-my-name.jpg" id="track-row-tamn">
+                <div class="pl-row" data-index="7" data-src="assets/audio/that-aint-my-name.wav" data-title="That Ain't My Name" data-genre="Single · Hip-Hop / R&B · Out Now" data-art="assets/that-aint-my-name.jpg" data-itunes="https://music.apple.com/us/album/that-aint-my-name/6800203966?i=6800203967" id="track-row-tamn">
                   <div class="pl-num-wrap">
                     <span class="pl-num">08</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1200,7 +1329,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="8" data-src="assets/audio/dance-with-me.wav" data-title="Dance With Me" data-genre="Single · Pop / Dance · Out Now" data-art="assets/dance-with-me.jpg" id="track-row-dwm">
+                <div class="pl-row" data-index="8" data-src="assets/audio/dance-with-me.wav" data-title="Dance With Me" data-genre="Single · Pop / Dance · Out Now" data-art="assets/dance-with-me.jpg" data-itunes="https://music.apple.com/us/album/dance-with-me/6800257565?i=6800257566" id="track-row-dwm">
                   <div class="pl-num-wrap">
                     <span class="pl-num">09</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1213,7 +1342,7 @@
 
                 <div class="playlist-header">Upcoming Singles & Drops</div>
 
-                <div class="pl-row" data-index="9" data-src="assets/audio/rhythm-strike.wav" data-title="Rhythm Strike" data-genre="Single · Pop / Dance · Aug 21, 2026" data-art="assets/rhythm-strike.png" id="track-row-rs">
+                <div class="pl-row" data-index="9" data-src="assets/audio/rhythm-strike.wav" data-title="Rhythm Strike" data-genre="Single · Pop / Dance · Aug 21, 2026" data-art="assets/rhythm-strike.png" data-itunes="https://music.apple.com/us/album/rhythm-strike/6800286360?i=6800286361" id="track-row-rs">
                   <div class="pl-num-wrap">
                     <span class="pl-num">10</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1224,7 +1353,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="10" data-src="assets/audio/premium-wave.wav" data-title="Premium Wave" data-genre="Single · Pop / Dance · Aug 22, 2026" data-art="assets/premium-wave.png" id="track-row-pw">
+                <div class="pl-row" data-index="10" data-src="assets/audio/premium-wave.wav" data-title="Premium Wave" data-genre="Single · Pop / Dance · Aug 22, 2026" data-art="assets/premium-wave.png" data-itunes="" id="track-row-pw">
                   <div class="pl-num-wrap">
                     <span class="pl-num">11</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1235,7 +1364,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="11" data-src="assets/audio/big-body-cadillacs.wav" data-title="Big Body Cadillacs" data-genre="Single · Hip-Hop / Rap · Sept 1, 2026" data-art="assets/big-body-cadillacs.png" id="track-row-bbc">
+                <div class="pl-row" data-index="11" data-src="assets/audio/big-body-cadillacs.wav" data-title="Big Body Cadillacs" data-genre="Single · Hip-Hop / Rap · Sept 1, 2026" data-art="assets/big-body-cadillacs.png" data-itunes="" id="track-row-bbc">
                   <div class="pl-num-wrap">
                     <span class="pl-num">12</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1246,7 +1375,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="12" data-src="assets/audio/pressure-makes-diamonds.wav" data-title="Pressure Makes Diamonds" data-genre="Single · Hip-Hop / Pop · Sept 12, 2026" data-art="assets/pressure-makes-diamonds.png" id="track-row-pmd">
+                <div class="pl-row" data-index="12" data-src="assets/audio/pressure-makes-diamonds.wav" data-title="Pressure Makes Diamonds" data-genre="Single · Hip-Hop / Pop · Sept 12, 2026" data-art="assets/pressure-makes-diamonds.png" data-itunes="" id="track-row-pmd">
                   <div class="pl-num-wrap">
                     <span class="pl-num">13</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1257,7 +1386,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="13" data-src="assets/audio/pressure-talk.wav" data-title="Pressure Talk" data-genre="Single · Hip-Hop / Rap · Sept 13, 2026" data-art="assets/pressure-talk.png" id="track-row-pt">
+                <div class="pl-row" data-index="13" data-src="assets/audio/pressure-talk.wav" data-title="Pressure Talk" data-genre="Single · Hip-Hop / Rap · Sept 13, 2026" data-art="assets/pressure-talk.png" data-itunes="" id="track-row-pt">
                   <div class="pl-num-wrap">
                     <span class="pl-num">14</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1268,7 +1397,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="14" data-src="assets/audio/ms-good-coochie.wav" data-title="Ms. Good Coochie" data-genre="Single · Hip-Hop / Rap · Sept 18, 2026" data-art="assets/ms-good-coochie.png" id="track-row-mgc">
+                <div class="pl-row" data-index="14" data-src="assets/audio/ms-good-coochie.wav" data-title="Ms. Good Coochie" data-genre="Single · Hip-Hop / Rap · Sept 18, 2026" data-art="assets/ms-good-coochie.png" data-itunes="" id="track-row-mgc">
                   <div class="pl-num-wrap">
                     <span class="pl-num">15</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1279,7 +1408,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="15" data-src="assets/audio/spend-it-on-me.wav" data-title="Spend It On Me" data-genre="Single · R&B / Pop · Sept 25, 2026" data-art="assets/spend-it-on-me.png" id="track-row-siom">
+                <div class="pl-row" data-index="15" data-src="assets/audio/spend-it-on-me.wav" data-title="Spend It On Me" data-genre="Single · R&B / Pop · Sept 25, 2026" data-art="assets/spend-it-on-me.png" data-itunes="" id="track-row-siom">
                   <div class="pl-num-wrap">
                     <span class="pl-num">16</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1292,7 +1421,7 @@
 
                 <div class="playlist-header">Featured Hits & Singles</div>
 
-                <div class="pl-row" data-index="16" data-src="assets/audio/dont-bite-that-fruit.wav" data-title="Don't Bite That Fruit" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/dont-bite-that-fruit.jpg" id="track-row-dbtf">
+                <div class="pl-row" data-index="16" data-src="assets/audio/dont-bite-that-fruit.wav" data-title="Don't Bite That Fruit" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/dont-bite-that-fruit.jpg" data-itunes="https://music.apple.com/us/album/dont-bite-that-fruit/6788398766?i=6788398767" id="track-row-dbtf">
                   <div class="pl-num-wrap">
                     <span class="pl-num">17</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1303,7 +1432,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="17" data-src="assets/audio/dont-play-with-it.wav" data-title="Don't Play With It" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/dont-play-with-it.png" id="track-row-dpwi">
+                <div class="pl-row" data-index="17" data-src="assets/audio/dont-play-with-it.wav" data-title="Don't Play With It" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/dont-play-with-it.png" data-itunes="https://music.apple.com/us/album/dont-play-with-it/6787004428?i=6787004429" id="track-row-dpwi">
                   <div class="pl-num-wrap">
                     <span class="pl-num">18</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1314,7 +1443,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="18" data-src="assets/audio/electric-power-hoe.wav" data-title="Electric Power Hoe" data-genre="Single · Hip-Hop / Rap · 2026" data-art="assets/electric-power-hoe.png" id="track-row-eph">
+                <div class="pl-row" data-index="18" data-src="assets/audio/electric-power-hoe.wav" data-title="Electric Power Hoe" data-genre="Single · Hip-Hop / Rap · 2026" data-art="assets/electric-power-hoe.png" data-itunes="https://music.apple.com/us/album/electric-power/6790377667?i=6790377668" id="track-row-eph">
                   <div class="pl-num-wrap">
                     <span class="pl-num">19</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1325,7 +1454,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="19" data-src="assets/audio/was-that-your-ass-or-mouth.wav" data-title="Was That Your Ass Or Mouth?" data-genre="Single · Hip-Hop / Rap · 2026" data-art="assets/was-that-your-ass-or-mouth.png" id="track-row-wty">
+                <div class="pl-row" data-index="19" data-src="assets/audio/was-that-your-ass-or-mouth.wav" data-title="Was That Your Ass Or Mouth?" data-genre="Single · Hip-Hop / Rap · 2026" data-art="assets/was-that-your-ass-or-mouth.png" data-itunes="https://music.apple.com/us/album/was-that-your-ass-or-mouth/6777384088?i=6777384089" id="track-row-wty">
                   <div class="pl-num-wrap">
                     <span class="pl-num">20</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1338,7 +1467,7 @@
 
                 <div class="playlist-header">Heavy Hitters & Singles</div>
 
-                <div class="pl-row" data-index="20" data-src="assets/audio/i-like-me-some-dick.wav" data-title="I Like Me Some Dick" data-genre="Single · Hip-Hop / Country · 2026" data-art="assets/i-like-me-some-dick.jpg" id="track-row-ilm">
+                <div class="pl-row" data-index="20" data-src="assets/audio/i-like-me-some-dick.wav" data-title="I Like Me Some Dick" data-genre="Single · Hip-Hop / Country · 2026" data-art="assets/i-like-me-some-dick.jpg" data-itunes="https://music.apple.com/us/album/i-like-me-some-dick-feat-benedict-hahn/1895881149?i=6764692238" id="track-row-ilm">
                   <div class="pl-num-wrap">
                     <span class="pl-num">21</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1349,7 +1478,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="21" data-src="assets/audio/thats-your-man.wav" data-title="That's Your Man?" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/thats-your-man.jpg" id="track-row-tym">
+                <div class="pl-row" data-index="21" data-src="assets/audio/thats-your-man.wav" data-title="That's Your Man?" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/thats-your-man.jpg" data-itunes="https://music.apple.com/us/album/thats-your-man/1895121462?i=6763014745" id="track-row-tym">
                   <div class="pl-num-wrap">
                     <span class="pl-num">22</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1362,7 +1491,7 @@
 
                 <div class="playlist-header">One Of Them Days (Album)</div>
 
-                <div class="pl-row" data-index="22" data-src="assets/audio/falling-apart.m4a" data-title="Falling Apart" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" id="track-row-ootd-1">
+                <div class="pl-row" data-index="22" data-src="assets/audio/falling-apart.m4a" data-title="Falling Apart" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" data-itunes="https://music.apple.com/us/album/one-of-them-days-falling-apart/6766560374?i=6766560377" id="track-row-ootd-1">
                   <div class="pl-num-wrap">
                     <span class="pl-num">23</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1373,7 +1502,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="23" data-src="assets/audio/overcome.wav" data-title="Overcome" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" id="track-row-ootd-2">
+                <div class="pl-row" data-index="23" data-src="assets/audio/overcome.wav" data-title="Overcome" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" data-itunes="https://music.apple.com/us/album/one-of-them-days-overcome/6766560374?i=6766560381" id="track-row-ootd-2">
                   <div class="pl-num-wrap">
                     <span class="pl-num">24</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1384,7 +1513,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="24" data-src="assets/audio/rise-again.wav" data-title="Rise Again" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" id="track-row-ootd-3">
+                <div class="pl-row" data-index="24" data-src="assets/audio/rise-again.wav" data-title="Rise Again" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" data-itunes="https://music.apple.com/us/album/one-of-them-days-rise-again/6766560374?i=6766560380" id="track-row-ootd-3">
                   <div class="pl-num-wrap">
                     <span class="pl-num">25</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1397,7 +1526,7 @@
 
                 <div class="playlist-header">Coochie Poppin University (Album)</div>
 
-                <div class="pl-row" data-index="25" data-src="assets/audio/1800-goodcoochienow.wav" data-title="1800-GoodCoochieNow" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-0">
+                <div class="pl-row" data-index="25" data-src="assets/audio/1800-goodcoochienow.wav" data-title="1800-GoodCoochieNow" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/1800-goodcoochienow/6773402782?i=6773402784" id="track-row-cpu-0">
                   <div class="pl-num-wrap">
                     <span class="pl-num">26</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1408,7 +1537,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="26" data-src="assets/audio/coochie-poppin-university.wav" data-title="Coochie Poppin University" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-1">
+                <div class="pl-row" data-index="26" data-src="assets/audio/coochie-poppin-university.wav" data-title="Coochie Poppin University" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/coochie-poppin-university/6773402782?i=6773402785" id="track-row-cpu-1">
                   <div class="pl-num-wrap">
                     <span class="pl-num">27</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1419,7 +1548,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="27" data-src="assets/audio/good-coochie-hotline.wav" data-title="Good Coochie Hotline" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-2">
+                <div class="pl-row" data-index="27" data-src="assets/audio/good-coochie-hotline.wav" data-title="Good Coochie Hotline" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/good-coochie-hotline/6773402782?i=6773402787" id="track-row-cpu-2">
                   <div class="pl-num-wrap">
                     <span class="pl-num">28</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1430,7 +1559,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="28" data-src="assets/audio/coochie-poppin-101.wav" data-title="Coochie Poppin 101" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-3">
+                <div class="pl-row" data-index="28" data-src="assets/audio/coochie-poppin-101.wav" data-title="Coochie Poppin 101" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/coochie-poppin-101/6773402782?i=6773402790" id="track-row-cpu-3">
                   <div class="pl-num-wrap">
                     <span class="pl-num">29</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1441,7 +1570,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="29" data-src="assets/audio/you-want-some-coochie.wav" data-title="You Want Some Coochie?" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-4">
+                <div class="pl-row" data-index="29" data-src="assets/audio/you-want-some-coochie.wav" data-title="You Want Some Coochie?" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/you-want-some-coochie/6773402782?i=6773402791" id="track-row-cpu-4">
                   <div class="pl-num-wrap">
                     <span class="pl-num">30</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1452,7 +1581,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="30" data-src="assets/audio/rich-nigga-test.wav" data-title="Rich Nigga Test" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-5">
+                <div class="pl-row" data-index="30" data-src="assets/audio/rich-nigga-test.wav" data-title="Rich Nigga Test" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/rich-n-a-test/6773402782?i=6773402942" id="track-row-cpu-5">
                   <div class="pl-num-wrap">
                     <span class="pl-num">31</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1463,7 +1592,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="31" data-src="assets/audio/tuition-paid.wav" data-title="Tuition Paid" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-6">
+                <div class="pl-row" data-index="31" data-src="assets/audio/tuition-paid.wav" data-title="Tuition Paid" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/tuition-paid/6773402782?i=6773402944" id="track-row-cpu-6">
                   <div class="pl-num-wrap">
                     <span class="pl-num">32</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1474,7 +1603,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="32" data-src="assets/audio/twerk-for-tuition.wav" data-title="Twerk For Tuition" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-7">
+                <div class="pl-row" data-index="32" data-src="assets/audio/twerk-for-tuition.wav" data-title="Twerk For Tuition" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/twerk-for-tuition/6773402782?i=6773402945" id="track-row-cpu-7">
                   <div class="pl-num-wrap">
                     <span class="pl-num">33</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1485,7 +1614,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="33" data-src="assets/audio/no-free-access.wav" data-title="No Free Access" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-8">
+                <div class="pl-row" data-index="33" data-src="assets/audio/no-free-access.wav" data-title="No Free Access" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/no-free-access/6773402782?i=6773402946" id="track-row-cpu-8">
                   <div class="pl-num-wrap">
                     <span class="pl-num">34</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1496,7 +1625,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="34" data-src="assets/audio/gcd.wav" data-title="GCD" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-9">
+                <div class="pl-row" data-index="34" data-src="assets/audio/gcd.wav" data-title="GCD" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/gcd/6773402782?i=6773402947" id="track-row-cpu-9">
                   <div class="pl-num-wrap">
                     <span class="pl-num">35</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1507,7 +1636,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="35" data-src="assets/audio/pay-that-fee.wav" data-title="Pay That Fee" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-10">
+                <div class="pl-row" data-index="35" data-src="assets/audio/pay-that-fee.wav" data-title="Pay That Fee" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/pay-that-fee/6773402782?i=6773402948" id="track-row-cpu-10">
                   <div class="pl-num-wrap">
                     <span class="pl-num">36</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1518,7 +1647,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="36" data-src="assets/audio/graduated-coochie.wav" data-title="Graduated Coochie" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-11">
+                <div class="pl-row" data-index="36" data-src="assets/audio/graduated-coochie.wav" data-title="Graduated Coochie" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/graduated-coochie/6773402782?i=6773402949" id="track-row-cpu-11">
                   <div class="pl-num-wrap">
                     <span class="pl-num">37</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1529,7 +1658,7 @@
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="37" data-src="assets/audio/i-called-i-paid-i-graduated.wav" data-title="I Called, I Paid, I Graduated" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" id="track-row-cpu-12">
+                <div class="pl-row" data-index="37" data-src="assets/audio/i-called-i-paid-i-graduated.wav" data-title="I Called, I Paid, I Graduated" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://music.apple.com/us/album/i-called-i-paid-i-graduated/6773402782?i=6773402950" id="track-row-cpu-12">
                   <div class="pl-num-wrap">
                     <span class="pl-num">38</span>
                     <span class="pl-play-arrow">▶</span>
