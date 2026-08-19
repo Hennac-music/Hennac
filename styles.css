@@ -2321,6 +2321,8 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   border:1px solid transparent;
   position:relative;
   cursor:pointer; transition:var(--t);
+  width: 100%;
+  box-sizing: border-box;
 }
 .pl-row:hover {
   background:rgba(255,255,255,0.075);
@@ -2337,9 +2339,9 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .pl-row.active .pl-num { opacity:0; }
 .pl-row.active .pl-play-arrow { opacity:1; }
 
-.pl-info { display:flex; flex-direction:column; flex:1; min-width:0; }
+.pl-info { display:flex; flex-direction:column; flex:1 1 auto; min-width:0; overflow:hidden; }
 .pl-name { font-size:0.88rem; font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.pl-tag { font-size:0.7rem; color:var(--smoke); margin-top:0.15rem; }
+.pl-tag { font-size:0.7rem; color:var(--smoke); margin-top:0.15rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .pl-actions {
   display: flex;
   align-items: center;
@@ -3068,8 +3070,8 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 @media (max-width:1024px) {
   .release-card { grid-template-columns:280px 1fr; gap:2.5rem; padding:2.5rem; }
   .player-shell { grid-template-columns:1fr; gap:2rem; padding:2rem; }
-  .player-left { position:static; max-width:480px; margin:0 auto; width:100%; }
-  .player-right { border-left:none; border-top:1px solid var(--glass-border); padding-left:0; padding-top:1.5rem; margin-top:0; }
+  .player-left { position:static; max-width:440px; margin:0 auto; width:100%; }
+  .player-right { border-left:none; border-top:1px solid var(--glass-border); padding-left:0; padding-top:1.8rem; margin-top:0; }
   .playlist { height:480px; max-height:480px; }
   .about-grid { grid-template-columns:1fr; }
   .about-portrait { min-height:430px; max-height:560px; }
@@ -3085,11 +3087,65 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 }
 
 @media (max-width:768px) {
+  .site-header {
+    width: calc(100% - 1.5rem);
+    top: 0.8rem;
+    padding: 0.65rem 1.2rem;
+  }
   .nav-desktop { display:none; }
   .hamburger { display:flex; }
-  .section-inner { padding:5rem var(--pad); }
-  .player-shell { padding:1.5rem; }
-  .playlist { height:400px; max-height:400px; }
+  .section-inner { padding: 4.5rem clamp(0.75rem, 3vw, 1.25rem); }
+  .player-shell {
+    padding: 1.4rem 1rem;
+    border-radius: 18px;
+  }
+  .player-left {
+    max-width: 340px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .player-art-frame {
+    max-width: 260px;
+    margin: 0 auto 1.2rem auto;
+  }
+  .player-track-info {
+    text-align: center;
+    margin-bottom: 1.2rem;
+  }
+  .player-track-title {
+    font-size: 1.25rem;
+  }
+  .player-progress {
+    margin-bottom: 1.2rem;
+  }
+  .player-controls {
+    justify-content: center;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .ctrl-btn {
+    width: 36px;
+    height: 36px;
+  }
+  .ctrl-play-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .vol-group {
+    gap: 0.35rem;
+    margin-left: 0.25rem;
+  }
+  .vol-slider {
+    width: 55px;
+  }
+  .playlist {
+    height: 420px;
+    max-height: 420px;
+    padding-right: 0.35rem;
+  }
+  .playlist-label {
+    margin-bottom: 0.75rem;
+  }
   .release-card { grid-template-columns:1fr; padding:1.8rem; }
   .rc-art-col { max-width:260px; margin:0 auto; }
   .mini-grid { gap:1.2rem; }
@@ -3106,23 +3162,59 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   .sp-right { display:none; }
   .sp-center { width:100%; }
   .sp-progress { width:100%; }
-  .pl-row { gap:0.75rem; padding:0.85rem; }
+  .pl-row {
+    gap: 0.55rem;
+    padding: 0.72rem 0.75rem;
+    border-radius: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .pl-num-wrap {
+    width: 18px;
+  }
+  .pl-num {
+    font-size: 0.72rem;
+  }
+  .pl-name {
+    font-size: 0.82rem;
+  }
+  .pl-tag {
+    font-size: 0.66rem;
+    margin-top: 0.1rem;
+  }
   .pl-actions {
     opacity: 1;
     pointer-events: auto;
     transform: none;
     gap: 0.35rem;
+    flex-shrink: 0;
   }
   .pl-itunes-btn {
-    padding: 0.45rem 0.55rem;
-    font-size: 0.56rem;
-    letter-spacing: 0.05em;
+    padding: 0.38rem 0.6rem;
+    font-size: 0.6rem;
+    gap: 0.28rem;
+    letter-spacing: 0.04em;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .pl-itunes-btn .itunes-btn-text {
+    font-size: 0;
+  }
+  .pl-itunes-btn .itunes-btn-text::after {
+    content: "iTunes";
+    font-size: 0.6rem;
   }
   .pl-stream-btn {
-    max-width: 6.8rem;
-    padding: 0.45rem 0.55rem;
-    font-size: 0.56rem;
-    letter-spacing: 0.05em;
+    padding: 0.38rem 0.6rem;
+    font-size: 0;
+    letter-spacing: 0.04em;
+    max-width: none;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+  .pl-stream-btn::after {
+    content: "Listen ↗";
+    font-size: 0.6rem;
   }
 }
 
@@ -3131,24 +3223,72 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   .mini-card { flex:0 0 260px; }
   .about-hud { grid-template-columns:1fr; }
   .about-portrait { min-height:330px; }
-  .pl-itunes-btn span { display: none; }
+  .player-shell {
+    padding: 1.15rem 0.75rem;
+    border-radius: 16px;
+  }
+  .player-art-frame {
+    max-width: 220px;
+    margin: 0 auto 1rem auto;
+  }
+  .player-controls {
+    gap: 0.45rem;
+  }
+  .vol-slider {
+    width: 45px;
+  }
+  .playlist {
+    height: 380px;
+    max-height: 380px;
+    padding-right: 0.25rem;
+  }
+  .pl-row {
+    gap: 0.45rem;
+    padding: 0.65rem 0.65rem;
+  }
+  .pl-num-wrap {
+    width: 16px;
+  }
+  .pl-num {
+    font-size: 0.7rem;
+  }
+  .pl-name {
+    font-size: 0.78rem;
+  }
+  .pl-tag {
+    font-size: 0.64rem;
+  }
   .pl-itunes-btn {
-    width: 2.1rem;
-    height: 2.1rem;
-    padding: 0;
-    justify-content: center;
+    padding: 0.35rem 0.48rem;
+    font-size: 0.56rem;
+    gap: 0.2rem;
+  }
+  .pl-itunes-btn .itunes-btn-text::after {
+    font-size: 0.56rem;
   }
   .pl-stream-btn {
-    width: 2.1rem;
-    max-width: 2.1rem;
-    height: 2.1rem;
-    padding: 0;
-    font-size: 0;
+    padding: 0.35rem 0.48rem;
   }
   .pl-stream-btn::after {
-    content:"↗";
-    font-size:0.9rem;
-    line-height:1;
+    content: "Listen ↗";
+    font-size: 0.56rem;
+  }
+}
+
+@media (max-width:380px) {
+  .pl-itunes-btn .itunes-btn-text {
+    display: none;
+  }
+  .pl-itunes-btn {
+    padding: 0.35rem;
+    width: 28px;
+    height: 28px;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .pl-stream-btn::after {
+    content: "Stream ↗";
+    font-size: 0.54rem;
   }
 }
 
