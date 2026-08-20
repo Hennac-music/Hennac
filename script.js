@@ -1102,6 +1102,18 @@ document.addEventListener("DOMContentLoaded", () => {
       featuredAudio.paused ? featuredAudio.play() : featuredAudio.pause();
     });
   }
+  // Helper to ensure purchase links direct straight to the iTunes Store app / store page
+  function formatItunesStoreUrl(url) {
+    if (!url || typeof url !== "string") return "";
+    let clean = url.trim();
+    if (!clean || clean.startsWith("javascript:") || clean.includes("artist/henna-c")) return clean;
+    clean = clean.replace("https://music.apple.com/", "https://itunes.apple.com/");
+    if (!clean.includes("app=itunes")) {
+      clean += (clean.includes("?") ? "&" : "?") + "ls=1&app=itunes";
+    }
+    return clean;
+  }
+
   // ──────────────────────────────────────────
   // RECENT SINGLES CATALOG (Rolling Top 3 System)
   // ──────────────────────────────────────────
@@ -1115,7 +1127,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "LATEST SINGLE",
       art: "assets/dance-with-me.jpg",
       src: "assets/audio/dance-with-me.wav",
-      itunes: "https://music.apple.com/us/album/dance-with-me/6800257565?i=6800257566",
+      itunes: "https://itunes.apple.com/us/album/dance-with-me/6800257565?i=6800257566&ls=1&app=itunes",
       releaseDate: "2026-08-15"
     },
     {
@@ -1127,7 +1139,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "LATEST SINGLE",
       art: "assets/that-aint-my-name.jpg",
       src: "assets/audio/that-aint-my-name.wav",
-      itunes: "https://music.apple.com/us/album/that-aint-my-name/6800203966?i=6800203967",
+      itunes: "https://itunes.apple.com/us/album/that-aint-my-name/6800203966?i=6800203967&ls=1&app=itunes",
       releaseDate: "2026-08-12"
     },
     {
@@ -1139,7 +1151,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "LATEST SINGLE",
       art: "assets/big-body-energy.png",
       src: "assets/audio/big-body-cadillacs.wav",
-      itunes: "https://music.apple.com/us/album/big-body-energy/6799845497?i=6799845498",
+      itunes: "https://itunes.apple.com/us/album/big-body-energy/6799845497?i=6799845498&ls=1&app=itunes",
       releaseDate: "2026-08-10"
     },
     {
@@ -1151,7 +1163,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "SINGLE",
       art: "assets/one-more-time.png",
       src: "assets/audio/one-more-time.wav",
-      itunes: "https://music.apple.com/us/album/one-more-time/6799821062?i=6799821063",
+      itunes: "https://itunes.apple.com/us/album/one-more-time/6799821062?i=6799821063&ls=1&app=itunes",
       releaseDate: "2026-07-28"
     },
     {
@@ -1163,7 +1175,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "SINGLE",
       art: "assets/lose-the-night.png",
       src: "assets/audio/lose-the-night.wav",
-      itunes: "https://music.apple.com/us/album/lose-the-night/6797718277?i=6797718278",
+      itunes: "https://itunes.apple.com/us/album/lose-the-night/6797718277?i=6797718278&ls=1&app=itunes",
       releaseDate: "2026-07-20"
     },
     {
@@ -1175,7 +1187,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "SINGLE",
       art: "assets/outta-gas.png",
       src: "assets/audio/outta-gas.wav",
-      itunes: "https://music.apple.com/us/album/outta-gas/6798104030?i=6798104031",
+      itunes: "https://itunes.apple.com/us/album/outta-gas/6798104030?i=6798104031&ls=1&app=itunes",
       releaseDate: "2026-07-10"
     },
     {
@@ -1187,7 +1199,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "SINGLE",
       art: "assets/invisible.png",
       src: "assets/audio/invisible.wav",
-      itunes: "https://music.apple.com/us/album/invisible/6798500865?i=6798500866",
+      itunes: "https://itunes.apple.com/us/album/invisible/6798500865?i=6798500866&ls=1&app=itunes",
       releaseDate: "2026-06-25"
     }
   ];
@@ -1201,7 +1213,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const topFour = sorted.slice(0, 4);
 
     miniGrid.innerHTML = topFour.map(single => {
-      const isAvail = Boolean(single.itunes && !single.itunes.includes("artist/henna-c"));
+      const itunesLink = formatItunesStoreUrl(single.itunes);
+      const isAvail = Boolean(itunesLink && !itunesLink.includes("artist/henna-c"));
       return `
       <div class="mini-card visible" id="mini-card-${single.id}">
         <div class="mini-art-wrap">
@@ -1216,7 +1229,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <p class="mini-genre">${single.meta || single.genre + " · Out Now"}</p>
           <div class="mini-actions">
             <button class="mini-listen-btn" data-title="${single.title}">Listen Now ➔</button>
-            <a href="${isAvail ? single.itunes : 'javascript:void(0)'}" ${isAvail ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true"'} class="mini-itunes-btn ${isAvail ? '' : 'itunes-coming-soon'}" title="${isAvail ? `Purchase ${single.title} on iTunes` : `${single.title} - Coming Soon to iTunes`}">
+            <a href="${isAvail ? itunesLink : 'javascript:void(0)'}" ${isAvail ? 'target="_blank" rel="noopener noreferrer"' : 'aria-disabled="true"'} class="mini-itunes-btn ${isAvail ? '' : 'itunes-coming-soon'}" title="${isAvail ? `Purchase ${single.title} on iTunes` : `${single.title} - Coming Soon to iTunes`}">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
               <span>Purchase on iTunes</span>
             </a>
@@ -1264,7 +1277,7 @@ document.addEventListener("DOMContentLoaded", () => {
   plRows.forEach(row => {
     if (row.querySelector(".pl-actions")) return;
     const title = cleanTrackTitle(row.dataset.title || row.querySelector(".pl-name")?.textContent || "");
-    const itunesUrl = (row.dataset.itunes || "").trim();
+    const itunesUrl = formatItunesStoreUrl((row.dataset.itunes || "").trim());
     const isAvail = Boolean(itunesUrl && !itunesUrl.includes("artist/henna-c"));
 
     const actionGroup = document.createElement("div");
