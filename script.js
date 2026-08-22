@@ -1119,6 +1119,30 @@ document.addEventListener("DOMContentLoaded", () => {
   // ──────────────────────────────────────────
   const RECENT_SINGLES_CATALOG = [
     {
+      id: "pw",
+      title: "Premium Wave",
+      genre: "Pop / Dance",
+      meta: "Pop / Dance · Out Now",
+      kicker: "New Single · Out Now",
+      badge: "LATEST SINGLE",
+      art: "assets/premium-wave.png",
+      src: "assets/audio/premium-wave.wav",
+      itunes: "",
+      releaseDate: "2026-08-22"
+    },
+    {
+      id: "rs",
+      title: "Rhythm Strike",
+      genre: "Pop / Dance",
+      meta: "Pop / Dance · Out Now",
+      kicker: "New Single · Out Now",
+      badge: "LATEST SINGLE",
+      art: "assets/rhythm-strike.png",
+      src: "assets/audio/rhythm-strike.wav",
+      itunes: "https://itunes.apple.com/us/album/rhythm-strike/6800286360?i=6800286361&ls=1&app=itunes",
+      releaseDate: "2026-08-21"
+    },
+    {
       id: "dwm",
       title: "Dance With Me",
       genre: "Pop / Dance",
@@ -1143,15 +1167,15 @@ document.addEventListener("DOMContentLoaded", () => {
       releaseDate: "2026-08-12"
     },
     {
-      id: "bbe",
-      title: "Big Body Energy",
+      id: "bbc",
+      title: "Big Body Cadillacs",
       genre: "Hip-Hop / Rap",
       meta: "Hip-Hop / Rap · Out Now",
-      kicker: "New Single · Out Now",
-      badge: "LATEST SINGLE",
-      art: "assets/big-body-energy.png",
+      kicker: "Single · Out Now",
+      badge: "SINGLE",
+      art: "assets/big-body-cadillacs.png",
       src: "assets/audio/big-body-cadillacs.wav",
-      itunes: "https://itunes.apple.com/us/album/big-body-energy/6799845497?i=6799845498&ls=1&app=itunes",
+      itunes: "",
       releaseDate: "2026-08-10"
     },
     {
