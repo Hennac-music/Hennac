@@ -1167,15 +1167,15 @@ document.addEventListener("DOMContentLoaded", () => {
       releaseDate: "2026-08-12"
     },
     {
-      id: "bbc",
-      title: "Big Body Cadillacs",
+      id: "bbe",
+      title: "Big Body Energy",
       genre: "Hip-Hop / Rap",
       meta: "Hip-Hop / Rap · Out Now",
       kicker: "Single · Out Now",
       badge: "SINGLE",
-      art: "assets/big-body-cadillacs.png",
+      art: "assets/big-body-energy.png",
       src: "assets/audio/big-body-cadillacs.wav",
-      itunes: "",
+      itunes: "https://itunes.apple.com/us/album/big-body-energy/6799845497?i=6799845498&ls=1&app=itunes",
       releaseDate: "2026-08-10"
     },
     {
