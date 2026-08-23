@@ -1174,7 +1174,7 @@ document.addEventListener("DOMContentLoaded", () => {
       kicker: "Single · Out Now",
       badge: "SINGLE",
       art: "assets/big-body-energy.png",
-      src: "assets/audio/big-body-cadillacs.wav",
+      src: "assets/audio/big-body-energy.wav",
       itunes: "https://itunes.apple.com/us/album/big-body-energy/6799845497?i=6799845498&ls=1&app=itunes",
       releaseDate: "2026-08-10"
     },
