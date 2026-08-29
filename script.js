@@ -1127,7 +1127,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "LATEST SINGLE",
       art: "assets/ki-ma-lo.png",
       src: "assets/audio/ki-ma-lo.wav",
-      itunes: "",
+      itunes: "https://itunes.apple.com/us/album/ki-ma-lo/6804938885?i=6804938886&ls=1&app=itunes",
       releaseDate: "2026-08-28"
     },
     {
@@ -1139,7 +1139,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "LATEST SINGLE",
       art: "assets/premium-wave.png",
       src: "assets/audio/premium-wave.wav",
-      itunes: "",
+      itunes: "https://itunes.apple.com/us/album/premium-wave/6800938248?i=6800938249&ls=1&app=itunes",
       releaseDate: "2026-08-22"
     },
     {
