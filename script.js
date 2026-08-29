@@ -1119,6 +1119,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // ──────────────────────────────────────────
   const RECENT_SINGLES_CATALOG = [
     {
+      id: "kml",
+      title: "Ki Ma Lo",
+      genre: "Hip-Hop / Rap",
+      meta: "Hip-Hop / Rap · Out Now",
+      kicker: "New Single · Out Now",
+      badge: "LATEST SINGLE",
+      art: "assets/ki-ma-lo.png",
+      src: "assets/audio/ki-ma-lo.wav",
+      itunes: "",
+      releaseDate: "2026-08-28"
+    },
+    {
       id: "pw",
       title: "Premium Wave",
       genre: "Pop / Dance",
