@@ -1,0 +1,55 @@
+{
+  "name": "Henna C | Music Artist & Producer",
+  "short_name": "Henna C",
+  "description": "Official music platform, latest track drops, discography, and exclusive unreleased previews for Henna C.",
+  "start_url": "/index.html",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0b0b0f",
+  "theme_color": "#0b0b0f",
+  "icons": [
+    {
+      "src": "assets/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icons/icon-maskable-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Streaming Hub",
+      "short_name": "Music",
+      "description": "Listen to all 45+ official Henna C tracks",
+      "url": "/index.html#latest-tracks",
+      "icons": [{ "src": "assets/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Coming Soon",
+      "short_name": "Upcoming",
+      "description": "View upcoming drop countdowns & previews",
+      "url": "/index.html#coming-soon",
+      "icons": [{ "src": "assets/icons/icon-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Recently Released",
+      "short_name": "Out Now",
+      "description": "Check the newest Henna C drops",
+      "url": "/index.html#recently-released",
+      "icons": [{ "src": "assets/icons/icon-192x192.png", "sizes": "192x192" }]
+    }
+  ],
+  "categories": ["music", "entertainment"]
+}

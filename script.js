@@ -798,12 +798,70 @@ document.addEventListener("DOMContentLoaded", () => {
     const durationLabel = t.src && t.src.trim() !== "" ? fmt(PREVIEW_SECONDS) : "0:00";
     [pDuration, spDuration].forEach(el => { if (el) el.textContent = durationLabel; });
 
+    // MediaSession metadata update
+    if ('mediaSession' in navigator && t) {
+      try {
+        const artUrl = t.art ? new URL(t.art, window.location.href).href : '';
+        navigator.mediaSession.metadata = new MediaMetadata({
+          title: cleanTrackTitle(t.title),
+          artist: "Henna C",
+          album: t.genre || "Henna C Music",
+          artwork: artUrl ? [
+            { src: artUrl, sizes: '96x96', type: 'image/png' },
+            { src: artUrl, sizes: '128x128', type: 'image/png' },
+            { src: artUrl, sizes: '192x192', type: 'image/png' },
+            { src: artUrl, sizes: '256x256', type: 'image/png' },
+            { src: artUrl, sizes: '512x512', type: 'image/png' }
+          ] : []
+        });
+      } catch (err) {
+        console.warn("MediaSession update error:", err);
+      }
+    }
+
+    // Dynamic Ambient Glow Update
+    updateAmbientGlow(t);
+
     if (autoPlay) doPlay();
     else syncUI(false);
   };
 
+  const updateAmbientGlow = (t) => {
+    if (!t) return;
+    const title = (t.title || "").toLowerCase();
+    let glow1 = "rgba(201, 123, 69, 0.45)";
+    let glow2 = "rgba(168, 85, 247, 0.35)";
+
+    if (title.includes("big body") || title.includes("cadillac")) {
+      glow1 = "rgba(52, 211, 153, 0.5)"; // Emerald & gold
+      glow2 = "rgba(255, 213, 79, 0.4)";
+    } else if (title.includes("ki ma lo") || title.includes("rhythm strike")) {
+      glow1 = "rgba(249, 115, 22, 0.5)"; // Fiery neon amber
+      glow2 = "rgba(236, 72, 153, 0.4)";
+    } else if (title.includes("big pressure") || title.includes("pressure")) {
+      glow1 = "rgba(212, 175, 55, 0.55)"; // Deep gold & indigo
+      glow2 = "rgba(99, 102, 241, 0.4)";
+    } else if (title.includes("coochie") || title.includes("bubblegum") || title.includes("thats your man") || title.includes("that's your man")) {
+      glow1 = "rgba(236, 72, 153, 0.5)"; // Bubblegum pink & violet
+      glow2 = "rgba(168, 85, 247, 0.4)";
+    } else if (title.includes("dusty hoe") || title.includes("electric power")) {
+      glow1 = "rgba(201, 123, 69, 0.5)"; // Copper bronze & gold
+      glow2 = "rgba(255, 213, 79, 0.4)";
+    } else if (title.includes("frequency") || title.includes("realization") || title.includes("consequence") || title.includes("resolution")) {
+      glow1 = "rgba(255, 213, 79, 0.5)"; // Chrome gold
+      glow2 = "rgba(201, 123, 69, 0.4)";
+    }
+
+    document.documentElement.style.setProperty("--art-ambient-1", glow1);
+    document.documentElement.style.setProperty("--art-ambient-2", glow2);
+  };
+
   const doPlay = () => {
     if (!audio.src || audio.src === window.location.href) return; // Phase 1: no src
+    initAudioVisualizer();
+    if (audioCtx && audioCtx.state === "suspended") {
+      audioCtx.resume().catch(() => {});
+    }
     if (audio.currentTime >= getPreviewDuration() - 0.05) audio.currentTime = 0;
     audio.play().then(() => syncUI(true)).catch(err => { console.warn("Play error:", err); syncUI(false); });
   };
@@ -812,12 +870,50 @@ document.addEventListener("DOMContentLoaded", () => {
   const prev    = () => loadTrack((current - 1 + tracks.length) % tracks.length, playing);
   const next    = () => loadTrack((current + 1) % tracks.length, playing);
 
+  // Global Toast Helper
+  const showToast = (msg, icon = "✨") => {
+    const toast = document.getElementById("henna-toast");
+    const toastMsg = document.getElementById("toast-msg");
+    if (!toast || !toastMsg) return;
+    toastMsg.textContent = msg;
+    const iconSpan = toast.querySelector(".toast-icon");
+    if (iconSpan) iconSpan.textContent = icon;
+    toast.classList.add("show");
+    clearTimeout(window.__hennaToastTimer);
+    window.__hennaToastTimer = setTimeout(() => {
+      toast.classList.remove("show");
+    }, 3000);
+  };
+
   // Bind controls
   playBtn?.addEventListener("click", toggle);
   prevBtn?.addEventListener("click", prev);
   nextBtn?.addEventListener("click", next);
   spPlay?.addEventListener("click", toggle);
   spPrev?.addEventListener("click", prev);
+  spNext?.addEventListener("click", next);
+
+  // MediaSession action handlers (native lock-screen / bluetooth / smartwatch controls)
+  if ('mediaSession' in navigator) {
+    try {
+      navigator.mediaSession.setActionHandler('play', () => { if (!playing) toggle(); });
+      navigator.mediaSession.setActionHandler('pause', () => { if (playing) toggle(); });
+      navigator.mediaSession.setActionHandler('previoustrack', () => prev());
+      navigator.mediaSession.setActionHandler('nexttrack', () => next());
+      navigator.mediaSession.setActionHandler('seekbackward', (details) => {
+        const skipTime = details.seekOffset || 5;
+        audio.currentTime = Math.max(audio.currentTime - skipTime, 0);
+        syncProgress();
+      });
+      navigator.mediaSession.setActionHandler('seekforward', (details) => {
+        const skipTime = details.seekOffset || 5;
+        audio.currentTime = Math.min(audio.currentTime + skipTime, getPreviewDuration());
+        syncProgress();
+      });
+    } catch (e) {
+      console.warn("MediaSession handler error:", e);
+    }
+  }
   spNext?.addEventListener("click", next);
 
   // Unified Dropdown system for all stream buttons
@@ -1119,6 +1215,18 @@ document.addEventListener("DOMContentLoaded", () => {
   // ──────────────────────────────────────────
   const RECENT_SINGLES_CATALOG = [
     {
+      id: "bbc",
+      title: "Big Body Cadillacs",
+      genre: "Hip-Hop / Rap",
+      meta: "Hip-Hop / Rap · Out Now",
+      kicker: "New Single · Out Now",
+      badge: "LATEST SINGLE",
+      art: "assets/big-body-cadillacs.png",
+      src: "assets/audio/big-body-cadillacs.wav",
+      itunes: "",
+      releaseDate: "2026-09-01"
+    },
+    {
       id: "kml",
       title: "Ki Ma Lo",
       genre: "Hip-Hop / Rap",
@@ -1314,37 +1422,54 @@ document.addEventListener("DOMContentLoaded", () => {
     if (row.querySelector(".pl-actions")) return;
     const title = cleanTrackTitle(row.dataset.title || row.querySelector(".pl-name")?.textContent || "");
     const itunesUrl = formatItunesStoreUrl((row.dataset.itunes || "").trim());
+    const hyperfollowUrl = (row.dataset.hyperfollow || "").trim();
     const isAvail = Boolean(itunesUrl && !itunesUrl.includes("artist/henna-c"));
 
     const actionGroup = document.createElement("div");
     actionGroup.className = "pl-actions";
 
-    const itunesBtn = document.createElement("a");
-    if (isAvail) {
-      itunesBtn.href = itunesUrl;
-      itunesBtn.target = "_blank";
-      itunesBtn.rel = "noopener noreferrer";
-      itunesBtn.className = "pl-itunes-btn";
-      itunesBtn.setAttribute("aria-label", title ? `Purchase ${title} on iTunes` : "Purchase on iTunes");
-      itunesBtn.title = title ? `Purchase ${title} on iTunes` : "Purchase on iTunes";
+    if (hyperfollowUrl) {
+      const presaveBtn = document.createElement("a");
+      presaveBtn.href = hyperfollowUrl;
+      presaveBtn.target = "_blank";
+      presaveBtn.rel = "noopener noreferrer";
+      presaveBtn.className = "pl-presave-btn";
+      presaveBtn.setAttribute("aria-label", title ? `Pre-Save ${title} on HyperFollow` : "Pre-Save on HyperFollow");
+      presaveBtn.title = title ? `Pre-Save ${title} on HyperFollow` : "Pre-Save on HyperFollow";
+      presaveBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        <span>Pre-Save</span>
+      `;
+      actionGroup.appendChild(presaveBtn);
     } else {
-      itunesBtn.href = "javascript:void(0)";
-      itunesBtn.className = "pl-itunes-btn itunes-coming-soon";
-      itunesBtn.setAttribute("aria-label", title ? `${title} - Coming Soon to iTunes` : "Coming Soon to iTunes");
-      itunesBtn.title = title ? `${title} - Coming Soon to iTunes` : "Coming Soon to iTunes";
-      itunesBtn.setAttribute("aria-disabled", "true");
-    }
-
-    itunesBtn.innerHTML = `
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-      <span class="itunes-btn-text">Purchase on iTunes</span>
-    `;
-    itunesBtn.addEventListener("click", (e) => {
-      e.stopPropagation();
-      if (!isAvail) {
-        e.preventDefault();
+      const itunesBtn = document.createElement("a");
+      if (isAvail) {
+        itunesBtn.href = itunesUrl;
+        itunesBtn.target = "_blank";
+        itunesBtn.rel = "noopener noreferrer";
+        itunesBtn.className = "pl-itunes-btn";
+        itunesBtn.setAttribute("aria-label", title ? `Purchase ${title} on iTunes` : "Purchase on iTunes");
+        itunesBtn.title = title ? `Purchase ${title} on iTunes` : "Purchase on iTunes";
+      } else {
+        itunesBtn.href = "javascript:void(0)";
+        itunesBtn.className = "pl-itunes-btn itunes-coming-soon";
+        itunesBtn.setAttribute("aria-label", title ? `${title} - Coming Soon to iTunes` : "Coming Soon to iTunes");
+        itunesBtn.title = title ? `${title} - Coming Soon to iTunes` : "Coming Soon to iTunes";
+        itunesBtn.setAttribute("aria-disabled", "true");
       }
-    });
+
+      itunesBtn.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+        <span class="itunes-btn-text">Purchase on iTunes</span>
+      `;
+      itunesBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        if (!isAvail) {
+          e.preventDefault();
+        }
+      });
+      actionGroup.appendChild(itunesBtn);
+    }
 
     const btn = document.createElement("button");
     btn.type = "button";
@@ -1353,8 +1478,31 @@ document.addEventListener("DOMContentLoaded", () => {
     btn.setAttribute("aria-label", title ? `Find ${title} on your platform` : "Find this track on your platform");
     btn.addEventListener("click", (e) => toggleDropdown(btn, e, title));
 
-    actionGroup.appendChild(itunesBtn);
+    const shareBtn = document.createElement("button");
+    shareBtn.type = "button";
+    shareBtn.className = "pl-share-btn";
+    shareBtn.setAttribute("aria-label", title ? `Share ${title}` : "Share track");
+    shareBtn.title = title ? `Share ${title}` : "Share track";
+    shareBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+    `;
+    shareBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const trackId = row.id || `track-${row.dataset.index}`;
+      const shareUrl = `${window.location.origin}${window.location.pathname}#${trackId}`;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(shareUrl).then(() => {
+          showToast(`Link to "${title}" copied!`, "🔗");
+        }).catch(() => {
+          showToast(`Link copied: ${shareUrl}`, "🔗");
+        });
+      } else {
+        showToast(`Link: ${shareUrl}`, "🔗");
+      }
+    });
+
     actionGroup.appendChild(btn);
+    actionGroup.appendChild(shareBtn);
     row.appendChild(actionGroup);
   });
 
@@ -1775,5 +1923,593 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // ==========================================
+  // 12. PLAYLIST SEARCH & GENRE FILTER SYSTEM
+  // ==========================================
+  const plSearchInput = document.getElementById("pl-search-input");
+  const plSearchClear = document.getElementById("pl-search-clear");
+  const plFilterChips = document.querySelectorAll("#pl-filter-chips .pl-chip");
+  const plNoResults = document.getElementById("pl-no-results");
+  const plSearchQuery = document.getElementById("pl-search-query");
+  const plCountBadge = document.getElementById("playlist-count-badge");
+  const plClearFiltersBtn = document.getElementById("pl-clear-filters-btn");
+
+  let currentGenreFilter = "all";
+  let currentSearchTerm = "";
+
+  const filterPlaylist = () => {
+    let visibleCount = 0;
+    const term = currentSearchTerm.toLowerCase().trim();
+    const headers = document.querySelectorAll("#playlist .playlist-header");
+
+    plRows.forEach(row => {
+      const title = (row.dataset.title || row.querySelector(".pl-name")?.textContent || "").toLowerCase();
+      const genre = (row.dataset.genre || "").toLowerCase();
+      const tag = (row.querySelector(".pl-tag")?.textContent || "").toLowerCase();
+      const rowId = (row.id || "").toLowerCase();
+
+      // Search match
+      const matchesSearch = !term || title.includes(term) || genre.includes(term) || tag.includes(term) || rowId.includes(term);
+
+      // Genre match
+      let matchesGenre = true;
+      if (currentGenreFilter === "hip-hop") {
+        matchesGenre = genre.includes("hip-hop") || genre.includes("rap");
+      } else if (currentGenreFilter === "pop") {
+        matchesGenre = genre.includes("pop") || genre.includes("dance");
+      } else if (currentGenreFilter === "rnb") {
+        matchesGenre = genre.includes("r&b") || genre.includes("rnb");
+      } else if (currentGenreFilter === "album") {
+        matchesGenre = genre.includes("album") || tag.includes("album") || genre.includes("frequency shift") || genre.includes("coochie") || genre.includes("one of them days");
+      } else if (currentGenreFilter === "upcoming") {
+        matchesGenre = tag.includes("upcoming") || tag.includes("dropping") || genre.includes("dropping") || genre.includes("oct") || genre.includes("sept") || genre.includes("nov");
+      }
+
+      const isVisible = matchesSearch && matchesGenre;
+      row.style.display = isVisible ? "" : "none";
+      if (isVisible) visibleCount++;
+    });
+
+    // Update section headers visibility
+    headers.forEach(header => {
+      let nextElem = header.nextElementSibling;
+      let hasVisibleChild = false;
+      while (nextElem && !nextElem.classList.contains("playlist-header")) {
+        if (nextElem.classList.contains("pl-row") && nextElem.style.display !== "none") {
+          hasVisibleChild = true;
+          break;
+        }
+        nextElem = nextElem.nextElementSibling;
+      }
+      header.style.display = hasVisibleChild ? "" : "none";
+    });
+
+    // Update count badge & no results state
+    if (plCountBadge) {
+      plCountBadge.textContent = `${visibleCount} ${visibleCount === 1 ? 'Track' : 'Tracks'}`;
+    }
+    if (plNoResults) {
+      if (visibleCount === 0) {
+        if (plSearchQuery) plSearchQuery.textContent = currentSearchTerm || currentGenreFilter;
+        plNoResults.classList.remove("hidden");
+      } else {
+        plNoResults.classList.add("hidden");
+      }
+    }
+  };
+
+  if (plSearchInput) {
+    plSearchInput.addEventListener("input", e => {
+      currentSearchTerm = e.target.value;
+      if (plSearchClear) {
+        plSearchClear.classList.toggle("hidden", !currentSearchTerm);
+      }
+      filterPlaylist();
+    });
+  }
+
+  if (plSearchClear) {
+    plSearchClear.addEventListener("click", () => {
+      if (plSearchInput) plSearchInput.value = "";
+      currentSearchTerm = "";
+      plSearchClear.classList.add("hidden");
+      filterPlaylist();
+      plSearchInput?.focus();
+    });
+  }
+
+  if (plClearFiltersBtn) {
+    plClearFiltersBtn.addEventListener("click", () => {
+      if (plSearchInput) plSearchInput.value = "";
+      currentSearchTerm = "";
+      if (plSearchClear) plSearchClear.classList.add("hidden");
+      currentGenreFilter = "all";
+      plFilterChips.forEach(chip => {
+        const isActive = chip.dataset.filter === "all";
+        chip.classList.toggle("active", isActive);
+        chip.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+      filterPlaylist();
+    });
+  }
+
+  plFilterChips.forEach(chip => {
+    chip.addEventListener("click", () => {
+      plFilterChips.forEach(c => {
+        c.classList.remove("active");
+        c.setAttribute("aria-selected", "false");
+      });
+      chip.classList.add("active");
+      chip.setAttribute("aria-selected", "true");
+      currentGenreFilter = chip.dataset.filter || "all";
+      filterPlaylist();
+    });
+  });
+
+  // ==========================================
+  // 13. CALENDAR DROP REMINDERS (.ics & Google)
+  // ==========================================
+  const calModalBackdrop = document.getElementById("cal-modal-backdrop");
+  const calModalClose = document.getElementById("cal-modal-close");
+  const calModalTitle = document.getElementById("cal-modal-title");
+  const calModalMeta = document.getElementById("cal-modal-meta");
+  const calOptGoogle = document.getElementById("cal-opt-google");
+  const calOptIcs = document.getElementById("cal-opt-ics");
+
+  let activeCalEvent = null;
+
+  const closeCalModal = () => {
+    if (calModalBackdrop) {
+      calModalBackdrop.classList.add("hidden");
+      calModalBackdrop.setAttribute("aria-hidden", "true");
+    }
+  };
+
+  if (calModalClose) calModalClose.addEventListener("click", closeCalModal);
+  if (calModalBackdrop) {
+    calModalBackdrop.addEventListener("click", (e) => {
+      if (e.target === calModalBackdrop) closeCalModal();
+    });
+  }
+
+  const openCalModal = (title, dateStr, meta) => {
+    activeCalEvent = { title, dateStr, meta };
+    if (calModalTitle) calModalTitle.textContent = title;
+    if (calModalMeta) calModalMeta.textContent = meta || `Dropping ${dateStr.split('T')[0]}`;
+
+    // Format Google Calendar date
+    const d = new Date(dateStr);
+    const yyyy = d.getUTCFullYear();
+    const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+    const dd = String(d.getUTCDate()).padStart(2, '0');
+    const dateCompact = `${yyyy}${mm}${dd}`;
+
+    const gUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Henna C - ' + title + ' Drop')}&dates=${dateCompact}/${dateCompact}&details=${encodeURIComponent('New Henna C music release: ' + title + '! Listen and stream at: https://hennac.com')}&location=${encodeURIComponent('https://hennac.com')}`;
+    if (calOptGoogle) calOptGoogle.href = gUrl;
+
+    if (calModalBackdrop) {
+      calModalBackdrop.classList.remove("hidden");
+      calModalBackdrop.setAttribute("aria-hidden", "false");
+    }
+  };
+
+  if (calOptIcs) {
+    calOptIcs.addEventListener("click", () => {
+      if (!activeCalEvent) return;
+      const { title, dateStr } = activeCalEvent;
+      const d = new Date(dateStr);
+      const yyyy = d.getUTCFullYear();
+      const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
+      const dd = String(d.getUTCDate()).padStart(2, '0');
+      const dateCompact = `${yyyy}${mm}${dd}`;
+
+      const icsContent = [
+        "BEGIN:VCALENDAR",
+        "VERSION:2.0",
+        "PRODID:-//Henna C//Music Drop Reminder//EN",
+        "CALSCALE:GREGORIAN",
+        "METHOD:PUBLISH",
+        "BEGIN:VEVENT",
+        `UID:hennac-${Date.now()}@hennac.com`,
+        `DTSTAMP:${dateCompact}T000000Z`,
+        `DTSTART;VALUE=DATE:${dateCompact}`,
+        `DTEND;VALUE=DATE:${dateCompact}`,
+        `SUMMARY:Henna C - ${title} (Release Drop)`,
+        `DESCRIPTION:Official release drop for Henna C's '${title}'. Stream now: https://hennac.com`,
+        "URL:https://hennac.com",
+        "STATUS:CONFIRMED",
+        "END:VEVENT",
+        "END:VCALENDAR"
+      ].join("\r\n");
+
+      const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
+      const link = document.createElement("a");
+      link.href = window.URL.createObjectURL(blob);
+      link.setAttribute("download", `henna-c-${title.toLowerCase().replace(/[^a-z0-9]/g, '-')}-drop.ics`);
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      showToast("Calendar event (.ics) downloaded!", "📅");
+      closeCalModal();
+    });
+  }
+
+  // Inject Remind Me buttons into all upcoming cards
+  document.querySelectorAll(".upcoming-card").forEach(card => {
+    if (card.querySelector(".uc-remind-btn")) return;
+    const countdown = card.querySelector(".countdown");
+    const dateStr = countdown?.dataset.date;
+    const name = card.querySelector(".uc-name")?.textContent || "New Drop";
+    const meta = card.querySelector(".uc-meta")?.textContent || "";
+    if (!dateStr) return;
+
+    const remindBtn = document.createElement("button");
+    remindBtn.type = "button";
+    remindBtn.className = "uc-remind-btn";
+    remindBtn.setAttribute("aria-label", `Set calendar reminder for ${name}`);
+    remindBtn.title = `Add ${name} drop date to your calendar`;
+    remindBtn.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+      <span>Remind Me 📅</span>
+    `;
+    remindBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      openCalModal(name, dateStr, meta);
+    });
+
+    const body = card.querySelector(".uc-body");
+    if (body) {
+      body.appendChild(remindBtn);
+    }
+  });
+
+  // ==========================================
+  // 14. KEYBOARD PLAYBACK SHORTCUTS
+  // ==========================================
+  window.addEventListener("keydown", (e) => {
+    // Skip if focused inside an input, textarea, or contentEditable
+    if (["INPUT", "TEXTAREA", "SELECT"].includes(e.target.tagName) || e.target.isContentEditable) {
+      return;
+    }
+
+    // Space: Play / Pause toggle
+    if (e.code === "Space") {
+      e.preventDefault();
+      toggle();
+      showToast(playing ? "Playing" : "Paused", playing ? "▶️" : "⏸️");
+    }
+    // ArrowLeft: Seek backward 5s
+    else if (e.code === "ArrowLeft") {
+      e.preventDefault();
+      audio.currentTime = Math.max(0, audio.currentTime - 5);
+      syncProgress();
+      showToast("-5s", "⏪");
+    }
+    // ArrowRight: Seek forward 5s
+    else if (e.code === "ArrowRight") {
+      e.preventDefault();
+      audio.currentTime = Math.min(getPreviewDuration(), audio.currentTime + 5);
+      syncProgress();
+      showToast("+5s", "⏩");
+    }
+    // KeyM: Mute / Unmute
+    else if (e.code === "KeyM") {
+      e.preventDefault();
+      audio.muted = !audio.muted;
+      const volMute = document.getElementById("vol-mute");
+      const volHigh = document.getElementById("vol-high");
+      if (volMute) volMute.classList.toggle("hidden", !audio.muted);
+      if (volHigh) volHigh.classList.toggle("hidden", audio.muted);
+      if (spVolMute) spVolMute.classList.toggle("hidden", !audio.muted);
+      if (spVolHigh) spVolHigh.classList.toggle("hidden", audio.muted);
+      showToast(audio.muted ? "Muted" : "Unmuted", audio.muted ? "🔇" : "🔊");
+    }
+  });
+
+  // ==========================================
+  // 15. DEEP-LINKING & STICKY PLAYER CLICK
+  // ==========================================
+  const spTrack = document.querySelector(".sp-track");
+  if (spTrack) {
+    spTrack.style.cursor = "pointer";
+    spTrack.title = "View in Streaming Hub";
+    spTrack.addEventListener("click", () => {
+      const playerSec = document.getElementById("latest-tracks");
+      if (playerSec) {
+        playerSec.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  }
+
+  // Handle track deep-link hash on page load (e.g. #track-row-bbc)
+  if (window.location.hash) {
+    const targetRow = document.querySelector(window.location.hash);
+    if (targetRow && targetRow.classList.contains("pl-row")) {
+      setTimeout(() => {
+        targetRow.scrollIntoView({ behavior: "smooth", block: "center" });
+        targetRow.classList.add("highlight-pulse");
+        const trackTitle = targetRow.dataset.title || "";
+        if (trackTitle) {
+          showToast(`Viewing track: "${trackTitle}"`, "🎵");
+        }
+      }, 400);
+    }
+  }
+
+  // ==========================================
+  // 16. REAL-TIME AUDIO VISUALIZER (Canvas)
+  // ==========================================
+  const canvasViz = document.getElementById("player-canvas-viz");
+  let audioCtx = null;
+  let analyserNode = null;
+  let audioSourceNode = null;
+  let vizDataArray = null;
+
+  function initAudioVisualizer() {
+    if (audioCtx) return;
+    try {
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContextClass) return;
+      audioCtx = new AudioContextClass();
+      analyserNode = audioCtx.createAnalyser();
+      analyserNode.fftSize = 64;
+      analyserNode.smoothingTimeConstant = 0.8;
+      const bufferLength = analyserNode.frequencyBinCount;
+      vizDataArray = new Uint8Array(bufferLength);
+
+      audioSourceNode = audioCtx.createMediaElementSource(audio);
+      audioSourceNode.connect(analyserNode);
+      analyserNode.connect(audioCtx.destination);
+    } catch (err) {
+      console.warn("Web Audio API visualizer init:", err);
+    }
+  }
+
+  const drawVisualizer = () => {
+    requestAnimationFrame(drawVisualizer);
+    if (!canvasViz) return;
+    const ctx = canvasViz.getContext("2d");
+    if (!ctx) return;
+
+    const width = canvasViz.width;
+    const height = canvasViz.height;
+    ctx.clearRect(0, 0, width, height);
+
+    const barCount = 28;
+    const barWidth = Math.floor((width / barCount) - 3);
+    const time = Date.now() * 0.0035;
+
+    if (analyserNode && playing && audioCtx && audioCtx.state === "running") {
+      analyserNode.getByteFrequencyData(vizDataArray);
+    }
+
+    for (let i = 0; i < barCount; i++) {
+      let barHeight = 4;
+      if (playing && vizDataArray && analyserNode) {
+        const binIndex = Math.floor((i / barCount) * (vizDataArray.length * 0.8));
+        const val = vizDataArray[binIndex] || 0;
+        barHeight = Math.max(4, (val / 255) * (height - 4));
+      } else if (playing) {
+        // High-energy rhythmic animated fallback
+        const pulse = Math.sin(time * 2 + i * 0.5) * 0.5 + 0.5;
+        barHeight = 4 + pulse * (height - 8);
+      } else {
+        // Idle gentle breathing animation
+        const breath = Math.sin(time * 0.8 + i * 0.3) * 0.5 + 0.5;
+        barHeight = 4 + breath * 7;
+      }
+
+      const x = i * (barWidth + 3) + 2;
+      const y = height - barHeight;
+
+      const grad = ctx.createLinearGradient(0, height, 0, 0);
+      grad.addColorStop(0, "rgba(201, 123, 69, 0.75)");
+      grad.addColorStop(0.5, "rgba(255, 213, 79, 0.95)");
+      grad.addColorStop(1, "rgba(236, 72, 153, 0.9)");
+
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      if (ctx.roundRect) {
+        ctx.roundRect(x, y, barWidth, barHeight, [3, 3, 0, 0]);
+      } else {
+        ctx.rect(x, y, barWidth, barHeight);
+      }
+      ctx.fill();
+    }
+  };
+
+  if (canvasViz) {
+    drawVisualizer();
+  }
+
+  // ==========================================
+  // 17. SNAPCHAT AR MODAL LOGIC
+  // ==========================================
+  const snapModalBackdrop = document.getElementById("snap-modal-backdrop");
+  const openSnapModalBtn = document.getElementById("open-snap-modal-btn");
+  const snapModalClose = document.getElementById("snap-modal-close");
+
+  const openSnapModal = () => {
+    if (snapModalBackdrop) {
+      snapModalBackdrop.classList.remove("hidden");
+      snapModalBackdrop.setAttribute("aria-hidden", "false");
+    }
+  };
+
+  const closeSnapModal = () => {
+    if (snapModalBackdrop) {
+      snapModalBackdrop.classList.add("hidden");
+      snapModalBackdrop.setAttribute("aria-hidden", "true");
+    }
+  };
+
+  if (openSnapModalBtn) openSnapModalBtn.addEventListener("click", openSnapModal);
+  if (snapModalClose) snapModalClose.addEventListener("click", closeSnapModal);
+  if (snapModalBackdrop) {
+    snapModalBackdrop.addEventListener("click", (e) => {
+      if (e.target === snapModalBackdrop) closeSnapModal();
+    });
+  }
+
+  // Snapchat QR Code Modal Handlers
+  const snapQrModalBackdrop = document.getElementById("snap-qr-modal-backdrop");
+  const snapQrModalClose = document.getElementById("snap-qr-modal-close");
+  const goldGlowQrTrigger = document.getElementById("gold-glow-qr-trigger");
+
+  const openSnapQrModal = () => {
+    if (snapQrModalBackdrop) {
+      snapQrModalBackdrop.classList.remove("hidden");
+      snapQrModalBackdrop.setAttribute("aria-hidden", "false");
+    }
+  };
+
+  const closeSnapQrModal = () => {
+    if (snapQrModalBackdrop) {
+      snapQrModalBackdrop.classList.add("hidden");
+      snapQrModalBackdrop.setAttribute("aria-hidden", "true");
+    }
+  };
+
+  if (goldGlowQrTrigger) goldGlowQrTrigger.addEventListener("click", openSnapQrModal);
+  if (snapQrModalClose) snapQrModalClose.addEventListener("click", closeSnapQrModal);
+  if (snapQrModalBackdrop) {
+    snapQrModalBackdrop.addEventListener("click", (e) => {
+      if (e.target === snapQrModalBackdrop) closeSnapQrModal();
+    });
+  }
+
+  document.querySelectorAll(".snap-preview-toast-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const lensName = btn.dataset.lens || "AR Lens";
+      showToast(`"${lensName}" is currently in production for Snapchat! Stay tuned.`, "👻");
+    });
+  });
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && snapQrModalBackdrop && !snapQrModalBackdrop.classList.contains("hidden")) {
+      closeSnapQrModal();
+      return;
+    }
+    if (e.key === "Escape" && snapModalBackdrop && !snapModalBackdrop.classList.contains("hidden")) {
+      closeSnapModal();
+    }
+    if (e.key === "Escape" && iosPwaModalBackdrop && !iosPwaModalBackdrop.classList.contains("hidden")) {
+      closeIosModal();
+    }
+  });
+
+  /* ══════════════════════════════════════════════════════════
+     PROGRESSIVE WEB APP (PWA) & SERVICE WORKER LOGIC
+  ══════════════════════════════════════════════════════════ */
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("sw.js")
+        .then((reg) => console.log("PWA Service Worker registered:", reg.scope))
+        .catch((err) => console.warn("PWA Service Worker error:", err));
+    });
+  }
+
+  const pwaInstallNavBtn = document.getElementById("pwa-install-nav-btn");
+  const pwaInstallMobileBtn = document.getElementById("pwa-install-mobile-btn");
+  const pwaInstallBanner = document.getElementById("pwa-install-banner");
+  const pwaInstallTriggerBtn = document.getElementById("pwa-install-trigger-btn");
+  const pwaDismissBtn = document.getElementById("pwa-dismiss-btn");
+  const iosPwaModalBackdrop = document.getElementById("ios-pwa-modal-backdrop");
+  const iosPwaClose = document.getElementById("ios-pwa-close");
+  const iosPwaGotItBtn = document.getElementById("ios-pwa-gotit-btn");
+
+  let deferredInstallPrompt = null;
+
+  const isIos = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  };
+
+  const isInStandaloneMode = () => {
+    return ("standalone" in window.navigator && window.navigator.standalone) ||
+           window.matchMedia("(display-mode: standalone)").matches;
+  };
+
+  const showIosModal = () => {
+    if (iosPwaModalBackdrop) {
+      iosPwaModalBackdrop.classList.remove("hidden");
+      iosPwaModalBackdrop.setAttribute("aria-hidden", "false");
+    }
+  };
+
+  const closeIosModal = () => {
+    if (iosPwaModalBackdrop) {
+      iosPwaModalBackdrop.classList.add("hidden");
+      iosPwaModalBackdrop.setAttribute("aria-hidden", "true");
+    }
+  };
+
+  if (iosPwaClose) iosPwaClose.addEventListener("click", closeIosModal);
+  if (iosPwaGotItBtn) iosPwaGotItBtn.addEventListener("click", closeIosModal);
+  if (iosPwaModalBackdrop) {
+    iosPwaModalBackdrop.addEventListener("click", (e) => {
+      if (e.target === iosPwaModalBackdrop) closeIosModal();
+    });
+  }
+
+  // Handle Chrome / Edge / Android install prompt
+  window.addEventListener("beforeinstallprompt", (e) => {
+    e.preventDefault();
+    deferredInstallPrompt = e;
+
+    if (pwaInstallNavBtn) pwaInstallNavBtn.classList.remove("hidden");
+    if (pwaInstallMobileBtn) pwaInstallMobileBtn.classList.remove("hidden");
+
+    const isDismissed = localStorage.getItem("henna_pwa_dismissed");
+    if (!isDismissed && pwaInstallBanner && !isInStandaloneMode()) {
+      setTimeout(() => {
+        pwaInstallBanner.classList.remove("hidden");
+      }, 2500);
+    }
+  });
+
+  const triggerInstall = async () => {
+    if (deferredInstallPrompt) {
+      deferredInstallPrompt.prompt();
+      const { outcome } = await deferredInstallPrompt.userChoice;
+      if (outcome === "accepted") {
+        if (pwaInstallBanner) pwaInstallBanner.classList.add("hidden");
+      }
+      deferredInstallPrompt = null;
+    } else if (isIos() && !isInStandaloneMode()) {
+      showIosModal();
+    } else {
+      showToast("To install, tap your browser's menu (⋮ or Share) and select 'Add to Home Screen'.", "📱");
+    }
+  };
+
+  if (pwaInstallTriggerBtn) pwaInstallTriggerBtn.addEventListener("click", triggerInstall);
+  if (pwaInstallNavBtn) pwaInstallNavBtn.addEventListener("click", triggerInstall);
+  if (pwaInstallMobileBtn) pwaInstallMobileBtn.addEventListener("click", triggerInstall);
+
+  if (pwaDismissBtn) {
+    pwaDismissBtn.addEventListener("click", () => {
+      if (pwaInstallBanner) pwaInstallBanner.classList.add("hidden");
+      localStorage.setItem("henna_pwa_dismissed", "true");
+    });
+  }
+
+  // If on iOS and not yet installed, show the button in nav
+  if (isIos() && !isInStandaloneMode()) {
+    if (pwaInstallNavBtn) pwaInstallNavBtn.classList.remove("hidden");
+    if (pwaInstallMobileBtn) pwaInstallMobileBtn.classList.remove("hidden");
+  }
+
+  // If user installs the app
+  window.addEventListener("appinstalled", () => {
+    if (pwaInstallBanner) pwaInstallBanner.classList.add("hidden");
+    if (pwaInstallNavBtn) pwaInstallNavBtn.classList.add("hidden");
+    if (pwaInstallMobileBtn) pwaInstallMobileBtn.classList.add("hidden");
+    showToast("Henna C Official App installed! Enjoy the music.", "✨");
+  });
+
 });
+
+
 

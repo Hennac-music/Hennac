@@ -10,15 +10,22 @@
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://hcmusic.live/assets/henna-c-logo-square.jpg">
     <meta property="og:url" content="https://hcmusic.live/">
-    <meta name="theme-color" content="#050505">
-    <link rel="icon" type="image/png" href="assets/henna-c-logo-square.jpg">
+    <meta name="theme-color" content="#0b0b0f">
+    <link rel="icon" type="image/png" href="assets/icons/icon-192x192.png">
+    <link rel="manifest" href="manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Henna C">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@500;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=5.8.2">
+    <link rel="stylesheet" href="styles.css?v=5.9.4">
   </head>
   <body>
 
@@ -61,6 +68,10 @@
         <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#contact" class="nav-btn">Inquire</a>
+        <button class="nav-install-btn hidden" id="pwa-install-nav-btn" type="button" aria-label="Install Henna C App">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          <span>Install App</span>
+        </button>
         <div class="nav-share-wrapper">
           <button class="nav-share-btn" id="share-btn-desktop" aria-label="Share website" type="button" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -125,6 +136,10 @@
         <a href="#gallery">Gallery</a>
         <a href="#about">About</a>
         <a href="#contact" class="mobile-nav-btn">Inquire</a>
+        <button class="mobile-install-btn hidden" id="pwa-install-mobile-btn" type="button" aria-label="Install Henna C App">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          <span>Install Henna C App</span>
+        </button>
         <div class="mobile-drawer-socials">
           <a href="https://www.instagram.com/_hcbeats?igsh=MXJjams2NXIxYWo4cw%3D%3D&igsi=MXJjams2NXIxYWo4cw%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
@@ -601,10 +616,16 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
-                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-                  <span>Purchase on iTunes</span>
-                </a>
+                <div class="uc-actions-row">
+                  <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                    <span>iTunes</span>
+                  </a>
+                  <button type="button" class="uc-remind-btn" aria-label="Add Drop Reminder to Calendar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Remind Me</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -718,10 +739,16 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
-                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-                  <span>Purchase on iTunes</span>
-                </a>
+                <div class="uc-actions-row">
+                  <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                    <span>iTunes</span>
+                  </a>
+                  <button type="button" class="uc-remind-btn" aria-label="Add Drop Reminder to Calendar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Remind Me</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -757,10 +784,16 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
-                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-                  <span>Purchase on iTunes</span>
-                </a>
+                <div class="uc-actions-row">
+                  <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                    <span>iTunes</span>
+                  </a>
+                  <button type="button" class="uc-remind-btn" aria-label="Add Drop Reminder to Calendar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Remind Me</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -796,10 +829,16 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
-                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-                  <span>Purchase on iTunes</span>
-                </a>
+                <div class="uc-actions-row">
+                  <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                    <span>iTunes</span>
+                  </a>
+                  <button type="button" class="uc-remind-btn" aria-label="Add Drop Reminder to Calendar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Remind Me</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -835,10 +874,16 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
-                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-                  <span>Purchase on iTunes</span>
-                </a>
+                <div class="uc-actions-row">
+                  <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                    <span>iTunes</span>
+                  </a>
+                  <button type="button" class="uc-remind-btn" aria-label="Add Drop Reminder to Calendar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Remind Me</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -874,10 +919,16 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
-                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-                  <span>Purchase on iTunes</span>
-                </a>
+                <div class="uc-actions-row">
+                  <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                    <span>iTunes</span>
+                  </a>
+                  <button type="button" class="uc-remind-btn" aria-label="Add Drop Reminder to Calendar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Remind Me</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -913,10 +964,16 @@
                   <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.14v14l11-7-11-7z"/></svg>
                   <span>Play Preview</span>
                 </button>
-                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-                  <span>Purchase on iTunes</span>
-                </a>
+                <div class="uc-actions-row">
+                  <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                    <span>iTunes</span>
+                  </a>
+                  <button type="button" class="uc-remind-btn" aria-label="Add Drop Reminder to Calendar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Remind Me</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -991,10 +1048,16 @@
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="margin-right: 6px;"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
                   <span>Preview Coming Soon</span>
                 </button>
-                <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
-                  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-                  <span>Purchase on iTunes</span>
-                </a>
+                <div class="uc-actions-row">
+                  <a href="javascript:void(0)" class="uc-itunes-btn itunes-coming-soon" aria-disabled="true" title="Coming Soon to iTunes">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                    <span>iTunes</span>
+                  </a>
+                  <button type="button" class="uc-remind-btn" aria-label="Add Drop Reminder to Calendar">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <span>Remind Me</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -1039,6 +1102,11 @@
                 <p class="player-track-meta" id="player-meta">R&B &nbsp;·&nbsp; 2026</p>
               </div>
 
+              <!-- Audio Spectrum Waveform Visualizer -->
+              <div class="player-viz-container">
+                <canvas id="player-canvas-viz" width="360" height="44" aria-label="Audio frequency visualizer"></canvas>
+              </div>
+
               <!-- Progress bar -->
               <div class="player-progress" id="player-progress">
                 <div class="pp-track">
@@ -1076,7 +1144,28 @@
 
             <!-- Right: Playlist -->
             <div class="player-right">
-              <h4 class="playlist-label">TRACKS</h4>
+              <div class="playlist-header-top">
+                <h4 class="playlist-label">TRACKS</h4>
+                <span class="pl-total-count" id="pl-total-count">47 Tracks</span>
+              </div>
+
+              <!-- Instant Search & Genre Filter Bar -->
+              <div class="pl-search-filter-bar" id="pl-search-filter-bar">
+                <div class="pl-search-input-wrap">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="pl-search-icon"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                  <input type="text" id="pl-search-input" class="pl-search-input" placeholder="Search 47+ tracks by title, album, or genre..." aria-label="Search playlist">
+                  <button type="button" id="pl-search-clear" class="pl-search-clear hidden" aria-label="Clear search">✕</button>
+                </div>
+                <div class="pl-filter-chips" id="pl-filter-chips" role="tablist" aria-label="Filter tracks by genre">
+                  <button type="button" class="pl-chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+                  <button type="button" class="pl-chip" data-filter="hip-hop" role="tab" aria-selected="false">Hip-Hop / Rap</button>
+                  <button type="button" class="pl-chip" data-filter="pop" role="tab" aria-selected="false">Pop / Dance</button>
+                  <button type="button" class="pl-chip" data-filter="r&b" role="tab" aria-selected="false">R&B</button>
+                  <button type="button" class="pl-chip" data-filter="albums" role="tab" aria-selected="false">Albums</button>
+                  <button type="button" class="pl-chip" data-filter="upcoming" role="tab" aria-selected="false">Upcoming</button>
+                </div>
+              </div>
+
               <div class="playlist" id="playlist">
                 <!--
                   PHASE 2: For each track row, inject:
@@ -1671,6 +1760,25 @@
                 <p>Outside after midnight shoot in Minneapolis</p>
               </div>
               <div class="gi-sheen"></div>
+            </div>
+          </div>
+
+          <!-- Snapchat AR Lenses Showcase Feature Bar -->
+          <div class="snap-ar-card reveal">
+            <div class="snap-ar-glow"></div>
+            <div class="snap-ar-left">
+              <div class="snap-ar-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.002 0c-4.468 0-8.09 3.622-8.09 8.09 0 2.221.895 4.234 2.345 5.702-.132.551-.482 1.487-1.42 2.302-.153.132-.19.349-.092.523.098.174.298.261.493.213 1.346-.328 2.628-.888 3.518-1.523.978.558 2.086.877 3.246.877 4.468 0 8.09-3.622 8.09-8.09S16.47 0 12.002 0zm0 14.562c-1.077 0-2.109-.304-2.993-.836-.145-.087-.323-.087-.468 0-.825.496-1.896.953-3.056 1.252.66-.757.994-1.602 1.092-2.193.023-.142-.03-.284-.143-.377C5.176 11.233 4.492 9.721 4.492 8.09c0-4.141 3.369-7.51 7.51-7.51s7.51 3.369 7.51 7.51-3.369 7.51-7.51 7.51z"/></svg>
+                <span>Snapchat Augmented Reality</span>
+              </div>
+              <h3 class="snap-ar-title">Experience Henna C in Augmented Reality</h3>
+              <p class="snap-ar-desc">Unlock official Snapchat AR lenses — including the live Henna C Gold Glow 3D banner lens, Bubblegum Shoot glam, and Studio Porcelain Matte filter.</p>
+            </div>
+            <div class="snap-ar-right">
+              <button type="button" class="btn-primary snap-launch-btn" id="open-snap-modal-btn">
+                <span>Unlock AR Lenses 👻</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
             </div>
           </div>
         </div>
