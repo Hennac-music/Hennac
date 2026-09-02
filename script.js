@@ -2304,9 +2304,36 @@ document.addEventListener("DOMContentLoaded", () => {
   // Snapchat QR Code Modal Handlers
   const snapQrModalBackdrop = document.getElementById("snap-qr-modal-backdrop");
   const snapQrModalClose = document.getElementById("snap-qr-modal-close");
-  const goldGlowQrTrigger = document.getElementById("gold-glow-qr-trigger");
+  const snapQrTitle = document.getElementById("snap-qr-title");
+  const snapQrSub = document.querySelector(".snap-qr-sub");
+  const snapQrImage = document.getElementById("snap-qr-image");
+  const snapQrDirectLink = document.getElementById("snap-qr-direct-link");
 
-  const openSnapQrModal = () => {
+  const LENS_QR_CONFIGS = {
+    "gold-glow": {
+      title: "HENNA C GOLD GLOW",
+      sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the 3D gold lens immediately.",
+      img: "assets/qr-henna-c-gold-glow.png",
+      url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=06a97613-e32b-7e4a-8000-1c24a10469d4&metadata=01"
+    },
+    "aura": {
+      title: "HENNA C AURA",
+      sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the official Henna C Records Aura filter.",
+      img: "assets/qr-henna-c-aura.png",
+      url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=06a977a3-46cf-7bdc-8000-d7d5a2e8dcc3&metadata=01"
+    }
+  };
+
+  const openSnapQrModal = (lensId = "gold-glow") => {
+    const config = LENS_QR_CONFIGS[lensId] || LENS_QR_CONFIGS["gold-glow"];
+    if (snapQrTitle) snapQrTitle.textContent = config.title;
+    if (snapQrSub) snapQrSub.textContent = config.sub;
+    if (snapQrImage) {
+      snapQrImage.src = config.img;
+      snapQrImage.alt = `Snapchat Lens QR Code for ${config.title}`;
+    }
+    if (snapQrDirectLink) snapQrDirectLink.href = config.url;
+
     if (snapQrModalBackdrop) {
       snapQrModalBackdrop.classList.remove("hidden");
       snapQrModalBackdrop.setAttribute("aria-hidden", "false");
@@ -2320,7 +2347,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
 
-  if (goldGlowQrTrigger) goldGlowQrTrigger.addEventListener("click", openSnapQrModal);
+  document.querySelectorAll(".snap-qr-trigger-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const lensId = btn.dataset.lensId || (btn.id === "aura-qr-trigger" ? "aura" : "gold-glow");
+      openSnapQrModal(lensId);
+    });
+  });
+
   if (snapQrModalClose) snapQrModalClose.addEventListener("click", closeSnapQrModal);
   if (snapQrModalBackdrop) {
     snapQrModalBackdrop.addEventListener("click", (e) => {

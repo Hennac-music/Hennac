@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@500;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=5.9.8">
+    <link rel="stylesheet" href="styles.css?v=5.9.9">
   </head>
   <body>
 
@@ -2323,7 +2323,243 @@
         </div>
       </section>
 
-    </main>
+      <!-- ═══════════════════════════════════════
+           SECTION 5 — GALLERY
+      ═══════════════════════════════════════ -->
+      <section class="section" id="gallery" aria-labelledby="gallery-h2">
+        <div class="section-inner">
+          <div class="eyebrow"><span class="glow-dot"></span>Photography</div>
+          <h2 id="gallery-h2" class="section-title">VISUAL GALLERY</h2>
+
+          <div class="masonry" id="masonry-gallery">
+            <!-- Item 1: Executive Producer & Visionary (Featured) -->
+            <div class="gallery-item gi-feat reveal" data-image="assets/gallery/visual-executive.png" data-caption="Executive Producer &amp; Visionary — Henna C at the helm of master production, creative direction, and label operations in the executive suite.">
+              <img src="assets/gallery/visual-executive.png" alt="Henna C in executive suite portrait" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">Vision &amp; Production</span>
+                <h4>Executive Producer</h4>
+                <p>Henna C leading master production &amp; label vision</p>
+              </div>
+              <div class="gi-sheen"></div>
+            </div>
+
+            <!-- Item 2: Studio Sessions & Guest Vocalists (Top Mid) -->
+            <div class="gallery-item gi-top-1 reveal" data-image="assets/gallery/visual-studio.jpg" data-caption="Studio Sessions &amp; Guest Vocalists — Written and produced entirely by Henna C, locked in studio with featured singers, guest artists, and vocalists bringing every vision to life.">
+              <img src="assets/gallery/visual-studio.jpg" alt="Henna C in studio with featured singers and guest artists" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">In The Studio</span>
+                <h4>Studio &amp; Guest Artists</h4>
+                <p>Henna C with featured singers &amp; vocalists</p>
+              </div>
+              <div class="gi-sheen"></div>
+            </div>
+
+            <!-- Item 3: Kashkilla Signature Editorial Set (Top Right) -->
+            <div class="gallery-item gi-top-2 reveal" data-image="assets/gallery/visual-kashkilla.jpg" data-caption="Kashkilla Signature Editorial — Unapologetic glam, supreme confidence, and raw star power. #1 artist Kashkilla commanding the room in official Henna-C apparel, masquerade elegance, and pink neon aesthetics.">
+              <img src="assets/gallery/visual-kashkilla.jpg" alt="Kashkilla official editorial photoshoot set" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">Kashkilla Editorial</span>
+                <h4>Kashkilla Signature Set</h4>
+                <p>Unapologetic glam &amp; raw star power</p>
+              </div>
+              <div class="gi-sheen"></div>
+            </div>
+
+            <!-- Item 4: The Bubblegum Shoot (Bottom Left) -->
+            <div class="gallery-item gi-bot-1 reveal" data-image="assets/gallery/visual-video.jpg" data-caption="The Bubblegum Shoot — #1 powerhouse artist Kashkilla starring in an iconic high-energy video shoot celebrating the runaway success of Coochie Poppin University, featuring custom pink neon HENNA-C backdrop and holographic stage visuals.">
+              <img src="assets/gallery/visual-video.jpg" alt="Kashkilla starring in The Bubblegum Shoot celebrating Coochie Poppin University" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">Music Video Shoot</span>
+                <h4>The Bubblegum Shoot</h4>
+                <p>Kashkilla celebrating Coochie Poppin University success</p>
+              </div>
+              <div class="gi-sheen"></div>
+            </div>
+
+            <!-- Item 5: Henna C & #1 Artist Kashkilla (Bottom Mid) -->
+            <div class="gallery-item gi-bot-2 reveal" data-image="assets/gallery/visual-merch.jpg" data-caption="Henna C &amp; #1 Artist Kashkilla — Chart-topping powerhouse artist Kashkilla alongside Henna C, representing top leading tracks, star power, and undisputed excellence in official Henna-C gear.">
+              <img src="assets/gallery/visual-merch.jpg" alt="Henna C and #1 artist Kashkilla in official Henna-C apparel photoshoot" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">Featured #1 Artist</span>
+                <h4>Henna C &amp; Kashkilla</h4>
+                <p>Top leading tracks &amp; undisputed excellence</p>
+              </div>
+              <div class="gi-sheen"></div>
+            </div>
+
+            <!-- Item 6: Late Night City Energy & Crew (Bottom Right) -->
+            <div class="gallery-item gi-bot-3 reveal" data-image="assets/gallery/visual-nightlife.jpg" data-caption="Late Night City Energy — Henna C with friends and crew outside after a midnight video shoot against the Minneapolis skyline.">
+              <img src="assets/gallery/visual-nightlife.jpg" alt="Henna C with crew out in the city at night" class="gi-img">
+              <div class="gi-overlay">
+                <span class="gi-tag">Late Night Vibe</span>
+                <h4>City Energy &amp; Crew</h4>
+                <p>Outside after midnight shoot in Minneapolis</p>
+              </div>
+              <div class="gi-sheen"></div>
+            </div>
+          </div>
+
+          <!-- Snapchat AR Lenses Showcase Feature Bar -->
+          <div class="snap-ar-card reveal">
+            <div class="snap-ar-glow"></div>
+            <div class="snap-ar-left">
+              <div class="snap-ar-badge">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.002 0c-4.468 0-8.09 3.622-8.09 8.09 0 2.221.895 4.234 2.345 5.702-.132.551-.482 1.487-1.42 2.302-.153.132-.19.349-.092.523.098.174.298.261.493.213 1.346-.328 2.628-.888 3.518-1.523.978.558 2.086.877 3.246.877 4.468 0 8.09-3.622 8.09-8.09S16.47 0 12.002 0zm0 14.562c-1.077 0-2.109-.304-2.993-.836-.145-.087-.323-.087-.468 0-.825.496-1.896.953-3.056 1.252.66-.757.994-1.602 1.092-2.193.023-.142-.03-.284-.143-.377C5.176 11.233 4.492 9.721 4.492 8.09c0-4.141 3.369-7.51 7.51-7.51s7.51 3.369 7.51 7.51-3.369 7.51-7.51 7.51z"/></svg>
+                <span>Snapchat Augmented Reality</span>
+              </div>
+              <h3 class="snap-ar-title">Experience Henna C in Augmented Reality</h3>
+              <p class="snap-ar-desc">Unlock official Snapchat AR lenses — including the live Henna C Gold Glow 3D banner lens, the Henna C Aura filter, and upcoming studio glam drops.</p>
+            </div>
+            <div class="snap-ar-right">
+              <button type="button" class="btn-primary snap-launch-btn" id="open-snap-modal-btn">
+                <span>Unlock AR Lenses 👻</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ═══════════════════════════════════════
+           SECTION 6 — ABOUT
+      ═══════════════════════════════════════ -->
+      <section class="section" id="about" aria-labelledby="about-h2">
+        <div class="section-inner">
+          <div class="eyebrow"><span class="glow-dot"></span>Artist Story</div>
+
+          <div class="about-grid">
+            <div class="about-portrait-col">
+              <div class="about-portrait reveal">
+                <img src="assets/about-henna-c-portrait.png" alt="Henna C portrait in studio" class="about-img" id="about-img">
+                <div class="portrait-badge">
+                  <span class="badge-role">VISIONARY &bull; PRODUCER &bull; SONGWRITER</span>
+                  <span class="badge-name">HENNA C</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="about-body reveal">
+              <h2 id="about-h2" class="about-headline">NOTHING IS OFF LIMITS. NO TWO SONGS ARE THE SAME.</h2>
+              <div class="about-paragraphs">
+                <!-- Bio -->
+                <p class="about-bio">Henna C builds songs from whatever ideas refuse to stay quiet.</p>
+                <p class="about-bio">One day the inspiration is a real-life experience. The next, it's a wild hypothetical, an overheard conversation, a fantasy, a bad decision, or a completely made-up character. Nothing is off limits, and no two songs are expected to sound the same.</p>
+                <p class="about-bio">Known for blending genres, humor, storytelling, and unexpected perspectives, Henna C turns everyday moments, strange observations, and random thoughts into music that is as entertaining as it is unpredictable. Some tracks are relatable, some are ridiculous, and some live somewhere in between.</p>
+                <p class="about-bio">Whether the stories come from real life, imagination, or somewhere in between is part of the fun. What matters is creating something people can feel, laugh at, relate to, or get lost in for a few minutes. Whether a song makes people laugh, think, sing along, or ask, &ldquo;What did I just listen to?&rdquo; the mission is simple: create something people won't forget.</p>
+              </div>
+            </div>
+
+            <div class="about-hud">
+              <div class="hud-status-cell">
+                <span class="hud-status"><span class="status-dot"></span> ACTIVE</span>
+              </div>
+              <dl class="hud-list">
+                <div class="hud-row"><dt>ARTIST PROFILE</dt><dd>Features &bull; Collaborations &bull; Press &bull; Creative Projects</dd></div>
+                <div class="hud-row"><dt>GENRE</dt><dd>Hip-Hop • R&B • Pop • Genre-Bending</dd></div>
+                <div class="hud-row"><dt>VIBE</dt><dd>Cinematic • Unpredictable • Story-Driven</dd></div>
+                <div class="hud-row"><dt>LATEST</dt><dd>Was That Your Ass Or Mouth?</dd></div>
+              </dl>
+              <div class="hud-deco" aria-hidden="true">
+                <div class="hud-ring"></div>
+                <div class="hud-scan"></div>
+              </div>
+            </div>
+
+            <div class="about-quote">
+              <span class="q-mark">&ldquo;</span><em>Reality writes some of my music. Imagination writes the rest.</em>
+              <cite>&mdash; Henna-C</cite>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ═══════════════════════════════════════
+           SECTION 7 — CONTACT / INQUIRE
+      ═══════════════════════════════════════ -->
+      <section class="section" id="contact" aria-labelledby="contact-h2">
+        <div class="section-inner">
+          <div class="eyebrow"><span class="glow-dot"></span>Get In Touch</div>
+
+          <div class="contact-card reveal">
+            <div class="contact-left">
+              <h2 id="contact-h2" class="contact-headline">LET'S CONNECT</h2>
+              <p class="contact-desc">For features, collaborations, press inquiries, or anything else — reach out directly. All messages are read.</p>
+
+              <a href="mailto:hcbeats.info@gmail.com" class="email-btn" id="email-btn">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                hcbeats.info@gmail.com
+              </a>
+
+              <p class="follow-label">FOLLOW &amp; CONNECT</p>
+              <div class="contact-socials">
+                <a href="https://www.instagram.com/_hcbeats?igsh=MXJjams2NXIxYWo4cw%3D%3D&igsi=MXJjams2NXIxYWo4cw%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="cs-btn" id="cs-instagram">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                  Instagram
+                </a>
+                <a href="https://www.facebook.com/Beatsbyhc" target="_blank" rel="noopener" class="cs-btn" id="cs-facebook">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                  Facebook
+                </a>
+                <a href="https://www.tiktok.com/@_hcbeats?_r=1&_t=ZP-98pzo9dS2qE" target="_blank" rel="noopener" class="cs-btn" id="cs-tiktok">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.85.98 2.02 1.69 3.29 2.02.03 1.35.01 2.69.02 4.04-.95-.08-1.89-.39-2.73-.87a7.227 7.227 0 0 1-2.48-2.46c-.05 2.16-.01 4.31-.03 6.47-.09 1.48-.56 2.94-1.39 4.19-.89 1.28-2.19 2.24-3.66 2.72-1.78.61-3.77.58-5.52-.11-1.63-.61-3.04-1.79-3.94-3.34A9.227 9.227 0 0 1 1 12.98c.03-1.92.65-3.83 1.77-5.38 1.12-1.5 2.76-2.55 4.58-2.94 1.25-.29 2.56-.16 3.74.37.02 1.44-.01 2.87.01 4.3-.67-.28-1.42-.37-2.13-.24a3.864 3.864 0 0 0-2.31 1.39c-.64.78-.96 1.81-.88 2.82.07.97.55 1.89 1.31 2.51.81.65 1.87.95 2.9.82 1.05-.1 2.01-.69 2.58-1.58.37-.58.55-1.27.52-1.96.03-4.36.01-8.72.02-13.08z"/></svg>
+                  TikTok
+                </a>
+                <a href="https://open.spotify.com/artist/6mA0wWqnvJPLJrlUin9Zha" target="_blank" rel="noopener" class="cs-btn" id="cs-spotify">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.077-.337.135-.669.47-.745 3.854-.88 7.15-.502 9.82.13.297.18.388.567.207.86zm1.225-2.72c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.666-1.112 8.243-.566 11.345 1.343.366.227.486.707.26 1.074zm.107-2.836C14.453 8.81 8.73 8.623 5.4 9.635c-.51.155-1.046-.134-1.202-.645-.156-.51.133-1.047.645-1.203 3.82-1.16 10.125-.944 14.152 1.446.46.273.61.87.337 1.33-.274.46-.87.61-1.33.337z"/></svg>
+                  Spotify
+                </a>
+                <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener" class="cs-btn" id="cs-applemusic">
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                  Apple Music
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-right">
+              <form class="contact-form" id="contact-form" novalidate>
+                <div class="form-group">
+                  <label for="contact-name">YOUR NAME</label>
+                  <input type="text" id="contact-name" name="name" required placeholder="Name or Organization">
+                  <span class="field-err" id="err-name">Please enter your name.</span>
+                </div>
+                <div class="form-group">
+                  <label for="contact-email">YOUR EMAIL</label>
+                  <input type="email" id="contact-email" name="email" required placeholder="you@example.com">
+                  <span class="field-err" id="err-email">Please enter a valid email address.</span>
+                </div>
+                <div class="form-group">
+                  <label for="contact-subject">SUBJECT / INQUIRY TYPE</label>
+                  <select id="contact-subject" name="subject" required>
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="Feature / Collaboration">Feature / Collaboration</option>
+                    <option value="Press / Interview">Press / Interview</option>
+                    <option value="Licensing / Sync">Licensing / Sync</option>
+                    <option value="Booking / Events">Booking / Events</option>
+                    <option value="General Inquiry">General Inquiry</option>
+                  </select>
+                  <span class="field-err" id="err-subject">Please select a subject.</span>
+                </div>
+                <div class="form-group">
+                  <label for="contact-msg">MESSAGE</label>
+                  <textarea id="contact-msg" name="message" rows="4" required placeholder="Tell us about your project or inquiry..."></textarea>
+                  <span class="field-err" id="err-msg">Please enter your message.</span>
+                </div>
+                <button type="submit" class="btn btn-primary form-submit-btn" id="contact-submit">
+                  <span>Send Message</span>
+                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
+                <div class="form-success hidden" id="form-success">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="20" height="20"><polyline points="20 6 9 17 4 12"/></svg>
+                  Thank you! Your message has been sent. We'll be in touch.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+</main>
 
 
     <!-- ═══════════════════════════════════════
@@ -2448,6 +2684,9 @@
     <!-- ═══════════════════════════════════════
          SNAPCHAT AR LENSES MODAL
     ═══════════════════════════════════════ -->
+        <!-- ═══════════════════════════════════════
+         SNAPCHAT AR LENSES MODAL
+    ═══════════════════════════════════════ -->
     <div class="modal-backdrop snap-modal-backdrop hidden" id="snap-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="snap-modal-title" aria-hidden="true">
       <div class="modal-box snap-modal" id="snap-modal">
         <button class="cal-modal-close" id="snap-modal-close" aria-label="Close modal">✕</button>
@@ -2470,7 +2709,7 @@
                 <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=06a97613-e32b-7e4a-8000-1c24a10469d4&metadata=01" target="_blank" rel="noopener noreferrer" class="snap-unlock-btn snap-live-btn">
                   <span>Unlock in Snapchat 👻</span>
                 </a>
-                <button type="button" class="snap-qr-trigger-btn" id="gold-glow-qr-trigger" aria-label="Show QR Code">
+                <button type="button" class="snap-qr-trigger-btn" id="gold-glow-qr-trigger" data-lens-id="gold-glow" aria-label="Show QR Code for Gold Glow">
                   <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M4 4h6v6H4V4zm2 2v2h2V6H6zm8-2h6v6h-6V4zm2 2v2h2V6h-2zM4 14h6v6H4v-6zm2 2v2h2v-2H6zm10-2h2v2h-2v-2zm-2 2h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zm0 4h2v2h-2v-2zm-4 0h2v2h-2v-2zm-2-4h2v2h-2v-2zm-2 2h2v2h-2v-2z"/></svg>
                   <span>Scan QR Code</span>
                 </button>
@@ -2478,7 +2717,28 @@
             </div>
           </div>
 
-          <!-- Lens 2: Bubblegum Shoot Glam -->
+          <!-- Lens 2: Henna C Aura (LIVE NOW) -->
+          <div class="snap-lens-card snap-lens-featured">
+            <div class="snap-lens-preview">
+              <img src="assets/henna-c-records-logo-gold.png" alt="Henna C Aura Lens preview" class="snap-lens-img" style="object-fit: contain; padding: 1.2rem; background: radial-gradient(circle, rgba(201,123,69,0.25) 0%, rgba(11,11,15,0.95) 70%);">
+              <div class="snap-lens-tag snap-tag-live">✨ LIVE NOW</div>
+            </div>
+            <div class="snap-lens-info">
+              <h4>Henna C Aura</h4>
+              <p>Official Henna C Records brand aesthetic featuring signature glowing gold HC logo watermark, luxury amber lighting, and studio beauty color grade.</p>
+              <div class="snap-card-actions">
+                <a href="https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=06a977a3-46cf-7bdc-8000-d7d5a2e8dcc3&metadata=01" target="_blank" rel="noopener noreferrer" class="snap-unlock-btn snap-live-btn">
+                  <span>Unlock in Snapchat 👻</span>
+                </a>
+                <button type="button" class="snap-qr-trigger-btn" id="aura-qr-trigger" data-lens-id="aura" aria-label="Show QR Code for Henna C Aura">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M4 4h6v6H4V4zm2 2v2h2V6H6zm8-2h6v6h-6V4zm2 2v2h2V6h-2zM4 14h6v6H4v-6zm2 2v2h2v-2H6zm10-2h2v2h-2v-2zm-2 2h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zm0 4h2v2h-2v-2zm-4 0h2v2h-2v-2zm-2-4h2v2h-2v-2zm-2 2h2v2h-2v-2z"/></svg>
+                  <span>Scan QR Code</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lens 3: Bubblegum Shoot Glam -->
           <div class="snap-lens-card">
             <div class="snap-lens-preview">
               <img src="assets/gallery/visual-video.jpg" alt="Bubblegum Glam Lens preview" class="snap-lens-img">
@@ -2493,7 +2753,7 @@
             </div>
           </div>
 
-          <!-- Lens 3: Studio Porcelain Matte -->
+          <!-- Lens 4: Studio Porcelain Matte -->
           <div class="snap-lens-card">
             <div class="snap-lens-preview">
               <img src="assets/gallery/visual-executive.png" alt="Studio Porcelain Matte Lens preview" class="snap-lens-img">
@@ -2508,7 +2768,7 @@
             </div>
           </div>
 
-          <!-- Lens 4: Frequency Shift Masquerade -->
+          <!-- Lens 5: Frequency Shift Masquerade -->
           <div class="snap-lens-card">
             <div class="snap-lens-preview">
               <img src="assets/frequency-shift.png" alt="Frequency Shift Masquerade Lens preview" class="snap-lens-img">
@@ -2526,9 +2786,6 @@
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-         SNAPCHAT QR CODE MODAL
-    ═══════════════════════════════════════ -->
     <div class="modal-backdrop snap-qr-modal-backdrop hidden" id="snap-qr-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="snap-qr-title" aria-hidden="true">
       <div class="modal-box snap-qr-modal" id="snap-qr-modal">
         <button class="cal-modal-close" id="snap-qr-modal-close" aria-label="Close modal">✕</button>
@@ -2613,6 +2870,6 @@
       </div>
     </div>
 
-    <script src="script.js?v=5.9.8"></script>
+    <script src="script.js?v=5.9.9"></script>
   </body>
 </html>
