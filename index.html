@@ -2004,6 +2004,203 @@
     </div>
 
 
-    <script src="script.js?v=5.8.2"></script>
+    <!-- Henna Global Toast Notification -->
+    <div class="henna-toast" id="henna-toast" aria-live="polite"></div>
+
+    <!-- Calendar Sync Drop Reminder Modal -->
+    <div class="modal-backdrop cal-modal-backdrop hidden" id="cal-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="cal-modal-title" aria-hidden="true">
+      <div class="modal-box cal-modal" id="cal-modal">
+        <button class="cal-modal-close" id="cal-modal-close" aria-label="Close modal">✕</button>
+        <span class="cal-badge">📅 RELEASE DROP REMINDER</span>
+        <h3 id="cal-modal-title" class="cal-modal-h3">ADD TO YOUR CALENDAR</h3>
+        <p class="cal-modal-sub" id="cal-modal-sub">Get notified the exact moment this new music drops so you can stream first.</p>
+        
+        <div class="cal-event-preview">
+          <div class="cal-event-title" id="cal-event-title">Track Title</div>
+          <div class="cal-event-date" id="cal-event-date">Release Date</div>
+        </div>
+
+        <div class="cal-modal-actions">
+          <a href="#" class="cal-opt-btn cal-google" id="cal-opt-google" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.067 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg>
+            <span>Add to Google Calendar</span>
+          </a>
+          <button type="button" class="cal-opt-btn cal-ics" id="cal-opt-ics">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span>Download Apple / Outlook (.ics)</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SNAPCHAT AR LENSES MODAL
+    ═══════════════════════════════════════ -->
+    <div class="modal-backdrop snap-modal-backdrop hidden" id="snap-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="snap-modal-title" aria-hidden="true">
+      <div class="modal-box snap-modal" id="snap-modal">
+        <button class="cal-modal-close" id="snap-modal-close" aria-label="Close modal">✕</button>
+        <div class="snap-modal-header">
+          <span class="snap-badge">👻 SNAPCHAT AR PORTAL</span>
+          <h3 id="snap-modal-title" class="snap-modal-h3">HENNA C OFFICIAL AR LENSES</h3>
+          <p class="snap-modal-sub">Scan with Snapchat camera or tap on mobile to unlock lenses directly.</p>
+        </div>
+        <div class="snap-lenses-grid">
+          <!-- Lens 1: Henna C Gold Glow (LIVE NOW) -->
+          <div class="snap-lens-card snap-lens-featured">
+            <div class="snap-lens-preview">
+              <img src="assets/henna-c-header-logo.png" alt="Henna C Gold Glow Lens preview" class="snap-lens-img" style="object-fit: contain; padding: 1.5rem; background: radial-gradient(circle, rgba(229,169,59,0.2) 0%, rgba(11,11,15,0.95) 70%);">
+              <div class="snap-lens-tag snap-tag-live">✨ LIVE NOW</div>
+            </div>
+            <div class="snap-lens-info">
+              <h4>Henna C Gold Glow</h4>
+              <p>Official 3D metallic gold "HENNA C" logo floating right above your head with warm golden ambient glow, smooth face tracking, and studio lighting.</p>
+              <div class="snap-card-actions">
+                <a href="https://easylens.snapchat.com/lens/06a97613-e32b-7e4a-8000-1c24a10469d4" target="_blank" rel="noopener noreferrer" class="snap-unlock-btn snap-live-btn">
+                  <span>Unlock in Snapchat 👻</span>
+                </a>
+                <button type="button" class="snap-qr-trigger-btn" id="gold-glow-qr-trigger" aria-label="Show QR Code">
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M4 4h6v6H4V4zm2 2v2h2V6H6zm8-2h6v6h-6V4zm2 2v2h2V6h-2zM4 14h6v6H4v-6zm2 2v2h2v-2H6zm10-2h2v2h-2v-2zm-2 2h2v2h-2v-2zm2 2h2v2h-2v-2zm2-2h2v2h-2v-2zm0 4h2v2h-2v-2zm-4 0h2v2h-2v-2zm-2-4h2v2h-2v-2zm-2 2h2v2h-2v-2z"/></svg>
+                  <span>Scan QR Code</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Lens 2: Bubblegum Shoot Glam -->
+          <div class="snap-lens-card">
+            <div class="snap-lens-preview">
+              <img src="assets/gallery/visual-video.jpg" alt="Bubblegum Glam Lens preview" class="snap-lens-img">
+              <div class="snap-lens-tag">In Production</div>
+            </div>
+            <div class="snap-lens-info">
+              <h4>Bubblegum Shoot Glam</h4>
+              <p>Iconic pink neon studio backdrop, holographic stage lighting, and sparkling star power filter inspired by the official visuals.</p>
+              <button type="button" class="snap-unlock-btn snap-preview-toast-btn" data-lens="Bubblegum Shoot Glam">
+                <span>Dropping Soon 👻</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Lens 3: Studio Porcelain Matte -->
+          <div class="snap-lens-card">
+            <div class="snap-lens-preview">
+              <img src="assets/gallery/visual-executive.png" alt="Studio Porcelain Matte Lens preview" class="snap-lens-img">
+              <div class="snap-lens-tag">In Production</div>
+            </div>
+            <div class="snap-lens-info">
+              <h4>Studio Porcelain Matte</h4>
+              <p>Warm amber studio color grade, soft porcelain matte skin, and warm bronze metallic cheek highlights.</p>
+              <button type="button" class="snap-unlock-btn snap-preview-toast-btn" data-lens="Studio Porcelain Matte">
+                <span>Dropping Soon 👻</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Lens 4: Frequency Shift Masquerade -->
+          <div class="snap-lens-card">
+            <div class="snap-lens-preview">
+              <img src="assets/frequency-shift.png" alt="Frequency Shift Masquerade Lens preview" class="snap-lens-img">
+              <div class="snap-lens-tag">Gold Chrome</div>
+            </div>
+            <div class="snap-lens-info">
+              <h4>Frequency Shift Masquerade</h4>
+              <p>Signature 3D gold & obsidian split masquerade mask with cinematic glowing aura and ambient sound.</p>
+              <button type="button" class="snap-unlock-btn snap-preview-toast-btn" data-lens="Frequency Shift Masquerade">
+                <span>Dropping Soon 👻</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         SNAPCHAT QR CODE MODAL
+    ═══════════════════════════════════════ -->
+    <div class="modal-backdrop snap-qr-modal-backdrop hidden" id="snap-qr-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="snap-qr-title" aria-hidden="true">
+      <div class="modal-box snap-qr-modal" id="snap-qr-modal">
+        <button class="cal-modal-close" id="snap-qr-modal-close" aria-label="Close modal">✕</button>
+        <div class="snap-qr-header">
+          <span class="snap-badge">👻 SCAN WITH PHONE</span>
+          <h3 id="snap-qr-title" class="snap-qr-h3">HENNA C GOLD GLOW</h3>
+          <p class="snap-qr-sub">Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the 3D gold lens immediately.</p>
+        </div>
+        
+        <div class="snap-qr-card-frame">
+          <div class="snap-qr-img-wrap">
+            <img src="assets/qr-henna-c-gold-glow.png" alt="Snapchat Lens QR Code for Henna C Gold Glow" class="snap-qr-image" id="snap-qr-image">
+          </div>
+          <div class="snap-qr-badge-strip">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.002 0c-4.468 0-8.09 3.622-8.09 8.09 0 2.221.895 4.234 2.345 5.702-.132.551-.482 1.487-1.42 2.302-.153.132-.19.349-.092.523.098.174.298.261.493.213 1.346-.328 2.628-.888 3.518-1.523.978.558 2.086.877 3.246.877 4.468 0 8.09-3.622 8.09-8.09S16.47 0 12.002 0zm0 14.562c-1.077 0-2.109-.304-2.993-.836-.145-.087-.323-.087-.468 0-.825.496-1.896.953-3.056 1.252.66-.757.994-1.602 1.092-2.193.023-.142-.03-.284-.143-.377C5.176 11.233 4.492 9.721 4.492 8.09c0-4.141 3.369-7.51 7.51-7.51s7.51 3.369 7.51 7.51-3.369 7.51-7.51 7.51z"/></svg>
+            <span>Scan with Camera or Snapchat</span>
+          </div>
+        </div>
+
+        <div class="snap-qr-footer">
+          <a href="https://easylens.snapchat.com/lens/06a97613-e32b-7e4a-8000-1c24a10469d4" target="_blank" rel="noopener noreferrer" class="btn btn-primary snap-qr-direct-link" id="snap-qr-direct-link">
+            <span>Open Lens Link Directly ↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════
+         PWA INSTALL BANNER & MODAL
+    ═══════════════════════════════════════ -->
+    <div class="pwa-banner hidden" id="pwa-install-banner" role="region" aria-label="Install App">
+      <div class="pwa-banner-inner">
+        <img src="assets/icons/icon-192x192.png" alt="Henna C App Icon" class="pwa-banner-icon">
+        <div class="pwa-banner-text">
+          <div class="pwa-banner-title">Install Henna C App</div>
+          <div class="pwa-banner-sub">Add to Home Screen for fast, fullscreen music streaming.</div>
+        </div>
+        <div class="pwa-banner-actions">
+          <button type="button" class="pwa-install-action-btn" id="pwa-install-trigger-btn">
+            <span>Install</span>
+          </button>
+          <button type="button" class="pwa-dismiss-btn" id="pwa-dismiss-btn" aria-label="Dismiss">✕</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- iOS Add to Home Screen Instructions Modal -->
+    <div class="modal-backdrop hidden" id="ios-pwa-modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="ios-pwa-title" aria-hidden="true">
+      <div class="modal-box ios-pwa-modal" id="ios-pwa-modal">
+        <button class="cal-modal-close" id="ios-pwa-close" aria-label="Close modal">✕</button>
+        <div class="ios-pwa-header">
+          <img src="assets/icons/icon-192x192.png" alt="Henna C App Icon" class="ios-pwa-icon">
+          <h3 id="ios-pwa-title" class="ios-pwa-h3">INSTALL ON IPHONE / IPAD</h3>
+          <p class="ios-pwa-sub">Add Henna C to your Home Screen for full-screen music playback & instant access.</p>
+        </div>
+        <div class="ios-pwa-steps">
+          <div class="ios-pwa-step">
+            <div class="ios-step-num">1</div>
+            <div class="ios-step-info">
+              <h4>Tap the Share Button</h4>
+              <p>Tap the <strong>Share</strong> icon in Safari's bottom toolbar.</p>
+            </div>
+          </div>
+          <div class="ios-pwa-step">
+            <div class="ios-step-num">2</div>
+            <div class="ios-step-info">
+              <h4>Select "Add to Home Screen"</h4>
+              <p>Scroll down the share sheet and tap <strong>"Add to Home Screen"</strong>.</p>
+            </div>
+          </div>
+          <div class="ios-pwa-step">
+            <div class="ios-step-num">3</div>
+            <div class="ios-step-info">
+              <h4>Tap "Add"</h4>
+              <p>Tap <strong>Add</strong> in the top right. Henna C will install with a gold icon!</p>
+            </div>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary ios-pwa-gotit-btn" id="ios-pwa-gotit-btn">
+          <span>Got It 👍</span>
+        </button>
+      </div>
+    </div>
+
+    <script src="script.js?v=5.9.4"></script>
   </body>
 </html>
