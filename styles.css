@@ -4261,6 +4261,9 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   object-fit: cover;
   transition: transform 0.3s ease;
 }
+.snap-bubblegum-img {
+  object-position: center 12% !important;
+}
 
 .snap-lens-card:hover .snap-lens-img {
   transform: scale(1.05);
