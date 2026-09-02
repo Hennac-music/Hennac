@@ -1,28 +1,32 @@
-const CACHE_NAME = "henna-c-v1.0.0";
+const CACHE_NAME = "henna-c-v6.0.0";
 const PRECACHE_ASSETS = [
   "/",
   "/index.html",
-  "/styles.css",
-  "/script.js",
+  "/styles.css?v=6.0.0",
+  "/script.js?v=6.0.0",
   "/manifest.json",
   "/assets/henna-c-header-logo.png",
   "/assets/henna-c-logo-square.jpg",
+  "/assets/henna-c-records-logo-gold.png",
+  "/assets/qr-henna-c-gold-glow.png",
+  "/assets/qr-henna-c-aura.png",
   "/assets/icons/icon-192x192.png",
   "/assets/icons/icon-512x512.png"
 ];
 
-// Install: Pre-cache shell assets
+// Install: Pre-cache shell assets & skip waiting immediately
 self.addEventListener("install", (event) => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
       return cache.addAll(PRECACHE_ASSETS).catch((err) => {
         console.warn("Pre-cache error:", err);
       });
-    }).then(() => self.skipWaiting())
+    })
   );
 });
 
-// Activate: Clean up old cache versions
+// Activate: Clean up all old cache versions and claim clients
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keys) => {
@@ -37,16 +41,35 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Fetch: Stale-while-revalidate for static assets, network-first for audio
+// Fetch Strategy:
+// 1. HTML / Navigation: Network First (ensures user always sees latest live HTML)
+// 2. Audio: Network First
+// 3. Static assets: Stale-while-revalidate with cache update
 self.addEventListener("fetch", (event) => {
   const url = new URL(event.request.url);
 
-  // Skip non-GET requests and cross-origin external API calls
+  // Skip non-GET and cross-origin
   if (event.request.method !== "GET" || !url.origin.includes(self.location.origin)) {
     return;
   }
 
-  // Audio files: Network first with cache fallback
+  // HTML documents & navigation requests: Network First
+  if (event.request.mode === "navigate" || url.pathname === "/" || url.pathname.endsWith(".html")) {
+    event.respondWith(
+      fetch(event.request)
+        .then((response) => {
+          if (response && response.status === 200) {
+            const copy = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, copy));
+          }
+          return response;
+        })
+        .catch(() => caches.match(event.request) || caches.match("/index.html"))
+    );
+    return;
+  }
+
+  // Audio files: Network First
   if (url.pathname.endsWith(".wav") || url.pathname.endsWith(".m4a") || url.pathname.endsWith(".mp3")) {
     event.respondWith(
       fetch(event.request).catch(() => caches.match(event.request))
@@ -54,18 +77,18 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Static assets: Stale-while-revalidate
+  // Static assets (CSS, JS, images): Stale-while-revalidate
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
-      const fetchPromise = fetch(event.request).then((networkResponse) => {
-        if (networkResponse && networkResponse.status === 200) {
-          const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
-        }
-        return networkResponse;
-      }).catch(() => cachedResponse);
+      const fetchPromise = fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+          }
+          return networkResponse;
+        })
+        .catch(() => cachedResponse);
 
       return cachedResponse || fetchPromise;
     })

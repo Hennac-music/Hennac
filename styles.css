@@ -2482,6 +2482,20 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
   box-shadow: 0 0 14px rgba(201, 123, 69, 0.3);
 }
 
+/* Defensive fallback: suppress obsolete inline dropdown structures */
+.pl-dropdown,
+.pl-dropdown-menu,
+.pl-opt-btn {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  overflow: hidden !important;
+}
+
 .playlist-note { font-size:0.75rem; color:var(--smoke); margin-top:1rem; text-align:center; }
 
 /* ──────────────────────────────────────────
