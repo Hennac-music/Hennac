@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@500;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=5.9.6">
+    <link rel="stylesheet" href="styles.css?v=5.9.7">
   </head>
   <body>
 
@@ -1146,7 +1146,7 @@
             <div class="player-right">
               <div class="playlist-header-top">
                 <h4 class="playlist-label">TRACKS</h4>
-                <span class="pl-total-count" id="pl-total-count">44 Tracks</span>
+                <span class="pl-total-count" id="pl-total-count">47 Tracks</span>
               </div>
 
               <!-- Instant Search & Genre Filter Bar -->
@@ -1169,7 +1169,9 @@
               <div class="playlist" id="playlist">
                 <div class="playlist-header">Latest Drop: Frequency Shift (Trilogy)</div>
 
-                <div class="pl-row active" data-index="0" data-src="assets/audio/the-realization.wav" data-title="The Realization" data-genre="Frequency Shift · Out Now" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-realization/6794123521?i=6794123524&ls=1&app=itunes" id="track-row-fs1">
+
+                <!-- 01: The Realization -->
+                <div class="pl-row" data-index="0" data-src="assets/audio/the-realization.wav" data-title="The Realization" data-genre="Frequency Shift · Out Now" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-realization/6794123521?i=6794123524&ls=1&app=itunes" class="pl-row active" id="track-row-fs1">
                   <div class="pl-num-wrap">
                     <span class="pl-num">01</span>
                     <span class="pl-play-arrow">▶</span>
@@ -1198,6 +1200,7 @@
                   </div>
                 </div>
 
+                <!-- 02: The Consequence -->
                 <div class="pl-row" data-index="1" data-src="assets/audio/the-consequence.wav" data-title="The Consequence" data-genre="Frequency Shift · Out Now" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-consequence/6794123521?i=6794123525&ls=1&app=itunes" id="track-row-fs2">
                   <div class="pl-num-wrap">
                     <span class="pl-num">02</span>
@@ -1227,6 +1230,7 @@
                   </div>
                 </div>
 
+                <!-- 03: The Resolution -->
                 <div class="pl-row" data-index="2" data-src="assets/audio/the-resolution.wav" data-title="The Resolution" data-genre="Frequency Shift · Out Now" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-resoultion/6794123521?i=6794123526&ls=1&app=itunes" id="track-row-fs3">
                   <div class="pl-num-wrap">
                     <span class="pl-num">03</span>
@@ -1256,7 +1260,9 @@
                   </div>
                 </div>
 
+
                 <div class="playlist-header">Latest Singles & Drops</div>
+
 
                 <!-- 04: Ki Ma Lo -->
                 <div class="pl-row" data-index="3" data-src="assets/audio/ki-ma-lo.wav" data-title="Ki Ma Lo" data-genre="Single · Out Now" data-art="assets/ki-ma-lo.png" data-itunes="https://itunes.apple.com/us/album/ki-ma-lo/6804938885?i=6804938886&ls=1&app=itunes" id="track-row-kml">
@@ -1685,7 +1691,7 @@
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">I Like Me Some Dick</span>
+                    <span class="pl-name">I Like Me Some Dick <span class="feat-artist">(feat. Benedict Hahn)</span></span>
                     <span class="pl-tag">Single · Out Now</span>
                   </div>
                   <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
@@ -1738,7 +1744,7 @@
                   </div>
                 </div>
 
-                <!-- 20: Big Body Cadillacs (Upcoming / Coming Soon) -->
+                <!-- 20: Big Body Cadillacs (Coming Soon) -->
                 <div class="pl-row" data-index="19" data-src="assets/audio/big-body-cadillacs.wav" data-title="Big Body Cadillacs" data-genre="Single · Coming Soon" data-art="assets/big-body-cadillacs.png" data-itunes="" id="track-row-bbc">
                   <div class="pl-num-wrap">
                     <span class="pl-num">20</span>
@@ -1768,7 +1774,7 @@
                   </div>
                 </div>
 
-                <!-- 21: Waddle When I Walk (Upcoming / Coming Soon) -->
+                <!-- 21: Waddle When I Walk (Coming Soon) -->
                 <div class="pl-row" data-index="20" data-src="assets/audio/waddle-when-i-walk.wav" data-title="Waddle When I Walk" data-genre="Single · Coming Soon" data-art="assets/waddle-when-i-walk.png" data-itunes="" id="track-row-www">
                   <div class="pl-num-wrap">
                     <span class="pl-num">21</span>
@@ -1798,7 +1804,7 @@
                   </div>
                 </div>
 
-                <!-- 22: Pressure Makes Diamonds (Upcoming / Coming Soon) -->
+                <!-- 22: Pressure Makes Diamonds (Coming Soon) -->
                 <div class="pl-row" data-index="21" data-src="assets/audio/pressure-makes-diamonds.wav" data-title="Pressure Makes Diamonds" data-genre="Single · Coming Soon" data-art="assets/pressure-makes-diamonds.png" data-itunes="" id="track-row-pmd">
                   <div class="pl-num-wrap">
                     <span class="pl-num">22</span>
@@ -1828,7 +1834,7 @@
                   </div>
                 </div>
 
-                <!-- 23: Pressure Talk (Upcoming / Coming Soon) -->
+                <!-- 23: Pressure Talk (Coming Soon) -->
                 <div class="pl-row" data-index="22" data-src="assets/audio/pressure-talk.wav" data-title="Pressure Talk" data-genre="Single · Coming Soon" data-art="assets/pressure-talk.png" data-itunes="" id="track-row-pt">
                   <div class="pl-num-wrap">
                     <span class="pl-num">23</span>
@@ -1858,7 +1864,7 @@
                   </div>
                 </div>
 
-                <!-- 24: Ms. Good Coochie (Upcoming / Coming Soon) -->
+                <!-- 24: Ms. Good Coochie (Coming Soon) -->
                 <div class="pl-row" data-index="23" data-src="assets/audio/ms-good-coochie.wav" data-title="Ms. Good Coochie" data-genre="Single · Coming Soon" data-art="assets/ms-good-coochie.png" data-itunes="" id="track-row-mgc">
                   <div class="pl-num-wrap">
                     <span class="pl-num">24</span>
@@ -1888,7 +1894,7 @@
                   </div>
                 </div>
 
-                <!-- 25: Spend It On Me (Upcoming / Coming Soon) -->
+                <!-- 25: Spend It On Me (Coming Soon) -->
                 <div class="pl-row" data-index="24" data-src="assets/audio/spend-it-on-me.wav" data-title="Spend It On Me" data-genre="Single · Coming Soon" data-art="assets/spend-it-on-me.png" data-itunes="" id="track-row-siom">
                   <div class="pl-num-wrap">
                     <span class="pl-num">25</span>
@@ -1918,7 +1924,7 @@
                   </div>
                 </div>
 
-                <!-- 26: Luxury Life (Upcoming / Coming Soon) -->
+                <!-- 26: Luxury Life (Coming Soon) -->
                 <div class="pl-row" data-index="25" data-src="assets/audio/luxury-life.wav" data-title="Luxury Life" data-genre="Single · Coming Soon" data-art="assets/luxury-life.png" data-itunes="" id="track-row-ll">
                   <div class="pl-num-wrap">
                     <span class="pl-num">26</span>
@@ -1948,7 +1954,7 @@
                   </div>
                 </div>
 
-                <!-- 27: You Don't Treat Me Good No More (Upcoming / Coming Soon) -->
+                <!-- 27: You Don't Treat Me Good No More (Coming Soon) -->
                 <div class="pl-row" data-index="26" data-src="assets/audio/you-dont-treat-me-good-no-more.wav" data-title="You Don't Treat Me Good No More" data-genre="Single · Coming Soon" data-art="assets/you-dont-treat-me-good-no-more.png" data-itunes="" id="track-row-ydtmg">
                   <div class="pl-num-wrap">
                     <span class="pl-num">27</span>
@@ -1978,7 +1984,7 @@
                   </div>
                 </div>
 
-                <!-- 28: Proof Of Funds (Upcoming / Coming Soon) -->
+                <!-- 28: Proof Of Funds (Coming Soon) -->
                 <div class="pl-row" data-index="27" data-src="assets/audio/proof-of-funds.wav" data-title="Proof Of Funds" data-genre="Single · Coming Soon" data-art="assets/proof-of-funds.png" data-itunes="" id="track-row-pof">
                   <div class="pl-num-wrap">
                     <span class="pl-num">28</span>
@@ -2008,17 +2014,117 @@
                   </div>
                 </div>
 
-                <div class="playlist-header">One Of Them Days (Album)</div>
-
-                <!-- 29: Falling Apart -->
-                <div class="pl-row" data-index="28" data-src="assets/audio/falling-apart.m4a" data-title="Falling Apart" data-genre="Album Track · Out Now" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-falling-apart/6766560374?i=6766560377&ls=1&app=itunes" id="track-row-ootd-1">
+                <!-- 29: Big Pressure (Coming Soon) -->
+                <div class="pl-row" data-index="28" data-src="assets/audio/big-pressure.wav" data-title="Big Pressure" data-genre="Single · Coming Soon" data-art="assets/big-pressure.png" data-itunes="" id="track-row-bp">
                   <div class="pl-num-wrap">
                     <span class="pl-num">29</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
+                    <span class="pl-name">Big Pressure</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="playlist-header">The Dusty Hoe Project (Upcoming Album)</div>
+
+
+                <!-- 30: The Dusty Hoe Project (Teaser / Intro) (Coming Soon) -->
+                <div class="pl-row" data-index="29" data-src="assets/audio/the-dusty-hoe-project-intro.wav" data-title="The Dusty Hoe Project (Teaser / Intro)" data-genre="Album · Coming Soon" data-art="assets/the-dusty-hoe-project.png" data-itunes="" id="track-row-dhp">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">30</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">The Dusty Hoe Project (Teaser / Intro)</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Sept 4</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="playlist-header">Domestic Kitty (Upcoming EP Project)</div>
+
+
+                <!-- 31: Domestic Kitty (Project Teaser) (Coming Soon) -->
+                <div class="pl-row" data-index="30" data-src="" data-title="Domestic Kitty (Project Teaser)" data-genre="EP Project · Coming Soon" data-art="assets/domestic-kitty.png" data-itunes="" id="track-row-dk">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">31</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
+                    <span class="pl-name">Domestic Kitty (Project Teaser)</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Nov 26</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+
+                <div class="playlist-header">One Of Them Days (Album)</div>
+
+
+                <!-- 32: Falling Apart -->
+                <div class="pl-row" data-index="31" data-src="assets/audio/falling-apart.m4a" data-title="Falling Apart" data-genre="One Of Them Days · Out Now" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-falling-apart/6766560374?i=6766560377&ls=1&app=itunes" id="track-row-ootd-1">
+                  <div class="pl-num-wrap">
+                    <span class="pl-num">32</span>
+                    <span class="pl-play-arrow">▶</span>
+                  </div>
+                  <div class="pl-info">
                     <span class="pl-name">Falling Apart</span>
-                    <span class="pl-tag">One Of Them Days · Track 1</span>
+                    <span class="pl-tag">One Of Them Days · Out Now</span>
                   </div>
                   <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -2040,15 +2146,15 @@
                   </div>
                 </div>
 
-                <!-- 30: Overcome -->
-                <div class="pl-row" data-index="29" data-src="assets/audio/overcome.wav" data-title="Overcome" data-genre="Album Track · Out Now" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-overcome/6766560374?i=6766560381&ls=1&app=itunes" id="track-row-ootd-2">
+                <!-- 33: Overcome -->
+                <div class="pl-row" data-index="32" data-src="assets/audio/overcome.wav" data-title="Overcome" data-genre="One Of Them Days · Out Now" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-overcome/6766560374?i=6766560381&ls=1&app=itunes" id="track-row-ootd-2">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">30</span>
+                    <span class="pl-num">33</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Overcome</span>
-                    <span class="pl-tag">One Of Them Days · Track 2</span>
+                    <span class="pl-tag">One Of Them Days · Out Now</span>
                   </div>
                   <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -2070,15 +2176,15 @@
                   </div>
                 </div>
 
-                <!-- 31: Rise Again -->
-                <div class="pl-row" data-index="30" data-src="assets/audio/rise-again.wav" data-title="Rise Again" data-genre="Album Track · Out Now" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-rise-again/6766560374?i=6766560380&ls=1&app=itunes" id="track-row-ootd-3">
+                <!-- 34: Rise Again -->
+                <div class="pl-row" data-index="33" data-src="assets/audio/rise-again.wav" data-title="Rise Again" data-genre="One Of Them Days · Out Now" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-rise-again/6766560374?i=6766560380&ls=1&app=itunes" id="track-row-ootd-3">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">31</span>
+                    <span class="pl-num">34</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Rise Again</span>
-                    <span class="pl-tag">One Of Them Days · Track 3</span>
+                    <span class="pl-tag">One Of Them Days · Out Now</span>
                   </div>
                   <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
@@ -2100,12 +2206,14 @@
                   </div>
                 </div>
 
+
                 <div class="playlist-header">Coochie Poppin University (Album)</div>
 
-                <!-- 32: 1800-GoodCoochieNow -->
-                <div class="pl-row" data-index="31" data-src="assets/audio/1800-goodcoochienow.wav" data-title="1800-GoodCoochieNow" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/1800-goodcoochienow/6773402782?i=6773402784&ls=1&app=itunes" id="track-row-cpu-0">
+
+                <!-- 35: 1800-GoodCoochieNow -->
+                <div class="pl-row" data-index="34" data-src="assets/audio/1800-goodcoochienow.wav" data-title="1800-GoodCoochieNow" data-genre="Track 1 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/1800-goodcoochienow/6773402782?i=6773402784&ls=1&app=itunes" id="track-row-cpu-0">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">32</span>
+                    <span class="pl-num">35</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2132,10 +2240,10 @@
                   </div>
                 </div>
 
-                <!-- 33: Coochie Poppin University -->
-                <div class="pl-row" data-index="32" data-src="assets/audio/coochie-poppin-university.wav" data-title="Coochie Poppin University" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/coochie-poppin-university/6773402782?i=6773402785&ls=1&app=itunes" id="track-row-cpu-1">
+                <!-- 36: Coochie Poppin University -->
+                <div class="pl-row" data-index="35" data-src="assets/audio/coochie-poppin-university.wav" data-title="Coochie Poppin University" data-genre="Track 2 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/coochie-poppin-university/6773402782?i=6773402785&ls=1&app=itunes" id="track-row-cpu-1">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">33</span>
+                    <span class="pl-num">36</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2162,10 +2270,10 @@
                   </div>
                 </div>
 
-                <!-- 34: Good Coochie Hotline -->
-                <div class="pl-row" data-index="33" data-src="assets/audio/good-coochie-hotline.wav" data-title="Good Coochie Hotline" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/good-coochie-hotline/6773402782?i=6773402787&ls=1&app=itunes" id="track-row-cpu-2">
+                <!-- 37: Good Coochie Hotline -->
+                <div class="pl-row" data-index="36" data-src="assets/audio/good-coochie-hotline.wav" data-title="Good Coochie Hotline" data-genre="Track 3 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/good-coochie-hotline/6773402782?i=6773402787&ls=1&app=itunes" id="track-row-cpu-2">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">34</span>
+                    <span class="pl-num">37</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2192,10 +2300,10 @@
                   </div>
                 </div>
 
-                <!-- 35: Coochie Poppin 101 -->
-                <div class="pl-row" data-index="34" data-src="assets/audio/coochie-poppin-101.wav" data-title="Coochie Poppin 101" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/coochie-poppin-101/6773402782?i=6773402790&ls=1&app=itunes" id="track-row-cpu-3">
+                <!-- 38: Coochie Poppin 101 -->
+                <div class="pl-row" data-index="37" data-src="assets/audio/coochie-poppin-101.wav" data-title="Coochie Poppin 101" data-genre="Track 4 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/coochie-poppin-101/6773402782?i=6773402790&ls=1&app=itunes" id="track-row-cpu-3">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">35</span>
+                    <span class="pl-num">38</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2222,10 +2330,10 @@
                   </div>
                 </div>
 
-                <!-- 36: You Want Some Coochie? -->
-                <div class="pl-row" data-index="35" data-src="assets/audio/you-want-some-coochie.wav" data-title="You Want Some Coochie?" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/you-want-some-coochie/6773402782?i=6773402791&ls=1&app=itunes" id="track-row-cpu-4">
+                <!-- 39: You Want Some Coochie? -->
+                <div class="pl-row" data-index="38" data-src="assets/audio/you-want-some-coochie.wav" data-title="You Want Some Coochie?" data-genre="Track 5 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/you-want-some-coochie/6773402782?i=6773402791&ls=1&app=itunes" id="track-row-cpu-4">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">36</span>
+                    <span class="pl-num">39</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2252,10 +2360,10 @@
                   </div>
                 </div>
 
-                <!-- 37: Rich Nigga Test -->
-                <div class="pl-row" data-index="36" data-src="assets/audio/rich-nigga-test.wav" data-title="Rich Nigga Test" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/rich-n-a-test/6773402782?i=6773402942&ls=1&app=itunes" id="track-row-cpu-5">
+                <!-- 40: Rich Nigga Test -->
+                <div class="pl-row" data-index="39" data-src="assets/audio/rich-nigga-test.wav" data-title="Rich Nigga Test" data-genre="Track 6 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/rich-n-a-test/6773402782?i=6773402942&ls=1&app=itunes" id="track-row-cpu-5">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">37</span>
+                    <span class="pl-num">40</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2282,10 +2390,10 @@
                   </div>
                 </div>
 
-                <!-- 38: Tuition Paid -->
-                <div class="pl-row" data-index="37" data-src="assets/audio/tuition-paid.wav" data-title="Tuition Paid" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/tuition-paid/6773402782?i=6773402944&ls=1&app=itunes" id="track-row-cpu-6">
+                <!-- 41: Tuition Paid -->
+                <div class="pl-row" data-index="40" data-src="assets/audio/tuition-paid.wav" data-title="Tuition Paid" data-genre="Track 7 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/tuition-paid/6773402782?i=6773402944&ls=1&app=itunes" id="track-row-cpu-6">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">38</span>
+                    <span class="pl-num">41</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2312,10 +2420,10 @@
                   </div>
                 </div>
 
-                <!-- 39: Twerk For Tuition -->
-                <div class="pl-row" data-index="38" data-src="assets/audio/twerk-for-tuition.wav" data-title="Twerk For Tuition" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/twerk-for-tuition/6773402782?i=6773402945&ls=1&app=itunes" id="track-row-cpu-7">
+                <!-- 42: Twerk For Tuition -->
+                <div class="pl-row" data-index="41" data-src="assets/audio/twerk-for-tuition.wav" data-title="Twerk For Tuition" data-genre="Track 8 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/twerk-for-tuition/6773402782?i=6773402945&ls=1&app=itunes" id="track-row-cpu-7">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">39</span>
+                    <span class="pl-num">42</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2342,10 +2450,10 @@
                   </div>
                 </div>
 
-                <!-- 40: No Free Access -->
-                <div class="pl-row" data-index="39" data-src="assets/audio/no-free-access.wav" data-title="No Free Access" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/no-free-access/6773402782?i=6773402946&ls=1&app=itunes" id="track-row-cpu-8">
+                <!-- 43: No Free Access -->
+                <div class="pl-row" data-index="42" data-src="assets/audio/no-free-access.wav" data-title="No Free Access" data-genre="Track 9 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/no-free-access/6773402782?i=6773402946&ls=1&app=itunes" id="track-row-cpu-8">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">40</span>
+                    <span class="pl-num">43</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2372,10 +2480,10 @@
                   </div>
                 </div>
 
-                <!-- 41: GCD -->
-                <div class="pl-row" data-index="40" data-src="assets/audio/gcd.wav" data-title="GCD" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/gcd/6773402782?i=6773402947&ls=1&app=itunes" id="track-row-cpu-9">
+                <!-- 44: GCD -->
+                <div class="pl-row" data-index="43" data-src="assets/audio/gcd.wav" data-title="GCD" data-genre="Track 10 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/gcd/6773402782?i=6773402947&ls=1&app=itunes" id="track-row-cpu-9">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">41</span>
+                    <span class="pl-num">44</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2402,10 +2510,10 @@
                   </div>
                 </div>
 
-                <!-- 42: Pay That Fee -->
-                <div class="pl-row" data-index="41" data-src="assets/audio/pay-that-fee.wav" data-title="Pay That Fee" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/pay-that-fee/6773402782?i=6773402948&ls=1&app=itunes" id="track-row-cpu-10">
+                <!-- 45: Pay That Fee -->
+                <div class="pl-row" data-index="44" data-src="assets/audio/pay-that-fee.wav" data-title="Pay That Fee" data-genre="Track 11 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/pay-that-fee/6773402782?i=6773402948&ls=1&app=itunes" id="track-row-cpu-10">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">42</span>
+                    <span class="pl-num">45</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2432,10 +2540,10 @@
                   </div>
                 </div>
 
-                <!-- 43: Graduated Coochie -->
-                <div class="pl-row" data-index="42" data-src="assets/audio/graduated-coochie.wav" data-title="Graduated Coochie" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/graduated-coochie/6773402782?i=6773402949&ls=1&app=itunes" id="track-row-cpu-11">
+                <!-- 46: Graduated Coochie -->
+                <div class="pl-row" data-index="45" data-src="assets/audio/graduated-coochie.wav" data-title="Graduated Coochie" data-genre="Track 12 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/graduated-coochie/6773402782?i=6773402949&ls=1&app=itunes" id="track-row-cpu-11">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">43</span>
+                    <span class="pl-num">46</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2462,10 +2570,10 @@
                   </div>
                 </div>
 
-                <!-- 44: I Called, I Paid, I Graduated -->
-                <div class="pl-row" data-index="43" data-src="assets/audio/i-called-i-paid-i-graduated.wav" data-title="I Called, I Paid, I Graduated" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/i-called-i-paid-i-graduated/6773402782?i=6773402950&ls=1&app=itunes" id="track-row-cpu-12">
+                <!-- 47: I Called, I Paid, I Graduated -->
+                <div class="pl-row" data-index="46" data-src="assets/audio/i-called-i-paid-i-graduated.wav" data-title="I Called, I Paid, I Graduated" data-genre="Track 13 · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/i-called-i-paid-i-graduated/6773402782?i=6773402950&ls=1&app=itunes" id="track-row-cpu-12">
                   <div class="pl-num-wrap">
-                    <span class="pl-num">44</span>
+                    <span class="pl-num">47</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
@@ -2787,6 +2895,6 @@
       </div>
     </div>
 
-    <script src="script.js?v=5.9.6"></script>
+    <script src="script.js?v=5.9.7"></script>
   </body>
 </html>
