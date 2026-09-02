@@ -1962,7 +1962,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (currentGenreFilter === "album") {
         matchesGenre = genre.includes("album") || tag.includes("album") || genre.includes("frequency shift") || genre.includes("coochie") || genre.includes("one of them days");
       } else if (currentGenreFilter === "upcoming") {
-        matchesGenre = tag.includes("upcoming") || tag.includes("dropping") || genre.includes("dropping") || genre.includes("oct") || genre.includes("sept") || genre.includes("nov");
+        matchesGenre = tag.includes("upcoming") || tag.includes("coming soon") || genre.includes("coming soon") || tag.includes("dropping") || genre.includes("dropping") || genre.includes("oct") || genre.includes("sept") || genre.includes("nov");
       }
 
       const isVisible = matchesSearch && matchesGenre;

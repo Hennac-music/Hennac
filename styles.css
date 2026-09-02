@@ -2388,6 +2388,11 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .pl-info { display:flex; flex-direction:column; flex:1 1 0%; min-width:0; overflow:hidden; }
 .pl-name { font-size:0.88rem; font-weight:700; color:#fff; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .pl-tag { font-size:0.7rem; color:var(--smoke); margin-top:0.15rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.pl-tag-coming-soon {
+  color: #ffca28 !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
 .pl-actions {
   display: flex;
   align-items: center;

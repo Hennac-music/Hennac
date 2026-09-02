@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Cinzel:wght@500;700;800;900&family=Outfit:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="styles.css?v=5.9.5">
+    <link rel="stylesheet" href="styles.css?v=5.9.6">
   </head>
   <body>
 
@@ -1146,7 +1146,7 @@
             <div class="player-right">
               <div class="playlist-header-top">
                 <h4 class="playlist-label">TRACKS</h4>
-                <span class="pl-total-count" id="pl-total-count">47 Tracks</span>
+                <span class="pl-total-count" id="pl-total-count">44 Tracks</span>
               </div>
 
               <!-- Instant Search & Genre Filter Bar -->
@@ -1167,744 +1167,1330 @@
               </div>
 
               <div class="playlist" id="playlist">
-                <!--
-                  PHASE 2: For each track row, inject:
-                    data-src="[audio URL]"
-                    data-title="[Song Name]"
-                    data-genre="[Genre · Year]"
-                    data-art="[artwork path]"
-                  Then remove the .pending class.
-                -->
-
                 <div class="playlist-header">Latest Drop: Frequency Shift (Trilogy)</div>
 
-                <div class="pl-row active" data-index="0" data-src="assets/audio/the-realization.wav" data-title="The Realization" data-genre="Frequency Shift · Pop / Dance · 2026" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-realization/6794123521?i=6794123524&ls=1&app=itunes" id="track-row-fs1">
+                <div class="pl-row active" data-index="0" data-src="assets/audio/the-realization.wav" data-title="The Realization" data-genre="Frequency Shift · Out Now" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-realization/6794123521?i=6794123524&ls=1&app=itunes" id="track-row-fs1">
                   <div class="pl-num-wrap">
                     <span class="pl-num">01</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">The Realization <span class="feat-artist">(The Duet Version)</span></span>
-                    <span class="pl-tag">Frequency Shift · Track 1</span>
+                    <span class="pl-tag">Frequency Shift · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/the-realization/6794123521?i=6794123524&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="1" data-src="assets/audio/the-consequence.wav" data-title="The Consequence" data-genre="Frequency Shift · Pop / Dance · 2026" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-consequence/6794123521?i=6794123525&ls=1&app=itunes" id="track-row-fs2">
+                <div class="pl-row" data-index="1" data-src="assets/audio/the-consequence.wav" data-title="The Consequence" data-genre="Frequency Shift · Out Now" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-consequence/6794123521?i=6794123525&ls=1&app=itunes" id="track-row-fs2">
                   <div class="pl-num-wrap">
                     <span class="pl-num">02</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">The Consequence <span class="feat-artist">(The Duet Version)</span></span>
-                    <span class="pl-tag">Frequency Shift · Track 2</span>
+                    <span class="pl-tag">Frequency Shift · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/the-consequence/6794123521?i=6794123525&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="2" data-src="assets/audio/the-resolution.wav" data-title="The Resolution" data-genre="Frequency Shift · Pop / Dance · 2026" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-resoultion/6794123521?i=6794123526&ls=1&app=itunes" id="track-row-fs3">
+                <div class="pl-row" data-index="2" data-src="assets/audio/the-resolution.wav" data-title="The Resolution" data-genre="Frequency Shift · Out Now" data-art="assets/frequency-shift.png" data-itunes="https://itunes.apple.com/us/album/the-resoultion/6794123521?i=6794123526&ls=1&app=itunes" id="track-row-fs3">
                   <div class="pl-num-wrap">
                     <span class="pl-num">03</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">The Resolution <span class="feat-artist">(The Duet Version)</span></span>
-                    <span class="pl-tag">Frequency Shift · Track 3</span>
+                    <span class="pl-tag">Frequency Shift · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/the-resoultion/6794123521?i=6794123526&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
                 <div class="playlist-header">Latest Singles & Drops</div>
 
-                <div class="pl-row" data-index="3" data-src="assets/audio/ki-ma-lo.wav" data-title="Ki Ma Lo" data-genre="Single · Hip-Hop / Rap · Out Now" data-art="assets/ki-ma-lo.png" data-itunes="https://itunes.apple.com/us/album/ki-ma-lo/6804938885?i=6804938886&ls=1&app=itunes" id="track-row-kml">
+                <!-- 04: Ki Ma Lo -->
+                <div class="pl-row" data-index="3" data-src="assets/audio/ki-ma-lo.wav" data-title="Ki Ma Lo" data-genre="Single · Out Now" data-art="assets/ki-ma-lo.png" data-itunes="https://itunes.apple.com/us/album/ki-ma-lo/6804938885?i=6804938886&ls=1&app=itunes" id="track-row-kml">
                   <div class="pl-num-wrap">
                     <span class="pl-num">04</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Ki Ma Lo</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/ki-ma-lo/6804938885?i=6804938886&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="4" data-src="assets/audio/premium-wave.wav" data-title="Premium Wave" data-genre="Single · Pop / Dance · Out Now" data-art="assets/premium-wave.png" data-itunes="https://itunes.apple.com/us/album/premium-wave/6800938248?i=6800938249&ls=1&app=itunes" id="track-row-pw">
+                <!-- 05: Premium Wave -->
+                <div class="pl-row" data-index="4" data-src="assets/audio/premium-wave.wav" data-title="Premium Wave" data-genre="Single · Out Now" data-art="assets/premium-wave.png" data-itunes="https://itunes.apple.com/us/album/premium-wave/6800938248?i=6800938249&ls=1&app=itunes" id="track-row-pw">
                   <div class="pl-num-wrap">
                     <span class="pl-num">05</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Premium Wave</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/premium-wave/6800938248?i=6800938249&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="5" data-src="assets/audio/rhythm-strike.wav" data-title="Rhythm Strike" data-genre="Single · Pop / Dance · Out Now" data-art="assets/rhythm-strike.png" data-itunes="https://itunes.apple.com/us/album/rhythm-strike/6800286360?i=6800286361&ls=1&app=itunes" id="track-row-rs">
+                <!-- 06: Rhythm Strike -->
+                <div class="pl-row" data-index="5" data-src="assets/audio/rhythm-strike.wav" data-title="Rhythm Strike" data-genre="Single · Out Now" data-art="assets/rhythm-strike.png" data-itunes="https://itunes.apple.com/us/album/rhythm-strike/6800286360?i=6800286361&ls=1&app=itunes" id="track-row-rs">
                   <div class="pl-num-wrap">
                     <span class="pl-num">06</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Rhythm Strike</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/rhythm-strike/6800286360?i=6800286361&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="6" data-src="assets/audio/dance-with-me.wav" data-title="Dance With Me" data-genre="Single · Pop / Dance · Out Now" data-art="assets/dance-with-me.jpg" data-itunes="https://itunes.apple.com/us/album/dance-with-me/6800257565?i=6800257566&ls=1&app=itunes" id="track-row-dwm">
+                <!-- 07: Dance With Me -->
+                <div class="pl-row" data-index="6" data-src="assets/audio/dance-with-me.wav" data-title="Dance With Me" data-genre="Single · Out Now" data-art="assets/dance-with-me.jpg" data-itunes="https://itunes.apple.com/us/album/dance-with-me/6800257565?i=6800257566&ls=1&app=itunes" id="track-row-dwm">
                   <div class="pl-num-wrap">
                     <span class="pl-num">07</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Dance With Me</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/dance-with-me/6800257565?i=6800257566&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="7" data-src="assets/audio/that-aint-my-name.wav" data-title="That Ain't My Name" data-genre="Single · Hip-Hop / R&B · Out Now" data-art="assets/that-aint-my-name.jpg" data-itunes="https://itunes.apple.com/us/album/that-aint-my-name/6800203966?i=6800203967&ls=1&app=itunes" id="track-row-tamn">
+                <!-- 08: That Ain't My Name -->
+                <div class="pl-row" data-index="7" data-src="assets/audio/that-aint-my-name.wav" data-title="That Ain't My Name" data-genre="Single · Out Now" data-art="assets/that-aint-my-name.jpg" data-itunes="https://itunes.apple.com/us/album/that-aint-my-name/6800203966?i=6800203967&ls=1&app=itunes" id="track-row-tamn">
                   <div class="pl-num-wrap">
                     <span class="pl-num">08</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">That Ain't My Name</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/that-aint-my-name/6800203966?i=6800203967&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="8" data-src="assets/audio/big-body-energy.wav" data-title="Big Body Energy" data-genre="Single · Hip-Hop / Rap · Out Now" data-art="assets/big-body-energy.png" data-itunes="https://itunes.apple.com/us/album/big-body-energy/6799845497?i=6799845498&ls=1&app=itunes" id="track-row-bbe">
+                <!-- 09: Big Body Energy -->
+                <div class="pl-row" data-index="8" data-src="assets/audio/big-body-energy.wav" data-title="Big Body Energy" data-genre="Single · Out Now" data-art="assets/big-body-energy.png" data-itunes="https://itunes.apple.com/us/album/big-body-energy/6799845497?i=6799845498&ls=1&app=itunes" id="track-row-bbe">
                   <div class="pl-num-wrap">
                     <span class="pl-num">09</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Big Body Energy</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/big-body-energy/6799845497?i=6799845498&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="9" data-src="assets/audio/one-more-time.wav" data-title="One More Time" data-genre="Single · Pop / Dance · Out Now" data-art="assets/one-more-time.png" data-itunes="https://itunes.apple.com/us/album/one-more-time/6799821062?i=6799821063&ls=1&app=itunes" id="track-row-omt">
+                <!-- 10: One More Time -->
+                <div class="pl-row" data-index="9" data-src="assets/audio/one-more-time.wav" data-title="One More Time" data-genre="Single · Out Now" data-art="assets/one-more-time.png" data-itunes="https://itunes.apple.com/us/album/one-more-time/6799821062?i=6799821063&ls=1&app=itunes" id="track-row-omt">
                   <div class="pl-num-wrap">
                     <span class="pl-num">10</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">One More Time</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/one-more-time/6799821062?i=6799821063&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="10" data-src="assets/audio/lose-the-night.wav" data-title="Lose The Night" data-genre="Single · Pop / Dance · Out Now" data-art="assets/lose-the-night.png" data-itunes="https://itunes.apple.com/us/album/lose-the-night/6797718277?i=6797718278&ls=1&app=itunes" id="track-row-ltn">
+                <!-- 11: Lose The Night -->
+                <div class="pl-row" data-index="10" data-src="assets/audio/lose-the-night.wav" data-title="Lose The Night" data-genre="Single · Out Now" data-art="assets/lose-the-night.png" data-itunes="https://itunes.apple.com/us/album/lose-the-night/6797718277?i=6797718278&ls=1&app=itunes" id="track-row-ltn">
                   <div class="pl-num-wrap">
                     <span class="pl-num">11</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Lose The Night</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/lose-the-night/6797718277?i=6797718278&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="11" data-src="assets/audio/outta-gas.wav" data-title="OUTTA GAS" data-genre="Single · Hip-Hop / Rap · Out Now" data-art="assets/outta-gas.png" data-itunes="https://itunes.apple.com/us/album/outta-gas/6798104030?i=6798104031&ls=1&app=itunes" id="track-row-og">
+                <!-- 12: OUTTA GAS -->
+                <div class="pl-row" data-index="11" data-src="assets/audio/outta-gas.wav" data-title="OUTTA GAS" data-genre="Single · Out Now" data-art="assets/outta-gas.png" data-itunes="https://itunes.apple.com/us/album/outta-gas/6798104030?i=6798104031&ls=1&app=itunes" id="track-row-og">
                   <div class="pl-num-wrap">
                     <span class="pl-num">12</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">OUTTA GAS</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/outta-gas/6798104030?i=6798104031&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="12" data-src="assets/audio/invisible.wav" data-title="Invisible" data-genre="Single · Punk / Hip-Hop · Out Now" data-art="assets/invisible.png" data-itunes="https://itunes.apple.com/us/album/invisible/6798500865?i=6798500866&ls=1&app=itunes" id="track-row-inv">
+                <!-- 13: Invisible -->
+                <div class="pl-row" data-index="12" data-src="assets/audio/invisible.wav" data-title="Invisible" data-genre="Single · Out Now" data-art="assets/invisible.png" data-itunes="https://itunes.apple.com/us/album/invisible/6798500865?i=6798500866&ls=1&app=itunes" id="track-row-inv">
                   <div class="pl-num-wrap">
                     <span class="pl-num">13</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Invisible</span>
-                    <span class="pl-tag">New Single · Out Now</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/invisible/6798500865?i=6798500866&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="playlist-header">Upcoming Singles & Drops</div>
-
-                <div class="pl-row" data-index="13" data-src="assets/audio/big-body-cadillacs.wav" data-title="Big Body Cadillacs" data-genre="Single · Hip-Hop / Rap · Sept 1, 2026" data-art="assets/big-body-cadillacs.png" data-itunes="" id="track-row-bbc">
+                <!-- 14: Don't Bite That Fruit -->
+                <div class="pl-row" data-index="13" data-src="assets/audio/dont-bite-that-fruit.wav" data-title="Don't Bite That Fruit" data-genre="Single · Out Now" data-art="assets/dont-bite-that-fruit.jpg" data-itunes="https://itunes.apple.com/us/album/dont-bite-that-fruit/6788398766?i=6788398767&ls=1&app=itunes" id="track-row-dbtf">
                   <div class="pl-num-wrap">
                     <span class="pl-num">14</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Big Body Cadillacs</span>
-                    <span class="pl-tag">Upcoming Single · Dropping Sept 1</span>
+                    <span class="pl-name">Don't Bite That Fruit</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/dont-bite-that-fruit/6788398766?i=6788398767&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="14" data-src="assets/audio/waddle-when-i-walk.wav" data-title="Waddle When I Walk" data-genre="Single · Hip-Hop / Rap · Sept 8, 2026" data-art="assets/waddle-when-i-walk.png" data-itunes="" id="track-row-www">
+                <!-- 15: Don't Play With It -->
+                <div class="pl-row" data-index="14" data-src="assets/audio/dont-play-with-it.wav" data-title="Don't Play With It" data-genre="Single · Out Now" data-art="assets/dont-play-with-it.png" data-itunes="https://itunes.apple.com/us/album/dont-play-with-it/6787004428?i=6787004429&ls=1&app=itunes" id="track-row-dpwi">
                   <div class="pl-num-wrap">
                     <span class="pl-num">15</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Waddle When I Walk</span>
-                    <span class="pl-tag">Upcoming Single · Dropping Sept 8</span>
+                    <span class="pl-name">Don't Play With It</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/dont-play-with-it/6787004428?i=6787004429&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="15" data-src="assets/audio/pressure-makes-diamonds.wav" data-title="Pressure Makes Diamonds" data-genre="Single · Hip-Hop / Pop · Sept 12, 2026" data-art="assets/pressure-makes-diamonds.png" data-itunes="" id="track-row-pmd">
+                <!-- 16: Electric Power Hoe -->
+                <div class="pl-row" data-index="15" data-src="assets/audio/electric-power-hoe.wav" data-title="Electric Power Hoe" data-genre="Single · Out Now" data-art="assets/electric-power-hoe.png" data-itunes="https://itunes.apple.com/us/album/electric-power/6790377667?i=6790377668&ls=1&app=itunes" id="track-row-eph">
                   <div class="pl-num-wrap">
                     <span class="pl-num">16</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Pressure Makes Diamonds</span>
-                    <span class="pl-tag">Upcoming Single · Dropping Sept 12</span>
+                    <span class="pl-name">Electric Power Hoe</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/electric-power/6790377667?i=6790377668&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="16" data-src="assets/audio/pressure-talk.wav" data-title="Pressure Talk" data-genre="Single · Hip-Hop / Rap · Sept 13, 2026" data-art="assets/pressure-talk.png" data-itunes="" id="track-row-pt">
+                <!-- 17: Was That Your Ass Or Mouth? -->
+                <div class="pl-row" data-index="16" data-src="assets/audio/was-that-your-ass-or-mouth.wav" data-title="Was That Your Ass Or Mouth?" data-genre="Single · Out Now" data-art="assets/was-that-your-ass-or-mouth.png" data-itunes="https://itunes.apple.com/us/album/was-that-your-ass-or-mouth/6777384088?i=6777384089&ls=1&app=itunes" id="track-row-wty">
                   <div class="pl-num-wrap">
                     <span class="pl-num">17</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Pressure Talk</span>
-                    <span class="pl-tag">Upcoming Single · Dropping Sept 13</span>
+                    <span class="pl-name">Was That Your Ass Or Mouth?</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/was-that-your-ass-or-mouth/6777384088?i=6777384089&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="17" data-src="assets/audio/ms-good-coochie.wav" data-title="Ms. Good Coochie" data-genre="Single · Hip-Hop / Rap · Sept 18, 2026" data-art="assets/ms-good-coochie.png" data-itunes="" id="track-row-mgc">
+                <!-- 18: I Like Me Some Dick -->
+                <div class="pl-row" data-index="17" data-src="assets/audio/i-like-me-some-dick.wav" data-title="I Like Me Some Dick" data-genre="Single · Out Now" data-art="assets/i-like-me-some-dick.jpg" data-itunes="https://itunes.apple.com/us/album/i-like-me-some-dick-feat-benedict-hahn/1895881149?i=6764692238&ls=1&app=itunes" id="track-row-ilm">
                   <div class="pl-num-wrap">
                     <span class="pl-num">18</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Ms. Good Coochie</span>
-                    <span class="pl-tag">Upcoming Single · Dropping Sept 18</span>
+                    <span class="pl-name">I Like Me Some Dick</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/i-like-me-some-dick-feat-benedict-hahn/1895881149?i=6764692238&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="18" data-src="assets/audio/spend-it-on-me.wav" data-title="Spend It On Me" data-genre="Single · R&B / Pop · Sept 25, 2026" data-art="assets/spend-it-on-me.png" data-itunes="" id="track-row-siom">
+                <!-- 19: That's Your Man? -->
+                <div class="pl-row" data-index="18" data-src="assets/audio/thats-your-man.wav" data-title="That's Your Man?" data-genre="Single · Out Now" data-art="assets/thats-your-man.jpg" data-itunes="https://itunes.apple.com/us/album/thats-your-man/1895121462?i=6763014745&ls=1&app=itunes" id="track-row-tym">
                   <div class="pl-num-wrap">
                     <span class="pl-num">19</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Spend It On Me</span>
-                    <span class="pl-tag">Upcoming Single · Dropping Sept 25</span>
+                    <span class="pl-name">That's Your Man?</span>
+                    <span class="pl-tag">Single · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/thats-your-man/1895121462?i=6763014745&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="19" data-src="assets/audio/luxury-life.wav" data-title="Luxury Life" data-genre="Single · Hip-Hop / Rap · Oct 2, 2026" data-art="assets/luxury-life.png" data-itunes="" id="track-row-ll">
+                <!-- 20: Big Body Cadillacs (Upcoming / Coming Soon) -->
+                <div class="pl-row" data-index="19" data-src="assets/audio/big-body-cadillacs.wav" data-title="Big Body Cadillacs" data-genre="Single · Coming Soon" data-art="assets/big-body-cadillacs.png" data-itunes="" id="track-row-bbc">
                   <div class="pl-num-wrap">
                     <span class="pl-num">20</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Luxury Life</span>
-                    <span class="pl-tag">Upcoming Single · Dropping Oct 2</span>
+                    <span class="pl-name">Big Body Cadillacs</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Sept 1</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="20" data-src="assets/audio/you-dont-treat-me-good-no-more.wav" data-title="You Don't Treat Me Good No More" data-genre="Single · Country / Hip-Hop · Oct 3, 2026" data-art="assets/you-dont-treat-me-good-no-more.png" data-itunes="" id="track-row-ydtmg">
+                <!-- 21: Waddle When I Walk (Upcoming / Coming Soon) -->
+                <div class="pl-row" data-index="20" data-src="assets/audio/waddle-when-i-walk.wav" data-title="Waddle When I Walk" data-genre="Single · Coming Soon" data-art="assets/waddle-when-i-walk.png" data-itunes="" id="track-row-www">
                   <div class="pl-num-wrap">
                     <span class="pl-num">21</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">You Don't Treat Me Good No More</span>
-                    <span class="pl-tag">Upcoming Single · Dropping Oct 3</span>
+                    <span class="pl-name">Waddle When I Walk</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Sept 8</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="21" data-src="assets/audio/proof-of-funds.wav" data-title="Proof Of Funds" data-genre="Single · Hip-Hop / Rap · Oct 9, 2026" data-art="assets/proof-of-funds.png" data-itunes="" id="track-row-pof">
+                <!-- 22: Pressure Makes Diamonds (Upcoming / Coming Soon) -->
+                <div class="pl-row" data-index="21" data-src="assets/audio/pressure-makes-diamonds.wav" data-title="Pressure Makes Diamonds" data-genre="Single · Coming Soon" data-art="assets/pressure-makes-diamonds.png" data-itunes="" id="track-row-pmd">
                   <div class="pl-num-wrap">
                     <span class="pl-num">22</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Proof Of Funds</span>
-                    <span class="pl-tag">Upcoming Single · Dropping Oct 9</span>
+                    <span class="pl-name">Pressure Makes Diamonds</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Sept 12</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="playlist-header">Featured Hits & Singles</div>
-
-                <div class="pl-row" data-index="22" data-src="assets/audio/dont-bite-that-fruit.wav" data-title="Don't Bite That Fruit" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/dont-bite-that-fruit.jpg" data-itunes="https://itunes.apple.com/us/album/dont-bite-that-fruit/6788398766?i=6788398767&ls=1&app=itunes" id="track-row-dbtf">
+                <!-- 23: Pressure Talk (Upcoming / Coming Soon) -->
+                <div class="pl-row" data-index="22" data-src="assets/audio/pressure-talk.wav" data-title="Pressure Talk" data-genre="Single · Coming Soon" data-art="assets/pressure-talk.png" data-itunes="" id="track-row-pt">
                   <div class="pl-num-wrap">
                     <span class="pl-num">23</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Don't Bite That Fruit</span>
-                    <span class="pl-tag">Hit Single · Hip-Hop / Pop</span>
+                    <span class="pl-name">Pressure Talk</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Sept 13</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="23" data-src="assets/audio/dont-play-with-it.wav" data-title="Don't Play With It" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/dont-play-with-it.png" data-itunes="https://itunes.apple.com/us/album/dont-play-with-it/6787004428?i=6787004429&ls=1&app=itunes" id="track-row-dpwi">
+                <!-- 24: Ms. Good Coochie (Upcoming / Coming Soon) -->
+                <div class="pl-row" data-index="23" data-src="assets/audio/ms-good-coochie.wav" data-title="Ms. Good Coochie" data-genre="Single · Coming Soon" data-art="assets/ms-good-coochie.png" data-itunes="" id="track-row-mgc">
                   <div class="pl-num-wrap">
                     <span class="pl-num">24</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Don't Play With It</span>
-                    <span class="pl-tag">Out Now · Hip-Hop / Pop</span>
+                    <span class="pl-name">Ms. Good Coochie</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Sept 18</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="24" data-src="assets/audio/electric-power-hoe.wav" data-title="Electric Power Hoe" data-genre="Single · Hip-Hop / Rap · 2026" data-art="assets/electric-power-hoe.png" data-itunes="https://itunes.apple.com/us/album/electric-power/6790377667?i=6790377668&ls=1&app=itunes" id="track-row-eph">
+                <!-- 25: Spend It On Me (Upcoming / Coming Soon) -->
+                <div class="pl-row" data-index="24" data-src="assets/audio/spend-it-on-me.wav" data-title="Spend It On Me" data-genre="Single · Coming Soon" data-art="assets/spend-it-on-me.png" data-itunes="" id="track-row-siom">
                   <div class="pl-num-wrap">
                     <span class="pl-num">25</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Electric Power Hoe</span>
-                    <span class="pl-tag">Hit Single · Hip-Hop / Rap</span>
+                    <span class="pl-name">Spend It On Me</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Sept 25</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="25" data-src="assets/audio/was-that-your-ass-or-mouth.wav" data-title="Was That Your Ass Or Mouth?" data-genre="Single · Hip-Hop / Rap · 2026" data-art="assets/was-that-your-ass-or-mouth.png" data-itunes="https://itunes.apple.com/us/album/was-that-your-ass-or-mouth/6777384088?i=6777384089&ls=1&app=itunes" id="track-row-wty">
+                <!-- 26: Luxury Life (Upcoming / Coming Soon) -->
+                <div class="pl-row" data-index="25" data-src="assets/audio/luxury-life.wav" data-title="Luxury Life" data-genre="Single · Coming Soon" data-art="assets/luxury-life.png" data-itunes="" id="track-row-ll">
                   <div class="pl-num-wrap">
                     <span class="pl-num">26</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">Was That Your Ass Or Mouth?</span>
-                    <span class="pl-tag">Hit Single · Hip-Hop / Rap</span>
+                    <span class="pl-name">Luxury Life</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Oct 2</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="playlist-header">Heavy Hitters & Singles</div>
-
-                <div class="pl-row" data-index="26" data-src="assets/audio/i-like-me-some-dick.wav" data-title="I Like Me Some Dick" data-genre="Single · Hip-Hop / Country · 2026" data-art="assets/i-like-me-some-dick.jpg" data-itunes="https://itunes.apple.com/us/album/i-like-me-some-dick-feat-benedict-hahn/1895881149?i=6764692238&ls=1&app=itunes" id="track-row-ilm">
+                <!-- 27: You Don't Treat Me Good No More (Upcoming / Coming Soon) -->
+                <div class="pl-row" data-index="26" data-src="assets/audio/you-dont-treat-me-good-no-more.wav" data-title="You Don't Treat Me Good No More" data-genre="Single · Coming Soon" data-art="assets/you-dont-treat-me-good-no-more.png" data-itunes="" id="track-row-ydtmg">
                   <div class="pl-num-wrap">
                     <span class="pl-num">27</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">I Like Me Some Dick <span class="feat-artist">(feat. Benedict Hahn)</span></span>
-                    <span class="pl-tag">Standalone Banger · Hip-Hop / Country</span>
+                    <span class="pl-name">You Don't Treat Me Good No More</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Oct 3</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="27" data-src="assets/audio/thats-your-man.wav" data-title="That's Your Man?" data-genre="Single · Hip-Hop / Pop · 2026" data-art="assets/thats-your-man.jpg" data-itunes="https://itunes.apple.com/us/album/thats-your-man/1895121462?i=6763014745&ls=1&app=itunes" id="track-row-tym">
+                <!-- 28: Proof Of Funds (Upcoming / Coming Soon) -->
+                <div class="pl-row" data-index="27" data-src="assets/audio/proof-of-funds.wav" data-title="Proof Of Funds" data-genre="Single · Coming Soon" data-art="assets/proof-of-funds.png" data-itunes="" id="track-row-pof">
                   <div class="pl-num-wrap">
                     <span class="pl-num">28</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
-                    <span class="pl-name">That's Your Man?</span>
-                    <span class="pl-tag">Standalone Banger · Hip-Hop / Pop</span>
+                    <span class="pl-name">Proof Of Funds</span>
+                    <span class="pl-tag pl-tag-coming-soon">Coming Soon · Oct 9</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <div class="pl-opt-btn itunes-btn disabled" style="opacity:0.6; cursor:not-allowed;">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Coming Soon to iTunes</span>
+                      </div>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Artist Page on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
                 <div class="playlist-header">One Of Them Days (Album)</div>
 
-                <div class="pl-row" data-index="28" data-src="assets/audio/falling-apart.m4a" data-title="Falling Apart" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-falling-apart/6766560374?i=6766560377&ls=1&app=itunes" id="track-row-ootd-1">
+                <!-- 29: Falling Apart -->
+                <div class="pl-row" data-index="28" data-src="assets/audio/falling-apart.m4a" data-title="Falling Apart" data-genre="Album Track · Out Now" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-falling-apart/6766560374?i=6766560377&ls=1&app=itunes" id="track-row-ootd-1">
                   <div class="pl-num-wrap">
                     <span class="pl-num">29</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Falling Apart</span>
-                    <span class="pl-tag">Standout Track · R&B / Hip-Hop</span>
+                    <span class="pl-tag">One Of Them Days · Track 1</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/one-of-them-days-falling-apart/6766560374?i=6766560377&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="29" data-src="assets/audio/overcome.wav" data-title="Overcome" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-overcome/6766560374?i=6766560381&ls=1&app=itunes" id="track-row-ootd-2">
+                <!-- 30: Overcome -->
+                <div class="pl-row" data-index="29" data-src="assets/audio/overcome.wav" data-title="Overcome" data-genre="Album Track · Out Now" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-overcome/6766560374?i=6766560381&ls=1&app=itunes" id="track-row-ootd-2">
                   <div class="pl-num-wrap">
                     <span class="pl-num">30</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Overcome</span>
-                    <span class="pl-tag">Standout Track · R&B / Hip-Hop</span>
+                    <span class="pl-tag">One Of Them Days · Track 2</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/one-of-them-days-overcome/6766560374?i=6766560381&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="30" data-src="assets/audio/rise-again.wav" data-title="Rise Again" data-genre="Album Track · R&B / Hip-Hop · 2026" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-rise-again/6766560374?i=6766560380&ls=1&app=itunes" id="track-row-ootd-3">
+                <!-- 31: Rise Again -->
+                <div class="pl-row" data-index="30" data-src="assets/audio/rise-again.wav" data-title="Rise Again" data-genre="Album Track · Out Now" data-art="assets/one-of-them-days.png" data-itunes="https://itunes.apple.com/us/album/one-of-them-days-rise-again/6766560374?i=6766560380&ls=1&app=itunes" id="track-row-ootd-3">
                   <div class="pl-num-wrap">
                     <span class="pl-num">31</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Rise Again</span>
-                    <span class="pl-tag">Standout Track · R&B / Hip-Hop</span>
+                    <span class="pl-tag">One Of Them Days · Track 3</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/one-of-them-days-rise-again/6766560374?i=6766560380&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
                 <div class="playlist-header">Coochie Poppin University (Album)</div>
 
-                <div class="pl-row" data-index="31" data-src="assets/audio/1800-goodcoochienow.wav" data-title="1800-GoodCoochieNow" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/1800-goodcoochienow/6773402782?i=6773402784&ls=1&app=itunes" id="track-row-cpu-0">
+                <!-- 32: 1800-GoodCoochieNow -->
+                <div class="pl-row" data-index="31" data-src="assets/audio/1800-goodcoochienow.wav" data-title="1800-GoodCoochieNow" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/1800-goodcoochienow/6773402782?i=6773402784&ls=1&app=itunes" id="track-row-cpu-0">
                   <div class="pl-num-wrap">
                     <span class="pl-num">32</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">1800-GoodCoochieNow</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 1 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/1800-goodcoochienow/6773402782?i=6773402784&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="32" data-src="assets/audio/coochie-poppin-university.wav" data-title="Coochie Poppin University" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/coochie-poppin-university/6773402782?i=6773402785&ls=1&app=itunes" id="track-row-cpu-1">
+                <!-- 33: Coochie Poppin University -->
+                <div class="pl-row" data-index="32" data-src="assets/audio/coochie-poppin-university.wav" data-title="Coochie Poppin University" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/coochie-poppin-university/6773402782?i=6773402785&ls=1&app=itunes" id="track-row-cpu-1">
                   <div class="pl-num-wrap">
                     <span class="pl-num">33</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Coochie Poppin University</span>
-                    <span class="pl-tag">Standout Single · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 2 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/coochie-poppin-university/6773402782?i=6773402785&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="33" data-src="assets/audio/good-coochie-hotline.wav" data-title="Good Coochie Hotline" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/good-coochie-hotline/6773402782?i=6773402787&ls=1&app=itunes" id="track-row-cpu-2">
+                <!-- 34: Good Coochie Hotline -->
+                <div class="pl-row" data-index="33" data-src="assets/audio/good-coochie-hotline.wav" data-title="Good Coochie Hotline" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/good-coochie-hotline/6773402782?i=6773402787&ls=1&app=itunes" id="track-row-cpu-2">
                   <div class="pl-num-wrap">
                     <span class="pl-num">34</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Good Coochie Hotline</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 3 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/good-coochie-hotline/6773402782?i=6773402787&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="34" data-src="assets/audio/coochie-poppin-101.wav" data-title="Coochie Poppin 101" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/coochie-poppin-101/6773402782?i=6773402790&ls=1&app=itunes" id="track-row-cpu-3">
+                <!-- 35: Coochie Poppin 101 -->
+                <div class="pl-row" data-index="34" data-src="assets/audio/coochie-poppin-101.wav" data-title="Coochie Poppin 101" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/coochie-poppin-101/6773402782?i=6773402790&ls=1&app=itunes" id="track-row-cpu-3">
                   <div class="pl-num-wrap">
                     <span class="pl-num">35</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Coochie Poppin 101</span>
-                    <span class="pl-tag">Standout Single · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 4 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/coochie-poppin-101/6773402782?i=6773402790&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="35" data-src="assets/audio/you-want-some-coochie.wav" data-title="You Want Some Coochie?" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/you-want-some-coochie/6773402782?i=6773402791&ls=1&app=itunes" id="track-row-cpu-4">
+                <!-- 36: You Want Some Coochie? -->
+                <div class="pl-row" data-index="35" data-src="assets/audio/you-want-some-coochie.wav" data-title="You Want Some Coochie?" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/you-want-some-coochie/6773402782?i=6773402791&ls=1&app=itunes" id="track-row-cpu-4">
                   <div class="pl-num-wrap">
                     <span class="pl-num">36</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">You Want Some Coochie?</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 5 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/you-want-some-coochie/6773402782?i=6773402791&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="36" data-src="assets/audio/rich-nigga-test.wav" data-title="Rich Nigga Test" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/rich-n-a-test/6773402782?i=6773402942&ls=1&app=itunes" id="track-row-cpu-5">
+                <!-- 37: Rich Nigga Test -->
+                <div class="pl-row" data-index="36" data-src="assets/audio/rich-nigga-test.wav" data-title="Rich Nigga Test" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/rich-n-a-test/6773402782?i=6773402942&ls=1&app=itunes" id="track-row-cpu-5">
                   <div class="pl-num-wrap">
                     <span class="pl-num">37</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Rich Nigga Test</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 6 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/rich-n-a-test/6773402782?i=6773402942&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="37" data-src="assets/audio/tuition-paid.wav" data-title="Tuition Paid" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/tuition-paid/6773402782?i=6773402944&ls=1&app=itunes" id="track-row-cpu-6">
+                <!-- 38: Tuition Paid -->
+                <div class="pl-row" data-index="37" data-src="assets/audio/tuition-paid.wav" data-title="Tuition Paid" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/tuition-paid/6773402782?i=6773402944&ls=1&app=itunes" id="track-row-cpu-6">
                   <div class="pl-num-wrap">
                     <span class="pl-num">38</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Tuition Paid</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 7 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/tuition-paid/6773402782?i=6773402944&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="38" data-src="assets/audio/twerk-for-tuition.wav" data-title="Twerk For Tuition" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/twerk-for-tuition/6773402782?i=6773402945&ls=1&app=itunes" id="track-row-cpu-7">
+                <!-- 39: Twerk For Tuition -->
+                <div class="pl-row" data-index="38" data-src="assets/audio/twerk-for-tuition.wav" data-title="Twerk For Tuition" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/twerk-for-tuition/6773402782?i=6773402945&ls=1&app=itunes" id="track-row-cpu-7">
                   <div class="pl-num-wrap">
                     <span class="pl-num">39</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Twerk For Tuition</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 8 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/twerk-for-tuition/6773402782?i=6773402945&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="39" data-src="assets/audio/no-free-access.wav" data-title="No Free Access" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/no-free-access/6773402782?i=6773402946&ls=1&app=itunes" id="track-row-cpu-8">
+                <!-- 40: No Free Access -->
+                <div class="pl-row" data-index="39" data-src="assets/audio/no-free-access.wav" data-title="No Free Access" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/no-free-access/6773402782?i=6773402946&ls=1&app=itunes" id="track-row-cpu-8">
                   <div class="pl-num-wrap">
                     <span class="pl-num">40</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">No Free Access</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 9 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/no-free-access/6773402782?i=6773402946&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="40" data-src="assets/audio/gcd.wav" data-title="GCD" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/gcd/6773402782?i=6773402947&ls=1&app=itunes" id="track-row-cpu-9">
+                <!-- 41: GCD -->
+                <div class="pl-row" data-index="40" data-src="assets/audio/gcd.wav" data-title="GCD" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/gcd/6773402782?i=6773402947&ls=1&app=itunes" id="track-row-cpu-9">
                   <div class="pl-num-wrap">
                     <span class="pl-num">41</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">GCD</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 10 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/gcd/6773402782?i=6773402947&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="41" data-src="assets/audio/pay-that-fee.wav" data-title="Pay That Fee" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/pay-that-fee/6773402782?i=6773402948&ls=1&app=itunes" id="track-row-cpu-10">
+                <!-- 42: Pay That Fee -->
+                <div class="pl-row" data-index="41" data-src="assets/audio/pay-that-fee.wav" data-title="Pay That Fee" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/pay-that-fee/6773402782?i=6773402948&ls=1&app=itunes" id="track-row-cpu-10">
                   <div class="pl-num-wrap">
                     <span class="pl-num">42</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Pay That Fee</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 11 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/pay-that-fee/6773402782?i=6773402948&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="42" data-src="assets/audio/graduated-coochie.wav" data-title="Graduated Coochie" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/graduated-coochie/6773402782?i=6773402949&ls=1&app=itunes" id="track-row-cpu-11">
+                <!-- 43: Graduated Coochie -->
+                <div class="pl-row" data-index="42" data-src="assets/audio/graduated-coochie.wav" data-title="Graduated Coochie" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/graduated-coochie/6773402782?i=6773402949&ls=1&app=itunes" id="track-row-cpu-11">
                   <div class="pl-num-wrap">
                     <span class="pl-num">43</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">Graduated Coochie</span>
-                    <span class="pl-tag">Standout Single · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 12 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/graduated-coochie/6773402782?i=6773402949&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
-                <div class="pl-row" data-index="43" data-src="assets/audio/i-called-i-paid-i-graduated.wav" data-title="I Called, I Paid, I Graduated" data-genre="Hip-Hop / Pop · 2026" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/i-called-i-paid-i-graduated/6773402782?i=6773402950&ls=1&app=itunes" id="track-row-cpu-12">
+                <!-- 44: I Called, I Paid, I Graduated -->
+                <div class="pl-row" data-index="43" data-src="assets/audio/i-called-i-paid-i-graduated.wav" data-title="I Called, I Paid, I Graduated" data-genre="Album Track · Out Now" data-art="assets/coochie-poppin-university.jpg?v=2" data-itunes="https://itunes.apple.com/us/album/i-called-i-paid-i-graduated/6773402782?i=6773402950&ls=1&app=itunes" id="track-row-cpu-12">
                   <div class="pl-num-wrap">
                     <span class="pl-num">44</span>
                     <span class="pl-play-arrow">▶</span>
                   </div>
                   <div class="pl-info">
                     <span class="pl-name">I Called, I Paid, I Graduated</span>
-                    <span class="pl-tag">Album Track · Hip-Hop / Pop</span>
+                    <span class="pl-tag">Track 13 · Out Now</span>
+                  </div>
+                  <button class="pl-share-btn" type="button" aria-label="Share track" title="Share track">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="13" height="13"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+                  </button>
+                  <div class="pl-dropdown">
+                    <button class="pl-dropdown-btn" type="button" aria-label="Track options">
+                      <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><circle cx="12" cy="5" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="19" r="2"/></svg>
+                    </button>
+                    <div class="pl-dropdown-menu">
+                      <a href="https://itunes.apple.com/us/album/i-called-i-paid-i-graduated/6773402782?i=6773402950&ls=1&app=itunes" target="_blank" rel="noopener noreferrer" class="pl-opt-btn itunes-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
+                        <span>Purchase on iTunes ($1.29)</span>
+                      </a>
+                      <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener noreferrer" class="pl-opt-btn apple-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+                        <span>Stream on Apple Music</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
-
-
-              </div>
-              <p class="playlist-note">More music coming soon. Follow on all platforms.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- ═══════════════════════════════════════
-           SECTION 5 — VISUAL GALLERY
-      ═══════════════════════════════════════ -->
-      <section class="section" id="gallery" aria-labelledby="gallery-h2">
-        <div class="section-inner">
-          <div class="eyebrow"><span class="glow-dot"></span>Photography</div>
-          <h2 id="gallery-h2" class="section-title">VISUAL GALLERY</h2>
-
-          <!--
-            PHASE 2: Replace placeholder images with real promo / photoshoot images.
-            Update alt text, data-image, and data-caption for each item.
-          -->
-          <div class="masonry" id="masonry-gallery">
-            <!-- Item 1: Executive Producer & Visionary (Featured) -->
-            <div class="gallery-item gi-feat reveal" data-image="assets/gallery/visual-executive.png" data-caption="Executive Producer & Visionary — Henna C at the helm of master production, creative direction, and label operations in the executive suite.">
-              <img src="assets/gallery/visual-executive.png" alt="Henna C in executive suite portrait" class="gi-img">
-              <div class="gi-overlay">
-                <span class="gi-tag">Vision & Production</span>
-                <h4>Executive Producer</h4>
-                <p>Henna C leading master production & label vision</p>
-              </div>
-              <div class="gi-sheen"></div>
-            </div>
-
-            <!-- Item 2: Studio Sessions & Guest Vocalists (Top Mid) -->
-            <div class="gallery-item gi-top-1 reveal" data-image="assets/gallery/visual-studio.jpg" data-caption="Studio Sessions & Guest Vocalists — Written and produced entirely by Henna C, locked in studio with featured singers, guest artists, and vocalists bringing every vision to life.">
-              <img src="assets/gallery/visual-studio.jpg" alt="Henna C in studio with featured singers and guest artists" class="gi-img">
-              <div class="gi-overlay">
-                <span class="gi-tag">In The Studio</span>
-                <h4>Studio & Guest Artists</h4>
-                <p>Henna C with featured singers & vocalists</p>
-              </div>
-              <div class="gi-sheen"></div>
-            </div>
-
-            <!-- Item 3: Kashkilla Signature Editorial Set (Top Right) -->
-            <div class="gallery-item gi-top-2 reveal" data-image="assets/gallery/visual-kashkilla.jpg" data-caption="Kashkilla Signature Editorial — Unapologetic glam, supreme confidence, and raw star power. #1 artist Kashkilla commanding the room in official Henna-C apparel, masquerade elegance, and pink neon aesthetics.">
-              <img src="assets/gallery/visual-kashkilla.jpg" alt="Kashkilla official editorial photoshoot set" class="gi-img">
-              <div class="gi-overlay">
-                <span class="gi-tag">Kashkilla Editorial</span>
-                <h4>Kashkilla Signature Set</h4>
-                <p>Unapologetic glam & raw star power</p>
-              </div>
-              <div class="gi-sheen"></div>
-            </div>
-
-            <!-- Item 4: The Bubblegum Shoot (Bottom Left) -->
-            <div class="gallery-item gi-bot-1 reveal" data-image="assets/gallery/visual-video.jpg" data-caption="The Bubblegum Shoot — #1 powerhouse artist Kashkilla starring in an iconic high-energy video shoot celebrating the runaway success of Coochie Poppin University, featuring custom pink neon HENNA-C backdrop and holographic stage visuals.">
-              <img src="assets/gallery/visual-video.jpg" alt="Kashkilla starring in The Bubblegum Shoot celebrating Coochie Poppin University" class="gi-img">
-              <div class="gi-overlay">
-                <span class="gi-tag">Music Video Shoot</span>
-                <h4>The Bubblegum Shoot</h4>
-                <p>Kashkilla celebrating Coochie Poppin University success</p>
-              </div>
-              <div class="gi-sheen"></div>
-            </div>
-
-            <!-- Item 5: Henna C & #1 Artist Kashkilla (Bottom Mid) -->
-            <div class="gallery-item gi-bot-2 reveal" data-image="assets/gallery/visual-merch.jpg" data-caption="Henna C & #1 Artist Kashkilla — Chart-topping powerhouse artist Kashkilla alongside Henna C, representing top leading tracks, star power, and undisputed excellence in official Henna-C gear.">
-              <img src="assets/gallery/visual-merch.jpg" alt="Henna C and #1 artist Kashkilla in official Henna-C apparel photoshoot" class="gi-img">
-              <div class="gi-overlay">
-                <span class="gi-tag">Featured #1 Artist</span>
-                <h4>Henna C & Kashkilla</h4>
-                <p>Top leading tracks & undisputed excellence</p>
-              </div>
-              <div class="gi-sheen"></div>
-            </div>
-
-            <!-- Item 6: Late Night City Energy & Crew (Bottom Right) -->
-            <div class="gallery-item gi-bot-3 reveal" data-image="assets/gallery/visual-nightlife.jpg" data-caption="Late Night City Energy — Henna C with friends and crew outside after a midnight video shoot against the Minneapolis skyline.">
-              <img src="assets/gallery/visual-nightlife.jpg" alt="Henna C with crew out in the city at night" class="gi-img">
-              <div class="gi-overlay">
-                <span class="gi-tag">Late Night Vibe</span>
-                <h4>City Energy & Crew</h4>
-                <p>Outside after midnight shoot in Minneapolis</p>
-              </div>
-              <div class="gi-sheen"></div>
-            </div>
-          </div>
-
-          <!-- Snapchat AR Lenses Showcase Feature Bar -->
-          <div class="snap-ar-card reveal">
-            <div class="snap-ar-glow"></div>
-            <div class="snap-ar-left">
-              <div class="snap-ar-badge">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12.002 0c-4.468 0-8.09 3.622-8.09 8.09 0 2.221.895 4.234 2.345 5.702-.132.551-.482 1.487-1.42 2.302-.153.132-.19.349-.092.523.098.174.298.261.493.213 1.346-.328 2.628-.888 3.518-1.523.978.558 2.086.877 3.246.877 4.468 0 8.09-3.622 8.09-8.09S16.47 0 12.002 0zm0 14.562c-1.077 0-2.109-.304-2.993-.836-.145-.087-.323-.087-.468 0-.825.496-1.896.953-3.056 1.252.66-.757.994-1.602 1.092-2.193.023-.142-.03-.284-.143-.377C5.176 11.233 4.492 9.721 4.492 8.09c0-4.141 3.369-7.51 7.51-7.51s7.51 3.369 7.51 7.51-3.369 7.51-7.51 7.51z"/></svg>
-                <span>Snapchat Augmented Reality</span>
-              </div>
-              <h3 class="snap-ar-title">Experience Henna C in Augmented Reality</h3>
-              <p class="snap-ar-desc">Unlock official Snapchat AR lenses — including the live Henna C Gold Glow 3D banner lens, Bubblegum Shoot glam, and Studio Porcelain Matte filter.</p>
-            </div>
-            <div class="snap-ar-right">
-              <button type="button" class="btn-primary snap-launch-btn" id="open-snap-modal-btn">
-                <span>Unlock AR Lenses 👻</span>
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- ═══════════════════════════════════════
-           SECTION 6 — ABOUT
-      ═══════════════════════════════════════ -->
-      <section class="section" id="about" aria-labelledby="about-h2">
-        <div class="section-inner">
-          <div class="eyebrow"><span class="glow-dot"></span>Artist Experience</div>
-          <h2 id="about-h2" class="section-title">ABOUT HENNA-C</h2>
-
-          <div class="about-grid reveal">
-            <div class="about-copy">
-              <!-- Faded background portrait blended seamlessly -->
-              <div class="about-portrait-bg">
-                <img src="assets/about-henna-c-portrait.png" alt="Henna C portrait" class="about-portrait-bg-img">
-              </div>
-
-              <div class="about-text-content">
-                <p class="about-label">REAL STORIES. WILD IDEAS.</p>
-                <h3 class="about-headline">Cinematic Stories.<br>Unpredictable Sound.</h3>
-
-                <!-- Bio -->
-                <p class="about-bio">Henna C builds songs from whatever ideas refuse to stay quiet.</p>
-                <p class="about-bio">One day the inspiration is a real-life experience. The next, it's a wild hypothetical, an overheard conversation, a fantasy, a bad decision, or a completely made-up character. Nothing is off limits, and no two songs are expected to sound the same.</p>
-                <p class="about-bio">Known for blending genres, humor, storytelling, and unexpected perspectives, Henna C turns everyday moments, strange observations, and random thoughts into music that is as entertaining as it is unpredictable. Some tracks are relatable, some are ridiculous, and some live somewhere in between.</p>
-                <p class="about-bio">Whether the stories come from real life, imagination, or somewhere in between is part of the fun. What matters is creating something people can feel, laugh at, relate to, or get lost in for a few minutes. Whether a song makes people laugh, think, sing along, or ask, &ldquo;What did I just listen to?&rdquo; the mission is simple: create something people won't forget.</p>
-              </div>
-            </div>
-
-            <div class="about-hud">
-              <div class="hud-status-cell">
-                <span class="hud-status"><span class="status-dot"></span> ACTIVE</span>
-              </div>
-              <dl class="hud-list">
-                <div class="hud-row"><dt>ARTIST PROFILE</dt><dd>Features &bull; Collaborations &bull; Press &bull; Creative Projects</dd></div>
-                <div class="hud-row"><dt>GENRE</dt><dd>Hip-Hop • R&B • Pop • Genre-Bending</dd></div>
-                <div class="hud-row"><dt>VIBE</dt><dd>Cinematic • Unpredictable • Story-Driven</dd></div>
-                <div class="hud-row"><dt>LATEST</dt><dd>Was That Your Ass Or Mouth?</dd></div>
-              </dl>
-              <div class="hud-deco" aria-hidden="true">
-                <div class="hud-ring"></div>
-                <div class="hud-scan"></div>
-              </div>
-            </div>
-
-            <div class="about-quote">
-              <span class="q-mark">&ldquo;</span><em>Reality writes some of my music. Imagination writes the rest.</em>
-              <cite>&mdash; Henna-C</cite>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <!-- ═══════════════════════════════════════
-           SECTION 7 — CONTACT / INQUIRE
-      ═══════════════════════════════════════ -->
-      <section class="section" id="contact" aria-labelledby="contact-h2">
-        <div class="section-inner">
-          <div class="eyebrow"><span class="glow-dot"></span>Get In Touch</div>
-
-          <div class="contact-card reveal">
-            <div class="contact-left">
-              <h2 id="contact-h2" class="contact-headline">LET'S CONNECT</h2>
-              <!-- PHASE 2: update copy if needed -->
-              <p class="contact-desc">For features, collaborations, press inquiries, or anything else — reach out directly. All messages are read.</p>
-
-              <!-- PHASE 2: update email -->
-              <a href="mailto:hcbeats.info@gmail.com" class="email-btn" id="email-btn">
-                <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-                hcbeats.info@gmail.com
-              </a>
-
-              <p class="follow-label">FOLLOW &amp; CONNECT</p>
-              <div class="contact-socials">
-                <a href="https://www.instagram.com/_hcbeats?igsh=MXJjams2NXIxYWo4cw%3D%3D&igsi=MXJjams2NXIxYWo4cw%3D%3D&utm_source=qr" target="_blank" rel="noopener" class="cs-btn" id="cs-instagram">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-                  Instagram
-                </a>
-                <a href="https://www.facebook.com/Beatsbyhc" target="_blank" rel="noopener" class="cs-btn" id="cs-facebook">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                  Facebook
-                </a>
-                <a href="https://www.tiktok.com/@_hcbeats?_r=1&_t=ZP-98pzo9dS2qE" target="_blank" rel="noopener" class="cs-btn" id="cs-tiktok">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.02 1.59 4.23.85.98 2.02 1.69 3.29 2.02.03 1.35.01 2.69.02 4.04-.95-.08-1.89-.39-2.73-.87a7.227 7.227 0 0 1-2.48-2.46c-.05 2.16-.01 4.31-.03 6.47-.09 1.48-.56 2.94-1.39 4.19-.89 1.28-2.19 2.24-3.66 2.72-1.78.61-3.77.58-5.52-.11-1.63-.61-3.04-1.79-3.94-3.34A9.227 9.227 0 0 1 1 12.98c.03-1.92.65-3.83 1.77-5.38 1.12-1.5 2.76-2.55 4.58-2.94 1.25-.29 2.56-.16 3.74.37.02 1.44-.01 2.87.01 4.3-.67-.28-1.42-.37-2.13-.24a3.864 3.864 0 0 0-2.31 1.39c-.64.78-.96 1.81-.88 2.82.07.97.55 1.89 1.31 2.51.81.65 1.87.95 2.9.82 1.05-.1 2.01-.69 2.58-1.58.37-.58.55-1.27.52-1.96.03-4.36.01-8.72.02-13.08z"/></svg>
-                  TikTok
-                </a>
-                <a href="https://open.spotify.com/artist/6mA0wWqnvJPLJrlUin9Zha" target="_blank" rel="noopener" class="cs-btn" id="cs-spotify">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.893-.982-.336.075-.668-.135-.744-.47-.077-.337.135-.669.47-.745 3.854-.88 7.15-.502 9.82.13.297.18.388.567.207.86zm1.225-2.72c-.227.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.076-1.182-.413.125-.85-.107-.975-.52-.125-.413.107-.85.52-.975 3.666-1.112 8.243-.566 11.345 1.343.366.227.486.707.26 1.074zm.107-2.836C14.453 8.81 8.73 8.623 5.4 9.635c-.51.155-1.046-.134-1.202-.645-.156-.51.133-1.047.645-1.203 3.82-1.16 10.125-.944 14.152 1.446.46.273.61.87.337 1.33-.274.46-.87.61-1.33.337z"/></svg>
-                  Spotify
-                </a>
-                <a href="https://music.apple.com/us/artist/henna-c/1895080118" target="_blank" rel="noopener" class="cs-btn" id="cs-applemusic">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 4.17c.66-.81 1.11-1.93.99-3.06-1 .04-2.2.67-2.92 1.5-.63.73-1.18 1.87-1.03 2.98 1.12.09 2.27-.61 2.96-1.42"/></svg>
-                  Apple Music
-                </a>
-                <a href="https://www.youtube.com/@HC-Beats" target="_blank" rel="noopener" class="cs-btn" id="cs-youtube">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.516 0-9.387.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.507 9.387.507 9.387.507s7.517 0 9.387-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                  YouTube
-                </a>
-                <a href="https://audiomack.com/hcmusic" target="_blank" rel="noopener" class="cs-btn" id="cs-audiomack">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l7 4.5-7 4.5z"/></svg>
-                  Audiomack
-                </a>
-                <a href="https://soundcloud.com/henna-c-331422553?utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" rel="noopener" class="cs-btn" id="cs-soundcloud">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M11.56 8.87V17h8.76c2.03 0 3.68-1.64 3.68-3.68 0-1.95-1.52-3.54-3.44-3.67-.32-2.73-2.62-4.86-5.44-4.86-1.57 0-3 .67-4 1.74-.03.03-.06.06-.09.09-.23.25-.43.53-.6.82-.41.71-.67 1.51-.77 2.37l.08.06-.18.02zm-1.84 2.15v5.98h.92v-6.38c-.35.12-.66.26-.92.4zm-1.84.58v5.4h.92v-5.69c-.33.09-.64.19-.92.29zm-1.84.55v4.85h.92v-5.11c-.32.07-.63.16-.92.26zm-1.84.6v4.25h.92v-4.49c-.31.06-.62.14-.92.24zm-1.84.77v3.48h.92V13.8c-.31.08-.62.17-.92.27zm-1.84.88v2.6h.92v-2.83c-.31.07-.62.15-.92.23zM.56 15.68V17h.92v-1.58c-.31.08-.62.17-.92.26z"/></svg>
-                  SoundCloud
-                </a>
-                <a href="https://www.iheart.com/artist/henna-c-50618415" target="_blank" rel="noopener" class="cs-btn" id="cs-iheart">
-                  <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                  iHeartRadio
-                </a>
-              </div>
-            </div>
-
-            <div class="contact-right" aria-hidden="true">
-              <div class="contact-art-frame">
-                <img src="assets/henna-c-records-portrait.jpg" alt="" class="contact-portrait">
-                <div class="contact-art-glow"></div>
-              </div>
-              <div class="contact-stamp">
-                <span>HENNA C</span>
-                <span class="stamp-sub">MUSIC ARTIST / PRODUCER</span>
               </div>
             </div>
           </div>
@@ -2201,6 +2787,6 @@
       </div>
     </div>
 
-    <script src="script.js?v=5.9.5"></script>
+    <script src="script.js?v=5.9.6"></script>
   </body>
 </html>
