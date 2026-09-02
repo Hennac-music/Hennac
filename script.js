@@ -2321,6 +2321,12 @@ document.addEventListener("DOMContentLoaded", () => {
       sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the official Henna C Records Aura filter.",
       img: "assets/qr-henna-c-aura.png",
       url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=06a977a3-46cf-7bdc-8000-d7d5a2e8dcc3&metadata=01"
+    },
+    "bubblegum": {
+      title: "BUBBLEGUM GLAM",
+      sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the official Bubblegum Glam filter.",
+      img: "assets/qr-bubblegum-glam.png",
+      url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=8f7cff8d1ce6444197fdeb5bb31312aa&metadata=01"
     }
   };
 
