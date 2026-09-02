@@ -2327,6 +2327,12 @@ document.addEventListener("DOMContentLoaded", () => {
       sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the official Bubblegum Glam filter.",
       img: "assets/qr-bubblegum-glam.png",
       url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=8f7cff8d1ce6444197fdeb5bb31312aa&metadata=01"
+    },
+    "neon-garage": {
+      title: "NEON GARAGE SCENE",
+      sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the official Neon Garage Scene filter.",
+      img: "assets/qr-neon-garage-scene.png",
+      url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=cf9441c5166f4b5392aaa74975be8439&metadata=01"
     }
   };
 
