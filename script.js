@@ -1223,7 +1223,7 @@ document.addEventListener("DOMContentLoaded", () => {
       badge: "LATEST SINGLE",
       art: "assets/big-body-cadillacs.png",
       src: "assets/audio/big-body-cadillacs.wav",
-      itunes: "",
+      itunes: "https://itunes.apple.com/us/album/big-body-cadillacs/6801340647?i=6801340650&ls=1&app=itunes",
       releaseDate: "2026-09-01"
     },
     {
