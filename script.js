@@ -2333,6 +2333,12 @@ document.addEventListener("DOMContentLoaded", () => {
       sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the official Neon Garage Scene filter.",
       img: "assets/qr-neon-garage-scene.png",
       url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=cf9441c5166f4b5392aaa74975be8439&metadata=01"
+    },
+    "liquid-chrome": {
+      title: "LIQUID CHROME ROOM",
+      sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and experience the official Liquid Chrome Room lens.",
+      img: "assets/qr-liquid-chrome-room.png",
+      url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=98761b74b1b540ed867265d6d325daec&metadata=01"
     }
   };
 
