@@ -2339,6 +2339,12 @@ document.addEventListener("DOMContentLoaded", () => {
       sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and experience the official Liquid Chrome Room lens.",
       img: "assets/qr-liquid-chrome-room.png",
       url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=98761b74b1b540ed867265d6d325daec&metadata=01"
+    },
+    "disco-after-dark": {
+      title: "DISCO AFTER DARK",
+      sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and experience the official Disco After Dark lens.",
+      img: "assets/qr-disco-after-dark.png",
+      url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=2ba48509a557459b8c9866c278431ff4&metadata=01"
     }
   };
 

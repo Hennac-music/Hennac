@@ -1,20 +1,22 @@
-const CACHE_NAME = "henna-c-v6.0.4";
+const CACHE_NAME = "henna-c-v6.0.5";
 const PRECACHE_ASSETS = [
   "/",
   "/index.html",
-  "/styles.css?v=6.0.4",
-  "/script.js?v=6.0.4",
+  "/styles.css?v=6.0.5",
+  "/script.js?v=6.0.5",
   "/manifest.json",
   "/assets/henna-c-header-logo.png",
   "/assets/henna-c-logo-square.jpg",
   "/assets/henna-c-records-logo-gold.png",
   "/assets/electric-power-hoe-neon-garage.jpg",
   "/assets/ki-ma-lo.png",
+  "/assets/dance-with-me.jpg",
   "/assets/qr-henna-c-gold-glow.png",
   "/assets/qr-henna-c-aura.png",
   "/assets/qr-bubblegum-glam.png",
   "/assets/qr-neon-garage-scene.png",
   "/assets/qr-liquid-chrome-room.png",
+  "/assets/qr-disco-after-dark.png",
   "/assets/icons/icon-192x192.png",
   "/assets/icons/icon-512x512.png"
 ];
