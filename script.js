@@ -728,16 +728,22 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
 
-    // Sync album trilogy play pill buttons
-    document.querySelectorAll(".at-play-pill").forEach(btn => {
-      const idx = getTargetTrackIndex(btn, 0);
-      const isThisPlaying = isPlaying && current === idx;
-      if (isThisPlaying) {
-        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg><span>Pause</span>`;
-        btn.classList.add("playing");
-      } else {
-        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M8 5.14v14l11-7-11-7z"/></svg><span>Play</span>`;
-        btn.classList.remove("playing");
+    // Sync album play pill buttons & active card state
+    document.querySelectorAll(".album-track-card, .at-play-pill").forEach(el => {
+      const card = el.closest(".album-track-card") || el;
+      const pill = card.querySelector(".at-play-pill") || (el.classList.contains("at-play-pill") ? el : null);
+      const src = card.dataset.src;
+      const isThisPlaying = isPlaying && audio.src && Boolean(src && audio.src.includes(src));
+      if (pill) {
+        if (isThisPlaying) {
+          pill.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg><span>Pause</span>`;
+          pill.classList.add("playing");
+          card.classList.add("active");
+        } else {
+          pill.innerHTML = `<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M8 5.14v14l11-7-11-7z"/></svg><span>Play</span>`;
+          pill.classList.remove("playing");
+          card.classList.remove("active");
+        }
       }
     });
   };
@@ -1112,12 +1118,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = cleanTrackTitle(trackTitle);
     const titleEl = ensureDropdownTitle();
     
-    const isFrequencyShiftAlbum = title.toLowerCase().includes("frequency shift") || triggerBtn?.id === "release-play-btn" || Boolean(triggerBtn?.closest("#featured-release"));
+    const isDustyHoeAlbum = title.toLowerCase().includes("dusty hoe") || triggerBtn?.id === "release-play-btn" || Boolean(triggerBtn?.closest("#featured-release"));
 
-    if (isFrequencyShiftAlbum) {
-      dropdownPreviewTracks = [tracks[0], tracks[1], tracks[2]];
-      dropdownPreviewTrack = tracks[0];
-      renderDropdownPreviewSection(true);
+    if (isDustyHoeAlbum) {
+      dropdownPreviewTracks = [];
+      dropdownPreviewTrack = {
+        src: "assets/audio/the-introduction.wav",
+        title: "The Introduction",
+        genre: "The Dusty Hoe Project · Album",
+        art: "assets/the-dusty-hoe-project.png"
+      };
+      renderDropdownPreviewSection(false);
     } else {
       dropdownPreviewTracks = [];
       dropdownPreviewTrack = getTriggerTrack(triggerBtn, title);
@@ -1515,8 +1526,22 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".album-track-card, .at-play-pill").forEach(item => {
     item.addEventListener("click", e => {
       e.stopPropagation();
-      const idx = getTargetTrackIndex(item, 0);
-      if (current === idx) toggle(); else loadTrack(idx, true);
+      const card = item.closest(".album-track-card") || item;
+      const src = card.dataset.src;
+      const title = card.dataset.title || "The Dusty Hoe Project Track";
+      const art = card.dataset.art || "assets/the-dusty-hoe-project.png";
+      const genre = card.dataset.genre || "The Dusty Hoe Project · Album";
+      if (src && src.trim() !== "") {
+        const isThisLoaded = audio.src && audio.src.includes(src);
+        if (isThisLoaded) {
+          toggle();
+        } else {
+          loadTrack({ src: src, title: title, genre: genre, art: art }, true);
+        }
+      } else {
+        const idx = getTargetTrackIndex(card, 0);
+        if (current === idx) toggle(); else loadTrack(idx, true);
+      }
     });
   });
 

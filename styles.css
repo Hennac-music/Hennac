@@ -2794,11 +2794,28 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .album-tracklist {
   display: flex;
   flex-direction: column;
-  gap: 0.95rem;
-  margin: 1.5rem 0 1.8rem 0;
-  background: transparent;
-  border: none;
-  padding: 0;
+  gap: 0.65rem;
+  margin: 1.2rem 0 1.5rem 0;
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 0.45rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(241, 177, 112, 0.45) rgba(255, 255, 255, 0.04);
+}
+.album-tracklist::-webkit-scrollbar {
+  width: 6px;
+}
+.album-tracklist::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+}
+.album-tracklist::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--copper-hi), var(--copper));
+  border-radius: 4px;
+}
+.album-tracklist::-webkit-scrollbar-thumb:hover {
+  background: var(--copper-hi);
 }
 .album-tracklist-title {
   font-family: "Cinzel", serif;
@@ -2821,18 +2838,24 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .album-track-card {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
-  padding: 0.95rem 1.25rem;
+  gap: 1rem;
+  padding: 0.75rem 1.15rem;
   border-radius: 12px;
   background: rgba(18, 12, 28, 0.65);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(241, 177, 112, 0.18);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  flex-shrink: 0;
+}
+.album-track-card.active {
+  background: rgba(36, 22, 58, 0.9);
+  border-color: rgba(241, 177, 112, 0.65);
+  box-shadow: 0 0 20px rgba(241, 177, 112, 0.25);
 }
 .album-track-card:hover {
   background: rgba(30, 20, 48, 0.85);
@@ -2936,16 +2959,6 @@ h1,h2,h3,h4 { font-family:"Cinzel",Georgia,serif; font-weight:700; line-height:1
 .sticky-close:hover { color:#fff; }
 
 /* Album Tracklist styling for Featured Release card */
-.album-tracklist {
-  margin: 1.2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 213, 79, 0.15);
-  border-radius: 14px;
-  padding: 1rem 1.2rem;
-}
 .album-tracklist-title {
   font-family: "Cinzel", serif;
   font-size: 0.68rem;
