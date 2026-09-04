@@ -579,9 +579,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const bannerTrack = {
     src: "",
-    title: "The Dusty Hoe Project (Teaser)",
-    genre: "Album · 14 Tracks · Dropping Sept 4, 2026",
-    art: "assets/the-dusty-hoe-project.png"
+    title: "Big Pressure",
+    genre: "Upcoming Album · 9 Tracks · Dropping Oct 23, 2026",
+    art: "assets/big-pressure.png"
   };
   bannerTrack.src = decodedBannerSrc;
 
@@ -1578,9 +1578,9 @@ document.addEventListener("DOMContentLoaded", () => {
       } else {
         loadTrack({
           src: bannerSrc,
-          title: "The Dusty Hoe Project (Teaser)",
-          genre: "Upcoming Album · 14 Tracks · Dropping Sept 4, 2026",
-          art: "assets/the-dusty-hoe-project.png"
+          title: "Big Pressure",
+          genre: "Upcoming Album · 9 Tracks · Dropping Oct 23, 2026",
+          art: "assets/big-pressure.png"
         }, true);
       }
     });

@@ -1,9 +1,9 @@
-const CACHE_NAME = "henna-c-v6.2.0";
+const CACHE_NAME = "henna-c-v6.2.1";
 const PRECACHE_ASSETS = [
   "/",
   "/index.html",
-  "/styles.css?v=6.2.0",
-  "/script.js?v=6.2.0",
+  "/styles.css?v=6.2.1",
+  "/script.js?v=6.2.1",
   "/manifest.json",
   "/assets/henna-c-header-logo.png",
   "/assets/henna-c-logo-square.jpg",
