@@ -2370,6 +2370,12 @@ document.addEventListener("DOMContentLoaded", () => {
       sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and experience the official Disco After Dark lens.",
       img: "assets/qr-disco-after-dark.png",
       url: "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=2ba48509a557459b8c9866c278431ff4&metadata=01"
+    },
+    "premium-wave": {
+      title: "PREMIUM WAVE",
+      sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the official Premium Wave lens.",
+      img: "assets/qr-premium-wave.png",
+      url: "https://www.snapchat.com/lens/059f2004a8c245aabd6fe67922ba09e4?sender_web_id=767b8727-b97d-42e1-aadc-953b533aed0f&device_type=desktop&is_copy_url=true"
     }
   };
 
