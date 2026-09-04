@@ -1,4 +1,4 @@
-const CACHE_NAME = "henna-c-v6.3.2";
+const CACHE_NAME = "henna-c-v6.3.3";
 const PRECACHE_ASSETS = [
   "/",
   "/index.html",

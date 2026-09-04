@@ -1935,7 +1935,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (currentGenreFilter === "rnb") {
         matchesGenre = genre.includes("r&b") || genre.includes("rnb");
       } else if (currentGenreFilter === "album") {
-        matchesGenre = genre.includes("album") || tag.includes("album") || genre.includes("frequency shift") || genre.includes("coochie") || genre.includes("one of them days") || genre.includes("dusty hoe") || tag.includes("dusty hoe") || rowId.includes("dhp") || rowId.includes("cpu") || rowId.includes("ootd");
+        matchesGenre = genre.includes("album") || tag.includes("album") || genre.includes("frequency shift") || genre.includes("coochie") || genre.includes("one of them days") || genre.includes("dusty hoe") || tag.includes("dusty hoe") || genre.includes("trilogy") || genre.includes("after dark") || rowId.includes("adt") || rowId.includes("dhp") || rowId.includes("cpu") || rowId.includes("ootd");
       } else if (currentGenreFilter === "upcoming") {
         matchesGenre = tag.includes("upcoming") || tag.includes("coming soon") || genre.includes("coming soon") || tag.includes("dropping") || genre.includes("dropping") || genre.includes("oct") || genre.includes("sept") || genre.includes("nov");
       }
