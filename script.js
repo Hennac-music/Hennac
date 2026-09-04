@@ -1929,13 +1929,13 @@ document.addEventListener("DOMContentLoaded", () => {
       // Genre match
       let matchesGenre = true;
       if (currentGenreFilter === "hip-hop") {
-        matchesGenre = genre.includes("hip-hop") || genre.includes("rap");
+        matchesGenre = genre.includes("hip-hop") || genre.includes("rap") || genre.includes("dusty hoe");
       } else if (currentGenreFilter === "pop") {
         matchesGenre = genre.includes("pop") || genre.includes("dance");
       } else if (currentGenreFilter === "rnb") {
         matchesGenre = genre.includes("r&b") || genre.includes("rnb");
       } else if (currentGenreFilter === "album") {
-        matchesGenre = genre.includes("album") || tag.includes("album") || genre.includes("frequency shift") || genre.includes("coochie") || genre.includes("one of them days");
+        matchesGenre = genre.includes("album") || tag.includes("album") || genre.includes("frequency shift") || genre.includes("coochie") || genre.includes("one of them days") || genre.includes("dusty hoe") || tag.includes("dusty hoe") || rowId.includes("dhp") || rowId.includes("cpu") || rowId.includes("ootd");
       } else if (currentGenreFilter === "upcoming") {
         matchesGenre = tag.includes("upcoming") || tag.includes("coming soon") || genre.includes("coming soon") || tag.includes("dropping") || genre.includes("dropping") || genre.includes("oct") || genre.includes("sept") || genre.includes("nov");
       }
