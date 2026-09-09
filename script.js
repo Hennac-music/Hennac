@@ -1262,15 +1262,15 @@ document.addEventListener("DOMContentLoaded", () => {
       releaseDate: "2026-08-22"
     },
     {
-      id: "rs",
-      title: "Rhythm Strike",
-      genre: "Pop / Dance",
-      meta: "Pop / Dance · Out Now",
+      id: "www",
+      title: "Waddle When I Walk",
+      genre: "Hip-Hop / Rap",
+      meta: "Hip-Hop / Rap · Out Now",
       kicker: "New Single · Out Now",
       badge: "LATEST SINGLE",
-      art: "assets/rhythm-strike.png",
-      src: "assets/audio/rhythm-strike.wav",
-      itunes: "https://itunes.apple.com/us/album/rhythm-strike/6800286360?i=6800286361&ls=1&app=itunes",
+      art: "assets/waddle-when-i-walk.png",
+      src: "assets/audio/waddle-when-i-walk.wav",
+      itunes: "https://itunes.apple.com/us/album/waddle-when-i-walk/6806810591?i=6806810593&ls=1&app=itunes",
       releaseDate: "2026-08-21"
     },
     {
@@ -1363,11 +1363,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const miniGrid = document.getElementById("mini-grid");
     if (!miniGrid) return;
 
-    // Sort by releaseDate descending, take exactly the top 4
+    // Sort by releaseDate descending, take top 5 singles for carousel
     const sorted = [...RECENT_SINGLES_CATALOG].sort((a, b) => new Date(b.releaseDate) - new Date(a.releaseDate));
-    const topFour = sorted.slice(0, 4);
+    const topSingles = sorted.slice(0, 5);
 
-    miniGrid.innerHTML = topFour.map(single => {
+    miniGrid.innerHTML = topSingles.map(single => {
       const itunesLink = formatItunesStoreUrl(single.itunes);
       const isAvail = Boolean(itunesLink && !itunesLink.includes("artist/henna-c"));
       return `
@@ -2376,6 +2376,12 @@ document.addEventListener("DOMContentLoaded", () => {
       sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the official Premium Wave lens.",
       img: "assets/qr-premium-wave.png",
       url: "https://www.snapchat.com/lens/059f2004a8c245aabd6fe67922ba09e4?sender_web_id=767b8727-b97d-42e1-aadc-953b533aed0f&device_type=desktop&is_copy_url=true"
+    },
+    "luxury-me": {
+      title: "LUXURY ME",
+      sub: "Point your iPhone, Android, or Snapchat camera at this QR code to unlock and wear the official Luxury Me lens.",
+      img: "assets/qr-luxury-me.png",
+      url: "https://www.snapchat.com/lens/372bb6cf66274fceba5bb693ccfb6a1b?sender_web_id=ae799f26-3b43-441f-9f81-e91e9d547110&device_type=desktop&is_copy_url=true"
     }
   };
 

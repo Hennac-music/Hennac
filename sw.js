@@ -1,9 +1,9 @@
-const CACHE_NAME = "henna-c-v6.3.4";
+const CACHE_NAME = "henna-c-v6.3.9";
 const PRECACHE_ASSETS = [
   "/",
   "/index.html",
-  "/styles.css?v=6.3.0",
-  "/script.js?v=6.3.0",
+  "/styles.css?v=6.3.9",
+  "/script.js?v=6.3.9",
   "/manifest.json",
   "/assets/henna-c-header-logo.png",
   "/assets/henna-c-logo-square.jpg",
@@ -12,6 +12,10 @@ const PRECACHE_ASSETS = [
   "/assets/ki-ma-lo.png",
   "/assets/dance-with-me.jpg",
   "/assets/premium-wave.png",
+  "/assets/luxury-life.png",
+  "/assets/heal-me.png",
+  "/assets/stay-with-me-tonight.jpg",
+  "/assets/floatin-down-the-creek.png",
   "/assets/qr-henna-c-gold-glow.png",
   "/assets/qr-henna-c-aura.png",
   "/assets/qr-bubblegum-glam.png",
@@ -19,6 +23,7 @@ const PRECACHE_ASSETS = [
   "/assets/qr-liquid-chrome-room.png",
   "/assets/qr-disco-after-dark.png",
   "/assets/qr-premium-wave.png",
+  "/assets/qr-luxury-me.png",
   "/assets/icons/icon-192x192.png",
   "/assets/icons/icon-512x512.png"
 ];
